@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\GradeController;
 use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\LandingPage\ContactUs;
@@ -22,17 +23,22 @@ Route::get('/', function () {
 Route::get('/grade', [GradeController::class, 'index']);
 
 
-Route::get('/dashboard', function () {
-    return view('/admin/dashboard');
-})->middleware(['auth', 'verified','adminCheck'])->name('dashboard');
 
-Route::middleware('auth','verified','adminCheck')->group(function () {
-    Route::get('/teacher', [TeacherController::class, 'index']);
-    Route::post('/teacher', [TeacherController::class, 'store']);
-    
+route::group(['middleware' => ['auth', 'verified', 'adminCheck'], 'prefix' => 'dashboard'], function () {
+    Route::get('/teacher', [TeacherController::class, 'index'])->name('getTeacher');
+    Route::post('/teacher', [TeacherController::class, 'store'])->name('postTeacher');
+
+    Route::get('/', function () {
+        return view('/admin/dashboard');
+    })->name('dashboard');
+
+    Route::get('/getContact', [ContactController::class, 'index'])->name('getContact');
+    Route::post('/deleteContact/{id}', [ContactController::class, 'delete'])->name('deleteContact');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::get('/contactus', [ContactUs::class, 'index'])->name('contactus');
 Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');
+
+
