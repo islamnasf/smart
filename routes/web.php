@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\GradeController;
 use App\Http\Controllers\Admin\TeacherController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LandingPage\ContactUs;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 Route::get('/grade', [GradeController::class, 'index']);
 
 
@@ -33,3 +33,6 @@ Route::middleware('auth','verified','adminCheck')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/contactus', [ContactUs::class, 'index'])->name('contactus');
+Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');
