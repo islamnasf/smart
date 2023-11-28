@@ -21,13 +21,11 @@ class User extends Authenticatable
         'name',
         'phone',
         'password',
+        'user_password',
         'IsAdmin',
         'user_type',
         'grade',
         'group',
-
-        
-
     ];
 
     /**

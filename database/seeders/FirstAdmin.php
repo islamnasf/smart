@@ -24,6 +24,8 @@ class FirstAdmin extends Seeder
             'IsAdmin'=>'1',
             'user_type'=>'1',
             'password'=>Hash::make("123456"),
+            'user_password'=>"123456",
+
            
         ];
     } 

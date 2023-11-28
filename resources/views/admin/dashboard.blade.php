@@ -45,8 +45,72 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
+<<<<<<< HEAD
                         <div class="card-body">
                             <div class="clearfix">
+=======
+                        <div class="card-body" >
+                            <div class="clearfix" >
+                                <div class="float-left" >
+                                    <span class="text-danger">
+                                    <i class=" fa fa-graduation-cap highlight-icon"  aria-hidden="true" style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px  "></i>
+                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                    </span>
+                                </div>
+                                <div class="float-right text-center">
+                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">الطلبة</p>
+                                    <h4>0</h4>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                    <div class="card card-statistics h-100">
+                        <div class="card-body" >
+                            <div class="clearfix" >
+                                <div class="float-left" >
+                                    <span class="text-danger">
+                                    <a href="{{route('getTeacher')}}">
+                                    <i class=" fa fa-id-card highlight-icon"  aria-hidden="true" style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px  "></i></a>
+                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                    </span>
+                                </div>
+                                <div class="float-right text-center">
+                                    <a href="{{route('getTeacher')}}"> <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">المعلمين</p> </a>
+                                    <h4>0</h4>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+             
+                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                    <div class="card card-statistics h-100">
+                        <div class="card-body" >
+                            <div class="clearfix" >
+                                <div class="float-left" >
+                                    <span class="text-danger">
+                                    <i class=" fa fa-stop-circle highlight-icon"  aria-hidden="true" style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px "></i>
+                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                    </span>
+                                </div>
+                                <div class="float-right text-center">
+                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">الكورسات</p>
+                                    <h4>0</h4>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                    <div class="card card-statistics h-100">
+                        <div class="card-body" >
+                            <div class="clearfix" >
+>>>>>>> a4c0b0ee5cc2e11b1d8a88a9469151c8570526e2
                                 <div class="float-left">
                                     <span class="text-danger">
                                         <i class=" fa fa-graduation-cap highlight-icon" aria-hidden="true"

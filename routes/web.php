@@ -24,6 +24,7 @@ Route::get('/grade', [GradeController::class, 'index']);
 
 
 
+<<<<<<< HEAD
 route::group(['middleware' => ['auth', 'verified', 'adminCheck'], 'prefix' => 'dashboard'], function () {
     Route::get('/teacher', [TeacherController::class, 'index'])->name('getTeacher');
     Route::post('/teacher', [TeacherController::class, 'store'])->name('postTeacher');
@@ -34,6 +35,12 @@ route::group(['middleware' => ['auth', 'verified', 'adminCheck'], 'prefix' => 'd
 
     Route::get('/getContact', [ContactController::class, 'index'])->name('getContact');
     Route::post('/deleteContact/{id}', [ContactController::class, 'delete'])->name('deleteContact');
+=======
+Route::middleware('auth','verified','adminCheck')->group(function () {
+    Route::get('/teacher', [TeacherController::class, 'index'])->name('getTeacher');
+    Route::post('/teacher', [TeacherController::class, 'store'])->name('postTeacher');
+    Route::post('/teacher/edit/{teacher}', [TeacherController::class, 'update'])->name('updateTeacher');
+>>>>>>> a4c0b0ee5cc2e11b1d8a88a9469151c8570526e2
 });
 
 require __DIR__ . '/auth.php';
