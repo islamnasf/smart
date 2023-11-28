@@ -67,13 +67,13 @@
                             <div class="clearfix" >
                                 <div class="float-left" >
                                     <span class="text-danger">
-                                
-                                    <i class=" fa fa-id-card highlight-icon"  aria-hidden="true" style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px  "></i>
+                                    <a href="{{route('getTeacher')}}">
+                                    <i class=" fa fa-id-card highlight-icon"  aria-hidden="true" style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px  "></i></a>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <a href="{{url('/teacher')}}"> <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">المعلمين</p> </a>
+                                    <a href="{{route('getTeacher')}}"> <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">المعلمين</p> </a>
                                     <h4>0</h4>
                                 </div>
                             </div>

@@ -27,9 +27,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified','adminCheck'])->name('dashboard');
 
 Route::middleware('auth','verified','adminCheck')->group(function () {
-    Route::get('/teacher', [TeacherController::class, 'index']);
-    Route::post('/teacher', [TeacherController::class, 'store']);
-    
+    Route::get('/teacher', [TeacherController::class, 'index'])->name('getTeacher');
+    Route::post('/teacher', [TeacherController::class, 'store'])->name('postTeacher');
+    Route::post('/teacher/edit/{teacher}', [TeacherController::class, 'update'])->name('updateTeacher');
 });
 
 require __DIR__.'/auth.php';
