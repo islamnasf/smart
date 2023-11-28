@@ -6,21 +6,14 @@ Teacher
 @stop
 @endsection
 @section('page-header')
-<<<<<<< HEAD
 <div class="row">
   <div>
-    <h2 style="position: absolute; left:10%; top:15%; color:#dc3545"> اجمالي عدد المعلمين (0)</h2>
+    <h2 style="position: absolute; left:10%; top:13%; color:#dc3545"> اجمالي عدد المعلمين ({{$count}})</h2>
   </div>
   <!-- breadcrumb -->
-  <img src="assets/images/teacher.jpg"
+  <img src="../assets/images/teacher.jpg"
     style="width:92%; height:180px;  display: block; margin:15px auto; margin-top:0px; object-fit: fill; border-radius: 5px;"
     alt="">
-=======
-<div class="row"  >
- <div><h2 style="position: absolute; left:10%; top:13%; color:#dc3545">   اجمالي عدد المعلمين     ({{$count}})</h2></div>
-<!-- breadcrumb -->
-    <img src="assets/images/teacher.jpg"  style="width:92%; height:180px;  display: block; margin:15px auto; margin-top:0px; object-fit: fill; border-radius: 5px;"   alt="">
->>>>>>> a4c0b0ee5cc2e11b1d8a88a9469151c8570526e2
 </div>
 
 <div class="page-title">
@@ -50,7 +43,6 @@ Teacher
 <!-- row -->
 
 <!--  Add Modal -->
-<<<<<<< HEAD
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -61,31 +53,10 @@ Teacher
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-=======
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">اضافة معلم</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    
-    <div class="modal-body"> 
-   
-    <form action="{{route('postTeacher')}}" method="post">
-    @csrf
-    <input type="text" name="name" class="form-control"   placeholder="اسم المعلم ">
-    @error('name')
-        <div class="alert alert-danger">{{ $message }}</div>
-    @enderror
-    </br>
->>>>>>> a4c0b0ee5cc2e11b1d8a88a9469151c8570526e2
 
       <div class="modal-body">
 
-        <form action="{{url('teacher')}}" method="post">
+        <form action="{{route('postTeacher')}}" method="post">
           @csrf
           <input type="text" name="name" class="form-control" placeholder="اسم المعلم ">
           @error('name')
@@ -126,26 +97,51 @@ Teacher
         <div class="table-responsive">
           <table id="datatable" class="table table-striped table-bordered p-0" style="text-align:center">
             <thead>
-<<<<<<< HEAD
               <tr>
-                <th>اسم المرحلة </th>
-                <th>تفاصيل</th>
-                <th>عمليات</th>
+                <th>اسم المعلم </th>
+                <th>الهاتف </th>
+                <th>الرقم السري</th>
+                <th> العمليات</th>
               </tr>
             </thead>
             <tbody>
+              @foreach($teachers as $teaher)
+
               <tr>
-                <td>000</td>
-                <td>000</td>
+                <td>{{$teaher->name}}</td>
+                <td>{{$teaher->phone}}</td>
+                <td>{{$teaher->user_password}}</td>
                 <td>
                   <!-- Button trigger modal update -->
+                  <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false">
+                    <i class="fa fa-sliders" style="font-size: 20px;"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-big dropdown-notifications">
+                    <div style="padding:2px; padding-right: 20px; font-size: 15px;">
+                      <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+                        data-target="#edit{{$teaher->id}}">
+                        <i class="fa fa-edit"></i>
+                      </button>
+                      تعديل البيانات
+                    </div>
+                    <!-- <div style="padding:2px; padding-right: 20px; font-size: 15px;">
+                                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$teaher->id}}">
+                            <i class="fa fa-edit"></i>
+                          </button> 
+                          تعديل البيانات 
+                    </div> -->
 
 
-                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit">
-                    <i class="fa fa-edit"></i>
-                  </button>
+
+                    <!-- <a href="#" class="dropdown-item">New invoice received <small
+                                class="float-right text-muted time">22 mins</small> </a> -->
+                  </div>
+
+
+
                   <!--  edit Modal -->
-                  <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  <div class="modal fade" id="edit{{$teaher->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -158,11 +154,11 @@ Teacher
 
                         <div class="modal-body">
 
-                          <form action="#" method="post">
+                          <form action="{{route('updateTeacher',$teaher->id)}}" method="post">
                             @csrf
-                            <input type="text" name="name" class="form-control" value="" placeholder="اسم المرحلة">
+                            <input type="text" name="name" class="form-control" value="{{$teaher->name}}">
                             </br>
-                            <input type="text" name="notes" class="form-control" value="" placeholder="التفاصيل">
+                            <input type="text" name="password" class="form-control" value="{{ $teaher->user_password}}">
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
@@ -173,9 +169,9 @@ Teacher
                     </div>
                   </div>
                   <!-- Button trigger modal delete -->
-                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete">
-                    <i class="fa fa-trash"></i>
-                  </button>
+                  <!-- <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete">
+<i class="fa fa-trash"></i>
+</button> -->
                   <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -201,105 +197,6 @@ Teacher
                   </div>
                   <!-- Button trigger modal show -->
                   <!-- <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#show">
-=======
-                <tr>
-                    <th>اسم المعلم </th>
-                    <th>الهاتف </th>
-                    <th>الرقم السري</th>
-                    <th> العمليات</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach($teachers as $teaher)
-
-                      <tr>
-                      <td>{{$teaher->name}}</td>
-                        <td>{{$teaher->phone}}</td>
-                        <td>{{$teaher->user_password}}</td>
-                    <td>
-                          <!-- Button trigger modal update -->
-                    <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                        aria-expanded="false">
-                        <i class="fa fa-sliders"  style="font-size: 20px;"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-big dropdown-notifications" >
-                              <div style="padding:2px; padding-right: 20px; font-size: 15px;">
-                                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$teaher->id}}">
-                            <i class="fa fa-edit"></i>
-                          </button> 
-                          تعديل البيانات  
-                    </div>
-                    <!-- <div style="padding:2px; padding-right: 20px; font-size: 15px;">
-                                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$teaher->id}}">
-                            <i class="fa fa-edit"></i>
-                          </button> 
-                          تعديل البيانات 
-                    </div> -->
-                 
-                          
-
-                        <!-- <a href="#" class="dropdown-item">New invoice received <small
-                                class="float-right text-muted time">22 mins</small> </a> -->
-                    </div>
-                          
-                         
-                          
-                                          <!--  edit Modal -->
-<div class="modal fade" id="edit{{$teaher->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" >
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">تعديل المرحلة</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    
-    <div class="modal-body"> 
-   
-    <form action="{{route('updateTeacher',$teaher->id)}}" method="post">
-    @csrf
-    <input type="text" name="name" class="form-control"   value="{{$teaher->name}}"  >
-</br>
-    <input type="text" name="password" class="form-control"  value="{{ $teaher->user_password}}" >
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-      <button type="submit" class="btn btn-primary"> تعديل </button>
-    </div>
-</form>
-  </div>
-</div>
-</div>
-<!-- Button trigger modal delete -->
-<!-- <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete">
-<i class="fa fa-trash"></i>
-</button> -->
-<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" >
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">حذف المرحلة</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <form action="#" method="post">                                                               
-    @csrf
-    <div class="modal-body"> 
- هل انت متاكد من حذف هذه المرحلة ؟
-</div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-      <button type="submit" class="btn btn-primary"> حذف </button>
-    </div>
-    </form>
-  </div>
-</div>
-</div>
-                        <!-- Button trigger modal show -->
-                        <!-- <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#show">
->>>>>>> a4c0b0ee5cc2e11b1d8a88a9469151c8570526e2
                           <i class="fa fa-eye"></i>
                           </button>
                  -->
@@ -309,7 +206,7 @@ Teacher
               </tr>
 
 
-                @endforeach
+              @endforeach
 
 
               </tfoot>
