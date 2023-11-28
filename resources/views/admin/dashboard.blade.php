@@ -73,7 +73,7 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <a href="{{route('getTeacher')}}"> <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">المعلمين</p> </a>
+                                    <a href="{{route('getTeacher')}}"><p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">المعلمين</p> </a>
                                     <h4>0</h4>
                                 </div>
                             </div>

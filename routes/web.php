@@ -21,7 +21,6 @@ Route::get('/', function () {
 });
 Route::get('/grade', [GradeController::class, 'index']);
 
-
 Route::get('/dashboard', function () {
     return view('/admin/dashboard');
 })->middleware(['auth', 'verified','adminCheck'])->name('dashboard');
