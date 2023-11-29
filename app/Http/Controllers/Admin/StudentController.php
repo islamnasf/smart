@@ -29,7 +29,24 @@ public function update(Request $request ,int $student)
             'name' => $request->name,
             'password' =>$request->password,
             'user_password' =>$request->password,
-            'grade' =>$request->grade,
+        ]);
+        toastr()->success('تم حفظ البيانات بنجاح');
+        return back();
+    }
+    public function updateGroup(Request $request ,int $student)
+    {
+        $rules=[
+            'grade' => ['required'],
+            'group' => ['required'],
+        ];
+        $customMessages = [
+            'grade.required' => 'مطلوب اسم المرحلة ',
+            'group.required' => 'مطلوب اسم الصف ',
+        ];
+        
+        $request->validate($rules, $customMessages);
+        User::findOrFail($student)->update([
+            'grade' => $request->grade,
             'group' =>$request->group,
         ]);
         toastr()->success('تم حفظ البيانات بنجاح');

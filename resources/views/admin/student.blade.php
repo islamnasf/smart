@@ -80,22 +80,23 @@ student
                       </button>
                       تعديل البيانات
                     </div>
+                    <div style="padding:2px; padding-right: 20px; font-size: 15px;">
+                      <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+                        data-target="#editGroup{{$student->id}}">
+                        <i class="fa fa-edit"></i>
+                      </button>
+                      تعديل الصف  
+                    </div>
                     <!-- <div style="padding:2px; padding-right: 20px; font-size: 15px;">
                                   <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$student->id}}">
                             <i class="fa fa-edit"></i>
                           </button> 
                           تعديل البيانات 
                     </div> -->
-
-
-
-                    <!-- <a href="#" class="dropdown-item">New invoice received <small
-                                class="float-right text-muted time">22 mins</small> </a> -->
+                <!-- <a href="#" class="dropdown-item">New invoice received <small
+                class="float-right text-muted time">22 mins</small> </a> -->
                   </div>
-
-
-
-                  <!--  edit Modal -->
+                <!--  edit Modal -->
                   <div class="modal fade" id="edit{{$student->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -116,6 +117,71 @@ student
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
                           <button type="submit" class="btn btn-primary"> تعديل </button>
+                        </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!--  edit Group Modal -->
+                  <div class="modal fade" id="editGroup{{$student->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">تعديل البيانات</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form action="{{route('updateGroupStudent',$student->id)}}" method="post">
+                            @csrf
+<div >
+                            <select id="category"  class="form-control"  name="grade" >
+            <option value="ابتدائي">ابتدائي</option>
+            <option value="متوسط">متوسط</option>
+            <option value="ثانوي">ثانوي</option>
+        </select>
+        </div>
+        <div>
+        <select id="item"  class="form-control" name="group"></select>
+        </div>
+    <script>
+        // Sample data for items based on categories
+        const items = {
+            ابتدائي: ['الصف الرابع', 'الصف الخامس'],
+            متوسط: ['الصف السادس', 'الصف السابع', 'الصف الثامن','الصف التاسع'],
+            ثانوي: ['الصف العاشر ', 'الصف الحادي عشر ', 'الصف الثاني عشر ']
+        };
+
+        // Function to update the items based on the selected category
+        function updateItems() {
+            const categorySelect = document.getElementById('category');
+            const itemSelect = document.getElementById('item');
+            const selectedCategory = categorySelect.value;
+
+            // Clear existing options
+            itemSelect.innerHTML = '';
+
+            // Add new options based on the selected category
+            items[selectedCategory].forEach(item => {
+                const option = document.createElement('option');
+                option.value = item;
+                option.text = item;
+                itemSelect.add(option);
+            });
+        }
+        // Attach the updateItems function to the change event of the category select
+        document.getElementById('category').addEventListener('change', updateItems);
+
+        // Initial call to populate the items based on the default selected category
+        updateItems();
+    </script> 
+
+               </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                          <button type="submit" class="btn btn-primary" >   تعديل البيانات </button>
                         </div>
                         </form>
                       </div>
