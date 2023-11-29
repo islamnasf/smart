@@ -36,11 +36,12 @@
 
 
             <div class="row">
-                <img src="{{url('assets/images/teacher.jpg')}}"
-                    style="width:90%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;" alt="">
+                <img src="{{url('assets/images/education.jpg')}}"
+                    style="width:100%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;" alt="">
             </div>
             <!-- widgets -->
             <!-- widgets -->
+
 
             <div class="row">
                 <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
@@ -58,7 +59,7 @@
                                 </div>
                                 <div class="float-right text-center">
                                     <a href="{{route('addCourse')}}">
-                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
+                                        <p class="card-text text-dark" style="font-size: 25px; padding-top:25px ;">
                                             اضافة كورس
                                     </a>
                                     </p>
@@ -83,7 +84,7 @@
                                 </div>
                                 <div class="float-right text-center">
                                     <a href="{{route('addCourse')}}">
-                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
+                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ; ">
                                             الكورسات المفعلة</p>
                                     </a>
                                 </div>
@@ -196,7 +197,6 @@
                                 </div>
                                 <div class="float-right text-center">
                                     <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">الاشتراكات المنتهية</p>
-
                                 </div>
                             </div>
 
@@ -224,6 +224,7 @@
                     </div>
                 </div>
             </div>
+            
 
             <!--=================================
  wrapper -->

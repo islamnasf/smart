@@ -12,9 +12,9 @@
             color: #000;
             overflow-x: hidden;
             height: 100%;
-            background-image: url("https://img.freepik.com/free-photo/close-up-people-learning-work_23-2149300705.jpg?w=996&t=st=1701254020~exp=1701254620~hmac=748bec40849d8dcced23801e449af4d481a107646758378aaf312d30e26e8612");
-            background-repeat: no-repeat;
-            background-size: 100% 100%
+            background-image: url("https://img.freepik.com/free-photo/desk-stacked-with-books-studying-generated-by-ai_188544-29784.jpg?t=st=1701267777~exp=1701271377~hmac=38ea1385de5956d5b4032dff218cb53cc80c3592b77ae1f84a34e88bc83ed904&w=826");
+            background-repeat: no-repeat ;
+            background-size: 100% 100%;
         }
 
         .card {
