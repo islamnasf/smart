@@ -36,8 +36,8 @@
 
 
             <div class="row">
-                <img src="assets/images/education.jpg"
-                    style="width:100%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;" alt="">
+                <img src="{{url('assets/images/teacher.jpg')}}"
+                    style="width:90%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;" alt="">
             </div>
             <!-- widgets -->
             <!-- widgets -->
@@ -49,18 +49,19 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                    <a href="{{route('getStudent')}}">
-                                        <i class=" fa fa-graduation-cap highlight-icon" aria-hidden="true" style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px"></i>
-                                      </a>
+                                        <a href="{{route('addCourse')}}">
+                                            <i class=" fa fa-plus-circle highlight-icon" aria-hidden="true"
+                                                style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px"></i>
+                                        </a>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                <a href="{{route('getStudent')}}">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">الطلبة
-                                </a>  
-                                </p>
-                                    <h4>{{$studentCount}}</h4>
+                                    <a href="{{route('addCourse')}}">
+                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
+                                            اضافة كورس
+                                    </a>
+                                    </p>
                                 </div>
                             </div>
 
@@ -73,16 +74,18 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <a href="{{route('getTeacher')}}">
-                                            <i class=" fa fa-id-card highlight-icon" aria-hidden="true"
+                                        <a href="{{route('addCourse')}}">
+                                            <i class=" fa fa-video-camera highlight-icon" aria-hidden="true"
                                                 style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px  "></i>
                                         </a>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <a href="{{route('getTeacher')}}"> <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">المعلمين</p> </a>
-                                    <h4>{{$teacherCount}}</h4>
+                                    <a href="{{route('addCourse')}}">
+                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
+                                            الكورسات المفعلة</p>
+                                    </a>
                                 </div>
                             </div>
 
@@ -96,16 +99,16 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-stop-circle highlight-icon" aria-hidden="true"
+                                        <i class=" fa fa-archive highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
                                     <a href='{{route("course")}}'>
-                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">الكورسات</p>
+                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
+                                            أرشيف الكورس</p>
                                     </a>
-                                    <h4>0</h4>
                                 </div>
                             </div>
 
@@ -118,15 +121,14 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-check-square-o  highlight-icon" aria-hidden="true"
+                                        <i class=" fa fa-subscript  highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px  "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
                                     <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
-                                        الاختبارات</p>
-                                    <h4>0</h4>
+                                        الباقات</p>
                                 </div>
                             </div>
 
@@ -149,7 +151,7 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">المذكرات
+                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">اشتراكات الطلبة
                                     </p>
 
                                 </div>
@@ -165,15 +167,14 @@
                                 <div class="float-left">
                                     <span class="text-danger">
 
-                                        <i class=" fa fa-envelope highlight-icon" aria-hidden="true"
+                                        <i class=" fa fa-flag highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:70px; padding-top:15px ; padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
                                     <a href="{{route('getContact')}}">
-                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">اسئلة
-                                            الادارة </p>
+                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">التقرير كامل</p>
                                     </a>
                                 </div>
                             </div>
@@ -188,14 +189,13 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class="fa fa-pencil-square-o highlight-icon" aria-hidden="true"
+                                        <i class="fa fa-users highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">إعداد
-                                        المنصة</p>
+                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">الاشتراكات المنتهية</p>
 
                                 </div>
                             </div>
@@ -215,8 +215,7 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;"> إعداد
-                                        الحساب</p>
+                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">ارشيف الباقات</p>
 
                                 </div>
                             </div>

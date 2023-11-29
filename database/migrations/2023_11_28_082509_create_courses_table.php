@@ -14,11 +14,11 @@ return new class extends Migration {
             $table->id();
             $table->string('subject_name');
             $table->bigInteger('techer_id');
-            $table->bigInteger('student_id')->nullable();
             $table->string('stage');
             $table->string('classroom');
             $table->string('expiry_date');
             $table->enum('type', ['free', 'cash'])->default('cash');
+            $table->bigInteger('Teacher_ratio_course')->nullable();
             $table->bigInteger('term_price')->nullable();
             $table->bigInteger('monthly_subscription_price')->nullable();
             $table->timestamps();
