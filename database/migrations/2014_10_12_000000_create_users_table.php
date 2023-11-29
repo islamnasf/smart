@@ -18,6 +18,11 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('grade')->nullable();
             $table->string('group')->nullable();
+            //for student
+            $table->string('student_subscrip')->nullable();  
+            $table->string('renew')->nullable();
+            //
+            $table->string('group')->nullable();
             $table->enum('IsAdmin',['0','1'])->default('0');
             $table->enum('user_type',['0','1'])->default('0');
             $table->timestamp('email_verified_at')->nullable();

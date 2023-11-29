@@ -3,7 +3,7 @@
         <nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <!-- logo -->
             <div class="text-left navbar-brand-wrapper">
-                <img src="assets/images/logo-dark.png" width="85%"  alt="">
+                <img src="{{url('assets/images/logo-dark.png')}}" width="85%"  alt="">
             
             </div>
             <!-- Top bar left -->

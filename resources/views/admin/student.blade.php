@@ -2,13 +2,13 @@
 @section('css')
 
 @section('title')
-Teacher
+student
 @stop
 @endsection
 @section('page-header')
 <div class="row">
   <div>
-    <h2 style="position: absolute; left:10%; top:10%; color:#dc3545"> اجمالي عدد المعلمين ({{$count}})</h2>
+    <h2 style="position: absolute; left:10%; top:13%; color:#dc3545"> اجمالي عدد الطلبة ({{$studentCount}})</h2>
   </div>
   <!-- breadcrumb -->
   <img src="{{url('assets/images/teacher.jpg')}}"
@@ -16,64 +16,20 @@ Teacher
     alt="">
 </div>
 
+
 <div class="page-title">
   <div class="row">
-  <div class="col-sm-12" style="color:#dc3545 ; margin:10px auto; background-color: #dc3545; padding-top: 10px; padding-bottom: 10px;  border-radius:7px; display: flex; justify-content: space-around;" >
-      <h2 class="mb-0" style="color:#fff ; " > المعلمين</h2>
-            <button type="button" class="btn btn-info float-left float-sm-right " data-toggle="modal" data-target="#exampleModal" style="font-size: 18px; font-family:Amiri;
-            line-height: 1.2;"><i class="fa fa-user"></i> -
-              اضافة معلم جديد
-            </button>
+    <div class="col-sm-12" style="color:#dc3545 ;text-align:center; background-color: #dc3545; margin-bottom: 10px; border-radius:7px;" >
+    <h2 class="mb-0" style="color:#fff ;text-align:center; padding-top: 10px; padding-bottom: 10px; " > الطلبة </h2>
     </div>
   </div>
 
 </div>
-
 
 <!-- breadcrumb -->
 @endsection
 @section('content')
 <!-- row -->
-
-<!--  Add Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">اضافة معلم</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-      <div class="modal-body">
-
-        <form action="{{route('postTeacher')}}" method="post">
-          @csrf
-          <input type="text" name="name" class="form-control" placeholder="اسم المعلم ">
-          @error('name')
-          <div class="alert alert-danger">{{ $message }}</div>
-          @enderror
-          </br>
-
-          <input type="text" name="phone" class="form-control" placeholder=" رقم هاتف المعلم">
-
-          @error('phone')
-          <div class="alert alert-danger">{{ $message }}</div>
-          @enderror
-          </br>
-          <input type="text" name="password" class="form-control" placeholder="الرقم السري">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-        <button type="submit" class="btn btn-primary">اضافة المعلم </button>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
-
 @if ($errors->any())
 <div class="alert alert-danger">
   <ul>
@@ -91,19 +47,25 @@ Teacher
           <table id="datatable" class="table table-striped table-bordered p-0" style="text-align:center">
             <thead>
               <tr>
-                <th>اسم المعلم </th>
-                <th>الهاتف </th>
+                <th>اسم الطالب  </th>
+                <th>الصف  </th>
+                <th>رقم التلفون </th>
                 <th>الرقم السري</th>
+                <th>حالة الاشتراك  </th>
+                <th> عدد التجديد  </th>
                 <th> العمليات</th>
               </tr>
             </thead>
             <tbody>
-              @foreach($teachers as $teacher)
+              @foreach($students as $student)
 
               <tr>
-                <td>{{$teacher->name}}</td>
-                <td>{{$teacher->phone}}</td>
-                <td>{{$teacher->user_password}}</td>
+                <td>{{$student->name}}</td>
+                <td>{{$student->group}}</td>
+                <td>{{$student->phone}}</td>
+                <td>{{$student->user_password}}</td>
+                <td>0</td>
+                <td>0</td>
                 <td>
                   <!-- Button trigger modal update -->
                   <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -113,13 +75,13 @@ Teacher
                   <div class="dropdown-menu dropdown-menu-right dropdown-big dropdown-notifications">
                     <div style="padding:2px; padding-right: 20px; font-size: 15px;">
                       <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                        data-target="#edit{{$teacher->id}}">
+                        data-target="#edit{{$student->id}}">
                         <i class="fa fa-edit"></i>
                       </button>
                       تعديل البيانات
                     </div>
                     <!-- <div style="padding:2px; padding-right: 20px; font-size: 15px;">
-                                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$teacher->id}}">
+                                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$student->id}}">
                             <i class="fa fa-edit"></i>
                           </button> 
                           تعديل البيانات 
@@ -134,7 +96,7 @@ Teacher
 
 
                   <!--  edit Modal -->
-                  <div class="modal fade" id="edit{{$teacher->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  <div class="modal fade" id="edit{{$student->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -144,14 +106,12 @@ Teacher
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-
                         <div class="modal-body">
-
-                          <form action="{{route('updateTeacher',$teacher->id)}}" method="post">
+                          <form action="{{route('updateStudent',$student->id)}}" method="post">
                             @csrf
-                            <input type="text" name="name" class="form-control" value="{{$teacher->name}}">
+                            <input type="text" name="name" class="form-control" value="{{$student->name}}">
                             </br>
-                            <input type="text" name="password" class="form-control" value="{{ $teacher->user_password}}">
+                            <input type="text" name="password" class="form-control" value="{{ $student->user_password}}">
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
@@ -170,7 +130,7 @@ Teacher
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">حذف المرحلة</h5>
+                          <h5 class="modal-title" id="exampleModalLabel">حذف </h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
@@ -178,7 +138,7 @@ Teacher
                         <form action="#" method="post">
                           @csrf
                           <div class="modal-body">
-                            هل انت متاكد من حذف هذه المرحلة ؟
+                            هل انت متاكد من حذف هذه  ؟
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>

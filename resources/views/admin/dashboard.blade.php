@@ -49,15 +49,18 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-graduation-cap highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px  "></i>
+                                    <a href="{{route('getStudent')}}">
+                                        <i class=" fa fa-graduation-cap highlight-icon" aria-hidden="true" style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px"></i>
+                                      </a>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
+                                <a href="{{route('getStudent')}}">
                                     <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">الطلبة
-                                    </p>
-                                    <h4>0</h4>
+                                </a>  
+                                </p>
+                                    <h4>{{$studentCount}}</h4>
                                 </div>
                             </div>
 
@@ -79,7 +82,7 @@
                                 </div>
                                 <div class="float-right text-center">
                                     <a href="{{route('getTeacher')}}"> <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">المعلمين</p> </a>
-                                    <h4>0</h4>
+                                    <h4>{{$teacherCount}}</h4>
                                 </div>
                             </div>
 

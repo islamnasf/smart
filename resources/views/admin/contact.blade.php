@@ -17,13 +17,13 @@ Contact US
 </div>
 
 <div class="page-title">
-    <div class="row">
-        <div class="col-sm-6">
-            <h4 class="mb-0">اسئلة المستخدمين</h4>
-        </div>
+  <div class="row">
+    <div class="col-sm-12" style="color:#dc3545 ;text-align:center; background-color: #dc3545; margin-bottom: 10px; border-radius:7px;" >
+    <h2 class="mb-0" style="color:#fff ;text-align:center; padding-top: 10px; padding-bottom: 10px; ">اسئلة المستخدمين</h2>
     </div>
-
+  </div>
 </div>
+
 
 
 <!-- breadcrumb -->

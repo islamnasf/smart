@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\GradeController;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\LandingPage\ContactUs;
 use Illuminate\Support\Facades\Route;
@@ -24,14 +26,17 @@ Route::get('/grade', [GradeController::class, 'index']);
 
 
 route::group(['middleware' => ['auth', 'verified', 'adminCheck'], 'prefix' => 'dashboard'], function () {
+  //student->admin
+    Route::get('/student', [StudentController::class, 'index'])->name('getStudent');
+    // Route::post('/student', [StudentController::class, 'store'])->name('postStudent');
+    Route::post('/student/edit/{teacher}', [StudentController::class, 'update'])->name('updateStudent');
+  //teacher->admin
     Route::get('/teacher', [TeacherController::class, 'index'])->name('getTeacher');
     Route::post('/teacher', [TeacherController::class, 'store'])->name('postTeacher');
     Route::post('/teacher/edit/{teacher}', [TeacherController::class, 'update'])->name('updateTeacher');
-    
-    Route::get('/', function () {
-        return view('/admin/dashboard');
-    })->name('dashboard');
-
+    //dashboard
+    Route::get('/', [HomeController::class, 'index'])->name('dashboard');
+    //
     Route::get('/getContact', [ContactController::class, 'index'])->name('getContact');
     Route::post('/deleteContact/{id}', [ContactController::class, 'delete'])->name('deleteContact');
 });
