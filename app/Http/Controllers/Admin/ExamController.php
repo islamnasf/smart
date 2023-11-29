@@ -16,10 +16,10 @@ class ExamController extends Controller
          public function store(Request $request){
      
             $exam=Exam::create([
-             'name'=>$request->name,
-              'notes'=>$request->notes
+             'subject'=>$request->subject,
+              'grade'=>$request->grade,
             ]) ;
-            if($grade){
+            if($exam){
             toastr()->success('تم حفظ البيانات بنجاح');
             return back(); 
             }else{
