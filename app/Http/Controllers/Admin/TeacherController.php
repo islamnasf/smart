@@ -61,5 +61,6 @@ class TeacherController extends Controller
         ]);
         toastr()->success('تم حفظ البيانات بنجاح');
         return back();
+        //sdksdnfklsdfnkds
     }
 }

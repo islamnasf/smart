@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,6 +12,15 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->string('subject_name');
+            $table->bigInteger('techer_id');
+            $table->bigInteger('student_id')->nullable();
+            $table->string('stage');
+            $table->string('classroom');
+            $table->string('expiry_date');
+            $table->enum('type', ['free', 'cash'])->default('cash');
+            $table->bigInteger('term_price')->nullable();
+            $table->bigInteger('monthly_subscription_price')->nullable();
             $table->timestamps();
         });
     }
