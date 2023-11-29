@@ -36,8 +36,9 @@
 
 
             <div class="row">
-                <img src="{{url('assets/images/teacher.jpg')}}"
-                    style="width:90%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;" alt="">
+                <img src="{{ url('assets/images/teacher.jpg') }}"
+                    style="width:90%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;"
+                    alt="">
             </div>
             <!-- widgets -->
             <!-- widgets -->
@@ -49,16 +50,17 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <a href="{{route('addCourse')}}">
+                                        <a href="{{ route('addCourse') }}">
                                             <i class=" fa fa-plus-circle highlight-icon" aria-hidden="true"
-                                                style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px"></i>
+                                                style="color:#175166; font-size:70px;"></i>
                                         </a>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <a href="{{route('addCourse')}}">
-                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
+                                    <a href="{{ route('addCourse') }}">
+                                        <p class="card-text text-dark "
+                                            style="font-size: 22px;  font-weight: bolder ;padding: 5px;">
                                             اضافة كورس
                                     </a>
                                     </p>
@@ -71,19 +73,20 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
-                            <div class="clearfix">
+                            <div class="clearfix" style="padding: 20px;">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <a href="{{route('addCourse')}}">
+                                        <a href="{{ route('addCourse') }}">
                                             <i class=" fa fa-video-camera highlight-icon" aria-hidden="true"
-                                                style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px  "></i>
+                                                style="color:#175166; font-size:70px;"></i>
                                         </a>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <a href="{{route('addCourse')}}">
-                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
+                                    <a href="{{ route('addCourse') }}">
+                                        <p class="card-text text-dark "
+                                            style="font-size: 22px;  font-weight: bolder ;padding: 5px;">
                                             الكورسات المفعلة</p>
                                     </a>
                                 </div>
@@ -100,13 +103,14 @@
                                 <div class="float-left">
                                     <span class="text-danger">
                                         <i class=" fa fa-archive highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px "></i>
+                                            style="color:#175166; font-size:70px;"></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <a href='{{route("course")}}'>
-                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
+                                    <a href='{{ route('course') }}'>
+                                        <p class="card-text text-dark "
+                                            style="font-size: 22px;  font-weight: bolder ;padding: 5px;">
                                             أرشيف الكورس</p>
                                     </a>
                                 </div>
@@ -122,12 +126,13 @@
                                 <div class="float-left">
                                     <span class="text-danger">
                                         <i class=" fa fa-subscript  highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px  "></i>
+                                            style="color:#175166; font-size:70px;"></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
+                                    <p class="card-text text-dark "
+                                        style="font-size: 22px;  font-weight: bolder ;padding: 5px;">
                                         الباقات</p>
                                 </div>
                             </div>
@@ -146,12 +151,14 @@
                                 <div class="float-left">
                                     <span class="text-danger">
                                         <i class=" fa fa-book  highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:70px; padding-top:15px ; padding-bottom:15px "></i>
+                                            style="color:#175166; font-size:70px;"></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">اشتراكات الطلبة
+                                    <p class="card-text text-dark"
+                                        style="font-size: 22px;  font-weight: bolder ;padding: 5px;">اشتراكات
+                                        الطلبة
                                     </p>
 
                                 </div>
@@ -168,13 +175,15 @@
                                     <span class="text-danger">
 
                                         <i class=" fa fa-flag highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:70px; padding-top:15px ; padding-bottom:15px "></i>
+                                            style="color:#175166; font-size:70px;"></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <a href="{{route('getContact')}}">
-                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">التقرير كامل</p>
+                                    <a href="{{ route('getContact') }}">
+                                        <p class="card-text text-dark"
+                                            style="font-size: 22px;  font-weight: bolder ;padding: 5px;">
+                                            التقرير كامل</p>
                                     </a>
                                 </div>
                             </div>
@@ -190,12 +199,14 @@
                                 <div class="float-left">
                                     <span class="text-danger">
                                         <i class="fa fa-users highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px "></i>
+                                            style="color:#175166; font-size:70px;"></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">الاشتراكات المنتهية</p>
+                                    <p class="card-text text-dark"
+                                        style="font-size: 22px;  font-weight: bolder ;padding: 5px;">
+                                        الاشتراكات المنتهية</p>
 
                                 </div>
                             </div>
@@ -210,12 +221,14 @@
                                 <div class="float-left">
                                     <span class="text-danger">
                                         <i class=" fa fa-cogs  highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px "></i>
+                                            style="color:#175166; font-size:70px;"></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">ارشيف الباقات</p>
+                                    <p class="card-text text-dark"
+                                        style="font-size: 22px;  font-weight: bolder ;padding: 5px;">ارشيف
+                                        الباقات</p>
 
                                 </div>
                             </div>
