@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\GradeController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\ProfileSettingController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\LandingPage\ContactUs;
@@ -40,7 +41,9 @@ route::group(['middleware' => ['auth', 'verified', 'adminCheck'], 'prefix' => 'd
     //
     Route::get('/getContact', [ContactController::class, 'index'])->name('getContact');
     Route::post('/deleteContact/{id}', [ContactController::class, 'delete'])->name('deleteContact');
-});
+  //profileSetting
+  Route::get('/profileSetting', [ProfileSettingController::class, 'index'])->name('getProfile');
+  });
 
 require __DIR__ . '/auth.php';
 
