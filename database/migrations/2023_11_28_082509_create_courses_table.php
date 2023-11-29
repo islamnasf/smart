@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->bigInteger('Teacher_ratio_course')->nullable();
             $table->bigInteger('term_price')->nullable();
             $table->bigInteger('monthly_subscription_price')->nullable();
-            $table->boolean('')->default(1);
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }
