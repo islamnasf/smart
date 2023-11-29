@@ -23,15 +23,10 @@ profile
     </div>
   </div>
 </div>
-
-
-
 <!-- breadcrumb -->
 @endsection
 @section('content')
 <!-- row -->
-
-
 @if ($errors->any())
 <div class="alert alert-danger">
     <ul>
@@ -41,7 +36,6 @@ profile
     </ul>
 </div>
 @endif
-    
 <div class="modal-body" style=" background-color:#175166; padding: 30px; border-radius: 10px;">
                     <form action="{{route('updateTeacher',$data->id)}}" method="post">
                             @csrf
@@ -62,8 +56,6 @@ profile
                             <label style="color:#fff; font-size: 25px; margin-right: 10px;" >الرقم السري</label>
                             <input type="text" name="password" class="form-control" value="{{$data->user_password}}" style=" border-radius: 10px;">
                             </div>
-
-
                         </div>
         <div class="page-title" class="col-sm-12">
         <div class="row">
@@ -73,11 +65,7 @@ profile
             </div>
         </div>
     </div>
-
-
-
 <!-- row closed -->
 @endsection
 @section('js')
-
 @endsection
