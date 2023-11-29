@@ -28,6 +28,7 @@ class User extends Authenticatable
         'group',
         'student_subscrip',
         'renew',
+        'email',
     ];
 
     /**
