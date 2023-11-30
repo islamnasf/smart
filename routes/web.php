@@ -32,7 +32,10 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   //student->admin
   Route::get('/student', [StudentController::class, 'index'])->name('getStudent');
   // Route::post('/student', [StudentController::class, 'store'])->name('postStudent');
-  Route::post('/student/edit/{teacher}', [StudentController::class, 'update'])->name('updateStudent');
+  Route::post('/student/edit/{student}', [StudentController::class, 'update'])->name('updateStudent');
+  Route::post('/student/updateStudent/{student}', [StudentController::class, 'updateGroup'])->name('updateGroupStudent');
+
+  
   //teacher->admin
   Route::get('/teacher', [TeacherController::class, 'index'])->name('getTeacher');
   Route::post('/teacher', [TeacherController::class, 'store'])->name('postTeacher');
