@@ -44,9 +44,9 @@
 
             <!-- widgets -->
             <!-- widgets -->
-
             <div class="row">
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="{{route('addCourse')}}">
+
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -58,18 +58,20 @@
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
-                                    <a href=''>
-                                        <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                            اضافة كورس</p>
-                                    </a>
+
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                        اضافة كورس</p>
+
 
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                </a>
+
+
+                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="#">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -81,18 +83,20 @@
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
-                                    <a href=''>
-                                        <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                           الكورسات المفعلة </p>
-                                    </a>
+
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                        الكورسات المفعلة </p>
+
 
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                </a>
+
+
+                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="#">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -104,18 +108,17 @@
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
-                                    <a href=''>
-                                        <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                            ارشيف كورسات </p>
-                                    </a>
 
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                        ارشيف كورسات </p>
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                </a>
+
+                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="#">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -127,22 +130,24 @@
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
-                                    <a href=''>
-                                        <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                            الباقات</p>
-                                    </a>
+
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                        الباقات</p>
+
 
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                </div>
+                </a>
+
             </div>
             <!-- widgets -->
 
             <div class="row">
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+
+                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -154,17 +159,18 @@
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
-                                    <a href=''>
-                                        <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                            اشتركات الطلبة </p>
-                                    </a>
+
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                        اشتركات الطلبة </p>
+
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                </a>
+
+                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -176,18 +182,16 @@
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
-                                    <a href=''>
-                                        <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                            التقرير الشامل</p>
-                                    </a>
-
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                        التقرير الشامل</p>
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                </a>
+
+                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -199,18 +203,15 @@
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
-                                    <a href=''>
-                                        <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                            الاشتركات المنتهية </p>
-                                    </a>
-
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                        الاشتركات المنتهية </p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                </a>
+
+                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -222,22 +223,16 @@
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
-                                    <a href=''>
-                                        <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                            ارشيف الباقات</p>
-                                    </a>
-
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                        ارشيف الباقات</p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-                </div>
-
-
+                </a>
 
             </div>
-            
+
 
             <!--=================================
  wrapper -->
