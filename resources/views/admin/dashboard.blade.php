@@ -236,13 +236,11 @@
             </div>
             @endif
             @if(auth()->user()->user_type=='1'&& auth()->user()->IsAdmin=='0')
-
-<!-- widgets -->
-
-<div class="row">
-    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-        <div class="card card-statistics h-100">
-            <div class="card-body">
+    <!-- widgets -->
+    <div class="row">
+        <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+            <div class="card card-statistics h-100">
+                <div class="card-body">
                 <div class="clearfix">
                     <div class="float-left">
                         <span class="text-danger">
@@ -321,8 +319,8 @@
                     </div>
                     <div class="float-right text-center">
                     <a href="{{route('getProfile')}}">
-                        <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">
-                            ملفك الشخصي</p>
+                    <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">
+                        ملفك الشخصي</p>
                     </a>
                     </div>
                 </div>
