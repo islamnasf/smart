@@ -44,7 +44,8 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     @if (Auth::check())
-                        <li><a class="nav-link scrollto" style="color: #bb0852" href="{{ route('logout') }}">تسجيل الخروج</a></li>
+                        <li><a class="nav-link scrollto" style="color: #bb0852" href="{{ route('logout') }}">تسجيل
+                                الخروج</a></li>
                     @endif
                     <li><a class="nav-link scrollto" href="{{ route('contactus') }}">اسئل الادارة</a></li>
                     <li><a class="nav-link scrollto" href="#team">بنك الاسئلة</a></li>
@@ -72,7 +73,7 @@
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
                     <h1 data-aos="fade-up">نحن نقدم حلولاً حديثة لتنميتك</h1>
-                    <h2 data-aos="fade-up" data-aos-delay="400">يمكنك الحصول علي اختبارات سابقة واختبارات قصيرة وبنوك
+                    <h2 data-aos="fade-up" data-aos-delay="400">يمكنك الحصول علي اختبارات سابقة واختبارات  وبنوك
                         حديثة
                     </h2>
                 </div>
@@ -86,40 +87,6 @@
 
     <main id="main">
         <!-- ======= About Section ======= -->
-        <section id="about" class="about">
-
-            <div class="container" data-aos="fade-up">
-                <div class="row gx-0">
-
-                    <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up"
-                        data-aos-delay="200">
-                        <div class="content">
-                            <h3>نبذة عن المنصة</h3>
-                            <h2> منصة عربية تعليمية لتعلم عبر الانترنت </h2>
-                            <p>
-                                Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor
-                                consequatur
-                                itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est
-                                corrupti.
-                            </p>
-                            <div class="text-center text-lg-start">
-                                <a href="#"
-                                    class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                                    <span>قراءة المزيد</span>
-                                    <i class="bi bi-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-                        <img src="assets/img/about.jpg" class="img-fluid" alt="">
-                    </div>
-
-                </div>
-            </div>
-
-        </section><!-- End About Section -->
 
         <!-- ======= Values Section ======= -->
         <section id="values" class="values">
@@ -170,6 +137,42 @@
             </div>
 
         </section><!-- End Values Section -->
+
+        <section id="about" class="about">
+
+            <div class="container" data-aos="fade-up">
+                <div class="row gx-0">
+
+                    <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="content">
+                            <h3>نبذة عن المنصة</h3>
+                            <h2> منصة عربية تعليمية لتعلم عبر الانترنت </h2>
+                            <p>
+                                Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor
+                                consequatur
+                                itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est
+                                corrupti.
+                            </p>
+                            <div class="text-center text-lg-start">
+                                <a href="#"
+                                    class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                                    <span>قراءة المزيد</span>
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+                        <img src="assets/img/about.jpg" class="img-fluid" alt="">
+                    </div>
+
+                </div>
+            </div>
+
+        </section><!-- End About Section -->
+
 
         <!-- ======= Counts Section ======= -->
         <section id="counts" class="counts">
