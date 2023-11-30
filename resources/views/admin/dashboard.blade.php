@@ -37,7 +37,7 @@
 
             <div class="row">
                 <img src="assets/images/education.jpg"
-                    style="width:100%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;" alt="">
+                    style="width:95%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;" alt="">
             </div>
             <!-- widgets -->
             <!-- widgets -->
@@ -118,14 +118,18 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
+                                    <a href="{{route('getExam')}}">
                                         <i class=" fa fa-check-square-o  highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px  "></i>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                    </a>
+                                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
+                                <a href="{{route('getExam')}}">
                                     <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
                                         الاختبارات</p>
+                                </a>
                                     <h4>0</h4>
                                 </div>
                             </div>

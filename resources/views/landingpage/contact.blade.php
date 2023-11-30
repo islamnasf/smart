@@ -4,41 +4,34 @@
 <head>
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css"
-        integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
+    <link rel="stylesheet"  href="{{ URL::asset('css/style.css') }}">
+    <link rel="stylesheet"   href="http://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"  >
 </head>
 
 <body>
 
     <section class="contact">
         <div class="content">
-            <h2>تواصل معنا</h2>
-            <p>اذا واجهت اي مشاكل يمكن التواصل مع ادارة الموقع</p>
+            <h1 style="color: white; font-size: 40px;">تواصل معنا</h1>
+            <h3 style="color: white;">اذا واجهت اي مشاكل يمكن التواصل مع ادارة الموقع</h3>
         </div>
         <div class="container">
             <div class="contactInfo">
+
                 <div class="box">
-                    <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                    <div style="color: #eee ; font-size: 65px;"> * </div>
                     <div class="text">
-                        <h3>العنوان</h3>
-                        <p>4671 Sugar Camp Road,<br>Owatonna,Minnesota,<br>55060</p>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
-                    <div class="text">
-                        <h3>رقم الهاتف</h3>
-                        <p>507-475-6094</p>
+                        <h2 style="color:blanchedalmond; font-size: 30px;  margin: 0px auto; margin-right: 15px;">رقم الهاتف</h2>
+                        <h4 style="color: white;">507-475-6094</h4>
                     </div>
                 </div>
 
                 <div class="box">
-                    <div class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+                <div style="color: #eee ; font-size: 65px;"> * </div>
                     <div class="text">
-                        <h3>الايميل</h3>
-                        <p>wrub7d78i0e@temporary-mail.net</p>
+                    <h2 style="color:blanchedalmond ; font-size: 30px; margin-right: 15px ;">الايميل </h2>
+                        <h4 style="color: white;">education@gmail.com</h4>
+                        <p></p>
                     </div>
                 </div>
             </div>
@@ -62,12 +55,12 @@
                         <span>موضوع الرسالة...</span>
                     </div>
                     <div class="inputBox">
-                        <input type="submit" value="Send">
+                        <input type="submit" value="ارسال ">
                     </div>
                 </form>
             </div>
         </div>
     </section>
 </body>
-
+<script src=" https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/js/fontawesome.min.js "></script>
 </html>
