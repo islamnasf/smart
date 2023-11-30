@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ProfileSettingController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\ExamController;
 use App\Http\Controllers\LandingPage\ContactUs;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,10 @@ route::group(['middleware' => ['auth', 'verified', 'adminCheck'], 'prefix' => 'd
   Route::post('/teacher/edit/{teacher}', [TeacherController::class, 'update'])->name('updateTeacher');
   //dashboard
   Route::get('/', [HomeController::class, 'index'])->name('dashboard');
+  //exam->admin
+  Route::get('/exam', [ExamController::class, 'index'])->name('getExam');
+  Route::post('/exam', [ExamController::class, 'store'])->name('postExam');
+  Route::post('/exam/edit/{exam}', [ExamController::class, 'update'])->name('updateExam');
   //
   Route::get('/getContact', [ContactController::class, 'index'])->name('getContact');
   Route::post('/deleteContact/{id}', [ContactController::class, 'delete'])->name('deleteContact');
