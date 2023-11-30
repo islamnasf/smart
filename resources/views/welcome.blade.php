@@ -72,7 +72,7 @@
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
                     <h1 data-aos="fade-up">نحن نقدم حلولاً حديثة لتنميتك</h1>
-                    <h2 data-aos="fade-up" data-aos-delay="400">يمكنك الحصول علي اختبارات سابقة واختبارات قصيرة وبنوك
+                    <h2 data-aos="fade-up" data-aos-delay="400">يمكنك الحصول علي اختبارات سابقة واختبارات  وبنوك
                         حديثة
                     </h2>
                 </div>
