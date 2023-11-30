@@ -40,6 +40,8 @@
                     style="width:95%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;" alt="">
             </div>
             <!-- widgets -->
+            @if(auth()->user()->user_type=='1'&& auth()->user()->IsAdmin=='1')
+
             <!-- widgets -->
 
             <div class="row">
@@ -232,6 +234,106 @@
                     </div>
                 </div>
             </div>
+            @endif
+            @if(auth()->user()->user_type=='1'&& auth()->user()->IsAdmin=='0')
+
+<!-- widgets -->
+
+<div class="row">
+    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <span class="text-danger">
+                        <a href="#">
+                            <i class="fa fa-file-video-o highlight-icon" aria-hidden="true" style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px"></i>
+                          </a>
+                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                        </span>
+                    </div>
+                    <div class="float-right text-center">
+                    <a href="#">
+                        <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">الكورسات المسجلة
+                    </a>  
+                    </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <span class="text-danger">
+                            <a href="{{route('getTeacher')}}">
+                                <i class=" fa fa-money highlight-icon" aria-hidden="true"
+                                    style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px  "></i>
+                            </a>
+                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                        </span>
+                    </div>
+                    <div class="float-right text-center">
+                        <a href="#"> <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">الدفعات المحصلة </p> </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <span class="text-danger">
+                            <i class=" fa fa-retweet highlight-icon" aria-hidden="true"
+                                style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                        </span>
+                    </div>
+                    <div class="float-right text-center">
+                        <a href='#'>
+                            <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">اشتركات الطلبة</p>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <span class="text-danger">
+                        <a href="{{route('getProfile')}}">
+                            <i class=" fa fa-lock  highlight-icon" aria-hidden="true"
+                                style="color:#175166; font-size:60px; padding-top:15px; padding-bottom:15px  "></i>
+                        </a>
+                                <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                        </span>
+                    </div>
+                    <div class="float-right text-center">
+                    <a href="{{route('getProfile')}}">
+                        <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">
+                            ملفك الشخصي</p>
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- widgets -->
+
+
+@endif
 
             <!--=================================
  wrapper -->

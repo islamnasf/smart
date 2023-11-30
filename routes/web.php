@@ -28,7 +28,7 @@ Route::get('/', function () {
 Route::get('/grade', [GradeController::class, 'index']);
 
 
-route::group(['middleware' => ['auth', 'verified', 'adminCheck'], 'prefix' => 'dashboard'], function () {
+route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], function () {
   //student->admin
   Route::get('/student', [StudentController::class, 'index'])->name('getStudent');
   // Route::post('/student', [StudentController::class, 'store'])->name('postStudent');
