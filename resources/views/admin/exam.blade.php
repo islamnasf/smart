@@ -49,37 +49,80 @@ Exams
 
       <div class="modal-body">
 
-        <form action="#" method="post">
+        <form action="{{route('postExam')}}" method="post" enctype="multipart/form-data">
           @csrf
           <input type="text" name="subject" class="form-control" placeholder="اسم المادة">
-                          
-                            <input type="text" name="grade" class="form-control" placeholder="المرحلة الدرسية ">
-                           
-                            <input type="text" name="group" class="form-control" placeholder="الصف الدراسي">
-                         
-                            <input type="text" name="season" class="form-control" placeholder="الفصل الدراسي">
-                            <label>اختبارات سابقة </label>
-                            <input type="file" name="previous_test" class="form-control" >
-                            <label>اختبارات سابقة </label>
-                            <input type="file" name="book_test" class="form-control" >
-                            <label>اختبارات سابقة </label>                          
-                            <input type="file" name="solved_test" class="form-control" >
-                            <label>اختبارات سابقة </label>
-                            <input type="file" name="unsolved_test" class="form-control" >
-
-          <!-- <input type="text" name="name" class="form-control" placeholder="اسم المادة  ">
-          @error('name')
-          <div class="alert alert-danger">{{ $message }}</div>
-          @enderror
           </br>
 
-          <input type="text" name="phone" class="form-control" placeholder=" رقم هاتف المعلم">
+                            <!-- <input type="text" name="grade" class="form-control" placeholder="المرحلة الدرسية "> -->
 
-          @error('phone')
-          <div class="alert alert-danger">{{ $message }}</div>
-          @enderror
-          </br> -->
-          <!-- <input type="text" name="password" class="form-control" placeholder="الرقم السري"> -->
+                            <div>
+                              <select id="category" class="form-control" placeholder="المرحلة الدرسية "
+                                                               name="grade" >
+                                  <option selected>اختر المرحلة الدراسية </option>
+                                  <option value="ابتدائي">ابتدائي</option>
+                                  <option value="متوسط">متوسط</option>
+                                  <option value="ثانوي">ثانوي</option>
+                              </select>
+                                                            </div>
+                                                            </br>
+
+                                                            <div>
+                                                                <select id="item" class="form-control" placeholder="الصف الدراسي"
+                                                                    name="group">
+                                                                    <option selected>اختر الصف الدراسية </option>
+                                                                  </select>
+                                                            </div>
+</br>
+                                                            <div>
+                                                                <select  class="form-control"
+                                                                    name="season" placeholder="الفصل الدراسي">
+                                                                    <option selected>اختر الفصل الدراسي</option>
+                                                                    <option value="ترم اول">ترم اول</option>
+                                                                    <option value="ترم تاني">ترم تاني</option>
+                                                                  </select>
+                                                            </div>
+                                                            <script>
+                                                                // Sample data for items based on categories
+                                                                const items = {
+                                                                    ابتدائي: ['الصف الرابع', 'الصف الخامس'],
+                                                                    متوسط: ['الصف السادس', 'الصف السابع', 'الصف الثامن', 'الصف التاسع'],
+                                                                    ثانوي: ['الصف العاشر ', 'الصف الحادي عشر ', 'الصف الثاني عشر ']
+                                                                };
+
+                                                                // Function to update the items based on the selected category
+                                                                function updateItems() {
+                                                                    const categorySelect = document.getElementById('category');
+                                                                    const itemSelect = document.getElementById('item');
+                                                                    const selectedCategory = categorySelect.value;
+
+                                                                    // Clear existing options
+                                                                    itemSelect.innerHTML = '';
+
+                                                                    // Add new options based on the selected category
+                                                                    items[selectedCategory].forEach(item => {
+                                                                        const option = document.createElement('option');
+                                                                        option.value = item;
+                                                                        option.text = item;
+                                                                        itemSelect.add(option);
+                                                                    });
+                                                                }
+                                                                // Attach the updateItems function to the change event of the category select
+                                                                document.getElementById('category').addEventListener('change', updateItems);
+
+                                                                // Initial call to populate the items based on the default selected category
+                                                                updateItems();
+                                                            </script>
+
+
+                                                      <label style="font-size: 15px ; font-weight: bolder;">اختبارات سابقة </label>
+                            <input type="file" name="previous_test" id="previous_test" class="form-control" >
+                            <label style="font-size: 15px ; font-weight: bolder;"> حل أسئلة الكتاب </label>
+                            <input type="file" name="book_test" id="book_test" class="form-control" >
+                            <label style="font-size: 15px ; font-weight: bolder;">بنك محلول</label>
+                            <input type="file" name="solved_test" id="solved_test" class="form-control" >
+                            <label style="font-size: 15px ; font-weight: bolder;"> بنك غير محلول </label>
+                            <input type="file" name="unsolved_test" id="unsolved_test" class="form-control" >
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
@@ -108,7 +151,8 @@ Exams
             <thead>
               <tr>
                 <th>اسم المادة  </th>
-                <th>الصف </th>
+                <th>الصف</th>
+                <th>الفصل</th>
                 <th>اختبارات سابقة  </th>
                 <th> بنك غير محلول </th>
                 <th> بنك  محلول </th>
@@ -118,13 +162,41 @@ Exams
             </thead>
             <tbody>
 
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            @foreach($exams as $exam)
+                      <tr>
+                        <td>{{$exam->subject}}</td>
+                        <td>{{$exam->group}}</td>
+                        <td>{{$exam->season}}</td>
+                        <td>@if($exam->previous_test != null)
+
+                        <a href="{{ route('examDownload', $exam->previous_test) }}" class='btn btn-ghost-info'>
+       <i class="fa fa-download"></i>
+            </a>
+            @endif
+                        </td>
+                        <td>@if($exam->unsolved_test != null)
+                        <a href="{{ route('examDownload', $exam->unsolved_test) }}" class='btn btn-ghost-info'>
+       <i class="fa fa-download"></i>
+            </a>
+            @endif
+
+                  
+                        </td>
+                        <td>@if($exam->solved_test != null)
+                        <a href="{{ route('examDownload', $exam->solved_test) }}" class='btn btn-ghost-info'>
+       <i class="fa fa-download"></i>
+            </a>
+            @endif
+                        </td>
+                        <td>
+                        @if($exam->book_test != null)
+                        <a href="{{ route('examDownload', $exam->book_test) }}" class='btn btn-ghost-info'>
+       <i class="fa fa-download"></i>
+            </a>
+            @endif
+                        </td>
+                       
+
 
                 <td>
                   <!-- Button trigger modal update -->
@@ -135,7 +207,7 @@ Exams
                   <div class="dropdown-menu dropdown-menu-right dropdown-big dropdown-notifications">
                     <div style="padding:2px; padding-right: 20px; font-size: 15px;">
                       <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                        data-target="#edit">
+                        data-target="#edit{{ $exam->id }}">
                         <i class="fa fa-edit"></i>
                       </button>
                       تعديل البيانات
@@ -156,7 +228,7 @@ Exams
 
 
                   <!--  edit Modal -->
-                  <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  <div class="modal fade" id="edit{{ $exam->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -169,21 +241,24 @@ Exams
 
                         <div class="modal-body">
 
-                          <form action="#" method="post">
+                          <form action="{{route('updateExam')}}" method="post" enctype="multipart/form-data">
                             @csrf
-                            <input type="text" name="subject" class="form-control" value="">
-                            </br>
-                            <input type="text" name="grade" class="form-control" value="">
-                            </br>
-                            <input type="text" name="group" class="form-control" value="">
-                            </br>
-                            <input type="text" name="season" class="form-control" value="">
-                            </br>
-                            <input type="file" name="previous_test" class="form-control" value="">
-                            <input type="file" name="book_test" class="form-control" value="">
-                            <input type="file" name="solved_test" class="form-control" value="">
-                            <input type="file" name="unsolved_test" class="form-control" value="">
+                            <input type="hidden" name='id' value="{{$exam->id}}" >
+                        <input  type="hidden" name='old_pdf1' value="{{$exam->previous_test}}" >
+                        <input  type="hidden" name='old_pdf2' value="{{$exam->book_test}}" >
+                        <input  type="hidden" name='old_pdf3' value="{{$exam->solved_test}}" >
+                        <input  type="hidden" name='old_pdf4' value="{{$exam->unsolved_test}}" >
 
+                            <input type="text" name="subject" class="form-control" value="{{$exam->subject}}">
+                            </br>
+                            <label style="font-size: 15px ; font-weight: bolder;">اختبارات سابقة </label>
+                            <input type="file" name="previous_test" id="previous_test" class="form-control" >
+                            <label style="font-size: 15px ; font-weight: bolder;"> حل أسئلة الكتاب </label>
+                            <input type="file" name="book_test" id="book_test" class="form-control" >
+                            <label style="font-size: 15px ; font-weight: bolder;">بنك محلول</label>
+                            <input type="file" name="solved_test" id="solved_test" class="form-control" >
+                            <label style="font-size: 15px ; font-weight: bolder;"> بنك غير محلول </label>
+                            <input type="file" name="unsolved_test" id="unsolved_test" class="form-control" >
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
@@ -229,7 +304,7 @@ Exams
                 </td>
 
               </tr>
-
+@endforeach
 
 
 

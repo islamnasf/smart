@@ -45,7 +45,9 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   //exam->admin
   Route::get('/exam', [ExamController::class, 'index'])->name('getExam');
   Route::post('/exam', [ExamController::class, 'store'])->name('postExam');
-  Route::post('/exam/edit/{exam}', [ExamController::class, 'update'])->name('updateExam');
+  Route::post('/exam/edit', [ExamController::class, 'update'])->name('updateExam');
+  Route::post('/exam/delete/{exam}', [ExamController::class, 'delete'])->name('deleteExam');
+  Route::get('/examdownload/{fileName}', [ExamController::class, 'download'])->name('examDownload');
   //
   Route::get('/getContact', [ContactController::class, 'index'])->name('getContact');
   Route::post('/deleteContact/{id}', [ContactController::class, 'delete'])->name('deleteContact');

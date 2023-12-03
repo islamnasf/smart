@@ -82,13 +82,13 @@
                                                 </button>
                                                 تعديل البيانات
                                             </div>
-                                            <div style="padding:2px; padding-right: 20px; font-size: 15px;">
+                                            <!-- <div style="padding:2px; padding-right: 20px; font-size: 15px;">
                                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                                     data-target="#editGroup{{ $student->id }}">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
                                                 تعديل الصف
-                                            </div>
+                                            </div> -->
                                             <!-- <div style="padding:2px; padding-right: 20px; font-size: 15px;">
                                   <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{ $student->id }}">
                             <i class="fa fa-edit"></i>
@@ -148,17 +148,23 @@
                                                             method="post">
                                                             @csrf
                                                             <div>
-                                                                <select id="category" class="form-control"
-                                                                    name="grade">
-                                                                    <option value="ابتدائي">ابتدائي</option>
-                                                                    <option value="متوسط">متوسط</option>
-                                                                    <option value="ثانوي">ثانوي</option>
-                                                                </select>
+                              <select id="category" class="form-control" placeholder="المرحلة الدرسية "
+                                                               name="grade" >
+                                  <option selected>اختر المرحلة الدراسية </option>
+                                  <option value="ابتدائي">ابتدائي</option>
+                                  <option value="متوسط">متوسط</option>
+                                  <option value="ثانوي">ثانوي</option>
+                              </select>
                                                             </div>
+                                                            </br>
+
                                                             <div>
-                                                                <select id="item" class="form-control"
-                                                                    name="group"></select>
+                                                                <select id="item" class="form-control" placeholder="الصف الدراسي"
+                                                                    name="group">
+                                                                    <option selected>اختر الصف الدراسية </option>
+                                                                  </select>
                                                             </div>
+</br>
                                                             <script>
                                                                 // Sample data for items based on categories
                                                                 const items = {
@@ -190,7 +196,6 @@
                                                                 // Initial call to populate the items based on the default selected category
                                                                 updateItems();
                                                             </script>
-
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
