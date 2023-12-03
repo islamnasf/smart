@@ -212,12 +212,12 @@ Exams
                       </button>
                       تعديل البيانات
                     </div>
-                    <!-- <div style="padding:2px; padding-right: 20px; font-size: 15px;">
-                                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit">
-                            <i class="fa fa-edit"></i>
+                     <div style="padding:2px; padding-right: 20px; font-size: 15px;">
+                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{ $exam->id }}">
+                            <i class="fa fa-trash"></i>
                           </button> 
-                          تعديل البيانات 
-                    </div> -->
+                       حذف 
+                    </div> 
 
 
 
@@ -271,8 +271,9 @@ Exams
                   <!-- Button trigger modal delete -->
                   <!-- <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete">
 <i class="fa fa-trash"></i>
-</button> -->
-                  <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel"
+ delete Modal -->
+   
+                  <div class="modal fade" id="delete{{ $exam->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -282,11 +283,14 @@ Exams
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <form action="#" method="post">
-                          @csrf
-                          <div class="modal-body">
-                            هل انت متاكد من حذف هذه المرحلة ؟
+                        <div class="modal-body">
+                            <h4>هل انت متاكد من الحذف ؟</h4>
                           </div>
+                        <form action="{{route('deleteExam')}}" method="post">
+                          @csrf
+                          
+                          <input id="id" type="hidden" name="id" class="form-control"
+                                  value="{{$exam->id }}">
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
                             <button type="submit" class="btn btn-primary"> حذف </button>

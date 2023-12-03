@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Exam;
 use Flasher\Laravel\Http\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use PDF;
 
 class ExamController extends Controller
@@ -34,7 +35,7 @@ class ExamController extends Controller
      }else{
       $file1 = $request->previous_test;
           $filename1=$file1->getClientOriginalName();
-          $request->previous_test->move('pdf',$filename1);
+          $request->previous_test->storeAs('public/pdf',$filename1);
           $data->previous_test=$filename1;
      }
  
@@ -43,7 +44,7 @@ class ExamController extends Controller
         }else{
           $file2 = $request->book_test;
           $filename2=$file2->getClientOriginalName();
-          $request->book_test->move('pdf',$filename2);
+          $request->book_test->storeAs('public/pdf',$filename2);
           $data->book_test=$filename2;
               }
 
@@ -52,7 +53,7 @@ class ExamController extends Controller
    }else{
     $file3 = $request->solved_test;
     $filename3=$file3->getClientOriginalName();
-    $request->solved_test->move('pdf',$filename3);
+    $request->solved_test->storeAs('public/pdf',$filename3);
     $data->solved_test=$filename3;
         }
 
@@ -61,7 +62,7 @@ class ExamController extends Controller
       }else{
         $file4 = $request->unsolved_test;
         $filename4=$file4->getClientOriginalName();
-        $request->unsolved_test->move('pdf',$filename4);
+        $request->unsolved_test->storeAs('public/pdf',$filename4);
         $data->unsolved_test=$filename4;
             }
             $data->subject = $request->subject;
@@ -75,7 +76,7 @@ class ExamController extends Controller
          public function download($fileName)
          {
 
-            return response()->download(public_path('pdf/'.$fileName));
+            return response()->download(storage_path('app/public/pdf/'.$fileName));
          }
 //////       
    public function update( Request $request){
@@ -94,7 +95,7 @@ class ExamController extends Controller
     if ($request->file('previous_test')) {
       $previous_test = $request->previous_test;
       $filename1=$previous_test->getClientOriginalName();
-      $request->solved_test->move('pdf',$filename1);
+      $request->solved_test->storeAs('public/pdf',$filename1);
     Exam::findOrFail($exam_id)->update([
         'previous_test' => $filename1,
     ]);
@@ -102,7 +103,7 @@ class ExamController extends Controller
     if ($request->file('book_test')) {
       $book_test = $request->book_test;
       $filename2=$book_test->getClientOriginalName();
-      $request->book_test->move('pdf',$filename2);
+      $request->book_test->storeAs('public/pdf',$filename2);
     Exam::findOrFail($exam_id)->update([
         'book_test' => $filename2,
     ]);
@@ -110,7 +111,7 @@ class ExamController extends Controller
     if ($request->file('solved_test')) {
       $solved_test = $request->solved_test;
       $filename3=$solved_test->getClientOriginalName();
-      $request->solved_test->move('pdf',$filename3);
+      $request->solved_test->storeAs('public/pdf',$filename3);
     Exam::findOrFail($exam_id)->update([
         'solved_test' => $filename3,
     ]);
@@ -118,7 +119,7 @@ class ExamController extends Controller
     if ($request->file('unsolved_test')) {
       $unsolved_test = $request->unsolved_test;
       $filename4=$unsolved_test->getClientOriginalName();
-      $request->unsolved_test->move('pdf',$filename4);
+      $request->unsolved_test->storeAs('public/pdf',$filename4);
     Exam::findOrFail($exam_id)->update([
         'unsolved_test' => $filename3,
     ]);
@@ -127,7 +128,36 @@ class ExamController extends Controller
     toastr()->success('تم حفظ البيانات بنجاح');
     return back(); 
 }
-public function delete(){
+public function delete(Request $request)
+{
+    $exam = Exam::findOrFail($request->id);
+    $pdf1 = $exam->previous_test;
+    $pdf2 = $exam->book_test;
+    $pdf3 = $exam->solved_test;
+    $pdf4 = $exam->unsolved_test;
 
-} 
+    // Delete each file if it exists
+    if ($pdf1 && file_exists($pdf1)) {
+        unlink($pdf1);
+    }
+
+    if ($pdf2 && file_exists($pdf2)) {
+        unlink($pdf2);
+    }
+
+    if ($pdf3 && file_exists($pdf3)) {
+        unlink($pdf3);
+    }
+
+    if ($pdf4 && file_exists($pdf4)) {
+        unlink($pdf4);
+    }
+
+    // Delete the Exam record
+    $exam->delete();
+
+    toastr()->success('تم حذف البيانات بنجاح');
+    return back();
+}
+
 }
