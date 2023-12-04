@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\ExamController;
+use App\Http\Controllers\Admin\SecretaryController;
 use App\Http\Controllers\LandingPage\ContactUs;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,11 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('/teacher', [TeacherController::class, 'index'])->name('getTeacher');
   Route::post('/teacher', [TeacherController::class, 'store'])->name('postTeacher');
   Route::post('/teacher/edit/{teacher}', [TeacherController::class, 'update'])->name('updateTeacher');
+  //secretary->admin
+  Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
+  Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');
+  Route::post('/secretary/edit/{secretary}', [SecretaryController::class, 'update'])->name('updateSecretary');
+  
   //dashboard
   Route::get('/', [HomeController::class, 'index'])->name('dashboard');
   //exam->admin

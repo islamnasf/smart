@@ -54,7 +54,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" style="font-size: 20px;"><i class="ti-blackboard"
+                            <a href="{{route('getSecretary')}}" style="font-size: 20px;"><i class="ti-blackboard"
                                     style="font-size: 20px;"></i><span class="right-nav-text">السكرتارية </span></a>
                             <div class="clearfix"></div>
                         </li>
