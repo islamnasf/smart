@@ -132,7 +132,7 @@
                                     <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
                                         الاختبارات</p>
                                 </a>
-                                    <h4>0</h4>
+                                    <h4>{{$examCount}}</h4>
                                 </div>
                             </div>
 
