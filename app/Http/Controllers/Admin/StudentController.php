@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StudentEditRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class StudentController extends Controller
 {
@@ -14,20 +16,13 @@ class StudentController extends Controller
         $studentCount=User::where('user_type','0')->where('IsAdmin','0')->count();
         return view('/admin/student', compact('students','studentCount'));
 }
-public function update(Request $request ,int $student)
+public function update(StudentEditRequest $request ,int $student)
     {
-        $rules=[
-            'name' => ['required', 'string', 'max:255'],
-            'password' => ['required'],
-        ];
-        $customMessages = [
-            'phone.unique' => 'هذاالفون موجود مسبقا',
-        ];
-        
-        $request->validate($rules, $customMessages);
+
         User::findOrFail($student)->update([
             'name' => $request->name,
             'password' =>$request->password,
+            'phone' =>$request->phone,
             'user_password' =>$request->password,
         ]);
         toastr()->success('تم حفظ البيانات بنجاح');

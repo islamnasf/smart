@@ -56,7 +56,6 @@
     display: flex;
     background-color: black ;
     width: 55%;
-    margin: 1.5%;
     border-radius: 50px 50px 0px 0px;
     opacity: .7;
 }
@@ -66,7 +65,7 @@
     display: flex;
     background-color: black ;
     width: 55%;
-    margin: 1.5%;
+    margin-top: 1.5%;
     border-radius: 0px 0px 50px 50px;
     opacity: .7;
 }

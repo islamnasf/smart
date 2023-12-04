@@ -115,9 +115,15 @@
                                                         <form action="{{ route('updateStudent', $student->id) }}"
                                                             method="post">
                                                             @csrf
+                                                            <label style="font-size: 15px; font-weight: bold;"> اسم الطالب </label>
                                                             <input type="text" name="name" class="form-control"
                                                                 value="{{ $student->name }}">
                                                             </br>
+                                                            <label style="font-size: 15px; font-weight: bold;"> رقم الهاتف   </label>
+                                                            <input type="text" name="phone" class="form-control"
+                                                                value="{{ $student->phone }}">
+                                                            </br>
+                                                            <label style="font-size: 15px; font-weight: bold;"> الرقم السري   </label>
                                                             <input type="text" name="password" class="form-control"
                                                                 value="{{ $student->user_password }}">
                                                     </div>

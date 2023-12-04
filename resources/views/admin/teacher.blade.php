@@ -149,10 +149,16 @@ Teacher
 
                           <form action="{{route('updateTeacher',$teacher->id)}}" method="post">
                             @csrf
+                            <label style="font-size: 15px; font-weight: bold;"> اسم المعلم  </label>
                             <input type="text" name="name" class="form-control" value="{{$teacher->name}}">
                             </br>
+                            <label style="font-size: 15px; font-weight: bold;"> رقم الهاتف    </label>
+                            <input type="text" name="phone" class="form-control" value="{{ $teacher->phone}}">
+                            </br>
+                            <label style="font-size: 15px; font-weight: bold;"> الرقم السري   </label>
                             <input type="text" name="password" class="form-control" value="{{ $teacher->user_password}}">
-                        </div>
+
+                          </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
                           <button type="submit" class="btn btn-primary"> تعديل </button>
