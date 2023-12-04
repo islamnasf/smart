@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $teacherCount=user::where('user_type','1')->where('IsAdmin','0')->count();
-        $studentCount=user::where('user_type','0')->where('IsAdmin','0')->count();
+        $teacherCount=user::where('user_type','teacher')->count();
+        $studentCount=user::where('user_type','user')->count();
         return view('/admin/dashboard', compact('teacherCount','studentCount'));
         }
 }

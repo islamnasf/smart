@@ -3,7 +3,7 @@
         <!-- Left Sidebar start-->
         <div class="side-menu-fixed">
             <div class="scrollbar side-menu-bg">
-                @if (auth()->user()->user_type == '1' && auth()->user()->IsAdmin == '1')
+                @if (auth()->user()->user_type == 'admin')
                     <ul class="nav navbar-nav side-menu" id="sidebarnav">
                         <!-- menu item Dashboard-->
                         <li>
@@ -93,7 +93,7 @@
                         </li>
                     </ul>
                 @endif
-                @if (auth()->user()->user_type == '1' && auth()->user()->IsAdmin == '0')
+                @if (auth()->user()->user_type == 'teacher')
                     <ul class="nav navbar-nav side-menu" id="sidebarnav">
                         <!-- menu item Dashboard-->
                         <li>
@@ -150,7 +150,7 @@
                         </li>
                     </ul>
                 @endif
-                @if (auth()->user()->user_type == '0' && auth()->user()->IsAdmin == '0')
+                @if (auth()->user()->user_type == 'user')
                     <ul class="nav navbar-nav side-menu" id="sidebarnav">
                         <!-- menu item Dashboard-->
                         <li>

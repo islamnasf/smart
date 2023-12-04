@@ -12,8 +12,8 @@ class StudentController extends Controller
 {
     
     public function index(){
-        $students=user::where('user_type','0')->where('IsAdmin','0')->get();
-        $studentCount=User::where('user_type','0')->where('IsAdmin','0')->count();
+        $students=user::where('user_type','user')->get();
+        $studentCount=User::where('user_type','user')->count();
         return view('/admin/student', compact('students','studentCount'));
 }
 public function update(StudentEditRequest $request ,int $student)

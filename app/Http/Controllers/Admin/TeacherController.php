@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class TeacherController extends Controller
 {
     public function index(){
-        $teachers=user::where('user_type','1')->where('IsAdmin','0')->get();
-        $count=user::where('user_type','1')->where('IsAdmin','0')->count();
+        $teachers=user::where('user_type','teacher')->get();
+        $count=user::where('user_type','teacher')->count();
         return view('/admin/teacher', compact('teachers','count'));
         }
 
@@ -40,7 +40,7 @@ class TeacherController extends Controller
         if($user){
        
             $user->update([
-                'user_type' =>'1',
+                'user_type' =>'teacher',
             ]);
         }
         toastr()->success('تم حفظ البيانات بنجاح');
