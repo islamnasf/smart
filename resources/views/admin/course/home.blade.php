@@ -45,13 +45,13 @@
             <!-- widgets -->
             <!-- widgets -->
             <div class="row">
-                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="{{route('addCourse')}}">
+                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="{{ route('addCourse') }}">
 
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
+                                    <span>
                                         <i class=" fa fa-caret-square-o-left highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
@@ -71,21 +71,20 @@
                 </a>
 
 
-                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="#">
+                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="{{route('showTermone')}}">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
-                                        <i class=" fa fa-check-square highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:25px "></i>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                    <span>
+                                        <img src="https://cdn-icons-png.flaticon.com/128/9180/9180579.png"
+                                            width="65px" style="padding-top:15px;padding-bottom:25px">
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
 
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        الكورسات المفعلة </p>
+                                        ترم أول </p>
 
 
                                 </div>
@@ -96,21 +95,20 @@
                 </a>
 
 
-                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="#">
+                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="{{route('showTermtow')}}">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
-                                        <i class=" fa fa-briefcase highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                    <span>
+                                        <img src="https://cdn-icons-png.flaticon.com/128/3601/3601634.png"
+                                            width="65px" style="padding-top:15px;padding-bottom:25px">
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
 
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        ارشيف كورسات </p>
+                                        ترم ثاني </p>
                                 </div>
                             </div>
 
@@ -123,7 +121,7 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
+                                    <span>
                                         <i class=" fa fa-calendar-o highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
@@ -152,7 +150,7 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
+                                    <span>
                                         <i class=" fa fa-sign-in highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
@@ -175,7 +173,7 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
+                                    <span>
                                         <i class=" fa fa-braille highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
@@ -196,7 +194,7 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
+                                    <span>
                                         <i class="fa fa-list-alt highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
@@ -216,7 +214,7 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
+                                    <span>
                                         <i class="fa fa-th-list highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
