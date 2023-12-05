@@ -21,9 +21,9 @@ return new class extends Migration
             //for student
             $table->string('student_subscrip')->nullable();  
             $table->string('renew')->nullable();
-            //
-            $table->enum('IsAdmin',['0','1'])->default('0');
-            $table->enum('user_type',['0','1'])->default('0');
+            $table->string('user_type')->default('user');
+            // $table->enum('IsAdmin',['0','1'])->default('0');
+            // $table->enum('user_type',['0','1'])->default('0');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('user_password');

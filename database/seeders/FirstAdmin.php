@@ -21,8 +21,7 @@ class FirstAdmin extends Seeder
         return[
             'name'=>'admin',
             'phone'=>'0123456789',
-            'IsAdmin'=>'1',
-            'user_type'=>'1',
+            'user_type'=>'admin',
             'password'=>Hash::make("123456"),
             'user_password'=>"123456",
 

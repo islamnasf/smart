@@ -1,4 +1,3 @@
-{{-- href="{{ URL::asset('css/headers.css') }}" --}}
 <!DOCTYPE html>
 <html lang="en">
 

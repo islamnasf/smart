@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('previous_test')->nullable();
             $table->string('book_test')->nullable();
             $table->string('solved_test')->nullable();
-            $table->string('solved_test')->nullable();
+            $table->string('unsolved_test')->nullable();
             $table->timestamps();
         });
     }

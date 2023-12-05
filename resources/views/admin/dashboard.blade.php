@@ -40,7 +40,7 @@
                     style="width:95%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;" alt="">
             </div>
             <!-- widgets -->
-            @if(auth()->user()->user_type=='1'&& auth()->user()->IsAdmin=='1')
+            @if(auth()->user()->user_type=='admin')
 
             <!-- widgets -->
 
@@ -132,7 +132,7 @@
                                     <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
                                         الاختبارات</p>
                                 </a>
-                                    <h4>0</h4>
+                                    <h4>{{$examCount}}</h4>
                                 </div>
                             </div>
 
@@ -235,7 +235,7 @@
                 </div>
             </div>
             @endif
-            @if(auth()->user()->user_type=='1'&& auth()->user()->IsAdmin=='0')
+            @if(auth()->user()->user_type=='teacher')
     <!-- widgets -->
     <div class="row">
         <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
@@ -329,6 +329,14 @@
     </div>
 </div>
 <!-- widgets -->
+
+
+@endif
+
+@if(auth()->user()->user_type=='user')
+
+      student
+ 
 
 
 @endif

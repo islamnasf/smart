@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="stylesheet"  href="{{ URL::asset('css/style.css') }}">
+    <link href="assets/css/contact.css" rel="stylesheet">
     <link rel="stylesheet"   href="http://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"  >
 </head>
 
@@ -22,11 +22,11 @@
                     <div style="color: #eee ; font-size: 65px;"> * </div>
                     <div class="text">
                         <h2 style="color:blanchedalmond; font-size: 30px;  margin: 0px auto; margin-right: 15px;">رقم الهاتف</h2>
-                        <h4 style="color: white;">507-475-6094</h4>
+                        <h4 style="color: white;">+96567696809</h4>
                     </div>
                 </div>
 
-                <div class="box">
+                <div class="box box1">
                 <div style="color: #eee ; font-size: 65px;"> * </div>
                     <div class="text">
                     <h2 style="color:blanchedalmond ; font-size: 30px; margin-right: 15px ;">الايميل </h2>
