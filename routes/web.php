@@ -36,7 +36,6 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('/student/edit/{student}', [StudentController::class, 'update'])->name('updateStudent');
   Route::post('/student/updateStudent/{student}', [StudentController::class, 'updateGroup'])->name('updateGroupStudent');
 
-  
   //teacher->admin
   Route::get('/teacher', [TeacherController::class, 'index'])->name('getTeacher');
   Route::post('/teacher', [TeacherController::class, 'store'])->name('postTeacher');
@@ -64,6 +63,11 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('course/home', [CourseController::class, 'index'])->name('course');
   Route::get('course/add', [CourseController::class, 'create'])->name('addCourse');
   Route::post('course/create', [CourseController::class, 'store'])->name('createCourse');
+  Route::get('course/termone/show', [CourseController::class,'termone'])->name('showTermone');
+  Route::get('course/termtow/show', [CourseController::class,'termtow'])->name('showTermtow');
+  Route::get('course/edit/show/{id}', [CourseController::class,'showEdit'])->name('showEditCourse');
+  Route::post('course/delete/{courseId}', [CourseController::class, 'delete'])->name('deleteCourse');
+  Route::post('course/update/{id}', [CourseController::class, 'update'])->name('updateCourse');
 });
 
 require __DIR__ . '/auth.php';

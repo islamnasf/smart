@@ -50,7 +50,7 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
+                                    <span >
                                     <a href="{{route('getStudent')}}">
                                         <i class=" fa fa-graduation-cap highlight-icon" aria-hidden="true" style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px"></i>
                                       </a>
@@ -74,7 +74,7 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
+                                    <span >
                                         <a href="{{route('getTeacher')}}">
                                             <i class=" fa fa-id-card highlight-icon" aria-hidden="true"
                                                 style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px  "></i>
@@ -97,7 +97,7 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
+                                    <span >
                                         <i class=" fa fa-stop-circle highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
@@ -119,7 +119,7 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
+                                    <span >
                                     <a href="{{route('getExam')}}">
                                         <i class=" fa fa-check-square-o  highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px  "></i>
@@ -148,7 +148,7 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
+                                    <span >
                                         <i class=" fa fa-book  highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:70px; padding-top:15px ; padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
@@ -169,7 +169,7 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
+                                    <span >
 
                                         <i class=" fa fa-envelope highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:70px; padding-top:15px ; padding-bottom:15px "></i>
@@ -193,7 +193,7 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
+                                    <span >
                                         <i class="fa fa-pencil-square-o highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
@@ -214,7 +214,7 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
+                                    <span >
                                     <a href="{{route('getProfile')}}">
                                         <i class=" fa fa-cogs  highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px "></i>
@@ -243,7 +243,7 @@
                 <div class="card-body">
                 <div class="clearfix">
                     <div class="float-left">
-                        <span class="text-danger">
+                        <span >
                         <a href="#">
                             <i class="fa fa-file-video-o highlight-icon" aria-hidden="true" style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px"></i>
                           </a>
@@ -266,7 +266,7 @@
             <div class="card-body">
                 <div class="clearfix">
                     <div class="float-left">
-                        <span class="text-danger">
+                        <span >
                             <a href="{{route('getTeacher')}}">
                                 <i class=" fa fa-money highlight-icon" aria-hidden="true"
                                     style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px  "></i>
@@ -288,7 +288,7 @@
             <div class="card-body">
                 <div class="clearfix">
                     <div class="float-left">
-                        <span class="text-danger">
+                        <span >
                             <i class=" fa fa-retweet highlight-icon" aria-hidden="true"
                                 style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                             <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
@@ -309,7 +309,7 @@
             <div class="card-body">
                 <div class="clearfix">
                     <div class="float-left">
-                        <span class="text-danger">
+                        <span >
                         <a href="{{route('getProfile')}}">
                             <i class=" fa fa-lock  highlight-icon" aria-hidden="true"
                                 style="color:#175166; font-size:60px; padding-top:15px; padding-bottom:15px  "></i>

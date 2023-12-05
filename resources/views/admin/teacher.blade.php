@@ -118,17 +118,6 @@ Teacher
                       </button>
                       تعديل البيانات
                     </div>
-                    <!-- <div style="padding:2px; padding-right: 20px; font-size: 15px;">
-                                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$teacher->id}}">
-                            <i class="fa fa-edit"></i>
-                          </button> 
-                          تعديل البيانات 
-                    </div> -->
-
-
-
-                    <!-- <a href="#" class="dropdown-item">New invoice received <small
-                                class="float-right text-muted time">22 mins</small> </a> -->
                   </div>
 
 
@@ -169,8 +158,6 @@ Teacher
                   </div>
                   <!-- Button trigger modal delete -->
                   <!-- <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete">
-<i class="fa fa-trash"></i>
-</button> -->
                   <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">

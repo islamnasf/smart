@@ -12,9 +12,9 @@
             color: #000;
             overflow-x: hidden;
             height: 100%;
-            background-image: url("https://img.freepik.com/free-photo/close-up-people-learning-work_23-2149300705.jpg?w=996&t=st=1701254020~exp=1701254620~hmac=748bec40849d8dcced23801e449af4d481a107646758378aaf312d30e26e8612");
+            background-image: url("https://img.freepik.com/free-photo/desk-stacked-with-books-studying-generated-by-ai_188544-29784.jpg?t=st=1701267777~exp=1701271377~hmac=38ea1385de5956d5b4032dff218cb53cc80c3592b77ae1f84a34e88bc83ed904&w=826");
             background-repeat: no-repeat;
-            background-size: 100% 100%
+            background-size: 100% 100%;
         }
 
         .card {
@@ -106,18 +106,21 @@
                 <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
                     <div class="card">
                         <h5 class="text-center mb-4">بيانات المادة الأساسية</h5>
-                        <form class="form-card" action="{{ route('createCourse') }}" method="POST">
+                        <form class="form-card" action="{{ route('updateCourse', $coures->id) }}" method="POST">
                             @csrf
                             <div class="row justify-content-between text-left">
                                 <div class="form-group col-sm-6 flex-column d-flex"> <label
                                         class="form-control-label px-3">إسم الماده<span class="text-danger">
-                                            *</span></label> <input type="text" id="fname" name="subject_name"
-                                        required onblur="validate(1)"> </div>
+                                            *</span></label>
+                                    <input type="text" id="fname" name="subject_name" required
+                                        value="{{ $coures->subject_name }}" onblur="validate(1)">
+                                </div>
                                 <div class="form-group col-sm-6 flex-column d-flex"> <label
                                         class="form-control-label px-3">مدرس المادة<span class="text-danger">
                                             *</span></label>
                                     <select type="text" id="lname" required name="techer_id"
                                         onblur="validate(2)">
+                                        <option value="{{ $coures->techer_id }}">{{ $coures->techer->name }}</option>
                                         @foreach ($techer as $tech)
                                             <option value="{{ $tech->id }}">{{ $tech->name }}</option>
                                         @endforeach
@@ -144,7 +147,17 @@
                                 <div class="form-group col-sm-6 flex-column d-flex"> <label
                                         class="form-control-label px-3">تاريخ إنتهاء الكورس<span class="text-danger">
                                             *</span></label> <input required type="date" id="job"
-                                        name="expiry_date" placeholder="" onblur="validate(5)"> </div>
+                                        value="{{ $coures->expiry_date }}" name="expiry_date" onblur="validate(5)">
+                                </div>
+
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                        class="form-control-label px-3">الترم<span class="text-danger">
+                                            *</span></label>
+                                    <select required id="job" name="term_type">
+                                        <option value="termone">الترم الاول</option>
+                                        <option value="termtow">الترم الثاني</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="row justify-content-between text-left">
                                 <div class="form-group col-12 flex-column d-flex"> <label
@@ -164,26 +177,28 @@
                                 <div class="form-group col-12 flex-column d-flex"> <label
                                         class="form-control-label px-3">نسبة المدرس من الكورس<span class="text-danger">
                                             *</span></label> <input type="number" id="ans"
-                                        name="Teacher_ratio_course" placeholder="" onblur="validate(6)">
+                                        name="Teacher_ratio_course" value="{{ $coures->Teacher_ratio_course }}"
+                                        onblur="validate(6)">
                                 </div>
                             </div>
                             <div class="row justify-content-between text-left">
                                 <div class="form-group col-12 flex-column d-flex"> <label
                                         class="form-control-label px-3">سعر الترم<span class="text-danger">
                                             *</span></label> <input type="number" id="ans" name="term_price"
-                                        placeholder="" onblur="validate(6)">
+                                        value="{{ $coures->term_price }}" onblur="validate(6)">
                                 </div>
                             </div>
                             <div class="row justify-content-between text-left">
                                 <div class="form-group col-12 flex-column d-flex"> <label
                                         class="form-control-label px-3">سعر الإشتراك الشهرى<span class="text-danger">
                                             *</span></label> <input type="number" id="ans"
-                                        name="monthly_subscription_price" placeholder="" onblur="validate(6)">
+                                        name="monthly_subscription_price"
+                                        value="{{ $coures->monthly_subscription_price }}" onblur="validate(6)">
                                 </div>
                             </div>
                             <div class="row justify-content-end">
                                 <div class="form-group col-sm-6"> <button type="submit"
-                                        class="btn-block btn-primary">اضافة المادة</button> </div>
+                                        class="btn-block btn-primary">تعديل المادة</button> </div>
                             </div>
                         </form>
                     </div>

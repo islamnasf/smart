@@ -13,7 +13,7 @@
             overflow-x: hidden;
             height: 100%;
             background-image: url("https://img.freepik.com/free-photo/desk-stacked-with-books-studying-generated-by-ai_188544-29784.jpg?t=st=1701267777~exp=1701271377~hmac=38ea1385de5956d5b4032dff218cb53cc80c3592b77ae1f84a34e88bc83ed904&w=826");
-            background-repeat: no-repeat ;
+            background-repeat: no-repeat;
             background-size: 100% 100%;
         }
 
@@ -106,7 +106,7 @@
                 <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
                     <div class="card">
                         <h5 class="text-center mb-4">بيانات المادة الأساسية</h5>
-                        <form class="form-card" action="{{route('createCourse')}}" method="POST">
+                        <form class="form-card" action="{{ route('createCourse') }}" method="POST">
                             @csrf
                             <div class="row justify-content-between text-left">
                                 <div class="form-group col-sm-6 flex-column d-flex"> <label
@@ -116,7 +116,8 @@
                                 <div class="form-group col-sm-6 flex-column d-flex"> <label
                                         class="form-control-label px-3">مدرس المادة<span class="text-danger">
                                             *</span></label>
-                                    <select type="text" id="lname" required name="techer_id" onblur="validate(2)">
+                                    <select type="text" id="lname" required name="techer_id"
+                                        onblur="validate(2)">
                                         @foreach ($techer as $tech)
                                             <option value="{{ $tech->id }}">{{ $tech->name }}</option>
                                         @endforeach
@@ -144,6 +145,15 @@
                                         class="form-control-label px-3">تاريخ إنتهاء الكورس<span class="text-danger">
                                             *</span></label> <input required type="date" id="job"
                                         name="expiry_date" placeholder="" onblur="validate(5)"> </div>
+
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                        class="form-control-label px-3">الترم<span class="text-danger">
+                                            *</span></label>
+                                    <select required id="job" name="term_type">
+                                        <option value="termone">الترم الاول</option>
+                                        <option value="termtow">الترم الثاني</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="row justify-content-between text-left">
                                 <div class="form-group col-12 flex-column d-flex"> <label
@@ -161,22 +171,22 @@
                             </div>
                             <div class="row justify-content-between text-left">
                                 <div class="form-group col-12 flex-column d-flex"> <label
-                                        class="form-control-label px-3">نسبة المدرس من الكورس<span
-                                            class="text-danger"> *</span></label> <input type="number" id="ans"
+                                        class="form-control-label px-3">نسبة المدرس من الكورس<span class="text-danger">
+                                            *</span></label> <input type="number" id="ans"
                                         name="Teacher_ratio_course" placeholder="" onblur="validate(6)">
                                 </div>
                             </div>
                             <div class="row justify-content-between text-left">
                                 <div class="form-group col-12 flex-column d-flex"> <label
-                                        class="form-control-label px-3">سعر الترم<span
-                                            class="text-danger"> *</span></label> <input type="number" id="ans"
-                                        name="term_price" placeholder="" onblur="validate(6)">
+                                        class="form-control-label px-3">سعر الترم<span class="text-danger">
+                                            *</span></label> <input type="number" id="ans" name="term_price"
+                                        placeholder="" onblur="validate(6)">
                                 </div>
                             </div>
                             <div class="row justify-content-between text-left">
                                 <div class="form-group col-12 flex-column d-flex"> <label
-                                        class="form-control-label px-3">سعر الإشتراك الشهرى<span
-                                            class="text-danger"> *</span></label> <input type="number" id="ans"
+                                        class="form-control-label px-3">سعر الإشتراك الشهرى<span class="text-danger">
+                                            *</span></label> <input type="number" id="ans"
                                         name="monthly_subscription_price" placeholder="" onblur="validate(6)">
                                 </div>
                             </div>
