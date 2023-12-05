@@ -19,7 +19,7 @@
  preloader -->
 
         <div id="pre-loader">
-            <img src="assets/images/pre-loader/loader-01.svg" alt="">
+            <img src="{{ asset('assets/images/pre-loader/loader-01.svg') }}" alt="">
         </div>
 
         <!--=================================
@@ -36,310 +36,321 @@
 
 
             <div class="row">
-                <img src="assets/images/education.jpg"
-                    style="width:95%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;" alt="">
+                <img src="{{asset('assets/images/education.jpg')}}"
+                    style="width:95%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;"
+                    alt="">
             </div>
             <!-- widgets -->
-            @if(auth()->user()->user_type=='admin')
+            @if (auth()->user()->user_type == 'admin')
+                <!-- widgets -->
 
-            <!-- widgets -->
-
-            <div class="row">
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span >
-                                    <a href="{{route('getStudent')}}">
-                                        <i class=" fa fa-graduation-cap highlight-icon" aria-hidden="true" style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px"></i>
-                                      </a>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                                    </span>
-                                </div>
-                                <div class="float-right text-center">
-                                <a href="{{route('getStudent')}}">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">الطلبة
-                                </a>  
-                                </p>
-                                    <h4>{{$studentCount}}</h4>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span >
-                                        <a href="{{route('getTeacher')}}">
-                                            <i class=" fa fa-id-card highlight-icon" aria-hidden="true"
-                                                style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px  "></i>
-                                        </a>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                                    </span>
-                                </div>
-                                <div class="float-right text-center">
-                                    <a href="{{route('getTeacher')}}"> <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">المعلمين</p> </a>
-                                    <h4>{{$teacherCount}}</h4>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span >
-                                        <i class=" fa fa-stop-circle highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px "></i>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                                    </span>
-                                </div>
-                                <div class="float-right text-center">
-                                    <a href='{{route("course")}}'>
-                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">الكورسات</p>
-                                    </a>
-                                    <h4>0</h4>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span >
-                                    <a href="{{route('getExam')}}">
-                                        <i class=" fa fa-check-square-o  highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px  "></i>
-                                    </a>
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                        <div class="card card-statistics h-100">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <span>
+                                            <a href="{{ route('getStudent') }}">
+                                                <i class=" fa fa-graduation-cap highlight-icon" aria-hidden="true"
+                                                    style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px"></i>
+                                            </a>
                                             <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                                    </span>
+                                        </span>
+                                    </div>
+                                    <div class="float-right text-center">
+                                        <a href="{{ route('getStudent') }}">
+                                            <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
+                                                الطلبة
+                                        </a>
+                                        </p>
+                                        <h4>{{ $studentCount }}</h4>
+                                    </div>
                                 </div>
-                                <div class="float-right text-center">
-                                <a href="{{route('getExam')}}">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
-                                        الاختبارات</p>
-                                </a>
-                                    <h4>{{$examCount}}</h4>
-                                </div>
-                            </div>
 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                        <div class="card card-statistics h-100">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <span>
+                                            <a href="{{ route('getTeacher') }}">
+                                                <i class=" fa fa-id-card highlight-icon" aria-hidden="true"
+                                                    style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px  "></i>
+                                            </a>
+                                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                        </span>
+                                    </div>
+                                    <div class="float-right text-center">
+                                        <a href="{{ route('getTeacher') }}">
+                                            <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
+                                                المعلمين</p>
+                                        </a>
+                                        <h4>{{ $teacherCount }}</h4>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                        <div class="card card-statistics h-100">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <span>
+                                            <i class=" fa fa-stop-circle highlight-icon" aria-hidden="true"
+                                                style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px "></i>
+                                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                        </span>
+                                    </div>
+                                    <div class="float-right text-center">
+                                        <a href='{{ route('course') }}'>
+                                            <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
+                                                الكورسات</p>
+                                        </a>
+                                        <h4>{{ $courses }}</h4>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                        <div class="card card-statistics h-100">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <span>
+                                            <a href="{{ route('getExam') }}">
+                                                <i class=" fa fa-check-square-o  highlight-icon" aria-hidden="true"
+                                                    style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px  "></i>
+                                            </a>
+                                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                        </span>
+                                    </div>
+                                    <div class="float-right text-center">
+                                        <a href="{{ route('getExam') }}">
+                                            <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
+                                                الاختبارات</p>
+                                        </a>
+                                        <h4>{{ $examCount }}</h4>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- widgets -->
+                <!-- widgets -->
 
-            <div class="row">
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span >
-                                        <i class=" fa fa-book  highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:70px; padding-top:15px ; padding-bottom:15px "></i>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                                    </span>
-                                </div>
-                                <div class="float-right text-center">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">المذكرات
-                                    </p>
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                        <div class="card card-statistics h-100">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <span>
+                                            <i class=" fa fa-book  highlight-icon" aria-hidden="true"
+                                                style="color:#175166; font-size:70px; padding-top:15px ; padding-bottom:15px "></i>
+                                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                        </span>
+                                    </div>
+                                    <div class="float-right text-center">
+                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">
+                                            المذكرات
+                                        </p>
 
+                                    </div>
                                 </div>
+
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                        <div class="card card-statistics h-100">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <span>
 
+                                            <i class=" fa fa-envelope highlight-icon" aria-hidden="true"
+                                                style="color:#175166; font-size:70px; padding-top:15px ; padding-bottom:15px "></i>
+                                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                        </span>
+                                    </div>
+                                    <div class="float-right text-center">
+                                        <a href="{{ route('getContact') }}">
+                                            <p class="card-text text-dark"
+                                                style="font-size: 27px; padding-top:25px ;">اسئلة
+                                                الادارة </p>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                        <div class="card card-statistics h-100">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <span>
+                                            <i class="fa fa-pencil-square-o highlight-icon" aria-hidden="true"
+                                                style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px "></i>
+                                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                        </span>
+                                    </div>
+                                    <div class="float-right text-center">
+                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">
+                                            إعداد
+                                            المنصة</p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                        <div class="card card-statistics h-100">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <span>
+                                            <a href="{{ route('getProfile') }}">
+                                                <i class=" fa fa-cogs  highlight-icon" aria-hidden="true"
+                                                    style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px "></i>
+                                                <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="float-right text-center">
+                                        <a href="{{ route('getProfile') }}">
+                                            <p class="card-text text-dark"
+                                                style="font-size: 27px; padding-top:25px ;"> إعداد
+                                                الحساب</p>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span >
-
-                                        <i class=" fa fa-envelope highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:70px; padding-top:15px ; padding-bottom:15px "></i>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                                    </span>
-                                </div>
-                                <div class="float-right text-center">
-                                    <a href="{{route('getContact')}}">
-                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">اسئلة
-                                            الادارة </p>
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span >
-                                        <i class="fa fa-pencil-square-o highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px "></i>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                                    </span>
-                                </div>
-                                <div class="float-right text-center">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">إعداد
-                                        المنصة</p>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span >
-                                    <a href="{{route('getProfile')}}">
-                                        <i class=" fa fa-cogs  highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px "></i>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                                    </a>
-                                    </span>
-                                </div>
-                                <div class="float-right text-center">
-                                <a href="{{route('getProfile')}}">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;"> إعداد
-                                        الحساب</p>
-                                </a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
             @endif
-            @if(auth()->user()->user_type=='teacher')
-    <!-- widgets -->
-    <div class="row">
-        <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-            <div class="card card-statistics h-100">
-                <div class="card-body">
-                <div class="clearfix">
-                    <div class="float-left">
-                        <span >
-                        <a href="#">
-                            <i class="fa fa-file-video-o highlight-icon" aria-hidden="true" style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px"></i>
-                          </a>
-                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                        </span>
+            @if (auth()->user()->user_type == 'teacher')
+                <!-- widgets -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                        <div class="card card-statistics h-100">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <span>
+                                            <a href="#">
+                                                <i class="fa fa-file-video-o highlight-icon" aria-hidden="true"
+                                                    style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px"></i>
+                                            </a>
+                                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                        </span>
+                                    </div>
+                                    <div class="float-right text-center">
+                                        <a href="#">
+                                            <p class="card-text text-dark"
+                                                style="font-size: 20px; padding-top:25px ;">الكورسات المسجلة
+                                        </a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="float-right text-center">
-                    <a href="#">
-                        <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">الكورسات المسجلة
-                    </a>  
-                    </p>
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                        <div class="card card-statistics h-100">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <span>
+                                            <a href="{{ route('getTeacher') }}">
+                                                <i class=" fa fa-money highlight-icon" aria-hidden="true"
+                                                    style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px  "></i>
+                                            </a>
+                                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                        </span>
+                                    </div>
+                                    <div class="float-right text-center">
+                                        <a href="#">
+                                            <p class="card-text text-dark"
+                                                style="font-size: 20px; padding-top:25px ;">الدفعات المحصلة </p>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                        <div class="card card-statistics h-100">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <span>
+                                            <i class=" fa fa-retweet highlight-icon" aria-hidden="true"
+                                                style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                        </span>
+                                    </div>
+                                    <div class="float-right text-center">
+                                        <a href='#'>
+                                            <p class="card-text text-dark"
+                                                style="font-size: 20px; padding-top:25px ;">اشتركات الطلبة</p>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                        <div class="card card-statistics h-100">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <span>
+                                            <a href="{{ route('getProfile') }}">
+                                                <i class=" fa fa-lock  highlight-icon" aria-hidden="true"
+                                                    style="color:#175166; font-size:60px; padding-top:15px; padding-bottom:15px  "></i>
+                                            </a>
+                                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                        </span>
+                                    </div>
+                                    <div class="float-right text-center">
+                                        <a href="{{ route('getProfile') }}">
+                                            <p class="card-text text-dark"
+                                                style="font-size: 20px; padding-top:25px ;">
+                                                ملفك الشخصي</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- widgets -->
+            @endif
 
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-        <div class="card card-statistics h-100">
-            <div class="card-body">
-                <div class="clearfix">
-                    <div class="float-left">
-                        <span >
-                            <a href="{{route('getTeacher')}}">
-                                <i class=" fa fa-money highlight-icon" aria-hidden="true"
-                                    style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px  "></i>
-                            </a>
-                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                        </span>
-                    </div>
-                    <div class="float-right text-center">
-                        <a href="#"> <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">الدفعات المحصلة </p> </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-        <div class="card card-statistics h-100">
-            <div class="card-body">
-                <div class="clearfix">
-                    <div class="float-left">
-                        <span >
-                            <i class=" fa fa-retweet highlight-icon" aria-hidden="true"
-                                style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
-                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                        </span>
-                    </div>
-                    <div class="float-right text-center">
-                        <a href='#'>
-                            <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">اشتركات الطلبة</p>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-        <div class="card card-statistics h-100">
-            <div class="card-body">
-                <div class="clearfix">
-                    <div class="float-left">
-                        <span >
-                        <a href="{{route('getProfile')}}">
-                            <i class=" fa fa-lock  highlight-icon" aria-hidden="true"
-                                style="color:#175166; font-size:60px; padding-top:15px; padding-bottom:15px  "></i>
-                        </a>
-                                <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                        </span>
-                    </div>
-                    <div class="float-right text-center">
-                    <a href="{{route('getProfile')}}">
-                    <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">
-                        ملفك الشخصي</p>
-                    </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- widgets -->
-
-
-@endif
-
-@if(auth()->user()->user_type=='user')
-
-      student
- 
-
-
-@endif
+            @if (auth()->user()->user_type == 'user')
+                student
+            @endif
 
             <!--=================================
  wrapper -->

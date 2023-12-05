@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\ExamController;
 use App\Http\Controllers\Admin\SecretaryController;
 use App\Http\Controllers\LandingPage\ContactUs;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,10 @@ Route::get('/', function () {
 })->name('home');
 Route::get('/grade', [GradeController::class, 'index']);
 
+Route::fallback(function () {
+  return view("errors.404");
+});
+
 
 route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], function () {
   //student->admin
@@ -44,7 +49,7 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
   Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');
   Route::post('/secretary/edit/{secretary}', [SecretaryController::class, 'update'])->name('updateSecretary');
-  
+
   //dashboard
   Route::get('/', [HomeController::class, 'index'])->name('dashboard');
   //exam->admin
@@ -63,9 +68,9 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('course/home', [CourseController::class, 'index'])->name('course');
   Route::get('course/add', [CourseController::class, 'create'])->name('addCourse');
   Route::post('course/create', [CourseController::class, 'store'])->name('createCourse');
-  Route::get('course/termone/show', [CourseController::class,'termone'])->name('showTermone');
-  Route::get('course/termtow/show', [CourseController::class,'termtow'])->name('showTermtow');
-  Route::get('course/edit/show/{id}', [CourseController::class,'showEdit'])->name('showEditCourse');
+  Route::get('course/termone/show', [CourseController::class, 'termone'])->name('showTermone');
+  Route::get('course/termtow/show', [CourseController::class, 'termtow'])->name('showTermtow');
+  Route::get('course/edit/show/{id}', [CourseController::class, 'showEdit'])->name('showEditCourse');
   Route::post('course/delete/{courseId}', [CourseController::class, 'delete'])->name('deleteCourse');
   Route::post('course/update/{id}', [CourseController::class, 'update'])->name('updateCourse');
 });
