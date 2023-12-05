@@ -50,7 +50,7 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span >
+                                    <span  >
                                     <a href="{{route('getStudent')}}">
                                         <i class=" fa fa-graduation-cap highlight-icon" aria-hidden="true" style="color:#175166; font-size:70px; padding-top:15px;padding-bottom:15px"></i>
                                       </a>
@@ -141,7 +141,6 @@
                 </div>
             </div>
             <!-- widgets -->
-
             <div class="row">
                 <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
@@ -149,14 +148,19 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span >
+                                    <a href="{{route('getBook')}}">
+
                                         <i class=" fa fa-book  highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:70px; padding-top:15px ; padding-bottom:15px "></i>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+</a>
+                                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
+                                <a href="{{route('getBook')}}">
                                     <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">المذكرات
                                     </p>
+                                    <a href="{{route('getBook')}}">
 
                                 </div>
                             </div>

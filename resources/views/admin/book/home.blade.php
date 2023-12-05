@@ -52,7 +52,7 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-caret-square-o-left highlight-icon" aria-hidden="true"
+                                        <i class=" fa fa-list-alt highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
@@ -60,7 +60,7 @@
                                 <div class="float-center text-center">
 
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        اضافة كورس</p>
+                                         الطلبيات الجديدة</p>
 
 
                                 </div>
@@ -77,7 +77,7 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-check-square highlight-icon" aria-hidden="true"
+                                        <i class=" fa fa fa-clock-o highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:25px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
@@ -85,7 +85,7 @@
                                 <div class="float-center text-center">
 
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        الكورسات المفعلة </p>
+                                        الطلبيات الحالية   </p>
 
 
                                 </div>
@@ -110,7 +110,7 @@
                                 <div class="float-center text-center">
 
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        ارشيف كورسات </p>
+                                        الطلبيات المكتملة  </p>
                                 </div>
                             </div>
 
@@ -124,7 +124,7 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-calendar-o highlight-icon" aria-hidden="true"
+                                        <i class=" fa fa-credit-card highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
@@ -132,7 +132,7 @@
                                 <div class="float-center text-center">
 
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        الباقات</p>
+                                        الطلبيات المحصلة </p>
 
 
                                 </div>

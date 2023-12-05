@@ -4,7 +4,6 @@
             <!-- logo -->
             <div class="text-left navbar-brand-wrapper">
                 <img src="{{url('assets/images/logo-dark.png')}}" width="85%"  alt="">
-            
             </div>
             <!-- Top bar left -->
             <ul class="nav navbar-nav mr-auto">
