@@ -133,8 +133,6 @@
 
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
                                         الطلبيات المحصلة </p>
-
-
                                 </div>
                             </div>
 
@@ -153,7 +151,7 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-sign-in highlight-icon" aria-hidden="true"
+                                        <i class=" fa fa-plus-square highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
@@ -161,7 +159,7 @@
                                 <div class="float-center text-center">
 
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        اشتركات الطلبة </p>
+                                        اضافة مذكرة   </p>
 
                                 </div>
                             </div>
@@ -176,14 +174,14 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-braille highlight-icon" aria-hidden="true"
+                                        <i class=" fa fa fa-check-square-o highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        التقرير الشامل</p>
+                                         المذكرات المفعلة</p>
                                 </div>
                             </div>
 
@@ -197,34 +195,127 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class="fa fa-list-alt highlight-icon" aria-hidden="true"
+                                        <i class="fa fa-archive highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        الاشتركات المنتهية </p>
+                                        ارشيف المذكرات  </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </a>
-
+                
                 <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class="fa fa-th-list highlight-icon" aria-hidden="true"
+                                        <i class="fa fa-check-circle highlight-icon" aria-hidden="true"
                                             style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        ارشيف الباقات</p>
+                                        الباقات المفعلة    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                    <div class="card card-statistics h-100">
+                        <div class="card-body">
+                            <div class="clearfix">
+                                <div class="float-left">
+                                    <span class="text-danger">
+                                        <i class="fa fa-file-archive-o highlight-icon" aria-hidden="true"
+                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                    </span>
+                                </div>
+                                <div class="float-center text-center">
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                        ارشيف الباقات  </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                 <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                   <div class="card card-statistics h-100">
+                        <div class="card-body">
+                            <div class="clearfix">
+                                <div class="float-left">
+                                    <span class="text-danger">
+                                        <i class=" fa fa-home highlight-icon" aria-hidden="true"
+                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                    </span>
+                                </div>
+                                <div class="float-center text-center">
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                        المخزن الرئيسي </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                   <div class="card card-statistics h-100">
+                        <div class="card-body">
+                            <div class="clearfix">
+                                <div class="float-left">
+                                    <span class="text-danger">
+                                        <i class=" fa fa-users highlight-icon" aria-hidden="true"
+                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                    </span>
+                                </div>
+                                <div class="float-center text-center">
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                         المناديب </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                   <div class="card card-statistics h-100">
+                        <div class="card-body">
+                            <div class="clearfix">
+                                <div class="float-left">
+                                    <span class="text-danger">
+                                        <i class=" fa fa-globe highlight-icon" aria-hidden="true"
+                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                    </span>
+                                </div>
+                                <div class="float-center text-center">
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                         المحافظات </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                   <div class="card card-statistics h-100">
+                        <div class="card-body">
+                            <div class="clearfix">
+                                <div class="float-left">
+                                    <span class="text-danger">
+                                        <i class=" fa fa-bars highlight-icon" aria-hidden="true"
+                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                    </span>
+                                </div>
+                                <div class="float-center text-center">
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                         تقرير المعلمين </p>
                                 </div>
                             </div>
                         </div>
@@ -232,13 +323,11 @@
                 </a>
 
             </div>
-
+            <!--=================================
+            wrapper -->
 
             <!--=================================
- wrapper -->
-
-            <!--=================================
- footer -->
+            footer -->
 
             @include('layouts.footer')
         </div><!-- main content wrapper end-->

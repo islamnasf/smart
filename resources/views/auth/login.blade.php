@@ -72,7 +72,7 @@ button{
     margin: 90px;
     justify-content: center;
     color: #fff;
-    background: #573b8a;
+    background: #0893c5;
     font-size: 1em;
     font-weight: bold;
     margin-top: 10px;
@@ -96,7 +96,7 @@ button:hover{
 }
 
 .login label{
-    color: #573b8a;
+    color: #0893c5;
     transform: scale(.7);
 }
 
