@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\GradeController;
 use App\Http\Controllers\Admin\HomeController;
@@ -46,6 +47,10 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('/teacher', [TeacherController::class, 'store'])->name('postTeacher');
   Route::post('/teacher/edit/{teacher}', [TeacherController::class, 'update'])->name('updateTeacher');
   //secretary->admin
+  Route::get('/book', [BookController::class, 'index'])->name('getBook');
+  Route::post('/book', [BookController::class, 'store'])->name('postBook');
+  Route::post('/book/edit/{book}', [BookController::class, 'update'])->name('updateBook');
+  //book->admin
   Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
   Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');
   Route::post('/secretary/edit/{secretary}', [SecretaryController::class, 'update'])->name('updateSecretary');
