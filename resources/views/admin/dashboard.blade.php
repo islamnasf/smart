@@ -109,7 +109,7 @@
                                         </span>
                                     </div>
                                     <div class="float-right text-center">
-                                        <a href='{{ route('course') }}'>
+                                        <a href="{{ route('course') }}">
                                             <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
                                                 الكورسات</p>
                                         </a>
@@ -161,9 +161,10 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
+                                <a href="{{ route('getBook') }}">
                                     <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">المذكرات
                                     </p>
-
+</a>
                                     </div>
                                 </div>
 
