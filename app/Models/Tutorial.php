@@ -13,4 +13,8 @@ class Tutorial extends Model
     {
         return $this->belongsTo(Video::class, "tutorial_id", "id");
     }
+    public function teacher()
+    {
+        return $this->belongsTo(User::class,"user_id","id");
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\Tutorial;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -57,4 +58,25 @@ class CourseController extends Controller
         $courses->delete();
         return redirect()->route("showTermone")->with("success", "Done!");
     }
+    public function tutorial(Request $request, $userId)
+    {
+        $teacher = User::find($userId)->tutorial;
+        return view('admin.course.tutorial', (compact('teacher')));
+    }
+
+    public function createTutorial(Request $request, $userId)
+    {
+        $requests = $request->validate([
+            'name' => 'required',
+        ]);
+
+        $tutorial = Tutorial::create([
+            'name' => $request->name,
+            'user_id' => $userId,
+        ]);
+
+        return redirect()->route('showTutorial', $userId)->with('success', 'create done!');
+    }
+
+
 }
