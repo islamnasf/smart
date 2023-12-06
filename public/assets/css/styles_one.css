@@ -307,7 +307,7 @@ padding-top: 50px;
 }
 
 .feature {
-  background-color: #252731;
+  background-color: #1e2028;
   display: flex;
   border-radius: 1rem;
   overflow: hidden;
@@ -482,6 +482,16 @@ footer .icon:hover {
 @media screen and (max-width: 600px) {
   main {
     text-align: center;
+
+  }
+  body {
+
+    background-size:  800px 100%;
+
+  }
+  .features { 
+    background-size:  800px 100%;
+
   }
   .feature .content p {
     width: 100%;
@@ -489,6 +499,9 @@ footer .icon:hover {
   .hero {
     height: 50vh;
     margin: 3rem 0;
+    background-size:  800px 100%;
+    background-clip:content-box;
+
   }
   .hero h1 {
     width: 80%;

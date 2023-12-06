@@ -33,7 +33,7 @@
             <a href="#" class="nav-link">بنك الاسئلة  </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">تواصل معنا</a>
+            <a href="{{ route('contactus') }}" class="nav-link">تواصل معنا</a>
           </li>
         </ul>
         @if (Auth::check())
@@ -67,7 +67,7 @@
               </div>
           </div>
 
-          <div class="box" style="--clr:#eb5ae5">
+          <div class="box" style="--clr:#F8F8FF">
               <div class="content">
                 <div class="icon">        <img src="https://cdn-icons-png.flaticon.com/128/7851/7851689.png" class="  highlight-icon logo " width="80px"></div>
                   <div class="text">
@@ -94,7 +94,7 @@
               </div>
           </div>
           
-          <div class="box" style="--clr:#F8F8FF">
+          <div class="box" style="--clr:#eb5ae5">
             <div class="content">
               <div class="icon">        <img src="https://cdn-icons-png.flaticon.com/128/3750/3750032.png" class="  highlight-icon logo " width="80px"></div>
               <div class="text">
@@ -120,8 +120,8 @@
          
           <div class="feature">
             <div class="content">
-              <img src=" https://cdn-icons-png.flaticon.com/128/10155/10155988.png" class="  highlight-icon logo " width="100px">
-              <h2> منصة Education</h2>
+              <img src=" https://cdn-icons-png.flaticon.com/128/10155/10155988.png"  class="  highlight-icon logo " width="100px">
+              <h2 style="text-align: center; padding:10px; background-color: #0893c5; width:50%; margin:10px auto; margin-bottom: 25px; "> منصة Education</h2>
               <p>
                 -   هى المنصة الأولى من نوعها للتعليم .
               </p>
