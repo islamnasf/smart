@@ -17,13 +17,13 @@
     <div class="row">
         <div class="col-sm-12"
             style="color:#dc3545 ; margin:10px auto; background-color: #dc3545; padding-top: 10px; padding-bottom: 10px;  border-radius:7px; display: flex; justify-content: space-around;">
-            <h2 class="mb-0" style="color:#fff ; ">الدروس</h2>
+            <h2 class="mb-0" style="color:#fff ; ">قائمة فيديوهات</h2>
             <button type="button" class="btn btn-info float-left float-sm-right " data-toggle="modal"
                 data-target="#exampleModal"
                 style="font-size: 18px; font-family:Amiri;
             line-height: 1.2;"><img
-                    src="https://cdn-icons-png.flaticon.com/128/2542/2542533.png" width="26px"> -
-                اضافة درس جديد
+                    src="https://cdn-icons-png.flaticon.com/128/6348/6348571.png" width="26px"> -
+                اضافة فيديو جديد
             </button>
         </div>
     </div>
@@ -42,24 +42,43 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">اضافة درس</h5>
+                <h5 class="modal-title" id="exampleModalLabel">اضافة حلقة</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
-            <form action="{{ route('postTutorial', Route::current()->Parameter('userId')) }}" method="post">
+            <form action="{{ route('postTutorialVideo', Route::current()->Parameter('tutorialId')) }}" method="post">
                 <div class="modal-body">
                     @csrf
-                    <input type="text" name="name" class="form-control" placeholder="اسم المادة ">
+                    <input type="text" name="name" required class="form-control" placeholder="عنوان الحلقة">
                     @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     </br>
+                    <input type="text" required name="link" class="form-control" placeholder="لينك الحلقة">
+                    @error('link')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    </br>
+                </div>
+                <div class="row justify-content-between text-left">
+                    <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3">نوع الحلقة
+                            <span class="text-danger">
+                                *</span></label>
+                        <div class="btn-group col-md-2" data-toggle="buttons">
+                            <label class="btn btn-gender btn-default active">
+                                <input type="radio" id="female" name="type" value="free"> مجاني
+                            </label>
+                            <label class="btn btn-gender btn-default">
+                                <input type="radio" id="male" name="type" value="cash"> مدفوع
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-                    <button type="submit" class="btn btn-primary">اضافة الدرس </button>
+                    <button type="submit" class="btn btn-primary">اضافة حلقة </button>
                 </div>
             </form>
         </div>
@@ -85,47 +104,73 @@
                         <thead>
                             <tr>
                                 <th>عنوان الحلقة</th>
+                                <th>حالة الحلقة </th>
                                 <th>العمليات</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($teacher as $tutorial)
+                            @foreach ($tutorial as $video)
                                 <tr>
-                                    <td><a
-                                            href="{{ route('showTutorialVideo', $tutorial->id) }}">{{ $tutorial->name }}</a>
-                                    </td>
+                                    <td>{{ $video->name }}</td>
+                                    @if ($video->type == 'cash')
+                                        <td
+                                            style="background-color: #41a4f5; color: #fff;font-weight: bolder;font-size: 15px;border-radius: 10px">
+                                            مدفوعة</td>
+                                    @else
+                                        <td
+                                            style="background-color: #65ff47; color: #fff;font-weight: bolder;font-size: 15px;border-radius: 10px">
+                                            مجانية</td>
+                                    @endif
                                     <td>
                                         <!-- Button trigger modal update -->
                                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                                            data-target="#edit{{$tutorial->id}}">
+                                            data-target="#edit{{ $video->id }}">
                                             <i class="fa fa-pencil-square"></i>
                                         </button>
-                                        <div class="modal fade" id="edit{{$tutorial->id}}" tabindex="-1"
+                                        <div class="modal fade" id="edit{{ $video->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">تعديل الدرس</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">تعديل الحلقة</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <form action="{{ route('editTutorial', $tutorial->id) }}"
+                                                    <form action="{{ route('editTutorialVideo', $video->id) }}"
                                                         method="post">
                                                         <div class="modal-body">
                                                             @csrf
                                                             <input type="text" name="name" class="form-control"
-                                                                value="{{ $tutorial->name }}" placeholder="اسم المادة ">
-                                                            @error('name')
-                                                                <div class="alert alert-danger">{{ $message }}</div>
-                                                            @enderror
+                                                                value="{{ $video->name }}"
+                                                                placeholder="عنوان الحلقة">
                                                             </br>
+                                                            <input type="text" name="link" class="form-control"
+                                                                value="{{ $video->link }}"
+                                                                placeholder="لينك الحلقة">
+                                                        </div>
+                                                        <div class="row justify-content-between text-left">
+                                                            <div class="form-group col-12 flex-column d-flex"> <label
+                                                                    class="form-control-label px-3">نوع الحلقة
+                                                                    <span class="text-danger">
+                                                                        *</span></label>
+                                                                <div class="btn-group col-md-2" data-toggle="buttons">
+                                                                    <label class="btn btn-gender btn-default active">
+                                                                        <input type="radio" id="female"
+                                                                            name="type" value="free"> مجاني
+                                                                    </label>
+                                                                    <label class="btn btn-gender btn-default">
+                                                                        <input type="radio" id="male"
+                                                                            name="type" value="cash"> مدفوع
+                                                                    </label>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">اغلاق</button>
-                                                            <button type="submit" class="btn btn-primary">تعديل الدرس
+                                                            <button type="submit" class="btn btn-primary"> تعديل
                                                             </button>
                                                         </div>
                                                     </form>
@@ -134,25 +179,25 @@
                                         </div>
                                         <!-- Button trigger modal delete -->
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                            data-target="#delete{{ $tutorial->id }}">
+                                            data-target="#delete">
                                             <i class="fa fa-trash"></i>
                                         </button>
-                                        <div class="modal fade" id="delete{{ $tutorial->id }}" tabindex="-1"
+                                        <div class="modal fade" id="delete" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">حذف الدرس</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">حذف الحلقة</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <form action="{{ route('deleteTutorial', $tutorial->id) }}"
+                                                    <form action="{{ route('deleteTutorialVideo', $video->id) }}"
                                                         method="post">
                                                         @csrf
                                                         <div class="modal-body">
-                                                            <h4> هل انت متاكد من حذف هذا الدرس ؟</h4>
+                                                            <h4> هل انت متاكد من حذف هذه الحلقة ؟</h4>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
@@ -175,7 +220,11 @@
     </div>
 </div>
 
-
+<script>
+    function check() {
+        document.getElementById("male").checked = true;
+    }
+</script>
 
 <!-- row closed -->
 @endsection

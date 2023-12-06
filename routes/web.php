@@ -82,6 +82,17 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
 
   Route::get('course/tutorial/show/{userId}', [CourseController::class, 'tutorial'])->name('showTutorial');
   Route::post('course/tutorial/post/{userId}', [CourseController::class, 'createTutorial'])->name('postTutorial');
+  Route::post('course/tutorial/delete/{id}', [CourseController::class, 'deleteTutorial'])->name('deleteTutorial');
+  Route::post('course/tutorial/edit/{id}', [CourseController::class, 'editTutorial'])->name('editTutorial');
+
+
+  Route::get('course/tutorial/video/show/{tutorialId}', [CourseController::class, 'video'])->name('showTutorialVideo');
+  Route::post('course/tutorial/video/post/{tutorialId}', [CourseController::class, 'createVideo'])->name('postTutorialVideo');
+  Route::post('course/tutorial/video/delete/{id}', [CourseController::class, 'deleteVideo'])->name('deleteTutorialVideo');
+  Route::post('course/tutorial/video/edit/{id}', [CourseController::class, 'editVideo'])->name('editTutorialVideo');
+
+
+
 });
 
 require __DIR__ . '/auth.php';
