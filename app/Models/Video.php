@@ -12,6 +12,6 @@ class Video extends Model
 
     public function tutorial()
     {
-        return $this->hasMany(Tutorial::class,"tutorial_id","id");
+        return $this->belongsTo(Tutorial::class,"tutorial_id","id");
     }
 }

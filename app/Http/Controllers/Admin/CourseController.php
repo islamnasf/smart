@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Tutorial;
 use App\Models\User;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -77,6 +78,54 @@ class CourseController extends Controller
 
         return redirect()->route('showTutorial', $userId)->with('success', 'create done!');
     }
+    public function deleteTutorial(Request $request, $id)
+    {
+        $tutorial = Tutorial::find($id);
+        $tutorial->delete();
+        return back()->with('success', 'delete done!');
+    }
 
+    public function editTutorial(Request $request, $id)
+    {
+        $tutorial = Tutorial::find($id);
+        $tutorial->update($request->all());
+        return back()->with('success', 'edit done!');
+    }
+
+    public function video(Request $request, $tutorialId)
+    {
+        $tutorial = Tutorial::find($tutorialId)->video;
+        return view('admin.course.video', (compact('tutorial')));
+    }
+
+    public function createVideo(Request $request, $tutorialId)
+    {
+        $requests = $request->validate([
+            'name' => 'required',
+            'link' => 'required',
+        ]);
+
+        $video = Video::create([
+            'name' => $request->name,
+            'link' => $request->link,
+            'type' => $request->type,
+            'tutorial_id' => $tutorialId,
+        ]);
+
+        return redirect()->route('showTutorialVideo', $tutorialId)->with('success', 'create done!');
+    }
+
+    public function deleteVideo(Request $request, $id)
+    {
+        $video = Video::find($id);
+        $video->delete();
+        return back()->with('success', 'delete done!');
+    }
+    public function editVideo(Request $request, $id)
+    {
+        $video = Video::find($id);
+        $video->update($request->all());
+        return back()->with('success', 'edit done!');
+    }
 
 }

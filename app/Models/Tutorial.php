@@ -11,7 +11,7 @@ class Tutorial extends Model
     protected $guarded = [];
     public function video()
     {
-        return $this->belongsTo(Video::class, "tutorial_id", "id");
+        return $this->hasMany(Video::class, "tutorial_id", "id");
     }
     public function teacher()
     {
