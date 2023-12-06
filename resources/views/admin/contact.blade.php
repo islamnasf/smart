@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    Contact US
+رسائل
 @stop
 @endsection
 @section('page-header')

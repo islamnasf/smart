@@ -51,13 +51,15 @@ class CourseController extends Controller
     {
         $coures = Course::find($id);
         $coures->update($request->all());
-        return redirect()->route('course')->with('success', 'update Done!');
+        toastr()->success('تم حفظ البيانات بنجاح');
+        return redirect()->route('course');
     }
     public function delete($courseId)
     {
         $courses = Course::find($courseId);
         $courses->delete();
-        return redirect()->route("showTermone")->with("success", "Done!");
+        toastr()->success('تم حفظ البيانات بنجاح');
+        return redirect()->route("showTermone");
     }
     public function tutorial(Request $request, $userId)
     {
@@ -75,21 +77,23 @@ class CourseController extends Controller
             'name' => $request->name,
             'user_id' => $userId,
         ]);
-
-        return redirect()->route('showTutorial', $userId)->with('success', 'create done!');
+        toastr()->success('تم حفظ البيانات بنجاح');
+        return redirect()->route('showTutorial', $userId);
     }
     public function deleteTutorial(Request $request, $id)
     {
         $tutorial = Tutorial::find($id);
         $tutorial->delete();
-        return back()->with('success', 'delete done!');
+        toastr()->success('تم حذف البيانات بنجاح');
+        return back();
     }
 
     public function editTutorial(Request $request, $id)
     {
         $tutorial = Tutorial::find($id);
         $tutorial->update($request->all());
-        return back()->with('success', 'edit done!');
+        toastr()->success('تم حفظ البيانات بنجاح');
+        return back();
     }
 
     public function video(Request $request, $tutorialId)
@@ -111,21 +115,23 @@ class CourseController extends Controller
             'type' => $request->type,
             'tutorial_id' => $tutorialId,
         ]);
-
-        return redirect()->route('showTutorialVideo', $tutorialId)->with('success', 'create done!');
+        toastr()->success('تم حفظ البيانات بنجاح');
+        return redirect()->route('showTutorialVideo', $tutorialId);
     }
 
     public function deleteVideo(Request $request, $id)
     {
         $video = Video::find($id);
         $video->delete();
-        return back()->with('success', 'delete done!');
+        toastr()->success('تم حذف البيانات بنجاح');
+        return back();
     }
     public function editVideo(Request $request, $id)
     {
         $video = Video::find($id);
         $video->update($request->all());
-        return back()->with('success', 'edit done!');
+        toastr()->success('تم حفظ البيانات بنجاح');
+        return back();
     }
 
 }

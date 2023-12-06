@@ -1,3 +1,6 @@
+@section('title')
+     الكورسات
+@stop
 <!DOCTYPE html>
 <html lang="en">
 

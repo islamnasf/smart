@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-Teacher
+المعلمين
 @stop
 @endsection
 @section('page-header')

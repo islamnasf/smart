@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    student
+    الطلبة 
 @stop
 @endsection
 @section('page-header')

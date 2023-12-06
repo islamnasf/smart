@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-Exams
+الاختبارات
 @stop
 @endsection
 @section('page-header')

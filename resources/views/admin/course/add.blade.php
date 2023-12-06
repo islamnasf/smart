@@ -1,3 +1,7 @@
+@section('title')
+     اضافة كورس
+@stop
+
 <!DOCTYPE html>
 <html lang="en">
 

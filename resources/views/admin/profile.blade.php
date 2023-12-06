@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    profile
+    الملف الشخصي
 @stop
 @endsection
 @section('page-header')

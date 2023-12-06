@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    Teacher
+     الترم الاول
 @stop
 @endsection
 @section('page-header')
