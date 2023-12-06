@@ -60,14 +60,19 @@
                         <tbody>
                             @foreach ($courses as $course)
                                 <tr>
-                                    <td>{{ $course->subject_name }}</td>
+                                    <td><a
+                                            href="{{ route('showTutorial', $course->techer_id) }}">{{ $course->subject_name }}</a>
+                                    </td>
                                     <td>{{ $course->classroom }}</td>
-                                    <td>{{ $course->techer->name }}</td>
+                                    <td><a
+                                            href="{{ route('showTutorial', $course->techer_id) }}">{{ $course->techer->name }}</a>
+                                    </td>
                                     <td>{{ $course->monthly_subscription_price }}</td>
                                     <td>{{ $course->term_price }}</td>
                                     <td>
                                         <!-- Button trigger modal update -->
-                                        <a href="{{ route('showEditCourse', $course->id) }}" class="btn btn-info btn-sm">
+                                        <a href="{{ route('showEditCourse', $course->id) }}"
+                                            class="btn btn-info btn-sm">
                                             <i class="fa fa-pencil-square"></i>
                                         </a>
                                         <!-- Button trigger modal delete -->
