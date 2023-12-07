@@ -12,6 +12,8 @@ body{
 
 .main{
     width: 390px;
+    max-width: 1090px;
+
     height: 520px;
     background: red;
     overflow: hidden;
@@ -72,7 +74,7 @@ button{
     margin: 90px;
     justify-content: center;
     color: #fff;
-    background: #0893c5;
+    background: #573b8a;
     font-size: 1em;
     font-weight: bold;
     margin-top: 10px;

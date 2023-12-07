@@ -150,7 +150,7 @@
         <a href="#"><i class="icon fa-brands fa-twitter"></i></a>
       </div>
     </footer>
-    <script src="script_one.js"></script>
+    <script src="assets/js/script_one.js"></script>
     
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

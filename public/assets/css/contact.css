@@ -57,7 +57,7 @@
     background-color: black ;
     width: 55%;
     border-radius: 50px 50px 0px 0px;
-    opacity: .7;
+    opacity: .8;
 }
 .container .contactInfo .box1{
     position: relative;
@@ -67,7 +67,7 @@
     width: 55%;
     margin-top: 1.5%;
     border-radius: 0px 0px 50px 50px;
-    opacity: .7;
+    opacity: .8;
 }
 .container .contactInfo .box .icon {
     min-width: 60px;
@@ -154,8 +154,7 @@
     padding: 10px;
     font-size: 18px;
 }
-
-@media(max-width:991px) {
+@media(max-width:1000px) {
     .contact{
         padding: 50px;
     }
@@ -168,4 +167,44 @@
     .container .contactInfo{
         width: 100%;
     }
+    .container .contactInfo .box{
+        position: relative;
+        padding: 20px 40px 20px 10px ;
+        display: flex;
+        background-color: black ;
+        width: 60%;
+        opacity: .7;
+        margin: 3px auto;
+
+    }
+    .contactForm {
+        width: 100%;
+        padding: 30px;
+        background: #fff;
+        border-radius: 0px 50px 0px 50px;
+    }
+}
+@media(max-width:600px) {
+    .contact{
+        padding: 50px;
+    }
+    .container{
+        flex-direction: column;
+    }
+    .container .contactInfo{
+        margin-bottom: 40px;
+    }
+    .container .contactInfo{
+        width: 100%;
+    }
+    .container .contactInfo .box{
+        position: relative;
+        padding: 20px 40px 20px 10px ;
+        display: flex;
+        background-color: black ;
+        width: 100%;
+        opacity: .7;
+    }
+    
+    
 }

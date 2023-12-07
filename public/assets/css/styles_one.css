@@ -220,7 +220,7 @@ nav .nav-items .nav-item {
   color: white;
   border-radius: 1rem;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .cta.dark {
@@ -515,11 +515,13 @@ footer .icon:hover {
     flex-direction: column;
     position: absolute;
     justify-content: center;
-    right:35%;
-    top: 0vh;
-    width: 50%;
-    height: 300px;
-    background-color: var(--dark-purple);
+    right:45%;
+    top: 12vh;
+    width: 55%;
+    height:380px;
+    background-color: #1e2028;
+    border: #0893c5 2px solid;
+    border-radius: 12%;
   }
   .hero h1 {
     font-size: 2rem;
@@ -534,9 +536,9 @@ footer .icon:hover {
   
   .cta.purple {
     transition: 0.3s;
-    padding: 5px;
-    font-size: 20px;
-    font-weight: 700;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: 800;
   }
   nav .nav-items.active {
     display: flex;
@@ -546,5 +548,13 @@ footer .icon:hover {
     padding: 2rem 0;
     font-size: 1.4rem;
   }
-  
+  .cta {
+    font-family: inherit;
+    padding: 0.6rem 2rem;
+    border: none;
+    color: white;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
 }
