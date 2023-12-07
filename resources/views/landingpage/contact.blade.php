@@ -22,7 +22,7 @@
                 <img   src="https://cdn-icons-png.flaticon.com/128/6717/6717201.png" width="65px" height="60px" style="padding-left: 15px; padding-bottom: 5px;"/>
                     <div class="text">
                         <h2 style="color:blanchedalmond; font-size: 25px;  margin: 0px auto; margin-right: 12px;">رقم الهاتف</h2>
-                        <h5 style="color: white;">+96567696809</h5>
+                        <a href="https://wa.me/96567696809"><h5 style="color: white;">+96567696809</h5></a>
                     </div>
                 </div>
 

@@ -13,9 +13,13 @@ return new class extends Migration {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->text('description');
+            $table->string('package_type');
+            $table->string('stage');
             $table->string('class');
-            $table->string('price');
-            $table->string('platform_ratio');
+            $table->string('price')->default(0);
+            $table->string('platform_ratio')->default(0);
+            $table->string('expiry_date');
             $table->boolean('is_active')->default(1);
             $table->timestamps();
         });

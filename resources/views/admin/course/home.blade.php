@@ -1,5 +1,5 @@
 @section('title')
-     الكورسات
+    الكورسات
 @stop
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +74,7 @@
                 </a>
 
 
-                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="{{route('showTermone')}}">
+                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="{{ route('showTermone') }}">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -98,7 +98,7 @@
                 </a>
 
 
-                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="{{route('showTermtow')}}">
+                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="{{ route('showTermtow') }}">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -119,14 +119,14 @@
                     </div>
                 </a>
 
-                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="#">
+                <a class="col-xl-3 col-lg-6 col-md-6 mb-30" href="{{ route('showPackage') }}">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span>
-                                        <i class=" fa fa-calendar-o highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <img src="https://cdn-icons-png.flaticon.com/128/2979/2979590.png"
+                                            width="65px" style="padding-top:15px;padding-bottom:25px">
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>

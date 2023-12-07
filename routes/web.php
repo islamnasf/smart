@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\GradeController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\PackageContrller;
 use App\Http\Controllers\Admin\ProfileSettingController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\TeacherController;
@@ -55,7 +56,7 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('/mandub', [MandubController::class, 'index'])->name('getMandub');
   Route::post('/mandub', [MandubController::class, 'store'])->name('postMandub');
   Route::post('/mandub/edit/{mandub}', [MandubController::class, 'update'])->name('updateMandub');
-  
+
   //book->admin
   Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
   Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');
@@ -96,6 +97,12 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('course/tutorial/video/post/{tutorialId}', [CourseController::class, 'createVideo'])->name('postTutorialVideo');
   Route::post('course/tutorial/video/delete/{id}', [CourseController::class, 'deleteVideo'])->name('deleteTutorialVideo');
   Route::post('course/tutorial/video/edit/{id}', [CourseController::class, 'editVideo'])->name('editTutorialVideo');
+
+
+  Route::get('package/show', [PackageContrller::class, 'index'])->name('showPackage');
+  Route::post('package/post', [PackageContrller::class, 'create'])->name('postPackage');
+  // Route::post('course/tutorial/video/delete/{id}', [PackageContrller::class, 'deleteVideo'])->name('deleteTutorialVideo');
+  // Route::post('course/tutorial/video/edit/{id}', [PackageContrller::class, 'editVideo'])->name('editTutorialVideo');
 
 
 
