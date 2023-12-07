@@ -87,8 +87,8 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('course/update/{id}', [CourseController::class, 'update'])->name('updateCourse');
 
 
-  Route::get('course/tutorial/show/{userId}', [CourseController::class, 'tutorial'])->name('showTutorial');
-  Route::post('course/tutorial/post/{userId}', [CourseController::class, 'createTutorial'])->name('postTutorial');
+  Route::get('course/tutorial/show/{courseId}', [CourseController::class, 'tutorial'])->name('showTutorial');
+  Route::post('course/tutorial/post/{courseId}', [CourseController::class, 'createTutorial'])->name('postTutorial');
   Route::post('course/tutorial/delete/{id}', [CourseController::class, 'deleteTutorial'])->name('deleteTutorial');
   Route::post('course/tutorial/edit/{id}', [CourseController::class, 'editTutorial'])->name('editTutorial');
 

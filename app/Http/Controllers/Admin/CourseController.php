@@ -61,13 +61,14 @@ class CourseController extends Controller
         toastr()->success('تم حفظ البيانات بنجاح');
         return redirect()->route("showTermone");
     }
-    public function tutorial(Request $request, $userId)
+    public function tutorial(Request $request, $courseId)
     {
-        $teacher = User::find($userId)->tutorial;
-        return view('admin.course.tutorial', (compact('teacher')));
+        // $course = Course::find($courseId);
+        $tutorials=tutorial::where('course_id',$courseId)->get();
+        return view('admin.course.tutorial', (compact('tutorials')));
     }
 
-    public function createTutorial(Request $request, $userId)
+    public function createTutorial(Request $request, $courseId)
     {
         $requests = $request->validate([
             'name' => 'required',
@@ -75,10 +76,10 @@ class CourseController extends Controller
 
         $tutorial = Tutorial::create([
             'name' => $request->name,
-            'user_id' => $userId,
+            'course_id' => $courseId,
         ]);
         toastr()->success('تم حفظ البيانات بنجاح');
-        return redirect()->route('showTutorial', $userId);
+        return back();
     }
     public function deleteTutorial(Request $request, $id)
     {
