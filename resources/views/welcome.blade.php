@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/10155/10155988.png" type="image/x-icon" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -12,9 +14,41 @@
       referrerpolicy="no-referrer"
     />
     <link href="assets/css/styles_one.css" rel="stylesheet">
-    <title> Education</title>
+    <title> الصفحة الرئيسية </title>
+    <style>
+      #pre-loader {
+  background-color: #ffffff;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  margin-top: 0px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  overflow: hidden !important;
+  right: 0px;
+  z-index: 999999; }
+        #pre-loader img {
+    text-align: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    z-index: 99;
+    margin: 0 auto; }
+    </style>
+
   </head>
   <body>
+  <div id="pre-loader">
+            <img src="assets/images/pre-loader/loader-01.svg" alt="">
+        </div>
     <main>
       <!-- التنقل -->
       <nav id="navbar">
@@ -177,6 +211,7 @@ function scrollFunction() {
   }
 }
     </script>
+    @include('layouts.footer-scripts')
 
   </body>
 </html>
