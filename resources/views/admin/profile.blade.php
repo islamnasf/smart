@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('css')
-
 @section('title')
     الملف الشخصي
 @stop
@@ -15,7 +14,6 @@
         style="width:92%; height:180px;  display: block; margin:15px auto; margin-top:0px; object-fit: fill; border-radius: 5px;"
         alt="">
 </div>
-
 <div class="page-title">
     <div class="row">
         <div class="col-sm-12"

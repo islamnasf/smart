@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\ExamController;
+use App\Http\Controllers\Admin\MandubController;
 use App\Http\Controllers\Admin\SecretaryController;
 use App\Http\Controllers\LandingPage\ContactUs;
 use App\Http\Controllers\PageController;
@@ -50,6 +51,11 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('/book', [BookController::class, 'index'])->name('getBook');
   Route::post('/book', [BookController::class, 'store'])->name('postBook');
   Route::post('/book/edit/{book}', [BookController::class, 'update'])->name('updateBook');
+  //mandub->admin->book
+  Route::get('/mandub', [MandubController::class, 'index'])->name('getMandub');
+  Route::post('/mandub', [MandubController::class, 'store'])->name('postMandub');
+  Route::post('/mandub/edit/{mandub}', [MandubController::class, 'update'])->name('updateMandub');
+  
   //book->admin
   Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
   Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');
