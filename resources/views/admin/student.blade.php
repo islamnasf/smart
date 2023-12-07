@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('css')
-
 @section('title')
     الطلبة 
 @stop
@@ -15,8 +14,6 @@
         style="width:92%; height:180px;  display: block; margin:15px auto; margin-top:0px; object-fit: fill; border-radius: 5px;"
         alt="">
 </div>
-
-
 <div class="page-title">
     <div class="row">
         <div class="col-sm-12"
@@ -53,6 +50,7 @@
                                 <th>الصف </th>
                                 <th>رقم التلفون </th>
                                 <th>الرقم السري</th>
+                                <th>تاريخ الاشتراك </th>
                                 <th>حالة الاشتراك </th>
                                 <th> عدد التجديد </th>
                                 <th> العمليات</th>
@@ -65,6 +63,7 @@
                                     <td>{{ $student->group }}</td>
                                     <td>{{ $student->phone }}</td>
                                     <td>{{ $student->user_password }}</td>
+                                    <td>{{$student->date}}</td>
                                     <td>0</td>
                                     <td>0</td>
                                     <td>
