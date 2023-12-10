@@ -10,7 +10,7 @@ class PackageContrller extends Controller
 {
     public function index()
     {
-        $package = Package::all();
+        $package = Package::where('is_active', 1)->get();
         return view("admin.course.package.package", compact("package"));
     }
     public function create(Request $request)
@@ -29,5 +29,10 @@ class PackageContrller extends Controller
         $package = Package::find($packageId);
         $package->update($request->all());
         return redirect()->back()->with("success", "Done !");
+    }
+    public function unActive()
+    {
+        $package = Package::where('is_active', 0)->get();
+        return view("admin.course.package.archive", compact("package"));
     }
 }

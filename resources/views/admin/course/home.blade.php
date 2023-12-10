@@ -55,8 +55,8 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span>
-                                        <i class=" fa fa-caret-square-o-left highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <img src="https://cdn-icons-png.flaticon.com/128/2921/2921226.png"
+                                            width="65px" style="padding-top:15px;padding-bottom:25px">
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
@@ -88,8 +88,6 @@
 
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
                                         ترم أول </p>
-
-
                                 </div>
                             </div>
 
@@ -125,7 +123,7 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span>
-                                        <img src="https://cdn-icons-png.flaticon.com/128/2979/2979590.png"
+                                        <img src="https://cdn-icons-png.flaticon.com/128/9679/9679857.png"
                                             width="65px" style="padding-top:15px;padding-bottom:25px">
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
@@ -212,14 +210,14 @@
                     </div>
                 </a>
 
-                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <a href="{{ route('showPackageArchive') }}" class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span>
-                                        <i class="fa fa-th-list highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <img src="https://cdn-icons-png.flaticon.com/128/2821/2821739.png"
+                                            width="65px" style="padding-top:15px;padding-bottom:25px">
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>

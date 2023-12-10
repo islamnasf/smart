@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\MandubController;
 use App\Http\Controllers\Admin\SecretaryController;
 use App\Http\Controllers\LandingPage\ContactUs;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\Sitesetteings;
 use App\Http\Controllers\Teacher\SubjectController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,9 +30,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-  return view('welcome');
+  $data = \App\Models\Sitesetteings::find(1);
+  return view('welcome', compact('data'));
 })->name('home');
+
+
 Route::get('/grade', [GradeController::class, 'index']);
+
 
 Route::fallback(function () {
   return view("errors.404");
@@ -101,13 +106,13 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
 
 
   Route::get('package/show', [PackageContrller::class, 'index'])->name('showPackage');
+  Route::get('package/archive/show', [PackageContrller::class, 'unActive'])->name('showPackageArchive');
   Route::post('package/post', [PackageContrller::class, 'create'])->name('postPackage');
   Route::post('package/dalete/{packageId}', [PackageContrller::class, 'delete'])->name('deletePackage');
   Route::post('package/edit/{id}', [PackageContrller::class, 'edit'])->name('editPackage');
-  
+
   Route::get('reports/show', [CourseController::class, 'reports'])->name('showReports');
-//teacher
-Route::get('teacher/course', [SubjectController::class, 'index'])->name('teacherCourse');
+
 });
 
 require __DIR__ . '/auth.php';
