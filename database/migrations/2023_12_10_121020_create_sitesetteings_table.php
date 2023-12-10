@@ -13,13 +13,13 @@ return new class extends Migration {
         Schema::create('sitesetteings', function (Blueprint $table) {
             $table->id();
             $table->text('head_name')->nullable();
-            $table->text('content1')->nullable();
-            $table->text('content2')->nullable();
-            $table->text('content3')->nullable();
-            $table->text('content4')->nullable();
-            $table->text('fb')->nullable();
-            $table->text('insta')->nullable();
-            $table->text('twitter')->nullable();
+            $table->text('content1')->default('- هى المنصة الأولى من نوعها للتعليم .');
+            $table->text('content2')->default('- تقدم تجربة شاملة للمتعلمين والمعلمين على حد سواء .');
+            $table->text('content3')->default('- توفر المنصة مجموعة واسعة من الكتب والكورسات التعليمية في مختلف المجالات .');
+            $table->text('content4')->default('- يمكن للمستخدمين تصفح وشراء الموارد التعليمية بسهولة وفقًا لاحتياجاتهم .');
+            $table->text('fb')->default('https://www.facebook.com/');
+            $table->text('insta')->default('https://www.instagram.com/');
+            $table->text('twitter')->default('https://twitter.com/');
             $table->timestamps();
         });
     }
