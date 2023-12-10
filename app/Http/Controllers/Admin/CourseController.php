@@ -63,9 +63,9 @@ class CourseController extends Controller
     }
     public function tutorial(Request $request, $courseId)
     {
-        // $course = Course::find($courseId);
-        $tutorials=tutorial::where('course_id',$courseId)->get();
-        return view('admin.course.tutorial', (compact('tutorials')));
+        $course = Course::find($courseId);
+        $tutorials = Tutorial::where('course_id', $courseId)->get();
+        return view('admin.course.tutorial', (compact('tutorials')))->with('course', $course);
     }
 
     public function createTutorial(Request $request, $courseId)
@@ -105,14 +105,19 @@ class CourseController extends Controller
 
     public function createVideo(Request $request, $tutorialId)
     {
-        $requests = $request->validate([
+        $request->validate([
             'name' => 'required',
             'link' => 'required',
+            'pdf' => 'required|mimes:pdf|max:2048', // Adjust the validation rules as needed
         ]);
+
+        $file = $request->file('pdf');
+        $filePath = $file->storeAs('pdfs', $file->getClientOriginalName(), 'public');
 
         $video = Video::create([
             'name' => $request->name,
             'link' => $request->link,
+            'pdf' => $filePath,
             'type' => $request->type,
             'tutorial_id' => $tutorialId,
         ]);
@@ -133,6 +138,11 @@ class CourseController extends Controller
         $video->update($request->all());
         toastr()->success('تم حفظ البيانات بنجاح');
         return back();
+    }
+
+    public function reports()
+    {
+        return view('admin.course.reports');
     }
 
 }
