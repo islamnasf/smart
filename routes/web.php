@@ -114,6 +114,10 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
 
   Route::get('show/site/setting', [Sitesetteings::class, 'index'])->name('sitesettingsShow');
   Route::post('post/site/setting', [Sitesetteings::class, 'update'])->name('sitesettingsPost');
+
+  //teacher->dashboard->course
+  Route::get('teacher/course', [SubjectController::class, 'index'])->name('teacherCourse');
+
 });
 
 require __DIR__ . '/auth.php';
