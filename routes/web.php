@@ -103,7 +103,8 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('package/post', [PackageContrller::class, 'create'])->name('postPackage');
   Route::post('package/dalete/{packageId}', [PackageContrller::class, 'delete'])->name('deletePackage');
   Route::post('package/edit/{id}', [PackageContrller::class, 'edit'])->name('editPackage');
-
+  
+  Route::get('reports/show', [CourseController::class, 'reports'])->name('showReports');
 
 });
 

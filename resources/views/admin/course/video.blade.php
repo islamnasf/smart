@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('css')
-
 @section('title')
     الحلقات
 @stop
@@ -48,13 +47,33 @@
                 </button>
             </div>
 
-            <form action="{{ route('postTutorialVideo', Route::current()->Parameter('tutorialId')) }}" method="post">
+            <form action="{{ route('postTutorialVideo', Route::current()->Parameter('tutorialId')) }}" enctype="multipart/form-data" method="post">
                 <div class="modal-body">
                     @csrf
                     <input type="text" name="name" required class="form-control" placeholder="عنوان الحلقة">
                     @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
+                    </br>
+                    <div class="container mt-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title">رفع PDF</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- File Upload Form -->
+                                        <div class="form-group">
+                                            <label for="pdfFile">اختر ملف:</label>
+                                            <input type="file" required class="form-control-file" id="pdfFile"
+                                                name="pdf" accept=".pdf" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     </br>
                     <input type="text" required name="link" class="form-control" placeholder="لينك الحلقة">
                     @error('link')
@@ -68,10 +87,10 @@
                                 *</span></label>
                         <div class="btn-group col-md-2" data-toggle="buttons">
                             <label class="btn btn-gender btn-default active">
-                                <input type="radio" id="female" name="type" value="free"> مجاني
+                                <input type="radio"required id="female" name="type" value="free"> مجاني
                             </label>
                             <label class="btn btn-gender btn-default">
-                                <input type="radio" id="male" name="type" value="cash"> مدفوع
+                                <input type="radio"required id="male" name="type" value="cash"> مدفوع
                             </label>
                         </div>
                     </div>
@@ -132,7 +151,8 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">تعديل الحلقة</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">تعديل الحلقة
+                                                        </h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>

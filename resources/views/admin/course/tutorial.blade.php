@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    الدروس 
+    الوحدات 
 @stop
 @endsection
 @section('page-header')
@@ -17,13 +17,13 @@
     <div class="row">
         <div class="col-sm-12"
             style="color:#dc3545 ; margin:10px auto; background-color: #dc3545; padding-top: 10px; padding-bottom: 10px;  border-radius:7px; display: flex; justify-content: space-around;">
-            <h2 class="mb-0" style="color:#fff ; ">الدروس</h2>
+            <h4 class="mb-0" style="color:#fff ; ">وحدات {{$course->classroom}} مادة {{$course->subject_name}}</h4>
             <button type="button" class="btn btn-info float-left float-sm-right " data-toggle="modal"
                 data-target="#exampleModal"
                 style="font-size: 18px; font-family:Amiri;
             line-height: 1.2;"><img
                     src="https://cdn-icons-png.flaticon.com/128/2542/2542533.png" width="26px"> -
-                اضافة درس جديد
+                اضافة وحدة جديدة
             </button>
         </div>
     </div>
@@ -42,7 +42,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">اضافة درس</h5>
+                <h5 class="modal-title" id="exampleModalLabel">اضافة وحدة</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -51,7 +51,7 @@
             <form action="{{ route('postTutorial', Route::current()->Parameter('courseId')) }}" method="post">
                 <div class="modal-body">
                     @csrf
-                    <input type="text" name="name" class="form-control" placeholder="اسم المادة ">
+                    <input type="text" name="name" class="form-control" placeholder="اسم وحدة ">
                     @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -59,7 +59,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-                    <button type="submit" class="btn btn-primary">اضافة الدرس </button>
+                    <button type="submit" class="btn btn-primary">اضافة وحدة </button>
                 </div>
             </form>
         </div>
@@ -105,7 +105,7 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">تعديل الدرس</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">تعديل وحدة</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
@@ -116,7 +116,7 @@
                                                         <div class="modal-body">
                                                             @csrf
                                                             <input type="text" name="name" class="form-control"
-                                                                value="{{ $tutorial->name }}" placeholder="اسم المادة ">
+                                                                value="{{ $tutorial->name }}" placeholder="اسم وحدة ">
                                                             @error('name')
                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                             @enderror
@@ -125,7 +125,7 @@
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">اغلاق</button>
-                                                            <button type="submit" class="btn btn-primary">تعديل الدرس
+                                                            <button type="submit" class="btn btn-primary">تعديل وحدة
                                                             </button>
                                                         </div>
                                                     </form>
@@ -142,7 +142,7 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">حذف الدرس</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">حذف وحدة</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
@@ -152,7 +152,7 @@
                                                         method="post">
                                                         @csrf
                                                         <div class="modal-body">
-                                                            <h4> هل انت متاكد من حذف هذا الدرس ؟</h4>
+                                                            <h4> هل انت متاكد من حذف هذه وحدة ؟</h4>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"

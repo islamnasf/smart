@@ -165,10 +165,10 @@
                                             *</span></label>
                                     <div class="btn-group col-md-2" data-toggle="buttons">
                                         <label class="btn btn-gender btn-default active">
-                                            <input type="radio" id="female" name="type" value="free"> مجاني
+                                            <input type="radio" required id="female" name="type" value="free"> مجاني
                                         </label>
                                         <label class="btn btn-gender btn-default">
-                                            <input type="radio" id="male" name="type" value="cash"> مدفوع
+                                            <input type="radio" required id="male" name="type" value="cash"> مدفوع
                                         </label>
                                     </div>
                                 </div>

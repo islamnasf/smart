@@ -154,8 +154,8 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span>
-                                        <i class=" fa fa-sign-in highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <img src="https://cdn-icons-png.flaticon.com/128/7048/7048370.png"
+                                            width="65px" style="padding-top:15px;padding-bottom:25px">
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
@@ -171,14 +171,14 @@
                     </div>
                 </a>
 
-                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <a href="{{ route('showReports') }}" class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span>
-                                        <i class=" fa fa-braille highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <img src="https://cdn-icons-png.flaticon.com/128/1055/1055644.png"
+                                            width="65px" style="padding-top:15px;padding-bottom:25px">
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
@@ -198,8 +198,8 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span>
-                                        <i class="fa fa-list-alt highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <img src="https://cdn-icons-png.flaticon.com/128/1599/1599860.png"
+                                            width="65px" style="padding-top:15px;padding-bottom:25px">
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
