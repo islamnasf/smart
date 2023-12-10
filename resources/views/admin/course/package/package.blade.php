@@ -198,89 +198,136 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($package as $video)
+                            @foreach ($package as $packet)
                                 <tr>
-                                    <td>{{ $video->name }}</td>
-                                    <td>{{ $video->class }}</td>
-                                    <td>{{ $video->price }}</td>
-                                    <td>{{ $video->platform_ratio }}</td>
+                                    <td>{{ $packet->name }}</td>
+                                    <td>{{ $packet->class }}</td>
+                                    <td>{{ $packet->price }}</td>
+                                    <td>{{ $packet->platform_ratio }}</td>
                                     <td>
                                         <!-- Button trigger modal update -->
                                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                                            data-target="#edit{{ $video->id }}">
+                                            data-target="#edit{{ $packet->id }}">
                                             <i class="fa fa-pencil-square"></i>
                                         </button>
-                                        <div class="modal fade" id="edit{{ $video->id }}" tabindex="-1"
+                                        <div class="modal fade" id="edit{{ $packet->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">تعديل الحلقة
-                                                        </h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <form action="{{ route('editTutorialVideo', $video->id) }}"
-                                                        method="post">
-                                                        <div class="modal-body">
-                                                            @csrf
-                                                            <input type="text" name="name" class="form-control"
-                                                                value="{{ $video->name }}"
-                                                                placeholder="عنوان الحلقة">
-                                                            </br>
-                                                            <input type="text" name="link" class="form-control"
-                                                                value="{{ $video->link }}" placeholder="لينك الحلقة">
-                                                        </div>
-                                                        <div class="row justify-content-between text-left">
-                                                            <div class="form-group col-12 flex-column d-flex"> <label
-                                                                    class="form-control-label px-3">نوع الحلقة
-                                                                    <span class="text-danger">
-                                                                        *</span></label>
-                                                                <div class="btn-group col-md-2" data-toggle="buttons">
-                                                                    <label class="btn btn-gender btn-default active">
-                                                                        <input type="radio" id="female"
-                                                                            name="type" value="free"> مجاني
-                                                                    </label>
-                                                                    <label class="btn btn-gender btn-default">
-                                                                        <input type="radio" id="male"
-                                                                            name="type" value="cash"> مدفوع
-                                                                    </label>
+                                            <div class="container-fluid px-1 py-5 mx-auto">
+                                                <div class="row d-flex justify-content-center">
+                                                    <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                                                        <div class="card">
+                                                            <h5 class="text-center mb-4">بيانات الباقة </h5>
+                                                            <form class="form-card"
+                                                                action="{{ route('postPackage') }}" method="POST">
+                                                                @csrf
+                                                                <div class="row justify-content-between text-left">
+                                                                    <div
+                                                                        class="form-group col-sm-6 flex-column d-flex">
+                                                                        <label class="form-control-label px-3">إسم
+                                                                            الباقة<span class="text-danger">
+                                                                                *</span></label> <input type="text"
+                                                                            id="fname" name="name" required
+                                                                            value="{{ $packet->name }}"
+                                                                            onblur="validate(1)">
+                                                                    </div>
+                                                                    <div
+                                                                        class="form-group col-sm-6 flex-column d-flex">
+                                                                        <label class="form-control-label px-3">وصف
+                                                                            الباقة<span class="text-danger">
+                                                                                *</span></label> <input type="text"
+                                                                            id="ans" required name="description"
+                                                                            value="{{ $packet->description }}"
+                                                                            placeholder="" onblur="validate(6)">
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+                                                                <div class="row justify-content-between text-left">
+                                                                    <div
+                                                                        class="form-group col-sm-6 flex-column d-flex">
+                                                                        <label
+                                                                            class="form-control-label px-3">المرحلة<span
+                                                                                class="text-danger">
+                                                                                *</span></label>
+                                                                        <select id="category" name="stage"
+                                                                            required>
+                                                                            <option value="ابتدائي">ابتدائي</option>
+                                                                            <option value="متوسط">متوسط</option>
+                                                                            <option value="ثانوي">ثانوي</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div
+                                                                        class="form-group col-sm-6 flex-column d-flex">
+                                                                        <label
+                                                                            class="form-control-label px-3">الصف<span
+                                                                                class="text-danger">
+                                                                                *</span></label>
+                                                                        <select id="item" name="class"
+                                                                            required></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row justify-content-between text-left">
+                                                                    <div
+                                                                        class="form-group col-sm-6 flex-column d-flex">
+                                                                        <label class="form-control-label px-3">تاريخ
+                                                                            إنتهاء الباقة<span class="text-danger">
+                                                                                *</span></label> <input required
+                                                                            type="date" id="job"
+                                                                            value="{{ $packet->expiry_date }}"
+                                                                            name="expiry_date" placeholder=""
+                                                                            onblur="validate(5)">
+                                                                    </div>
+                                                                    <div
+                                                                        class="form-group col-sm-6 flex-column d-flex">
+                                                                        <label class="form-control-label px-3">نوع
+                                                                            الباقة<span class="text-danger">
+                                                                                *</span></label>
+                                                                        <select required id="job"
+                                                                            name="package_type">
+                                                                            <option value="fullterm">ترم كامل</option>
+                                                                            <option value="monthly">باقة شهرية</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row justify-content-between">
+                                                                    <div
+                                                                        class="form-group col-sm-6 flex-column d-flex">
+                                                                        <button type="submit"
+                                                                            class="btn-block btn-primary">تعديل
+                                                                            الباقة</button>
+                                                                    </div>
+                                                                    <div
+                                                                        class="form-group col-sm-6 flex-column d-flex">
+                                                                        <button type="button"
+                                                                            class="btn-block btn-danger"
+                                                                            data-dismiss="modal">اغلاق</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
                                                         </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">اغلاق</button>
-                                                            <button type="submit" class="btn btn-primary"> تعديل
-                                                            </button>
-                                                        </div>
-                                                    </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <!-- Button trigger modal delete -->
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                            data-target="#delete">
+                                            data-target="#delete{{ $packet->id }}">
                                             <i class="fa fa-trash"></i>
                                         </button>
-                                        <div class="modal fade" id="delete" tabindex="-1"
+                                        <div class="modal fade" id="delete{{ $packet->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">حذف الحلقة</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">حذف الباقة</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <form action="{{ route('deleteTutorialVideo', $video->id) }}"
+                                                    <form action="{{ route('deletePackage', $packet->id) }}"
                                                         method="post">
                                                         @csrf
                                                         <div class="modal-body">
-                                                            <h4> هل انت متاكد من حذف هذه الحلقة ؟</h4>
+                                                            <h4> هل انت متاكد من حذف هذه الباقة ؟</h4>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"

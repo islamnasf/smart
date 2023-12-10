@@ -101,9 +101,8 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
 
   Route::get('package/show', [PackageContrller::class, 'index'])->name('showPackage');
   Route::post('package/post', [PackageContrller::class, 'create'])->name('postPackage');
-  // Route::post('course/tutorial/video/delete/{id}', [PackageContrller::class, 'deleteVideo'])->name('deleteTutorialVideo');
-  // Route::post('course/tutorial/video/edit/{id}', [PackageContrller::class, 'editVideo'])->name('editTutorialVideo');
-
+  Route::post('package/dalete/{packageId}', [PackageContrller::class, 'delete'])->name('deletePackage');
+  Route::post('package/edit/{id}', [PackageContrller::class, 'edit'])->name('editPackage');
 
 
 });
