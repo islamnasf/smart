@@ -1,5 +1,5 @@
 @section('title')
-الصفحة الرئيسية
+    الصفحة الرئيسية
 @stop
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     @include('layouts.head')
-   
+
 </head>
 
 <body>
@@ -40,7 +40,7 @@
 
 
             <div class="row">
-                <img src="{{asset('assets/images/education.jpg')}}"
+                <img src="{{ asset('assets/images/education.jpg') }}"
                     style="width:95%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;"
                     alt="">
             </div>
@@ -146,29 +146,30 @@
                                     </div>
                                 </div>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- widgets -->
+                <!-- widgets -->
 
-            <div class="row">
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span >
-                                        <i class=" fa fa-book  highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:70px; padding-top:15px ; padding-bottom:15px "></i>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                                    </span>
-                                </div>
-                                <div class="float-right text-center">
-                                <a href="{{ route('getBook') }}">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">المذكرات
-                                    </p>
-</a>
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                        <div class="card card-statistics h-100">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <span>
+                                            <img src="https://cdn-icons-png.flaticon.com/128/5832/5832416.png"
+                                                width="65px" style="padding-top:15px;padding-bottom:25px">
+                                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                        </span>
+                                    </div>
+                                    <div class="float-right text-center">
+                                        <a href="{{ route('getBook') }}">
+                                            <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">
+                                                المذكرات
+                                            </p>
+                                        </a>
                                     </div>
                                 </div>
 
@@ -181,9 +182,8 @@
                                 <div class="clearfix">
                                     <div class="float-left">
                                         <span>
-
-                                            <i class=" fa fa-envelope highlight-icon" aria-hidden="true"
-                                                style="color:#175166; font-size:70px; padding-top:15px ; padding-bottom:15px "></i>
+                                            <img src="https://cdn-icons-png.flaticon.com/128/189/189665.png"
+                                                width="65px" style="padding-top:15px;padding-bottom:25px">
                                             <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                         </span>
                                     </div>
@@ -200,14 +200,14 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                    <a href="{{ route('sitesettingsShow') }}" class="col-xl-3 col-lg-6 col-md-6 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
                                 <div class="clearfix">
                                     <div class="float-left">
                                         <span>
-                                            <i class="fa fa-pencil-square-o highlight-icon" aria-hidden="true"
-                                                style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px "></i>
+                                            <img src="https://cdn-icons-png.flaticon.com/128/7947/7947783.png"
+                                                width="65px" style="padding-top:15px;padding-bottom:25px">
                                             <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                         </span>
                                     </div>
@@ -221,7 +221,7 @@
 
                             </div>
                         </div>
-                    </div>
+                    </a>
                     <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
@@ -229,8 +229,8 @@
                                     <div class="float-left">
                                         <span>
                                             <a href="{{ route('getProfile') }}">
-                                                <i class=" fa fa-cogs  highlight-icon" aria-hidden="true"
-                                                    style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px "></i>
+                                                <img src="https://cdn-icons-png.flaticon.com/128/3649/3649387.png"
+                                                    width="65px" style="padding-top:15px;padding-bottom:25px">
                                                 <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                             </a>
                                         </span>
