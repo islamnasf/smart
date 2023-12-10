@@ -6,13 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StudentEditRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class StudentController extends Controller
 {
     
     public function index(){
-        $students=user::where('user_type','user')->get();
+        $students=user::select('*', DB::raw("DATE_FORMAT(created_at, '%d/ %m/ 20%y') as date"))->where('user_type','user')->get();
         $studentCount=User::where('user_type','user')->count();
         return view('/admin/student', compact('students','studentCount'));
 }

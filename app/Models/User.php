@@ -52,13 +52,8 @@ class User extends Authenticatable
     ];
 
 
-    public function techer()
+    public function teacher()
     {
         return $this->hasMany(Course::class, 'techer_id', 'id');
-    }
-
-    public function tutorial()
-    {
-        return $this->hasMany(Tutorial::class, 'user_id', 'id');
     }
 }

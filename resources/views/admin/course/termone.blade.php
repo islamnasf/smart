@@ -61,11 +61,11 @@
                             @foreach ($courses as $course)
                                 <tr>
                                     <td><a
-                                            href="{{ route('showTutorial', $course->techer_id) }}">{{ $course->subject_name }}</a>
+                                            href="{{ route('showTutorial', $course->id) }}">{{ $course->subject_name }}</a>
                                     </td>
                                     <td>{{ $course->classroom }}</td>
                                     <td><a
-                                            href="{{ route('showTutorial', $course->techer_id) }}">{{ $course->techer->name }}</a>
+                                            href="{{ route('showTutorial', $course->id) }}">{{ $course->techer->name }}</a>
                                     </td>
                                     <td>{{ $course->monthly_subscription_price }}</td>
                                     <td>{{ $course->term_price }}</td>

@@ -13,8 +13,8 @@ class Tutorial extends Model
     {
         return $this->hasMany(Video::class, "tutorial_id", "id");
     }
-    public function teacher()
+    public function course()
     {
-        return $this->belongsTo(User::class,"user_id","id");
+        return $this->belongsTo(course::class,"course_id","id");
     }
 }

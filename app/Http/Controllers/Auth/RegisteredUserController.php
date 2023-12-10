@@ -32,10 +32,11 @@ class RegisteredUserController extends Controller
     {
         $rules=[
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'unique:'.User::class],
+            'phone' => ['required', 'unique:'.User::class,'digits:8'],
             'password' => ['required'],
         ];
         $customMessages = [
+            'phone.digits' => 'الرقم يجب ان يكون 8 ارقام',
             'phone.unique' => 'هذاالفون موجود مسبقا',
         ];
         

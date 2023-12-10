@@ -48,7 +48,7 @@
                 </button>
             </div>
 
-            <form action="{{ route('postTutorial', Route::current()->Parameter('userId')) }}" method="post">
+            <form action="{{ route('postTutorial', Route::current()->Parameter('courseId')) }}" method="post">
                 <div class="modal-body">
                     @csrf
                     <input type="text" name="name" class="form-control" placeholder="اسم المادة ">
@@ -89,7 +89,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($teacher as $tutorial)
+                            @foreach ($tutorials as $tutorial)
                                 <tr>
                                     <td><a
                                             href="{{ route('showTutorialVideo', $tutorial->id) }}">{{ $tutorial->name }}</a>
