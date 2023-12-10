@@ -117,7 +117,19 @@
 
                         <li>
                             <a href="#" style="font-size: 20px;"><i class="ti-menu-alt"
-                                    style="font-size: 20px;"></i><span class="right-nav-text">الكورسات</span> </a>
+                                    style="font-size: 20px;"></i><span class="right-nav-text">الكورسات المفعلة </span> </a>
+                            <div class="clearfix"></div>
+
+                        </li>
+                        <li>
+                            <a href="#" style="font-size: 20px;"><i class="fa fa-file-archive-o"
+                                    style="font-size: 20px;"></i><span class="right-nav-text">ارشيف الكورسات   </span> </a>
+                            <div class="clearfix"></div>
+
+                        </li>
+                        <li>
+                            <a href="#" style="font-size: 20px;"><i class="fa fa-money"
+                                    style="font-size: 20px;"></i><span class="right-nav-text">الدفعات المحصلة </span> </a>
                             <div class="clearfix"></div>
 
                         </li>
@@ -138,6 +150,12 @@
                                 <li> <a href="form-input.html" style="font-size: 18px;">اختبارات الترم التاني</a>
                                 </li>
                             </ul>
+</li>
+                        <li>
+                            <a href="#" style="font-size: 20px;"><i class="fa fa-sign-in"
+                                    style="font-size: 20px;"></i><span class="right-nav-text"> اشتركات الطلبة  </span> </a>
+                            <div class="clearfix"></div>
+
                         </li>
                         <!-- menu item timeline-->
 

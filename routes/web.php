@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\MandubController;
 use App\Http\Controllers\Admin\SecretaryController;
 use App\Http\Controllers\LandingPage\ContactUs;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\Teacher\SubjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -105,7 +106,8 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('package/edit/{id}', [PackageContrller::class, 'edit'])->name('editPackage');
   
   Route::get('reports/show', [CourseController::class, 'reports'])->name('showReports');
-
+//teacher
+Route::get('teacher/course', [SubjectController::class, 'index'])->name('teacherCourse');
 });
 
 require __DIR__ . '/auth.php';

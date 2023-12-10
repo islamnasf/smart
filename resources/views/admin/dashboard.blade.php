@@ -258,7 +258,7 @@
                                 <div class="clearfix">
                                     <div class="float-left">
                                         <span>
-                                            <a href="#">
+                                            <a href="{{ route('teacherCourse') }}">
                                                 <i class="fa fa-file-video-o highlight-icon" aria-hidden="true"
                                                     style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px"></i>
                                             </a>
@@ -266,7 +266,7 @@
                                         </span>
                                     </div>
                                     <div class="float-right text-center">
-                                        <a href="#">
+                                        <a href="{{ route('teacherCourse') }}">
                                             <p class="card-text text-dark"
                                                 style="font-size: 20px; padding-top:25px ;">الكورسات المسجلة
                                         </a>
@@ -283,7 +283,7 @@
                                 <div class="clearfix">
                                     <div class="float-left">
                                         <span>
-                                            <a href="{{ route('getTeacher') }}">
+                                            <a href="#">
                                                 <i class=" fa fa-money highlight-icon" aria-hidden="true"
                                                     style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px  "></i>
                                             </a>

@@ -69,7 +69,7 @@ class AuthController extends Controller
         return response()->json([
             'access_token'=>$token,
             'token_tybe'=>'bearer',
-            'expires_in'=>auth('api')->factory()->getTTl()*600000,
+            'expires_in'=>auth()->guard('api')->factory()->getTTl()*600000,
            'user'=>auth()->user(),
             // 'user'=>userLoginResource::make(auth()->user())
         ]); 
