@@ -13,7 +13,6 @@ use App\Http\Controllers\Admin\ExamController;
 use App\Http\Controllers\Admin\MandubController;
 use App\Http\Controllers\Admin\SecretaryController;
 use App\Http\Controllers\LandingPage\ContactUs;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\Sitesetteings;
 use App\Http\Controllers\Teacher\SubjectController;
 use Illuminate\Support\Facades\Route;
