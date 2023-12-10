@@ -87,13 +87,43 @@
             <h1>يمكنك <span class="auto-type"></span></h1>
             <div class="ctas">
                 <button class="cta purple" style="margin:25px;">استكشف المواد</button>
-                <button class="cta purple" style="margin:25px;"> للاطلاع والتحميل</button>
+                <button class="cta purple" style="margin:25px;">استكشف المذكرات</button>
 
             </div>
 
         </div>
         <!-- الميزات -->
         <div class="container">
+
+        <div class="box" style="--clr:#5b98eb">
+                <div class="content">
+                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/2103/2103458.png"
+                            class="  highlight-icon logo " width="80px"></div>
+                    <div class="text">
+                        <h3> الكورسات المسجلة </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="box" style="--clr:#fb3545 ">
+                <div class="content">
+                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/2097/2097068.png"
+                            class="  highlight-icon logo " width="80px"></div>
+                    <div class="text">
+                        <h3> المذكرات المطبوعة </h3>
+                    </div>
+                </div>
+            </div>
+
+          
+        <div class="box" style="--clr:#B0E0E6">
+                <div class="content">
+                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/779/779868.png"
+                            class="  highlight-icon logo " width="80px"></div>
+                    <div class="text">
+                        <h3> كورسات حضوري </h3>
+                    </div>
+                </div>
+            </div>
             <div class="box" style="--clr:#33ec5b">
                 <div class="content">
                     <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/4762/4762311.png"
@@ -104,37 +134,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="box" style="--clr:#F8F8FF">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/7851/7851689.png"
-                            class="  highlight-icon logo " width="80px"></div>
-                    <div class="text">
-                        <h3>اختبارات سابقة </h3>
-                    </div>
-                </div>
-            </div>
-
-            <div class="box" style="--clr:#fb3545 ">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/2097/2097068.png"
-                            class="  highlight-icon logo " width="80px"></div>
-                    <div class="text">
-                        <h3> مذكرات Education</h3>
-                    </div>
-                </div>
-            </div>
-
-            <div class="box" style="--clr:#5b98eb">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/2103/2103458.png"
-                            class="  highlight-icon logo " width="80px"></div>
-                    <div class="text">
-                        <h3>كورسات مسجلة</h3>
-                    </div>
-                </div>
-            </div>
-
+     
             <div class="box" style="--clr:#eb5ae5">
                 <div class="content">
                     <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/3750/3750032.png"
@@ -144,30 +144,30 @@
                     </div>
                 </div>
             </div>
+         
 
-            <div class="box" style="--clr:#B0E0E6">
+            <div class="box" style="--clr:#F8F8FF">
                 <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/779/779868.png"
+                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/7851/7851689.png"
                             class="  highlight-icon logo " width="80px"></div>
                     <div class="text">
-                        <h3> كورسات حضوري </h3>
+                        <h3>اختبارات وبنوك </h3>
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+
         <div class="features">
             <h3>نبذه عن المنصة </h3>
             <h6>معنا فالك التفوق</h6>
             <div class="features-list">
-
-
                 <div class="feature">
                     <div class="content">
                         <img src=" https://cdn-icons-png.flaticon.com/128/10155/10155988.png"
                             class="  highlight-icon logo " width="100px">
                         <h2
-                            style="text-align: center; padding:10px; background-color: #0893c5; width:50%; margin:10px auto; margin-bottom: 25px; ">
-                            منصة Education</h2>
+                            style="text-align: center; padding:10px; background-color: #0893c5; width:40%; margin:10px auto; margin-bottom: 25px; ">
+                            منصتنا </h2>
                         <p>
                             {{ $data->content1 }}
                         </p>
