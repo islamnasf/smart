@@ -85,21 +85,43 @@
         </nav>
         <!-- القسم الأساسي -->
         <div class="herostages">
-            <h1 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: bold;color: #ffffff;font-size: 40px">المواد
+            <h1
+                style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: bold;color: #ffffff;
+                font-size: 40px;padding-top: 200px">
+                المواد
             </h1>
         </div>
         <div class="container mt-5">
             <div class="mainCard">
                 <!-- Loop to create 4 cards -->
-                <?php for ($i = 1; $i <= 4; $i++) { ?>
                 <div class="card">
                     <div
                         style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
-                        <img src="https://cdn-icons-png.flaticon.com/128/1048/1048971.png" width="65px" />
-                        <a href="#">anyText</a>
+                        <img src="https://cdn-icons-png.flaticon.com/128/3840/3840755.png" width="65px" />
+                        <a href="#">الصف السادس</a>
                     </div>
                 </div>
-                <?php } ?>
+                <div class="card">
+                    <div
+                        style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3840/3840771.png" width="65px" />
+                        <a href="#">الصف السابع</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div
+                        style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3840/3840772.png" width="65px" />
+                        <a href="#">الصف الثامن</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div
+                        style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3840/3840773.png" width="65px" />
+                        <a href="#">الصف الثامن</a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
