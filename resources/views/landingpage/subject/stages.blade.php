@@ -84,6 +84,15 @@
     border-radius: 10px;
 
 }
+.card:hover {
+   
+    background: #0893c5;
+
+}
+ .card:hover h2{
+    color: #1e2028;
+    background: #ffffff;
+}
 @media screen and (max-width: 600px) {
     .card{
     min-height: 220px;
@@ -153,26 +162,32 @@
         </div>
         <div class="wrapper">
              <div class="content-box">
-                <div class="card">
+                <a href="#" style="text-decoration: none;"class="card">
+                <div >
                     <img src="https://cdn-icons-png.flaticon.com/128/2436/2436702.png" style="width:80px" >
                     <h2> الابتدائية </h2>
-
                 </div>
-                <div class="card">
+            </a>
+            <a href="#" style="text-decoration: none;"class="card">
+                <div >
                 <img src="https://cdn-icons-png.flaticon.com/128/2232/2232688.png" style="width:90px; margin-top: -10px; " >
-                    <h2 > المتوسطة</h2>
-                         
+                    <h2 > المتوسطة</h2> 
                 </div>
-                <div class="card">
+                </a>
+                <a href="#" style="text-decoration: none;"class="card">
+                <div >
                 <img src="https://cdn-icons-png.flaticon.com/128/3330/3330314.png" style="width:110px; margin-top: -30px" >
-                    <h2 > الثانوية   </h2>
-                         
+                    <h2 > الثانوية   </h2>         
                 </div>
-                <div class="card">
+                </a>
+
+                <a href="#" style="text-decoration: none;" class="card">
+                <div >
                 <img src="https://cdn-icons-png.flaticon.com/128/12595/12595569.png" style="width:80px" >
                     <h2>   القدرات</h2>
-                    
                 </div>
+                </a>
+
              
            
              </div>
