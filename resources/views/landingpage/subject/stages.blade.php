@@ -6,12 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/10155/10155988.png" type="image/x-icon" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="assets/css/styles_one.css" rel="stylesheet">
-    <title> الصفحة الرئيسية </title>
+    <link href="{{url('assets/css/styles_one.css')}}" rel="stylesheet">
+    <title>المراحل الدراسي</title>
     <style>
         #pre-loader {
             background-color: #ffffff;
@@ -83,107 +82,15 @@
             <i id="mobile-toggle" class="fa fa-solid fa-bars" style="margin-left: 25px;"></i>
         </nav>
         <!-- القسم الأساسي -->
-        <div class="hero">
-            <h1>يمكنك <span class="auto-type"></span></h1>
-            <div class="ctas">
-                <button class="cta purple" style="margin:25px;">استكشف المواد</button>
-                <button class="cta purple" style="margin:25px;">استكشف المذكرات</button>
-
-            </div>
+        <div class="herostages">
+        
 
         </div>
-        <!-- الميزات -->
-        <div class="container">
-
-        <div class="box" style="--clr:#5b98eb">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/2103/2103458.png"
-                            class="  highlight-icon logo " width="80px"></div>
-                    <div class="text">
-                        <h3> الكورسات المسجلة </h3>
-                    </div>
-                </div>
-            </div>
-            <div class="box" style="--clr:#fb3545 ">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/2097/2097068.png"
-                            class="  highlight-icon logo " width="80px"></div>
-                    <div class="text">
-                        <h3> المذكرات المطبوعة </h3>
-                    </div>
-                </div>
-            </div>
-
-          
-        <div class="box" style="--clr:#B0E0E6">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/779/779868.png"
-                            class="  highlight-icon logo " width="80px"></div>
-                    <div class="text">
-                        <h3> كورسات حضوري </h3>
-                    </div>
-                </div>
-            </div>
-            <div class="box" style="--clr:#33ec5b">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/4762/4762311.png"
-                            class="  highlight-icon logo " width="80px">
-                    </div>
-                    <div class="text">
-                        <h3>كورسات اونلاين </h3>
-                    </div>
-                </div>
-            </div>
-     
-            <div class="box" style="--clr:#eb5ae5">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/3750/3750032.png"
-                            class="  highlight-icon logo " width="80px"></div>
-                    <div class="text">
-                        <h3> مدرس خصوصي</h3>
-                    </div>
-                </div>
-            </div>
-         
-
-            <div class="box" style="--clr:#F8F8FF">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/7851/7851689.png"
-                            class="  highlight-icon logo " width="80px"></div>
-                    <div class="text">
-                        <h3>اختبارات وبنوك </h3>
-                    </div>
-                </div>
-            </div>
-            </div>
-
-        <div class="features">
+      <div class="features">
             <h3>نبذه عن المنصة </h3>
             <h6>معنا فالك التفوق</h6>
             <div class="features-list">
-                <div class="feature">
-                    <div class="content">
-                        <img src=" https://cdn-icons-png.flaticon.com/128/10155/10155988.png"
-                            class="  highlight-icon logo " width="100px">
-                        <h2
-                            style="text-align: center; padding:10px; background-color: #0893c5; width:40%; margin:10px auto; margin-bottom: 25px; ">
-                            منصتنا </h2>
-                        <p>
-                            {{ $data->content1 }}
-                        </p>
-                        <p>
-                            {{ $data->content2 }}
-                        </p>
-                        <p>
-                            {{ $data->content3 }}
-                        </p>
-                        <p>
-                            {{ $data->content4 }}
-                        </p>
-
-                    </div>
-                    <img src="assets/education/purple-website.jpg " alt="purple website" class="img-descriprion" />
-                </div>
+              
             </div>
         </div>
     </main>

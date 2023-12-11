@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\ExamController;
 use App\Http\Controllers\Admin\MandubController;
 use App\Http\Controllers\Admin\SecretaryController;
 use App\Http\Controllers\LandingPage\ContactUs;
+use App\Http\Controllers\LandingPage\StageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Sitesetteings;
 use App\Http\Controllers\Teacher\SubjectController;
@@ -41,6 +42,9 @@ Route::get('/grade', [GradeController::class, 'index']);
 Route::fallback(function () {
   return view("errors.404");
 });
+//landingpage->stages
+Route::get('landingpage/subject/stages', [StageController::class, 'index'])->name('stagesPage');
+
 
 
 route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], function () {

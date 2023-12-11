@@ -558,3 +558,16 @@ footer .icon:hover {
     font-size: 1.5rem;
   }
 }
+/* ///stages pages */
+.herostages {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+background-image:url("back-one.jpg" );
+background-repeat: no-repeat;
+background-clip:border-box;
+background-size: 100% 100%;
+background-attachment: fixed;
+}
