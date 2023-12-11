@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="{{url('assets/css/styles_one.css')}}" rel="stylesheet">
+    <link href="{{ url('assets/css/styles_one.css') }}" rel="stylesheet">
     <title>المراحل الدراسي</title>
     <style>
         #pre-loader {
@@ -41,74 +41,80 @@
             z-index: 99;
             margin: 0 auto;
         }
-        .wrapper{
-    font-family: 'poppins',sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom:50px ;
-}
 
-.content-box{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin-top: 30px;
-}
-.card{
-    min-height: 220px;
-    width: 230px;
-    padding: 30px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: #1e2028;
-    margin: 10px 10px;
-    box-shadow: 0px 15px 30px rgba(0,0,0,0.2);
-}
-.card i{
-    margin: 20px;
-    color: #ffffff;
-}
-.card h2{
-    margin-top: 30px;
-    font-weight: 400;
-    text-align: center;
-    color: #ffffff;
-    background: #0893c5;
-    padding: 5px;
-    border-radius: 10px;
+        .wrapper {
+            font-family: 'poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 50px;
+        }
 
-}
-.card:hover {
-   
-    background: #0893c5;
+        .content-box {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin-top: 30px;
+        }
 
-}
- .card:hover h2{
-    color: #1e2028;
-    background: #ffffff;
-}
-@media screen and (max-width: 600px) {
-    .card{
-    min-height: 220px;
-    width: 150px;
-    padding: 30px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: #1e2028;
-    margin: 10px auto;
-    box-shadow: 0px 15px 30px rgba(0,0,0,0.2);
-}
-}
+        .card {
+            min-height: 220px;
+            width: 230px;
+            padding: 30px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: #1e2028;
+            margin: 10px 10px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+        }
 
+        .card i {
+            margin: 20px;
+            color: #ffffff;
+        }
+
+        .card h2 {
+            margin-top: 30px;
+            font-weight: 400;
+            text-align: center;
+            color: #ffffff;
+            background: #0893c5;
+            padding: 5px;
+            border-radius: 10px;
+
+        }
+
+        .card:hover {
+
+            background: #0893c5;
+
+        }
+
+        .card:hover h2 {
+            color: #1e2028;
+            background: #ffffff;
+        }
+
+        @media screen and (max-width: 600px) {
+            .card {
+                min-height: 220px;
+                width: 150px;
+                padding: 30px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background: #1e2028;
+                margin: 10px auto;
+                box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+            }
+        }
     </style>
 
 </head>
@@ -151,47 +157,51 @@
         </nav>
         <!-- القسم الأساسي -->
         <div class="herostages">
-        <h1 style="color:white ; margin-top: 120px; background-color:#1e2028; padding: 25px; border-radius: 25px; opacity: .7; " >كل اللى تحتاجه للتفوق بمكان واحد</h1>
+            <h1
+                style="color:white ; margin-top: 120px; background-color:#1e2028; padding: 25px; border-radius: 25px; opacity: .7; ">
+                كل اللى تحتاجه للتفوق بمكان واحد</h1>
         </div>
-      <div class="featuresstage">
-            <h3>برجاء إختيار المرحلة   </h3>
+        <div class="featuresstage">
+            <h3>برجاء إختيار المرحلة </h3>
             <h6>جميع المراحل الدراسية </h6>
             <div class="features-list">
-              
+
             </div>
         </div>
         <div class="wrapper">
-             <div class="content-box">
+            <div class="content-box">
                 <a href="#" style="text-decoration: none;"class="card">
-                <div >
-                    <img src="https://cdn-icons-png.flaticon.com/128/2436/2436702.png" style="width:80px" >
-                    <h2> الابتدائية </h2>
-                </div>
-            </a>
-            <a href="#" style="text-decoration: none;"class="card">
-                <div >
-                <img src="https://cdn-icons-png.flaticon.com/128/2232/2232688.png" style="width:90px; margin-top: -10px; " >
-                    <h2 > المتوسطة</h2> 
-                </div>
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/128/2436/2436702.png" style="width:80px">
+                        <h2> الابتدائية </h2>
+                    </div>
                 </a>
-                <a href="#" style="text-decoration: none;"class="card">
-                <div >
-                <img src="https://cdn-icons-png.flaticon.com/128/3330/3330314.png" style="width:110px; margin-top: -30px" >
-                    <h2 > الثانوية   </h2>         
-                </div>
+                <a href="{{ route('stageInfonShow', 'middle') }}" style="text-decoration: none;"class="card">
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/128/2232/2232688.png"
+                            style="width:90px; margin-top: -10px; ">
+                        <h2> المتوسطة</h2>
+                    </div>
+                </a>
+                <a href="{{ route('stageInfonShow', 'high_school') }}" style="text-decoration: none;"class="card">
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/128/3330/3330314.png"
+                            style="width:110px; margin-top: -30px">
+                        <h2> الثانوية </h2>
+                    </div>
                 </a>
 
                 <a href="#" style="text-decoration: none;" class="card">
-                <div >
-                <img src="https://cdn-icons-png.flaticon.com/128/12595/12595569.png" style="width:80px" >
-                    <h2>   القدرات</h2>
-                </div>
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/128/12595/12595569.png" style="width:80px">
+                        <h2> القدرات</h2>
+                    </div>
                 </a>
 
-             
-           
-             </div>
-    </div>
+
+
+            </div>
+        </div>
     </main>
     <footer>
         <h3>Education</h3>
@@ -209,7 +219,6 @@
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
     <script>
-      
         window.onscroll = function() {
             scrollFunction()
         };

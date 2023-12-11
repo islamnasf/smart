@@ -1,7 +1,7 @@
 .mainCard {
     display: flex;
     justify-content: center;
-    width: 100%;
+    max-width: 1400;
     flex-wrap: wrap;
 }
 
@@ -34,3 +34,18 @@ a {
     font-size: 19px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+@media screen and (max-width: 1000px) {
+    .card {
+        width: 140px;
+        height: 150px;
+        background-image: linear-gradient(to right, #055c7b, #066e94, #0781ac);
+        border-radius: 10px;
+        margin: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .3s;
+    }
+   
+  }
