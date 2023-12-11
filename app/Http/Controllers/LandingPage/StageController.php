@@ -8,8 +8,15 @@ use Illuminate\Http\Request;
 
 class StageController extends Controller
 {
-    public function index(){
-        $data =  Sitesetteings::find(1);
+    public function index()
+    {
+        $data = Sitesetteings::find(1);
         return view('landingpage/subject/stages', compact("data"));
+    }
+
+    public function stageInfon()
+    {
+        $data = Sitesetteings::find(1);
+        return view('landingpage.subject.stageinfo', compact("data"));
     }
 }

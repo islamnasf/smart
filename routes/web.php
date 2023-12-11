@@ -41,11 +41,6 @@ Route::get('/grade', [GradeController::class, 'index']);
 Route::fallback(function () {
   return view("errors.404");
 });
-//landingpage->stages
-Route::get('landingpage/subject/stages', [StageController::class, 'index'])->name('stagesPage');
-
-
-
 
 
 route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], function () {
@@ -131,7 +126,14 @@ require __DIR__ . '/auth.php';
 Route::get('/contactus', [ContactUs::class, 'index'])->name('contactus');
 Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');
 
-Route::get('sss', function(){
-  return view('landingpage.subject.stageinfo');
-})->name('');
+
+
+route::group(['prefix' => 'landingpage'], function () {
+  Route::get('/stage/information', [StageController::class, 'stageInfon'])->name('stageInfonShow');
+  //landingpage->stages
+  Route::get('/subject/stages', [StageController::class, 'index'])->name('stagesPage');
+});
+
+
+
 

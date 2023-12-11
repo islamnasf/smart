@@ -1,0 +1,36 @@
+.mainCard {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 200px;
+    height: 150px;
+    background-image: linear-gradient(to right, #055c7b, #066e94, #0781ac);
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+}
+
+.card:hover {
+    padding: 15px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #5ca0fb;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    transition: .3s;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+    font-weight: 800;
+    color: #fff;
+    font-size: 19px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
