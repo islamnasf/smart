@@ -148,11 +148,6 @@
             <i id="mobile-toggle" class="fa fa-solid fa-bars" style="margin-left: 25px;"></i>
         </nav>
         <!-- القسم الأساسي -->
-        <div class="herostages">
-            <h1
-                style="color:white ; margin-top: 120px; background-color:#1e2028; padding: 25px; border-radius: 25px; opacity: .7; ">
-                كل اللى تحتاجه للتفوق بمكان واحد</h1>
-        </div>
         <div class="featuresstage">
             <h3>برجاء إختيار المرحلة </h3>
             <h6>جميع المراحل الدراسية </h6>
@@ -185,7 +180,7 @@
             <a href="{{ $data->twitter }}"><i class="icon fa-brands fa-twitter"></i></a>
         </div>
     </footer>
-    <script src="assets/js/script_one.js"></script>
+    <script src="{{ url('assets/js/script_one.js') }}"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
