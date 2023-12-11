@@ -125,4 +125,7 @@ require __DIR__ . '/auth.php';
 Route::get('/contactus', [ContactUs::class, 'index'])->name('contactus');
 Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');
 
+Route::get('sss', function(){
+  return view('landingpage.subject.stageinfo');
+})->name('');
 
