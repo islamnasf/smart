@@ -86,9 +86,8 @@
         <div class="hero">
             <h1>يمكنك <span class="auto-type"></span></h1>
             <div class="ctas">
-                <button class="cta purple" style="margin:25px;">استكشف المواد</button>
+                <a class="cta purple" style="margin:25px;" href="{{route('stagesPage')}}">استكشف المواد</a>
                 <button class="cta purple" style="margin:25px;">استكشف المذكرات</button>
-
             </div>
 
         </div>
