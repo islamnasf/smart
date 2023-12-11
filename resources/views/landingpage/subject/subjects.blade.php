@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,7 +9,7 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ url('assets/css/styles_one.css') }}" rel="stylesheet">
-    <title>المراحل الدراسي</title>
+    <title> المواد</title>
     <style>
         #pre-loader {
             background-color: #ffffff;
@@ -69,7 +68,6 @@
             margin: 10px 10px;
             box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
             border: #1e2028 5px solid;
-
         }
         .card i {
             margin: 20px;
@@ -113,7 +111,6 @@
         }
     </style>
 </head>
-
 <body class="bodystage">
     <div id="pre-loader">
         <img src="assets/images/pre-loader/loader-01.svg" alt="">
@@ -160,7 +157,6 @@
             <h3>برجاء إختيار المرحلة </h3>
             <h6>جميع المراحل الدراسية </h6>
             <div class="features-list">
-
             </div>
         </div>
         <div class="wrapper">
@@ -171,30 +167,12 @@
                         <h2> الابتدائية </h2>
                     </div>
                 </a>
-                <a href="{{ route('stageInfonShow', 'middle') }}" style="text-decoration: none;"class="card">
-                    <div>
-                        <img src="https://cdn-icons-png.flaticon.com/128/2232/2232688.png"
-                            style="width:90px; margin-top: -10px; margin-right: 22.5px; ">
-                        <h2> المتوسطة</h2>
-                    </div>
-                </a>
-                <a href="{{ route('stageInfonShow', 'high_school') }}" style="text-decoration: none;"class="card">
-                    <div>
-                        <img src="https://cdn-icons-png.flaticon.com/128/3330/3330314.png"
-                            style="width:110px; margin-top: -30px">
-                        <h2> الثانوية </h2>
-                    </div>
-                </a>
-
                 <a href="#" style="text-decoration: none;" class="card">
                     <div>
                         <img src="https://cdn-icons-png.flaticon.com/128/12595/12595569.png" style="width:80px;margin-right:15px">
                         <h2> القدرات</h2>
                     </div>
                 </a>
-
-
-
             </div>
         </div>
     </main>
