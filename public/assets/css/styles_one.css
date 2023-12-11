@@ -160,7 +160,7 @@ background-attachment: fixed;
   color: var(--clr);
 }
 main {
-  max-width: 1366px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -442,7 +442,7 @@ footer .icon:hover {
 
 @media screen and (max-width: 1400px) {
   main {
-    max-width: 1200%;
+    max-width: 1400px;
   }
 }
 @media screen and (max-width: 1050px) {
