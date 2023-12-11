@@ -484,19 +484,19 @@ footer .icon:hover {
     text-align: center;
 
   }
-  body {
+  body  .bodystage{
 
     background-size:  800px 100%;
 
   }
-  .features { 
+  .features .featuresstage { 
     background-size:  800px 100%;
 
   }
   .feature .content p {
     width: 100%;
   }
-  .hero {
+  .hero .herostages {
     height: 50vh;
     margin: 3rem 0;
     background-size:  800px 100%;
@@ -560,7 +560,7 @@ footer .icon:hover {
 }
 /* ///stages pages */
 .herostages {
-  height: 40vh;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -571,3 +571,35 @@ background-clip:border-box;
 background-size: 100% 100%;
 background-attachment: fixed;
 }
+
+.featuresstage { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image:url("back-one.jpg" );
+  background-repeat: no-repeat;
+  background-clip:border-box;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  padding-top: 50px;
+  }
+  .featuresstage h3 {
+    color: var(--white);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .featuresstage h6 {
+    color: var(--gray);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+  .bodystage {
+    background-image:url("back-one.jpg" );
+  background-repeat: no-repeat;
+  background-clip:border-box;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+    font-family: "Tajawal", sans-serif;
+  }
+/* // */

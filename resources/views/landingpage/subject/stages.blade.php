@@ -41,11 +41,70 @@
             z-index: 99;
             margin: 0 auto;
         }
+        .wrapper{
+    font-family: 'poppins',sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom:50px ;
+}
+
+.content-box{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin-top: 30px;
+}
+.card{
+    min-height: 220px;
+    width: 230px;
+    padding: 30px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #1e2028;
+    margin: 10px 10px;
+    box-shadow: 0px 15px 30px rgba(0,0,0,0.2);
+}
+.card i{
+    margin: 20px;
+    color: #ffffff;
+}
+.card h2{
+    margin-top: 30px;
+    font-weight: 400;
+    text-align: center;
+    color: #ffffff;
+    background: #0893c5;
+    padding: 5px;
+    border-radius: 10px;
+
+}
+@media screen and (max-width: 600px) {
+    .card{
+    min-height: 220px;
+    width: 150px;
+    padding: 30px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #1e2028;
+    margin: 10px auto;
+    box-shadow: 0px 15px 30px rgba(0,0,0,0.2);
+}
+}
+
     </style>
 
 </head>
 
-<body>
+<body class="bodystage">
     <div id="pre-loader">
         <img src="assets/images/pre-loader/loader-01.svg" alt="">
     </div>
@@ -83,16 +142,41 @@
         </nav>
         <!-- القسم الأساسي -->
         <div class="herostages">
-        
-
+        <h1 style="color:white ; margin-top: 120px; background-color:#1e2028; padding: 25px; border-radius: 25px; opacity: .7; " >كل اللى تحتاجه للتفوق بمكان واحد</h1>
         </div>
-      <div class="features">
-            <h3>نبذه عن المنصة </h3>
-            <h6>معنا فالك التفوق</h6>
+      <div class="featuresstage">
+            <h3>برجاء إختيار المرحلة   </h3>
+            <h6>جميع المراحل الدراسية </h6>
             <div class="features-list">
               
             </div>
         </div>
+        <div class="wrapper">
+             <div class="content-box">
+                <div class="card">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2436/2436702.png" style="width:80px" >
+                    <h2> الابتدائية </h2>
+
+                </div>
+                <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/128/2232/2232688.png" style="width:90px; margin-top: -10px; " >
+                    <h2 > المتوسطة</h2>
+                         
+                </div>
+                <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/128/3330/3330314.png" style="width:110px; margin-top: -30px" >
+                    <h2 > الثانوية   </h2>
+                         
+                </div>
+                <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/128/12595/12595569.png" style="width:80px" >
+                    <h2>   القدرات</h2>
+                    
+                </div>
+             
+           
+             </div>
+    </div>
     </main>
     <footer>
         <h3>Education</h3>
