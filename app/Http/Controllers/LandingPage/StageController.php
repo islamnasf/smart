@@ -26,4 +26,10 @@ class StageController extends Controller
         $data = Sitesetteings::find(1);
         return view('landingpage.subject.subjects', compact("data"));
     }
+//fourth
+public function showOneSubject()
+{
+    $data = Sitesetteings::find(1);
+    return view('landingpage.subject.subjectname', compact("data"));
+}
 }
