@@ -12,6 +12,11 @@
 
     <link href="{{ url('assets/custom.css') }}" rel="stylesheet">
     <link href="{{ url('assets/css/styles_one.css') }}" rel="stylesheet">
+    @if (Route::current()->Parameter('name') == 'middle')
+        <title>المرحلة المتوسطة</title>
+    @else
+        <title>المرحلة الثانوية</title>
+    @endif
     <title>Stage Informatin</title>
     <style>
         #pre-loader {

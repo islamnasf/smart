@@ -16,6 +16,7 @@ use App\Http\Controllers\LandingPage\ContactUs;
 use App\Http\Controllers\LandingPage\StageController;
 use App\Http\Controllers\Sitesetteings;
 use App\Http\Controllers\Teacher\SubjectController;
+use App\Http\Controllers\Teacher\TutorialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+require __DIR__ . '/auth.php';
+
 
 Route::get('/', function () {
   $data = \App\Models\Sitesetteings::find(1);
@@ -116,15 +119,15 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('show/site/setting', [Sitesetteings::class, 'index'])->name('sitesettingsShow');
   Route::post('post/site/setting', [Sitesetteings::class, 'update'])->name('sitesettingsPost');
 
-  //teacher->dashboard->course
-  Route::get('teacher/course', [SubjectController::class, 'index'])->name('teacherCourse');
-
 });
 
-require __DIR__ . '/auth.php';
 
-Route::get('/contactus', [ContactUs::class, 'index'])->name('contactus');
-Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');
+route::group(['prefix' => 'dashboard/teacher/'], function () {
+  //teacher->dashboard->course
+  Route::get('course/show', [SubjectController::class, 'index'])->name('teacherCourse');
+  Route::get('course/tutorial/show/{courseId}', [TutorialController::class, 'index'])->name('teacherCourseTutorialShow');
+  Route::get('course/tutorial/video/show', [TutorialController::class, 'showVideo'])->name('teacherCourseTutorialVideoShow');
+});
 
 
 
@@ -133,6 +136,10 @@ route::group(['prefix' => 'landingpage'], function () {
   //landingpage->stages
   Route::get('/subject/stages', [StageController::class, 'index'])->name('stagesPage');
   Route::get('/subjects/show', [StageController::class, 'showAllSubjects'])->name('subjectsShow');
+
+  Route::get('/contactus', [ContactUs::class, 'index'])->name('contactus');
+  Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');
+
 });
 
 
