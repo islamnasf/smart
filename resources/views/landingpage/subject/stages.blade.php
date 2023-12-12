@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="{{ url('assets/css/styles_one.css') }}" rel="stylesheet">
     <title>المراحل الدراسي</title>
     <style>
@@ -115,6 +116,19 @@
                 box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
             }
         }
+
+        .warning-modal {
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+
+        .warning-modal .modal-header {
+            border-bottom: 1px solid #f5c6cb;
+        }
+
+        .warning-modal .modal-title {
+            color: #721c24;
+        }
     </style>
 
 </head>
@@ -170,12 +184,13 @@
         </div>
         <div class="wrapper">
             <div class="content-box">
-                <a href="#" style="text-decoration: none;"class="card">
+                <button type="button" data-toggle="modal" data-target="#warningModal" style="text-decoration: none;"
+                    class="card">
                     <div>
                         <img src="https://cdn-icons-png.flaticon.com/128/2436/2436702.png" style="width:80px">
                         <h2> الابتدائية </h2>
                     </div>
-                </a>
+                </button>
                 <a href="{{ route('stageInfonShow', 'middle') }}" style="text-decoration: none;"class="card">
                     <div>
                         <img src="https://cdn-icons-png.flaticon.com/128/2232/2232688.png"
@@ -191,15 +206,35 @@
                     </div>
                 </a>
 
-                <a href="#" style="text-decoration: none;" class="card">
+                <button type="button" data-toggle="modal" data-target="#warningModal" style="text-decoration: none;"
+                    class="card">
                     <div>
                         <img src="https://cdn-icons-png.flaticon.com/128/12595/12595569.png" style="width:80px">
                         <h2> القدرات</h2>
                     </div>
-                </a>
-
-
-
+                </button>
+                <div class="modal fade warning-modal" id="warningModal" tabindex="-1" role="dialog"
+                    aria-labelledby="warningModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="warningModalLabel">تنبية</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>
+                                    نأسف لعدم وجود كورسات مسجلة حالياً فى مرحلة القدرات
+                                </h5>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                                <!-- Add any additional buttons or actions here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -217,6 +252,9 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <script>
         window.onscroll = function() {
