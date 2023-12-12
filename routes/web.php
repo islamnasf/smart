@@ -136,7 +136,6 @@ route::group(['prefix' => 'landingpage'], function () {
   //landingpage->stages
   Route::get('/subject/stages', [StageController::class, 'index'])->name('stagesPage');
 
-
   Route::get('/contactus', [ContactUs::class, 'index'])->name('contactus');
   Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');
 

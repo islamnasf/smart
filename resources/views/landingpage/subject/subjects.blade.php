@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,15 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link href="{{ url('assets/custom.css') }}" rel="stylesheet">
     <link href="{{ url('assets/css/styles_one.css') }}" rel="stylesheet">
-    @if (Route::current()->Parameter('name') == 'middle')
-        <title>المرحلة المتوسطة</title>
-    @else
-        <title>المرحلة الثانوية</title>
-    @endif
-    <title>Stage Informatin</title>
+    <title> المواد</title>
     <style>
         #pre-loader {
             background-color: #ffffff;
@@ -48,10 +40,77 @@
             z-index: 99;
             margin: 0 auto;
         }
+        .wrapper {
+            font-family: 'poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 50px;
+        }
+        .content-box {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin-top: 30px;
+        }
+        .card {
+            min-height: 220px;
+            width: 230px;
+            padding: 30px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: #1e2028;
+            margin: 10px 10px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+            border: #1e2028 5px solid;
+        }
+        .card i {
+            margin: 20px;
+            color: #ffffff;
+        }
+        .card h2 {
+            margin-top: 30px;
+            font-weight: 400;
+            text-align: center;
+            color: #ffffff;
+            background: #0893c5;
+            padding: 6px 20px;
+            border-radius: 10px;
+
+        }
+        .card:hover {
+            background: #0893c5;
+            opacity: .85;
+            border: #1e2028 5px solid;
+            transition: 1s;
+        }
+        .card:hover h2 {
+            color: #0893c5;
+            background: #1e2028;
+            transition: .8s;
+        }
+        @media screen and (max-width: 600px) {
+            .card {
+                min-height: 220px;
+                width: 150px;
+                padding: 30px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background: #1e2028;
+                margin: 10px auto;
+                box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+            }
+        }
     </style>
-
 </head>
-
 <body class="bodystage">
     <div id="pre-loader">
         <img src="assets/images/pre-loader/loader-01.svg" alt="">
@@ -89,83 +148,28 @@
             <i id="mobile-toggle" class="fa fa-solid fa-bars" style="margin-left: 25px;"></i>
         </nav>
         <!-- القسم الأساسي -->
-        @if (Route::current()->Parameter('name') == 'middle')
-            <div class="herostages">
-                <h1
-                    style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: bold;color: #ffffff;
-                font-size: 40px;padding-top: 200px">
-                    المرحلة المتوسطة
-                </h1>
+        <div class="featuresstage">
+            <h3>برجاء إختيار المرحلة </h3>
+            <h6>جميع المراحل الدراسية </h6>
+            <div class="features-list">
             </div>
-            <div class="container mt-5" style="margin-bottom: 50px">
-                <div class="mainCard">
-                    <!-- Loop to create 4 cards -->
-                    <div class="card">
-                        <div
-                            style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
-                            <img src="https://cdn-icons-png.flaticon.com/128/3840/3840755.png" width="65px" />
-                            <a href="#">الصف السادس</a>
-                        </div>
+        </div>
+        <div class="wrapper">
+            <div class="content-box">
+                <a href="#" style="text-decoration: none;"class="card">
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/128/2436/2436702.png" style="width:80px ;margin-right:15px">
+                        <h2> الابتدائية </h2>
                     </div>
-                    <div class="card">
-                        <div
-                            style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
-                            <img src="https://cdn-icons-png.flaticon.com/128/3840/3840771.png" width="65px" />
-                            <a href="#">الصف السابع</a>
-                        </div>
+                </a>
+                <a href="#" style="text-decoration: none;" class="card">
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/128/12595/12595569.png" style="width:80px;margin-right:15px">
+                        <h2> القدرات</h2>
                     </div>
-                    <div class="card">
-                        <div
-                            style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
-                            <img src="https://cdn-icons-png.flaticon.com/128/3840/3840772.png" width="65px" />
-                            <a href="#">الصف الثامن</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div
-                            style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
-                            <img src="https://cdn-icons-png.flaticon.com/128/3840/3840773.png" width="65px" />
-                            <a href="#">الصف الثامن</a>
-                        </div>
-                    </div>
-                </div>
+                </a>
             </div>
-        @else
-            <div class="herostages">
-                <h1
-                    style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: bold;color: #ffffff;
-                font-size: 40px;padding-top: 200px">
-                    المرحلة الثانوية
-                </h1>
-            </div>
-            <div class="container mt-5" style="margin-bottom: 50px">
-                <div class="mainCard">
-                    <!-- Loop to create 4 cards -->
-                    <div class="card">
-                        <div
-                            style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
-                            <img src="https://cdn-icons-png.flaticon.com/128/6912/6912885.png" width="65px" />
-                            <a href="#">الصف العاشر</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div
-                            style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
-                            <img src="https://cdn-icons-png.flaticon.com/128/6912/6912910.png" width="65px" />
-                            <a href="#">الصف الحادي عشر</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div
-                            style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
-                            <img src="https://cdn-icons-png.flaticon.com/128/6912/6912921.png" width="65px" />
-                            <a href="#">الصف الثاني عشر</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
-
+        </div>
     </main>
     <footer>
         <h3>Education</h3>
@@ -181,10 +185,12 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
     <script>
         window.onscroll = function() {
             scrollFunction()
         };
+
         function scrollFunction() {
             if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
                 document.getElementById("navbar").style.top = "0";
