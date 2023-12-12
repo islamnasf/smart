@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,7 +10,7 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ url('assets/css/styles_one.css') }}" rel="stylesheet">
-    <title> المواد</title>
+    <title>جميع المواد </title>
     <style>
         #pre-loader {
             background-color: #ffffff;
@@ -48,6 +49,7 @@
             flex-direction: column;
             margin-bottom: 50px;
         }
+        
         .content-box {
             display: flex;
             justify-content: space-between;
@@ -68,6 +70,7 @@
             margin: 10px 10px;
             box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
             border: #1e2028 5px solid;
+
         }
         .card i {
             margin: 20px;
@@ -94,7 +97,43 @@
             background: #1e2028;
             transition: .8s;
         }
+        .herostages{
+            height: 37vh;
+        }
+        /* // */
+        .firstcard {
+            font-family: 'poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .cardone {
+            min-height: 240px;
+            width: 540px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            background: #0A5384;
+            margin: 10px 10px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+            border: #0893c5 5px solid;
+            color: #ffffff;
+            align-items: center;
+        }
+        .content-boxone {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+        }
         @media screen and (max-width: 600px) {
+            .herostages{
+            height: 20vh;
+        }
+        .herostages h1{
+margin-top: 120px;        }
             .card {
                 min-height: 220px;
                 width: 150px;
@@ -108,9 +147,22 @@
                 margin: 10px auto;
                 box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
             }
+            .cardone {
+            min-height: 120px;
+            width: 370px;
+            border-radius: 15px;
+            display: flex;
+            
+            flex-direction: column;
+            background: #0893c5;
+            margin: 20px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+            border: #1e2028 5px solid;
+        }
         }
     </style>
 </head>
+
 <body class="bodystage">
     <div id="pre-loader">
         <img src="assets/images/pre-loader/loader-01.svg" alt="">
@@ -148,10 +200,41 @@
             <i id="mobile-toggle" class="fa fa-solid fa-bars" style="margin-left: 25px;"></i>
         </nav>
         <!-- القسم الأساسي -->
+
+        <div class="herostages">
+            <h1
+                style="color:white ; background-color:#1e2028; padding: 20px;  opacity: .7; text-align: center; width:100%; ">
+                كل اللى تحتاجه للتفوق بمكان واحد</h1>
+
+        </div>
+        <div class="firstcard">
+            <div class="content-boxone "> 
+                <a href="#" style="text-decoration: none;"class="cardone">
+                    <div style="padding-bottom: 50px;">
+                        <h1 style="padding: 10px;">شروحات +مذكرات</h1>
+                        <p style="font-size: 22px; padding-right: 15px; font-weight: 600; color: var(--gray)">  6 مواد شرح  +4 مذكرات</p>
+                        <p style="font-size: 22px; padding-right: 15px; font-weight: 600; color: var(--gray)"> سعر الباقة 40د.ك</p>
+                    </div>
+                 <img src="https://cdn-icons-png.flaticon.com/128/11722/11722452.png"  width="110px" height="110px"/>
+                </a>
+
+                <a href="#" style="text-decoration: none;"class="cardone">
+                    <div style="padding-bottom: 50px;">
+                        <h1 style="padding: 10px;">باقات شروحات ترم كامل </h1>
+                        <p style="font-size: 22px; padding-right: 15px; font-weight: 600; color: var(--gray)">    4 مواد شرح     </p>
+                        <p style="font-size: 22px; padding-right: 15px; font-weight: 600; color: var(--gray)"> سعر الباقة 30د.ك</p>
+                    </div>
+                 <img src="https://cdn-icons-png.flaticon.com/128/11722/11722452.png"  width="110px" height="110px"/>
+                </a>
+            
+    </div>
+
+        </div>
         <div class="featuresstage">
-            <h3>برجاء إختيار المرحلة </h3>
-            <h6>جميع المراحل الدراسية </h6>
+            <h3>مواد الصف الثامن   </h3>
+            <h6>  جميع مواد الصف الثامن  </h6>
             <div class="features-list">
+
             </div>
         </div>
         <div class="wrapper">
@@ -162,12 +245,30 @@
                         <h2> الابتدائية </h2>
                     </div>
                 </a>
+                <a href="{{ route('stageInfonShow', 'middle') }}" style="text-decoration: none;"class="card">
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/128/2232/2232688.png"
+                            style="width:90px; margin-top: -10px; margin-right: 22.5px; ">
+                        <h2> المتوسطة</h2>
+                    </div>
+                </a>
+                <a href="{{ route('stageInfonShow', 'high_school') }}" style="text-decoration: none;"class="card">
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/128/3330/3330314.png"
+                            style="width:110px; margin-top: -30px">
+                        <h2> الثانوية </h2>
+                    </div>
+                </a>
+
                 <a href="#" style="text-decoration: none;" class="card">
                     <div>
                         <img src="https://cdn-icons-png.flaticon.com/128/12595/12595569.png" style="width:80px;margin-right:15px">
                         <h2> القدرات</h2>
                     </div>
                 </a>
+
+
+
             </div>
         </div>
     </main>

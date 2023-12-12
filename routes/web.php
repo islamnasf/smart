@@ -132,7 +132,7 @@ route::group(['prefix' => 'landingpage'], function () {
   Route::get('/stage/information/{name}', [StageController::class, 'stageInfon'])->name('stageInfonShow');
   //landingpage->stages
   Route::get('/subject/stages', [StageController::class, 'index'])->name('stagesPage');
-  Route::get('/stage/information/{name}', [StageController::class, 'stageInfon'])->name('stageInfonShow');
+  Route::get('/subjects/show', [StageController::class, 'showAllSubjects'])->name('subjectsShow');
 });
 
 
