@@ -115,9 +115,7 @@
       background-color: #1e2028;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
-
     }
-
     .item {
       cursor: pointer;
       padding: 13px;
@@ -129,18 +127,15 @@
       font-size: 20px;
       font-weight: 800;
     }
-
     .item:hover {
       background-color: #0893c5;
     }
-
     .content {
       display: none;
       padding: 12px;
       border: 1px solid #ddd;
       border-radius: 2px;
       background-color: #ddd;
-      
     }
     .insidecontent{
         border-bottom: 3px solid #2980b9;
@@ -150,7 +145,6 @@
         border-radius: 5px;
       font-weight: 800;
       transition: .3s;
-
     }
     .insidecontent:hover{
        background-color: #1e2028;
@@ -158,8 +152,6 @@
        border-bottom: 3px solid #1e2028;
        transition: .3s;
     }
-
-
     .content.active {
       display: block;
     }
@@ -219,43 +211,24 @@
             <i id="mobile-toggle" class="fa fa-solid fa-bars" style="margin-left: 25px;"></i>
         </nav>
         <!-- القسم الأساسي -->
-       
         <div class="featuresstage">
             <div class="one">
-            <h3>اسم المادة :علوم   </h3>
+            <h3>اسم المادة :{{$courses->subject_name}} </h3>
             <h6  style="text-align:center">جميع وحدات المادة  </h6>
     </div>
         </div>
 <!-- 0000 -->
 <div class="tutorial">
 <div class="accordion">
-    <div class="item" onclick="toggleContent('content1')"> الوحدة التعليمية الاولي : التكاثر ف الانسان</div>
-  <div class="content" id="content1">
-    <div  class="insidecontent">محتوى القسم الأول</div>
-    <div class="insidecontent">محتوى القسم الأول</div>
-    <div class="insidecontent">محتوى القسم الأول</div>
-    <div class="insidecontent">محتوى القسم الأول</div>
-
+    @foreach($tutorials as $tutorial)
+    <!-- <div class="item" onclick="toggleContent('content1')"> الوحدة التعليمية الاولي : التكاثر ف الانسان</div> -->
+ <div class="item" onclick="toggleContent('{{ $tutorial['id'] }}')"> {{$tutorial->name}}</div> 
+    <div class="content" id="{{ $tutorial['id'] }}">
+    @foreach ($tutorial->video as $video)
+    <div  class="insidecontent">{{$video->name}}</div>
+    @endforeach
     </div>
-
-
-    <div class="item" onclick="toggleContent('content2')">عنوان القسم الثاني</div>
-    <div class="content" id="content2">
-    <div  class="insidecontent">محتوى القسم الثاني</div>
-    <div class="insidecontent">محتوى القسم الثاني</div>
-    <div class="insidecontent">محتوى القسم الثاني</div>
-    <div class="insidecontent">محتوى القسم الثاني</div>
-    </div>
-
-    <div class="item" onclick="toggleContent('content3')">عنوان القسم الثالث</div>
-    <div class="content" id="content3">
-    <div  class="insidecontent">محتوى القسم الثاني</div>
-    <div class="insidecontent">محتوى القسم الثاني</div>
-    <div class="insidecontent">محتوى القسم الثاني</div>
-    <div class="insidecontent">محتوى القسم الثاني</div>
-    </div>
-
-    <!-- يمكنك إضافة عناوين ومحتويات إضافية حسب الحاجة -->
+    @endforeach
 
   </div>
 

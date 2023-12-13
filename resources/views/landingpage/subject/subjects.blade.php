@@ -241,28 +241,260 @@ margin-top: 120px;        }
     </div>
 
         </div>
+        @if (Route::current()->Parameter('name') == 'six')
         <div class="featuresstage">
+
+            <h3>مواد الصف السادس   </h3>
+            <h6>  جميع مواد الصف السادس  </h6>
+            <div class="features-list">
+
+            </div>
+        </div>
+         <div class="wrapper">
+            <div class="content-box">
+            @foreach($coursesix as $course)
+            <div class="maincard">
+                <a href="{{route('subjectsShowOne', $course->id)}}" style="text-decoration: none;"class="card">
+                <div>
+                        <h2> {{$course->subject_name}} </h2>
+                    </div>
+                </a>
+                <div>
+               
+                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                <br>
+                    
+                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                </div>
+            </div>
+            @endforeach
+            </div>
+        </div>
+        @elseif (Route::current()->Parameter('name') == 'seven')
+        <div class="featuresstage">
+
+            <h3>مواد الصف السابع   </h3>
+            <h6>  جميع مواد الصف السابع  </h6>
+            <div class="features-list">
+
+            </div>
+        </div>
+         <div class="wrapper">
+            <div class="content-box">
+            @foreach($courseseven as $course)
+            <div class="maincard">
+                <a href="{{route('subjectsShowOne', $course->id)}}" style="text-decoration: none;"class="card">
+                <div>
+                        <h2> {{$course->subject_name}} </h2>
+                    </div>
+                </a>
+                <div>
+               
+                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                <br>
+                    
+                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                </div>
+            </div>
+            @endforeach
+            </div>
+        </div>
+        @elseif (Route::current()->Parameter('name') == 'eight')
+        <div class="featuresstage">
+
             <h3>مواد الصف الثامن   </h3>
             <h6>  جميع مواد الصف الثامن  </h6>
             <div class="features-list">
 
             </div>
         </div>
+         <div class="wrapper">
+            <div class="content-box">   
+            @foreach($courseeight as $course)
+            <div class="maincard">
+                <a href="{{route('subjectsShowOne', $course->id)}}" style="text-decoration: none;"class="card">
+                <div>
+                        <h2> {{$course->subject_name}} </h2>
+                    </div>
+                </a>
+                <div>
+               
+                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                <br>
+                    
+                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                </div>
+            </div>
+            @endforeach
+            </div>
+        </div>
+        @elseif (Route::current()->Parameter('name') == 'nine')
+        <div class="featuresstage">
+
+            <h3>مواد الصف التاسع   </h3>
+            <h6>  جميع مواد الصف التاسع  </h6>
+            <div class="features-list">
+
+            </div>
+        </div>
+         <div class="wrapper">
+            <div class="content-box">   
+            @foreach($coursenine as $course)
+            <div class="maincard">
+                <a href="{{route('subjectsShowOne', $course->id)}}" style="text-decoration: none;"class="card">
+                <div>
+                        <h2> {{$course->subject_name}} </h2>
+                    </div>
+                </a>
+                <div>
+               
+                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                <br>
+                    
+                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                </div>
+            </div>
+            @endforeach
+            </div>
+        </div>
+        @elseif (Route::current()->Parameter('name') == 'ten')
+        <div class="featuresstage">
+
+            <h3>مواد الصف العاشر   </h3>
+            <h6>  جميع مواد الصف العاشر  </h6>
+            <div class="features-list">
+
+            </div>
+        </div>
+         <div class="wrapper">
+            <div class="content-box">   
+            @foreach($courseten as $course)
+            <div class="maincard">
+                <a href="{{route('subjectsShowOne', $course->id)}}" style="text-decoration: none;"class="card">
+                <div>
+                        <h2> {{$course->subject_name}} </h2>
+                    </div>
+                </a>
+                <div>
+               
+                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                <br>
+                    
+                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                </div>
+            </div>
+            @endforeach
+            </div>
+        </div>
+        @elseif (Route::current()->Parameter('name') == 'eleven')
+        <div class="featuresstage">
+
+            <h3>مواد الصف الحادي عشر   </h3>
+            <h6>  جميع مواد الصف الحادي عشر  </h6>
+            <div class="features-list">
+
+            </div>
+        </div>
+         <div class="wrapper">
+            <div class="content-box">   
+            @foreach($courseeleven as $course)
+            <div class="maincard">
+                <a href="{{route('subjectsShowOne', $course->id)}}" style="text-decoration: none;"class="card">
+                <div>
+                        <h2> {{$course->subject_name}} </h2>
+                    </div>
+                </a>
+                <div>
+               
+                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                <br>
+                    
+                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                </div>
+            </div>
+            @endforeach
+            </div>
+        </div>
+        @elseif (Route::current()->Parameter('name') == 'twelve')
+        <div class="featuresstage">
+
+            <h3>مواد الصف الثاني عشر   </h3>
+            <h6>  جميع مواد الصف الثاني عشر  </h6>
+            <div class="features-list">
+
+            </div>
+        </div>
+         <div class="wrapper">
+            <div class="content-box">   
+            @foreach($coursetwelve as $course)
+            <div class="maincard">
+                <a href="{{route('subjectsShowOne', $course->id)}}" style="text-decoration: none;"class="card">
+                <div>
+                        <h2> {{$course->subject_name}} </h2>
+                    </div>
+                </a>
+                <div>
+               
+                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                <br>
+                    
+                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                </div>
+            </div>
+            @endforeach
+            </div>
+        </div>
+        @else
+        <div class="featuresstage">
+
+            <h3>مواد الصف السادس   </h3>
+            <h6>  جميع مواد الصف السادس  </h6>
+            <div class="features-list">
+
+            </div>
+        </div>
         <div class="wrapper">
             <div class="content-box">
+            @foreach($course as $course)
+
             <div class="maincard">
-                <a href="{{route('subjectsShowOne')}}" style="text-decoration: none;"class="card">
+                <a href="#" style="text-decoration: none;"class="card">
                     <div>
                         <h2> العلوم </h2>
                     </div>
                 </a>
-                <div>
-                   
+                <div>      
                 <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
                 <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px" >    
-
-                <br>
-                    
+                <br>           
                     <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
                     <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
@@ -322,6 +554,8 @@ margin-top: 120px;        }
             </div>
             </div>
         </div>
+        @endforeach
+@endif
     </main>
     <footer>
         <h3>Education</h3>
