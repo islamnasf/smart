@@ -102,42 +102,63 @@
 /* 000 */
 .tutorial {
       font-family: Arial, sans-serif;
-      margin: 0;
+      margin: 0 ;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 40vh;
+     max-height: 100vh;
+     margin-bottom: 50px;
     }
     .accordion {
-      width: 300px;
+      width: 1000px;
       padding: 20px;
-      background-color: #fff;
+      background-color: #1e2028;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
+
     }
 
     .item {
       cursor: pointer;
-      padding: 10px;
-      background-color: #3498db;
+      padding: 13px;
+      background-color: #2980b9;
       color: #fff;
-      border: 1px solid #2980b9;
       border-radius: 4px;
       margin-bottom: 5px;
       transition: background-color 0.3s;
+      font-size: 20px;
+      font-weight: 800;
     }
 
     .item:hover {
-      background-color: #2980b9;
+      background-color: #0893c5;
     }
 
     .content {
       display: none;
-      padding: 10px;
+      padding: 12px;
       border: 1px solid #ddd;
-      border-radius: 4px;
-      background-color: #f9f9f9;
+      border-radius: 2px;
+      background-color: #ddd;
+      
     }
+    .insidecontent{
+        border-bottom: 3px solid #2980b9;
+        padding: 8px;
+        margin: 4px;
+        font-size: 16px;
+        border-radius: 5px;
+      font-weight: 800;
+      transition: .3s;
+
+    }
+    .insidecontent:hover{
+       background-color: #1e2028;
+       color: #ddd;
+       border-bottom: 3px solid #1e2028;
+       transition: .3s;
+    }
+
 
     .content.active {
       display: block;
@@ -208,14 +229,31 @@
 <!-- 0000 -->
 <div class="tutorial">
 <div class="accordion">
-    <div class="item" onclick="toggleContent('content1')">عنوان القسم الأول</div>
-    <div class="content" id="content1">محتوى القسم الأول</div>
+    <div class="item" onclick="toggleContent('content1')"> الوحدة التعليمية الاولي : التكاثر ف الانسان</div>
+  <div class="content" id="content1">
+    <div  class="insidecontent">محتوى القسم الأول</div>
+    <div class="insidecontent">محتوى القسم الأول</div>
+    <div class="insidecontent">محتوى القسم الأول</div>
+    <div class="insidecontent">محتوى القسم الأول</div>
+
+    </div>
+
 
     <div class="item" onclick="toggleContent('content2')">عنوان القسم الثاني</div>
-    <div class="content" id="content2">محتوى القسم الثاني</div>
+    <div class="content" id="content2">
+    <div  class="insidecontent">محتوى القسم الثاني</div>
+    <div class="insidecontent">محتوى القسم الثاني</div>
+    <div class="insidecontent">محتوى القسم الثاني</div>
+    <div class="insidecontent">محتوى القسم الثاني</div>
+    </div>
 
     <div class="item" onclick="toggleContent('content3')">عنوان القسم الثالث</div>
-    <div class="content" id="content3">محتوى القسم الثالث</div>
+    <div class="content" id="content3">
+    <div  class="insidecontent">محتوى القسم الثاني</div>
+    <div class="insidecontent">محتوى القسم الثاني</div>
+    <div class="insidecontent">محتوى القسم الثاني</div>
+    <div class="insidecontent">محتوى القسم الثاني</div>
+    </div>
 
     <!-- يمكنك إضافة عناوين ومحتويات إضافية حسب الحاجة -->
 

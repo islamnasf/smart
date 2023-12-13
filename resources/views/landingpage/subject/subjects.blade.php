@@ -251,7 +251,7 @@ margin-top: 120px;        }
         <div class="wrapper">
             <div class="content-box">
             <div class="maincard">
-                <a href="#" style="text-decoration: none;"class="card">
+                <a href="{{route('subjectsShowOne')}}" style="text-decoration: none;"class="card">
                     <div>
                         <h2> العلوم </h2>
                     </div>
