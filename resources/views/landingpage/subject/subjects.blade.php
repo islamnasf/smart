@@ -54,30 +54,39 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            max-width: 1000px;
+            max-width: 1100px;
             margin-top: 30px;
         }
         .card {
-            min-height: 220px;
-            width: 230px;
+            height: 80px;
+            width: 240px;
             padding: 30px;
             border-radius: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            background: #1e2028;
+            background: #0A5384;
             margin: 10px 10px;
             box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
-            border: #1e2028 5px solid;
+            border: #0A5384 5px solid;
 
         }
-        .card i {
-            margin: 20px;
-            color: #ffffff;
+        .maincard{
+            height: 150px;
+            width: 240px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 10px 10px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+            background-color: #0893c5;
+            padding-bottom: 10px;
         }
+      
         .card h2 {
-            margin-top: 30px;
             font-weight: 400;
             text-align: center;
             color: #ffffff;
@@ -87,8 +96,7 @@
 
         }
         .card:hover {
-            background: #0893c5;
-            opacity: .85;
+            background: #1e2028;
             border: #1e2028 5px solid;
             transition: 1s;
         }
@@ -135,17 +143,20 @@
         .herostages h1{
 margin-top: 120px;        }
             .card {
-                min-height: 220px;
-                width: 150px;
+                min-height: 80px;
+                width: 170px;
                 padding: 30px;
                 border-radius: 5px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                background: #1e2028;
+                background: #0A5384;
                 margin: 10px auto;
                 box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+            }
+            .maincard{
+                width: 180px;
             }
             .cardone {
             min-height: 120px;
@@ -157,7 +168,7 @@ margin-top: 120px;        }
             background: #0893c5;
             margin: 20px;
             box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
-            border: #1e2028 5px solid;
+            border: #0A5384 5px solid;
         }
         }
     </style>
@@ -239,36 +250,76 @@ margin-top: 120px;        }
         </div>
         <div class="wrapper">
             <div class="content-box">
+            <div class="maincard">
                 <a href="#" style="text-decoration: none;"class="card">
                     <div>
-                        <img src="https://cdn-icons-png.flaticon.com/128/2436/2436702.png" style="width:80px ;margin-right:15px">
-                        <h2> الابتدائية </h2>
+                        <h2> العلوم </h2>
                     </div>
                 </a>
-                <a href="{{ route('stageInfonShow', 'middle') }}" style="text-decoration: none;"class="card">
+                <div>
+                   
+                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px" >    
+
+                <br>
+                    
+                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                </div>
+            </div>
+            <div class="maincard">
+                <a href="#" style="text-decoration: none;"class="card">
+
+                <div>
+                        <h2> الاجتماعيات </h2>
+                    </div>
+                </a>
+                <div>
+               
+                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                <br>
+                    
+                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+
+                </div>
+            </div>
+            <div class="maincard">
+                <a href="#" style="text-decoration: none;"class="card">
                     <div>
-                        <img src="https://cdn-icons-png.flaticon.com/128/2232/2232688.png"
-                            style="width:90px; margin-top: -10px; margin-right: 22.5px; ">
-                        <h2> المتوسطة</h2>
+                        <h2> الرياضيات </h2>
                     </div>
                 </a>
-                <a href="{{ route('stageInfonShow', 'high_school') }}" style="text-decoration: none;"class="card">
+                <div>
+                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+                <br>
+                    
+                    
+                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" > اشتراك ترم 15د.ك </a>
+                <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+    
+            </div>
+            </div>
+            <div class="maincard">
+                <a href="#" style="text-decoration: none;"class="card">
                     <div>
-                        <img src="https://cdn-icons-png.flaticon.com/128/3330/3330314.png"
-                            style="width:110px; margin-top: -30px">
-                        <h2> الثانوية </h2>
+                        <h2> اللغة لعربية </h2>
                     </div>
                 </a>
-
-                <a href="#" style="text-decoration: none;" class="card">
-                    <div>
-                        <img src="https://cdn-icons-png.flaticon.com/128/12595/12595569.png" style="width:80px;margin-right:15px">
-                        <h2> القدرات</h2>
-                    </div>
-                </a>
-
-
-
+                <div>
+                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+    
+                <br>
+                    
+                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
+                </div>
+            </div>
             </div>
         </div>
     </main>
