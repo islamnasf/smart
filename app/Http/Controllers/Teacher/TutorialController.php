@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Teacher;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Tutorial;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class TutorialController extends Controller
@@ -16,8 +17,9 @@ class TutorialController extends Controller
         $tutorials = Tutorial::where('course_id', $courseId)->get();
         return view("teacher.course.tutorial", compact("course", "tutorials"));
     }
-    public function showVideo()
+    public function showVideo($videoId)
     {
-        return view("teacher.course.videolive");
+        $video = Video::find($videoId)->comments;
+        return view("teacher.course.videolive", compact("video"));
     }
 }

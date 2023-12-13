@@ -259,8 +259,8 @@
                                     <div class="float-left">
                                         <span>
                                             <a href="{{ route('teacherCourse') }}">
-                                                <i class="fa fa-file-video-o highlight-icon" aria-hidden="true"
-                                                    style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px"></i>
+                                                <img src="https://cdn-icons-png.flaticon.com/128/5000/5000269.png"
+                                                    width="65px" style="padding-top:15px;padding-bottom:25px">
                                             </a>
                                             <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                         </span>
@@ -284,8 +284,8 @@
                                     <div class="float-left">
                                         <span>
                                             <a href="#">
-                                                <i class=" fa fa-money highlight-icon" aria-hidden="true"
-                                                    style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px  "></i>
+                                                <img src="https://cdn-icons-png.flaticon.com/128/12740/12740855.png"
+                                                    width="65px" style="padding-top:15px;padding-bottom:25px">
                                             </a>
                                             <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                         </span>
@@ -308,8 +308,8 @@
                                 <div class="clearfix">
                                     <div class="float-left">
                                         <span>
-                                            <i class=" fa fa-retweet highlight-icon" aria-hidden="true"
-                                                style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                            <img src="https://cdn-icons-png.flaticon.com/128/3476/3476376.png"
+                                                width="65px" style="padding-top:15px;padding-bottom:25px">
                                             <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                         </span>
                                     </div>
@@ -331,8 +331,8 @@
                                     <div class="float-left">
                                         <span>
                                             <a href="{{ route('getProfile') }}">
-                                                <i class=" fa fa-lock  highlight-icon" aria-hidden="true"
-                                                    style="color:#175166; font-size:60px; padding-top:15px; padding-bottom:15px  "></i>
+                                                <img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png"
+                                                    width="65px" style="padding-top:15px;padding-bottom:25px">
                                             </a>
                                             <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                         </span>

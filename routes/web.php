@@ -126,7 +126,7 @@ route::group(['prefix' => 'dashboard/teacher/'], function () {
   //teacher->dashboard->course
   Route::get('course/show', [SubjectController::class, 'index'])->name('teacherCourse');
   Route::get('course/tutorial/show/{courseId}', [TutorialController::class, 'index'])->name('teacherCourseTutorialShow');
-  Route::get('course/tutorial/video/show', [TutorialController::class, 'showVideo'])->name('teacherCourseTutorialVideoShow');
+  Route::get('course/tutorial/video/show/{videoId}', [TutorialController::class, 'showVideo'])->name('teacherCourseTutorialVideoShow');
 });
 
 
