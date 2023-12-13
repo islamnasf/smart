@@ -6,6 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الفيديو</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 10px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .tab {
+            width: 50%;
+            text-align: center;
+            height: 38px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            font-weight: bold;
+            border-radius: 10px;
+            border-width: 0px;
+            background-color: #b682fe;
+            color: #fff;
+        }
+
+        .content {
+            display: none;
+            align-self: center
+        }
+
+        .content.active {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,7 +69,40 @@
             <iframe style="margin: 5px;" src="https://player.vimeo.com/video/888788890?h=7a4bafb6a6" width="75%"
                 height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
                 allowfullscreen></iframe>
-            <div style="width: 90%;height: 100px;background-color: rgb(192, 192, 192);border-radius: 10px;margin: 10px">
+            <div
+                style="width: 90%;
+            background-color: rgb(192, 192, 192);
+            border-radius: 10px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            ">
+                <div class="tabs">
+                    <button class="tab" onclick="showTab('section1')">تعليقات الدرس</button>
+                    <button class="tab" onclick="showTab('section2')">اضافة تعليق</button>
+                </div>
+
+                <div id="section1" class="content active">
+                    <h2
+                        style="font-size: 17px;
+                    font-weight: bold;
+                    margin: 20px">
+                        لم يتم إضافة اى تعليقات أو روابط على هذا الدرس</h2>
+                    @foreach ($video as $comments)
+                        <h2 style="font-size: 17px;
+                font-weight: bold;
+                margin: 20px">
+                            {{ $comments->comment }}</h2>
+                    @endforeach
+                </div>
+
+                <div id="section2" class="content">
+                    <h2>Section 2 Content</h2>
+                    <p>This is the content of Section 2.</p>
+                </div>
+
+
             </div>
         </div>
 
@@ -48,7 +115,6 @@
             flex-direction: row;
             align-items: center;
             justify-content: space-around;">
-            
         </div>
 
     </div>
@@ -56,7 +122,19 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function showTab(tabId) {
+            // Hide all content sections
+            const contentSections = document.querySelectorAll('.content');
+            contentSections.forEach(section => section.classList.remove('active'));
 
+            // Show the selected content section
+            const selectedSection = document.getElementById(tabId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+        }
+    </script>
 </body>
 
 </html>
