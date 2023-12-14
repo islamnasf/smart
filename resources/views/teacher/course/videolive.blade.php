@@ -27,7 +27,7 @@
             font-weight: bold;
             border-radius: 10px;
             border-width: 0px;
-            background-color: #b682fe;
+            background-color: #38236a;
             color: #fff;
         }
 
@@ -38,6 +38,35 @@
 
         .content.active {
             display: block;
+        }
+
+        #align-form {
+            margin-top: 20px;
+        }
+
+        .form-group p a {
+            color: white;
+        }
+
+        #checkbx {
+            background-color: black;
+        }
+
+        #darker img {
+            margin-right: 15px;
+            position: static;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background-color: black;
+            border: 1px solid rgba(16, 46, 46, 1);
+            border-radius: 12px;
+        }
+
+        form {
+            width: 100%;
+            margin: 6px;
         }
     </style>
 </head>
@@ -66,12 +95,13 @@
 
     <div style="display: flex;align-items: center;justify-content: space-between;flex-direction: row">
         <div style="display:flex;flex-direction: column;justify-content: space-around;align-items: center;width: 50%;">
+            <h1 style="font-size: 22px;font-weight: bold;margin: 20px"> {{ $video->name }} </h1>
             <iframe style="margin: 5px;" src="https://player.vimeo.com/video/888788890?h=7a4bafb6a6" width="75%"
                 height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
                 allowfullscreen></iframe>
             <div
                 style="width: 90%;
-            background-color: rgb(192, 192, 192);
+            background-color: rgb(230, 230, 230);
             border-radius: 10px;
             margin: 10px;
             display: flex;
@@ -84,38 +114,57 @@
                 </div>
 
                 <div id="section1" class="content active">
-                    <h2
-                        style="font-size: 17px;
-                    font-weight: bold;
-                    margin: 20px">
-                        لم يتم إضافة اى تعليقات أو روابط على هذا الدرس</h2>
-                    @foreach ($video as $comments)
+                    @if (!is_null($comment) && count($comment) > 0)
+                        <ul>
+                            @foreach ($comment as $item)
+                                <li>
+                                    <h2 style="font-size: 17px;font-weight: bold;margin: 20px"> {{ $item->comment }}
+                                    </h2>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
                         <h2 style="font-size: 17px;
                 font-weight: bold;
                 margin: 20px">
-                            {{ $comments->comment }}</h2>
-                    @endforeach
+                            لم يتم إضافة اى تعليقات أو روابط على هذا الدرس</h2>
+                    @endif
+
                 </div>
 
                 <div id="section2" class="content">
-                    <h2>Section 2 Content</h2>
-                    <p>This is the content of Section 2.</p>
+                    <form id="algin-form" method="POST" action="{{ route('postVideoComment', $video->id) }}">
+                        @csrf
+                        <div class="form-group">
+                            <h4 style="text-align: center;margin: 5px; color: gray;">إضافة تعليق جديد</h4>
+                            <label style="margin: 5px; color: gray;" for="message">تعليقك</label>
+                            <textarea required name="comment" id=""msg cols="30" rows="5" class="form-control"
+                                style="background-color: rgb(255, 255, 255);"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit"
+                                class="btn bg-slate-900 btn-block btn-lg btn-primary waves-effect waves-light">اضافة
+                                تعليق</button>
+                        </div>
+                    </form>
                 </div>
-
-
             </div>
         </div>
 
         <div
             style="
             width: 45%;
-            height: 50px;
             background-color: rgb(192, 192, 192);
             border-radius: 8px;
-            flex-direction: row;
+            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: space-around;">
+            <h1 style="font-size: 22px;font-weight: bold;margin: 20px;color: #fff">باقي حلقات الدرس</h1>
+            
         </div>
+
 
     </div>
 

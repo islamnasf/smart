@@ -67,7 +67,7 @@
                                         <!-- File Upload Form -->
                                         <div class="form-group">
                                             <label for="pdfFile">اختر ملف:</label>
-                                            <input type="file" required class="form-control-file" id="pdfFile"
+                                            <input type="file" class="form-control-file" id="pdfFile"
                                                 name="pdf" accept=".pdf" required>
                                         </div>
                                     </div>
@@ -131,7 +131,8 @@
                         <tbody>
                             @foreach ($tutorial as $video)
                                 <tr>
-                                    <td><a href="{{ route('teacherCourseTutorialVideoShow') }}">{{ $video->name }}</a>
+                                    <td><a
+                                            href="{{ route('teacherCourseTutorialVideoShow', $video->id) }}">{{ $video->name }}</a>
                                     </td>
                                     @if ($video->type == 'cash')
                                         <td

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Tutorial;
 use App\Models\Video;
+use App\Models\VideoComment;
 use Illuminate\Http\Request;
 
 class TutorialController extends Controller
@@ -19,7 +20,18 @@ class TutorialController extends Controller
     }
     public function showVideo($videoId)
     {
-        $video = Video::find($videoId)->comments;
-        return view("teacher.course.videolive", compact("video"));
+        $comment = Video::find($videoId)->comments;
+        $video = Video::find($videoId);
+
+        $tutorials = $video->tutorial;
+        return view("teacher.course.videolive", compact("comment", 'video', 'tutorials'));
+    }
+    public function createVideoComment(Request $request, $videoId)
+    {
+        VideoComment::create([
+            'comment' => $request->comment,
+            'video_id' => $videoId
+        ]);
+        return redirect()->back()->with('success', 'Sent Comment');
     }
 }

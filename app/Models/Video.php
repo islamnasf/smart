@@ -16,6 +16,6 @@ class Video extends Model
     }
     public function comments()
     {
-        return $this->hasMany(Video::class, "video_id", "id");
+        return $this->hasMany(VideoComment::class, "video_id", "id");
     }
 }

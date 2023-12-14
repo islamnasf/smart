@@ -108,7 +108,7 @@ class CourseController extends Controller
         $request->validate([
             'name' => 'required',
             'link' => 'required',
-            'pdf' => 'required|mimes:pdf|max:2048', // Adjust the validation rules as needed
+            'pdf' => 'mimes:pdf|max:2048', // Adjust the validation rules as needed
         ]);
 
         $file = $request->file('pdf');
