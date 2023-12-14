@@ -104,28 +104,33 @@
                         <div
                             style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
                             <img src="https://cdn-icons-png.flaticon.com/128/3840/3840755.png" width="65px" />
-                            <a href="{{ route('subjectsShow') }}">الصف السادس</a>
+                            <a href="{{ route('subjectsShow','six') }}">الصف السادس</a>
                         </div>
                     </div>
                     <div class="card">
                         <div
                             style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
                             <img src="https://cdn-icons-png.flaticon.com/128/3840/3840771.png" width="65px" />
-                            <a href="#">الصف السابع</a>
+                           
+                            <a href="{{ route('subjectsShow', 'seven') }}">
+                                 الصف السابع 
+
+
+                            </a>
                         </div>
                     </div>
                     <div class="card">
                         <div
                             style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
                             <img src="https://cdn-icons-png.flaticon.com/128/3840/3840772.png" width="65px" />
-                            <a href="#">الصف الثامن</a>
+                            <a href="{{ route('subjectsShow', 'eight') }}">الصف الثامن</a>
                         </div>
                     </div>
                     <div class="card">
                         <div
                             style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
                             <img src="https://cdn-icons-png.flaticon.com/128/3840/3840773.png" width="65px" />
-                            <a href="#">الصف الثامن</a>
+                            <a href="{{ route('subjectsShow', 'nine') }}">الصف التاسع</a>
                         </div>
                     </div>
                 </div>
@@ -145,21 +150,21 @@
                         <div
                             style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
                             <img src="https://cdn-icons-png.flaticon.com/128/6912/6912885.png" width="65px" />
-                            <a href="#">الصف العاشر</a>
+                            <a href="{{ route('subjectsShow', 'ten') }}">الصف العاشر</a>
                         </div>
                     </div>
                     <div class="card">
                         <div
                             style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
                             <img src="https://cdn-icons-png.flaticon.com/128/6912/6912910.png" width="65px" />
-                            <a href="#">الصف الحادي عشر</a>
+                            <a href="{{ route('subjectsShow', 'eleven') }}">الصف الحادي عشر</a>
                         </div>
                     </div>
                     <div class="card">
                         <div
                             style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;height: 100%;">
                             <img src="https://cdn-icons-png.flaticon.com/128/6912/6912921.png" width="65px" />
-                            <a href="#">الصف الثاني عشر</a>
+                            <a href="{{ route('subjectsShow', 'twelve') }}">الصف الثاني عشر</a>
                         </div>
                     </div>
                 </div>

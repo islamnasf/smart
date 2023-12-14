@@ -136,9 +136,8 @@ route::group(['prefix' => 'landingpage'], function () {
   //landingpage->stages ////ااستكشف المواد
   Route::get('/stage/information/{name}', [StageController::class, 'stageInfon'])->name('stageInfonShow');
   Route::get('/subject/stages', [StageController::class, 'index'])->name('stagesPage');
-  Route::get('/subjects/show', [StageController::class, 'showAllSubjects'])->name('subjectsShow');
-  Route::get('/subjects/showone', [StageController::class, 'showOneSubject'])->name('subjectsShowOne');
-
+  Route::get('/subjects/show/{name}', [StageController::class, 'showAllSubjects'])->name('subjectsShow');
+  Route::get('/subjects/showone/{course}', [StageController::class, 'showOneSubject'])->name('subjectsShowOne');
   Route::get('/contactus', [ContactUs::class, 'index'])->name('contactus');
   Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');
 });
