@@ -96,81 +96,85 @@
             </button>
         </div>
     </div>
-
 </div>
-
 
 <!-- breadcrumb -->
 @endsection
 @section('content')
 <!-- row -->
 
-<!--  Add Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="container-fluid px-1 py-5 mx-auto">
-        <div class="row d-flex justify-content-center">
-            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-                <div class="card">
-                    <h5 class="text-center mb-4">بيانات الباقة الأساسية</h5>
-                    <form class="form-card" action="{{ route('postPackage') }}" method="POST">
-                        @csrf
-                        <div class="row justify-content-between text-left">
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label
-                                    class="form-control-label px-3">إسم الباقة<span class="text-danger">
-                                        *</span></label> <input type="text" id="fname" name="name" required
-                                    onblur="validate(1)"> </div>
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label
-                                    class="form-control-label px-3">وصف الباقة<span class="text-danger">
-                                        *</span></label> <input type="text" id="ans" required
-                                    name="description" placeholder="" onblur="validate(6)">
-                            </div>
-                        </div>
-                        <div class="row justify-content-between text-left">
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label
-                                    class="form-control-label px-3">المرحلة<span class="text-danger">
-                                        *</span></label>
-                                <select id="category" name="stage" required>
-                                    <option value="ابتدائي">ابتدائي</option>
-                                    <option value="متوسط">متوسط</option>
-                                    <option value="ثانوي">ثانوي</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label
-                                    class="form-control-label px-3">الصف<span class="text-danger">
-                                        *</span></label>
-                                <select id="item" name="class" required></select>
-                            </div>
-                        </div>
-                        <div class="row justify-content-between text-left">
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label
-                                    class="form-control-label px-3">تاريخ إنتهاء الباقة<span class="text-danger">
-                                        *</span></label> <input required type="date" id="job"
-                                    name="expiry_date" placeholder="" onblur="validate(5)"> </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">اضافة الاختبارت</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label
-                                    class="form-control-label px-3">نوع الباقة<span class="text-danger">
-                                        *</span></label>
-                                <select required id="job" name="package_type">
-                                    <option value="fullterm">ترم كامل</option>
-                                    <option value="monthly">باقة شهرية</option>
-                                </select>
-                            </div>
+            <div class="card">
+                <h5 class="text-center mb-4">بيانات الباقة الأساسية</h5>
+                <form class="form-card" action="{{ route('postPackage') }}" method="POST">
+                    @csrf
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">إسم
+                                الباقة<span class="text-danger">
+                                    *</span></label> <input type="text" id="fname" name="name" required
+                                onblur="validate(1)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">وصف
+                                الباقة<span class="text-danger">
+                                    *</span></label> <input type="text" id="ans" required name="description"
+                                placeholder="" onblur="validate(6)">
                         </div>
-                        <div class="row justify-content-between">
-                            <div class="form-group col-sm-6 flex-column d-flex">
-                                <button type="submit" class="btn-block btn-primary">اضافة باقة جديدة</button>
-                            </div>
-                            <div class="form-group col-sm-6 flex-column d-flex">
-                                <button type="button" class="btn-block btn-danger" data-dismiss="modal">اغلاق</button>
-                            </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                class="form-control-label px-3">المرحلة<span class="text-danger">
+                                    *</span></label>
+                            <select id="category" name="stage" required>
+                                <option value="ابتدائي">ابتدائي</option>
+                                <option value="متوسط">متوسط</option>
+                                <option value="ثانوي">ثانوي</option>
+                            </select>
                         </div>
-                    </form>
-                </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                class="form-control-label px-3">الصف<span class="text-danger">
+                                    *</span></label>
+                            <select id="item" name="class" required></select>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                class="form-control-label px-3">تاريخ إنتهاء الباقة<span class="text-danger">
+                                    *</span></label> <input required type="date" id="job" name="expiry_date"
+                                placeholder="" onblur="validate(5)"> </div>
+
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">نوع
+                                الباقة<span class="text-danger">
+                                    *</span></label>
+                            <select required id="job" name="package_type">
+                                <option value="fullterm">ترم كامل</option>
+                                <option value="monthly">باقة شهرية</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <button type="submit" class="btn-block btn-primary">اضافة باقة جديدة</button>
+                        </div>
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <button type="button" class="btn-block btn-danger" data-dismiss="modal">اغلاق</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
+
 
 @if ($errors->any())
     <div class="alert alert-danger">
