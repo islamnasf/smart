@@ -110,17 +110,25 @@ class CourseController extends Controller
             'link' => 'required',
             'pdf' => 'mimes:pdf|max:2048', // Adjust the validation rules as needed
         ]);
-
-        $file = $request->file('pdf');
-        $filePath = $file->storeAs('pdfs', $file->getClientOriginalName(), 'public');
-
-        $video = Video::create([
-            'name' => $request->name,
-            'link' => $request->link,
-            'pdf' => $filePath,
-            'type' => $request->type,
-            'tutorial_id' => $tutorialId,
-        ]);
+        if($request->file('pdf')){
+            $file = $request->file('pdf');
+            $filePath = $file->storeAs('pdfs', $file->getClientOriginalName(), 'public');
+    
+            $video = Video::create([
+                'name' => $request->name,
+                'link' => $request->link,
+                'pdf' => $filePath,
+                'type' => $request->type,
+                'tutorial_id' => $tutorialId,
+            ]);
+        }else{
+            $video = Video::create([
+                'name' => $request->name,
+                'link' => $request->link,
+                'type' => $request->type,
+                'tutorial_id' => $tutorialId,
+            ]);
+        }
         toastr()->success('تم حفظ البيانات بنجاح');
         return redirect()->route('showTutorialVideo', $tutorialId);
     }

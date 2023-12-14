@@ -68,7 +68,7 @@
                                         <div class="form-group">
                                             <label for="pdfFile">اختر ملف:</label>
                                             <input type="file" class="form-control-file" id="pdfFile"
-                                                name="pdf" accept=".pdf" required>
+                                                name="pdf" accept=".pdf" >
                                         </div>
                                     </div>
                                 </div>

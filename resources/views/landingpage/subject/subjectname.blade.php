@@ -169,6 +169,11 @@
                 margin: 10px auto;
                 box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
             }
+            .tutorial {
+                margin-top: 60px;
+
+     margin-bottom: 220px;
+    }
         }
     </style>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

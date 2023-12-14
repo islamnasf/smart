@@ -96,8 +96,8 @@
     <div style="display: flex;align-items: center;justify-content: space-between;flex-direction: row">
         <div style="display:flex;flex-direction: column;justify-content: space-around;align-items: center;width: 50%;">
             <h1 style="font-size: 22px;font-weight: bold;margin: 20px"> {{ $video->name }} </h1>
-            <iframe style="margin: 5px;" src="https://player.vimeo.com/video/888788890?h=7a4bafb6a6" width="75%"
-                height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+            <iframe style="margin: 5px;"src="https://player.vimeo.com/video/346184592?h=4bcbfba00b&color=ffffff&title=0&byline=0&portrait=0" width="80%"
+                height="450" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
                 allowfullscreen></iframe>
             <div
                 style="width: 90%;
@@ -129,7 +129,6 @@
                 margin: 20px">
                             لم يتم إضافة اى تعليقات أو روابط على هذا الدرس</h2>
                     @endif
-
                 </div>
 
                 <div id="section2" class="content">
@@ -151,7 +150,6 @@
                 </div>
             </div>
         </div>
-
         <div
             style="
             width: 45%;
@@ -162,10 +160,7 @@
             align-items: center;
             justify-content: space-around;">
             <h1 style="font-size: 22px;font-weight: bold;margin: 20px;color: #fff">باقي حلقات الدرس</h1>
-            
         </div>
-
-
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
