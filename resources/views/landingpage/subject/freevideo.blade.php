@@ -10,7 +10,7 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ url('assets/css/styles_one.css') }}" rel="stylesheet">
-    <title> وحدات المادة</title>
+    <title> تجربة مجانية  </title>
     <style>
         #pre-loader {
             background-color: #ffffff;
@@ -49,34 +49,44 @@
             flex-direction: column;
             margin-bottom: 50px;
         }
+        
         .content-box {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            max-width: 1000px;
+            max-width: 1100px;
             margin-top: 30px;
         }
         .card {
-            min-height: 220px;
-            width: 230px;
+            height: 80px;
+            width: 240px;
             padding: 30px;
             border-radius: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            background: #1e2028;
+            background: #0A5384;
             margin: 10px 10px;
             box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
-            border: #1e2028 5px solid;
+            border: #0A5384 5px solid;
 
         }
-        .card i {
-            margin: 20px;
-            color: #ffffff;
+        .maincard{
+            height: 150px;
+            width: 240px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 10px 10px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+            background-color: #0893c5;
+            padding-bottom: 10px;
         }
+      
         .card h2 {
-            margin-top: 30px;
             font-weight: 400;
             text-align: center;
             color: #ffffff;
@@ -86,8 +96,7 @@
 
         }
         .card:hover {
-            background: #0893c5;
-            opacity: .85;
+            background: #1e2028;
             border: #1e2028 5px solid;
             transition: 1s;
         }
@@ -96,87 +105,141 @@
             background: #1e2028;
             transition: .8s;
         }
-        .one{
-            margin-top: 100px;
+        .herostages{
+            height: 37vh;
         }
-/* 000 */
-.tutorial {
-      font-family: Arial, sans-serif;
-      margin: 0 ;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-     max-height: 100vh;
-     margin-bottom: 50px;
-    }
-    .accordion {
-      width: 1000px;
-      padding: 20px;
-      background-color: #1e2028;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
-    .item {
-      cursor: pointer;
-      padding: 13px;
-      background-color: #2980b9;
-      color: #fff;
-      border-radius: 4px;
-      margin-bottom: 5px;
-      transition: background-color 0.3s;
-      font-size: 20px;
-      font-weight: 800;
-    }
-    .item:hover {
-      background-color: #0893c5;
-    }
-    .content {
-      display: none;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 2px;
-      background-color: #ddd;
-    }
-    .insidecontent{
-        border-bottom: 3px solid #2980b9;
-        padding: 8px;
-        margin: 4px;
-        font-size: 16px;
-        border-radius: 5px;
-      font-weight: 800;
-      transition: .3s;
-    }
-    .insidecontent:hover{
-       background-color: #1e2028;
-       color: #ddd;
-       border-bottom: 3px solid #1e2028;
-       transition: .3s;
-    }
-    .content.active {
-      display: block;
-    }
-       @media screen and (max-width: 600px) {
+        /* // */
+        .firstcard {
+            font-family: 'poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .cardone {
+            min-height: 240px;
+            width: 540px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            background: #0A5384;
+            margin: 10px 10px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+            border: #0893c5 5px solid;
+            color: #ffffff;
+            align-items: center;
+        }
+        .content-boxone {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+        }
+        .videostyle{
+        width: 900px;
+            height: 550px;
+        }
+        @media screen and (max-width: 900px) {
+         
+         .videostyle{
+             width: 650px;
+             height: 350px;
+         }
+         }
+         
+        @media screen and (max-width: 600px) {
+            .herostages{
+            height: 20vh;
+        }
+        .herostages h1{
+margin-top: 120px;        }
             .card {
-                min-height: 220px;
-                width: 150px;
+                min-height: 80px;
+                width: 170px;
                 padding: 30px;
                 border-radius: 5px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                background: #1e2028;
+                background: #0A5384;
                 margin: 10px auto;
                 box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
             }
-            .tutorial {
-                margin-top: 60px;
-
-     margin-bottom: 220px;
-    }
+            .maincard{
+                width: 180px;
+            }
+            .cardone {
+            min-height: 120px;
+            width: 370px;
+            border-radius: 15px;
+            display: flex;
+            
+            flex-direction: column;
+            background: #0893c5;
+            margin: 20px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+            border: #0A5384 5px solid;
+            
         }
+        .videostyle{
+            width: 350px;
+            height: 220px;
+        }
+        }
+        .textarea {
+            width: 80%;
+    max-width: 900px;
+    background-color: #1e2028;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 25px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+textarea {
+    height: 150px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #0A5384;
+    border-radius: 5px;
+    margin-bottom: 12px;
+    resize: none;
+    background-color: #ddd;
+}
+
+button {
+    background-color: #0A5384;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    max-width: 25%;
+    margin: 0px auto;
+}
+
+button:hover {
+    background-color: #0893c5;
+}
+@media screen and (max-width: 480px) {
+    .container {
+        width: 90%;
+    }
+}
+        
     </style>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body class="bodystage">
@@ -216,38 +279,25 @@
             <i id="mobile-toggle" class="fa fa-solid fa-bars" style="margin-left: 25px;"></i>
         </nav>
         <!-- القسم الأساسي -->
-        <div class="featuresstage">
-            <div class="one">
-            <h3>اسم المادة :{{$courses->subject_name}} </h3>
-            <h6  style="text-align:center">جميع وحدات المادة  </h6>
-    </div>
-        </div>
-<!-- 0000 -->
-<div class="tutorial">
-<div class="accordion">
-    @foreach($tutorials as $tutorial)
-    <!-- <div class="item" onclick="toggleContent('content1')"> الوحدة التعليمية الاولي : التكاثر ف الانسان</div> -->
- <div class="item" onclick="toggleContent('{{ $tutorial['id'] }}')"> {{$tutorial->name}}</div> 
-    <div class="content" id="{{ $tutorial['id'] }}">
-    @foreach ($tutorial->video as $video)
-        @if($video -> type == 'free' )
-    <div  class="insidecontent" ><a href="{{ route('freeVideo',$tutorial->id) }}" width="100%"  style="text-decoration: none; color:#2980b9"><img src="https://cdn-icons-png.flaticon.com/128/2377/2377746.png" style="margin-top:5px ;" width="20px">  {{$video->name}} ( تجربة مجانية  )</a></div>
-        @else
-    <div  class="insidecontent"><img src="https://cdn-icons-png.flaticon.com/128/10464/10464776.png" style="margin-top:5px ;" width="20px">   {{$video->name}}</div>
-        @endif
-    @endforeach
-    </div>
-    @endforeach
 
-  </div>
+        <div class="featuresstage" >
 
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script>
-    function toggleContent(contentId) {
-      $("#" + contentId).toggleClass("active").siblings(".content").removeClass("active");
-    }
-  </script>
-<!-- 000 -->
+            <h3 style="margin-top:50px;">   {{$video->name}}  </h3>
+            <h6 style="color: #0893c5; font-size:40px; margin-top: -40px;">________</h6>
+
+            <div class="features-list">
+            <iframe src="{!! $video->link !!}" class="videostyle" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <a href="{{ route('fileDownload', $video->pdf) }}" style="text-decoration: none;"><div><span style=" font-size: 25px; color:#fff; font-weight: bold; background-color: #0A5384; padding: 12px; border-radius: 15px; border-bottom: #0893c5 5px solid ;">   مذكرة الدرس   <img src="https://cdn-icons-png.flaticon.com/128/892/892634.png" width="25px" style="margin-bottom: -8px;"></span></div></a>
+            <div class="textarea">
+                <div style="text-align: center; font-size: 30px; color:#ddd; margin-bottom: 20px;">أسئلة وأجوبة</div>
+            <form action="#" method="post">
+            <label for="message" style="color:#ddd">إكتب سؤالك:</label>
+            <textarea id="message" name="message" placeholder="يمكنك اضافة سؤالك هنا ..."></textarea>
+            <button type="submit">ارسال</button>
+        </form>
+            </div>
+        </div>     
     </main>
     <footer>
         <h3>Education</h3>
@@ -258,7 +308,7 @@
             <a href="{{ $data->twitter }}"><i class="icon fa-brands fa-twitter"></i></a>
         </div>
     </footer>
-    <script src="assets/js/script_one.js"></script>
+    <script src="{{ url('assets/js/script_one.js') }}"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

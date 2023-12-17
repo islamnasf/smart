@@ -138,6 +138,10 @@ route::group(['prefix' => 'landingpage'], function () {
   Route::get('/subject/stages', [StageController::class, 'index'])->name('stagesPage');
   Route::get('/subjects/show/{name}', [StageController::class, 'showAllSubjects'])->name('subjectsShow');
   Route::get('/subjects/showone/{course}', [StageController::class, 'showOneSubject'])->name('subjectsShowOne');
+  Route::get('/subjects/freevideo/{video}', [StageController::class, 'showFreeVideo'])->name('freeVideo');
+  Route::get('/filedownload/{file}', [StageController::class, 'download'])->name('fileDownload');
+
+  //contactUs//
   Route::get('/contactus', [ContactUs::class, 'index'])->name('contactus');
   Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');
 });

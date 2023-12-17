@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link href="assets/css/contact.css" rel="stylesheet">
+    <link href="{{ url('assets/css/contact.css') }}" rel="stylesheet">
     <link rel="stylesheet"   href="http://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"  >
 </head>
 

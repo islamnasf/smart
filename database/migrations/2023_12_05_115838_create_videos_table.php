@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('link');
-            $table->text('pdf')->nullable();
+            $table->string('pdf')->nullable();
             $table->enum('type', ['free', 'cash'])->default('cash');
             $table->bigInteger('tutorial_id');
             $table->timestamps();

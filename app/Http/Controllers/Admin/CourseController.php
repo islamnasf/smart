@@ -108,30 +108,44 @@ class CourseController extends Controller
         $request->validate([
             'name' => 'required',
             'link' => 'required',
-            'pdf' => 'mimes:pdf|max:2048', // Adjust the validation rules as needed
         ]);
-        if($request->file('pdf')){
-            $file = $request->file('pdf');
-            $filePath = $file->storeAs('pdfs', $file->getClientOriginalName(), 'public');
-    
-            $video = Video::create([
-                'name' => $request->name,
-                'link' => $request->link,
-                'pdf' => $filePath,
-                'type' => $request->type,
-                'tutorial_id' => $tutorialId,
-            ]);
-        }else{
-            $video = Video::create([
-                'name' => $request->name,
-                'link' => $request->link,
-                'type' => $request->type,
-                'tutorial_id' => $tutorialId,
-            ]);
+        $data=new video();
+        if ($request->file('pdf') ) {
+        $file = $request->pdf;
+        $filename=$file->getClientOriginalName();
+        $request->pdf->storeAs('public/pdfs',$filename);
+        $data->pdf=$filename;
+            }
+            $data->name = $request->name;
+            $data->link = $request->link;
+            $data->type = $request->type;
+            $data->tutorial_id = $tutorialId;
+        $data->save();
+          toastr()->success('تم حفظ البيانات بنجاح');
+             return back(); 
         }
-        toastr()->success('تم حفظ البيانات بنجاح');
-        return redirect()->route('showTutorialVideo', $tutorialId);
-    }
+        // if($request->file('pdf')){
+        //     $file = $request->file('pdf');
+        //     $filePath = $file->storeAs('pdfs', $file->getClientOriginalName(), 'public');
+    
+        //     $video = Video::create([
+        //         'name' => $request->name,
+        //         'link' => $request->link,
+        //         'pdf' => $filePath,
+        //         'type' => $request->type,
+        //         'tutorial_id' => $tutorialId,
+        //     ]);
+        // }else{
+        //     $video = Video::create([
+        //         'name' => $request->name,
+        //         'link' => $request->link,
+        //         'type' => $request->type,
+        //         'tutorial_id' => $tutorialId,
+        //     ]);
+        // }
+        // toastr()->success('تم حفظ البيانات بنجاح');
+        // return redirect()->route('showTutorialVideo', $tutorialId);
+    
 
     public function deleteVideo(Request $request, $id)
     {
