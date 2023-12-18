@@ -330,6 +330,30 @@
                                 <div class="clearfix">
                                     <div class="float-left">
                                         <span>
+                                            <a href="#">
+                                                <img src="https://cdn-icons-png.flaticon.com/128/3678/3678289.png"
+                                                    width="65px" style="padding-top:15px;padding-bottom:25px">
+                                            </a>
+                                            <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                        </span>
+                                    </div>
+                                    <div class="float-right text-center">
+                                        <a href="#">
+                                            <p class="card-text text-dark"
+                                                style="font-size: 20px; padding-top:25px ;">
+                                                 ارباح المذكرات</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                        <div class="card card-statistics h-100">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <span>
                                             <a href="{{ route('getProfile') }}">
                                                 <img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png"
                                                     width="65px" style="padding-top:15px;padding-bottom:25px">
@@ -348,6 +372,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <!-- widgets -->
             @endif
