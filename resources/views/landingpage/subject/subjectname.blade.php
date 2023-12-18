@@ -231,7 +231,7 @@
     <div class="content" id="{{ $tutorial['id'] }}">
     @foreach ($tutorial->video as $video)
         @if($video -> type == 'free' )
-    <div  class="insidecontent" ><a href="{{ route('freeVideo',$tutorial->id) }}" width="100%"  style="text-decoration: none; color:#2980b9"><img src="https://cdn-icons-png.flaticon.com/128/2377/2377746.png" style="margin-top:5px ;" width="20px">  {{$video->name}} ( تجربة مجانية  )</a></div>
+    <div  class="insidecontent" ><a href="{{ route('freeVideo',$video->id) }}" width="100%"  style="text-decoration: none; color:#2980b9"><img src="https://cdn-icons-png.flaticon.com/128/2377/2377746.png" style="margin-top:5px ;" width="20px">  {{$video->name}} ( تجربة مجانية  )</a></div>
         @else
     <div  class="insidecontent"><img src="https://cdn-icons-png.flaticon.com/128/10464/10464776.png" style="margin-top:5px ;" width="20px">   {{$video->name}}</div>
         @endif

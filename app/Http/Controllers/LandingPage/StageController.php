@@ -65,12 +65,11 @@ public function showOneSubject(int $course)
 public function showFreeVideo(int $video)
 {
     $data = Sitesetteings::find(1);
-    $video=Video::where('tutorial_id',$video)->first();
+    $video=Video::where('id',$video)->first();
     return view('landingpage.subject.freevideo', compact("data","video"));
 }
 public function download($pdf)
 {
-
    return response()->download(storage_path('/app/public/pdfs/'.$pdf));
 }
 

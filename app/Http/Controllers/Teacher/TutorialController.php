@@ -22,9 +22,12 @@ class TutorialController extends Controller
     {
         $comment = Video::find($videoId)->comments;
         $video = Video::find($videoId);
+        $tutorial_id = Video::select("tutorial_id")->where('id', $videoId)->first();
+        $course = Tutorial::select('course_id')->where('id', $tutorial_id->tutorial_id)->first();
+        $tutorials = Tutorial::where('course_id', $course->course_id)->get();
+        $courses = Course::where('id', $course->course_id)->first();
 
-        $tutorials = $video->tutorial;
-        return view("teacher.course.videolive", compact("comment", 'video', 'tutorials'));
+        return view("teacher.course.videolive", compact("comment", 'video', 'tutorials','courses'));
     }
     public function createVideoComment(Request $request, $videoId)
     {

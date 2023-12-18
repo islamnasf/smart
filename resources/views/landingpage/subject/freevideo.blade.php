@@ -288,7 +288,9 @@ button:hover {
             <div class="features-list">
             <iframe src="{!! $video->link !!}" class="videostyle" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
+            @if($video->pdf !=null)
             <a href="{{ route('fileDownload', $video->pdf) }}" style="text-decoration: none;"><div><span style=" font-size: 25px; color:#fff; font-weight: bold; background-color: #0A5384; padding: 12px; border-radius: 15px; border-bottom: #0893c5 5px solid ;">   مذكرة الدرس   <img src="https://cdn-icons-png.flaticon.com/128/892/892634.png" width="25px" style="margin-bottom: -8px;"></span></div></a>
+            @endif
             <div class="textarea">
                 <div style="text-align: center; font-size: 30px; color:#ddd; margin-bottom: 20px;">أسئلة وأجوبة</div>
             <form action="#" method="post">
