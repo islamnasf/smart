@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('comment');
             $table->bigInteger('video_id');
+            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }
