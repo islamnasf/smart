@@ -14,6 +14,8 @@
         .videostyle{
         width: 600px;
             height: 350px;
+
+            
         }
      
 
@@ -75,8 +77,11 @@
         }
         .container1{
             display: flex;
+            align-content: center;
+            text-align: center;
+            background-color: #ddd ;
+            border-radius: 5px;
 
-            margin: 0% 10% 0% 10%;
         }
         .anothercontainer{
             width: 50%;
@@ -86,6 +91,10 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-around;
+
+        }
+        .insidecontainer1{
+            margin: 0% 5% 0% 5%;
         }
         /* 000 */
 .tutorial {
@@ -95,6 +104,7 @@
       justify-content: center;
       align-items: center;
      margin: 10px;
+     margin: 0% 5% 0% 5%;
      margin-top: 100px;
 
     }
@@ -115,6 +125,7 @@
       transition: background-color 0.3s;
       font-size: 20px;
       font-weight: 800;
+      text-align: right;
     }
     .item:hover {
       background-color: #0893c5;
@@ -134,6 +145,7 @@
         border-radius: 5px;
       font-weight: 800;
       transition: .3s;
+      text-align: right;
     }
     .insidecontent:hover{
        background-color: #1e2028;
@@ -171,6 +183,20 @@
              width: 360px;
              height: 180px;
          }
+         .tutorial {
+      font-family: Arial, sans-serif;
+      margin: 0 ;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     margin: 10px;
+     margin: 0% 5% 0% 5%;
+     margin-top: 10px;
+
+    }
+         .insidecontainer1{
+            margin: 0%;
+        }
          .container1{
             display: block;
             align-items: center;
@@ -267,13 +293,13 @@
 
     @foreach($tutorials as $tutorial)
     <!-- <div class="item" onclick="toggleContent('content1')"> الوحدة التعليمية الاولي : التكاثر ف الانسان</div> -->
- <div class="item" onclick="toggleContent('{{ $tutorial['id'] }}')"> {{$tutorial->name}}</div> 
+ <div class="item" onclick="toggleContent('{{ $tutorial['id'] }}')"> {{$tutorial->name}} <img src="https://cdn-icons-png.flaticon.com/128/10464/10464776.png" style="margin-top:0px ;" width="20px" ></div> 
     <div class="content" id="{{ $tutorial['id'] }}">
     @foreach ($tutorial->video as $video)
         @if($video -> type == 'free' )
-    <div  class="insidecontent" ><a href="#" width="100%"  style="text-decoration: none; color:#2980b9"><img src="https://cdn-icons-png.flaticon.com/128/2377/2377746.png" style="margin-top:5px ;" width="20px">  {{$video->name}} </a></div>
+    <div   class="insidecontent" ><a href="#" width="100%"  style="text-decoration: none; color:#2980b9">  {{$video->name}} <img src="https://cdn-icons-png.flaticon.com/128/2377/2377746.png" style="margin-top:0px ;" width="20px"></a></div>
         @else
-    <div  class="insidecontent"><img src="https://cdn-icons-png.flaticon.com/128/10464/10464776.png" style="margin-top:5px ;" width="20px">   {{$video->name}}</div>
+    <div  class="insidecontent">   {{$video->name}} <img src="https://cdn-icons-png.flaticon.com/128/10464/10464776.png" style="margin-top:0px ;" width="20px"></div>
         @endif
     @endforeach
     </div>
