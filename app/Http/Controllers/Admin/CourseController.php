@@ -124,29 +124,7 @@ class CourseController extends Controller
           toastr()->success('تم حفظ البيانات بنجاح');
              return back(); 
         }
-        // if($request->file('pdf')){
-        //     $file = $request->file('pdf');
-        //     $filePath = $file->storeAs('pdfs', $file->getClientOriginalName(), 'public');
-    
-        //     $video = Video::create([
-        //         'name' => $request->name,
-        //         'link' => $request->link,
-        //         'pdf' => $filePath,
-        //         'type' => $request->type,
-        //         'tutorial_id' => $tutorialId,
-        //     ]);
-        // }else{
-        //     $video = Video::create([
-        //         'name' => $request->name,
-        //         'link' => $request->link,
-        //         'type' => $request->type,
-        //         'tutorial_id' => $tutorialId,
-        //     ]);
-        // }
-        // toastr()->success('تم حفظ البيانات بنجاح');
-        // return redirect()->route('showTutorialVideo', $tutorialId);
-    
-
+        
     public function deleteVideo(Request $request, $id)
     {
         $video = Video::find($id);
