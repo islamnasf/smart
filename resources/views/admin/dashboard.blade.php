@@ -13,21 +13,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     @include('layouts.head')
 
+    <style>
+        .subjectCard {
+            width: 350px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            background-color: #175166;
+            border-radius: 5px;
+            margin: 5px;
+            position: relative;
+            overflow: hidden;
+            transition: .5s
+        }
+
+        .subjectCard:hover {
+            transition: .5s;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+
 </head>
 
 <body>
 
     <div class="wrapper">
 
-        <!--=================================
- preloader -->
-
         <div id="pre-loader">
             <img src="{{ asset('assets/images/pre-loader/loader-01.svg') }}" alt="">
         </div>
-
-        <!--=================================
- preloader -->
 
         @include('layouts.main-header')
 
@@ -37,8 +52,6 @@
  Main content -->
         <!-- main-content -->
         <div class="content-wrapper">
-
-
             <div class="row">
                 <img src="{{ asset('assets/images/education.jpg') }}"
                     style="width:95%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;"
@@ -341,7 +354,7 @@
                                         <a href="#">
                                             <p class="card-text text-dark"
                                                 style="font-size: 20px; padding-top:25px ;">
-                                                 ارباح المذكرات</p>
+                                                ارباح المذكرات</p>
                                         </a>
                                     </div>
                                 </div>
@@ -378,14 +391,30 @@
             @endif
 
             @if (auth()->user()->user_type == 'user')
-                student
+                <div
+                    style="display: flex; flex-direction: row; justify-content: space-around; flex-wrap: wrap;margin: 30px">
+                    @foreach ($userSubject as $item)
+                        <a href="{{ route('showTutorial', $item->id) }}" class="subjectCard">
+                            <h4 style="color: aliceblue;margin: 15px; text-align: center">{{ $item->subject_name }}
+                            </h4>
+                            <h6 style="color: aliceblue;margin: 15px;text-align: center">أ/{{ $item->techer->name }}
+                            </h6>
+                            <div
+                                style="width: 100%;
+                            background-color: aliceblue;
+                            text-align: center;
+                            padding: 15px;
+                            border-radius: 0 0 5px 5px;">
+                                <h6 style="font-weight: bolder;font-size: 18px"> شهري
+                                    {{ $item->monthly_subscription_price }} د.ك</h6>
+                                <h6 style="font-weight: bolder;font-size: 18px"> ترم كامل
+                                    {{ $item->term_price }} د.ك</h6>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
             @endif
 
-            <!--=================================
- wrapper -->
-
-            <!--=================================
- footer -->
 
             @include('layouts.footer')
         </div><!-- main content wrapper end-->
