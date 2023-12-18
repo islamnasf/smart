@@ -180,6 +180,22 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('home') }}" style="font-size: 18px;">
+                                <div class="pull-left"><i class="ti-search"style="font-size: 18px;"></i><span
+                                        class="right-nav-text">تصفح المنصة</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('home') }}" style="font-size: 18px;">
+                                <div class="pull-left"><i class="ti-check-box"style="font-size: 18px;"></i><span
+                                        class="right-nav-text">اشتراكاتك</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('getProfile') }}" style="font-size: 20px;"><i class="fa fa-unlock-alt"
                                     style="font-size: 20px;"></i><span class="right-nav-text">اعداد الحساب </span></a>
                         </li>
