@@ -11,6 +11,11 @@
             font-family: 'Arial', sans-serif;
             margin: 10px;
         }
+        .videostyle{
+        width: 600px;
+            height: 350px;
+        }
+     
 
         .tabs {
             display: flex;
@@ -68,6 +73,119 @@
             width: 100%;
             margin: 6px;
         }
+        .container1{
+            display: flex;
+
+            margin: 0% 10% 0% 10%;
+        }
+        .anothercontainer{
+            width: 50%;
+            background-color: rgb(192, 192, 192);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+        /* 000 */
+.tutorial {
+      font-family: Arial, sans-serif;
+      margin: 0 ;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     margin: 10px;
+     margin-top: 100px;
+
+    }
+    .accordion {
+      width: 500px;
+      padding: 20px;
+      background-color: #1e2028;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    .item {
+      cursor: pointer;
+      padding: 13px;
+      background-color: #2980b9;
+      color: #fff;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      transition: background-color 0.3s;
+      font-size: 20px;
+      font-weight: 800;
+    }
+    .item:hover {
+      background-color: #0893c5;
+    }
+    .content {
+      display: none;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 2px;
+      background-color: #ddd;
+    }
+    .insidecontent{
+        border-bottom: 3px solid #2980b9;
+        padding: 8px;
+        margin: 4px;
+        font-size: 16px;
+        border-radius: 5px;
+      font-weight: 800;
+      transition: .3s;
+    }
+    .insidecontent:hover{
+       background-color: #1e2028;
+       color: #ddd;
+       border-bottom: 3px solid #1e2028;
+       transition: .3s;
+    }
+    .content.active {
+      display: block;
+    }
+        @media screen and (max-width: 900px) {
+         
+         .videostyle{
+             width: 500px;
+             height: 250px;
+         }
+         .container1{
+            display: block;
+            align-items: center;
+        }
+        .anothercontainer{
+            width: 80%;
+            background-color: rgb(192, 192, 192);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            margin: 0px auto;
+        }
+         }
+         @media screen and (max-width: 600px) {
+         
+         .videostyle{
+             width: 360px;
+             height: 180px;
+         }
+         .container1{
+            display: block;
+            align-items: center;
+        }
+        .anothercontainer{
+            width: 80%;
+            background-color: rgb(192, 192, 192);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            margin: 0px auto;
+        }
+         }
     </style>
 </head>
 
@@ -93,21 +211,12 @@
         </div>
     </nav>
 
-    <div style="display: flex;align-items: center;justify-content: space-between;flex-direction: row">
-        <div style="display:flex;flex-direction: column;justify-content: space-around;align-items: center;width: 50%;">
+    <div  class="container1">
+        <div class="insidecontainer1">
             <h1 style="font-size: 22px;font-weight: bold;margin: 20px"> {{ $video->name }} </h1>
-            <iframe style="margin: 5px;"src="https://player.vimeo.com/video/346184592?h=4bcbfba00b&color=ffffff&title=0&byline=0&portrait=0" width="80%"
-                height="450" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+            <iframe style="margin: 5px;"src="{!! $video->link !!}" class="videostyle"   frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
                 allowfullscreen></iframe>
-            <div
-                style="width: 90%;
-            background-color: rgb(230, 230, 230);
-            border-radius: 10px;
-            margin: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            ">
+            <div class="insidecontainer2">
                 <div class="tabs">
                     <button class="tab" onclick="showTab('section1')">تعليقات الدرس</button>
                     <button class="tab" onclick="showTab('section2')">اضافة تعليق</button>
@@ -150,16 +259,35 @@
                 </div>
             </div>
         </div>
-        <div
-            style="
-            width: 45%;
-            background-color: rgb(192, 192, 192);
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;">
-            <h1 style="font-size: 22px;font-weight: bold;margin: 20px;color: #fff">باقي حلقات الدرس</h1>
+        <div > 
+            <!-- 0000 -->
+<div class="tutorial">
+<div class="accordion">
+<h4 style="color: #ffffff ; text-align: center; ">قائمة دروس مادة {{$courses->subject_name}}</h4>
+
+    @foreach($tutorials as $tutorial)
+    <!-- <div class="item" onclick="toggleContent('content1')"> الوحدة التعليمية الاولي : التكاثر ف الانسان</div> -->
+ <div class="item" onclick="toggleContent('{{ $tutorial['id'] }}')"> {{$tutorial->name}}</div> 
+    <div class="content" id="{{ $tutorial['id'] }}">
+    @foreach ($tutorial->video as $video)
+        @if($video -> type == 'free' )
+    <div  class="insidecontent" ><a href="#" width="100%"  style="text-decoration: none; color:#2980b9"><img src="https://cdn-icons-png.flaticon.com/128/2377/2377746.png" style="margin-top:5px ;" width="20px">  {{$video->name}} </a></div>
+        @else
+    <div  class="insidecontent"><img src="https://cdn-icons-png.flaticon.com/128/10464/10464776.png" style="margin-top:5px ;" width="20px">   {{$video->name}}</div>
+        @endif
+    @endforeach
+    </div>
+    @endforeach
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    function toggleContent(contentId) {
+      $("#" + contentId).toggleClass("active").siblings(".content").removeClass("active");
+    }
+  </script>
+<!-- 000 -->
         </div>
     </div>
 
