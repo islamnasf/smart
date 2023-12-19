@@ -64,10 +64,10 @@
             <!-- <iclass=" fa fa-graduation-cap highlight-icon logo" ><span>Education</span></i>  -->
             <ul class="nav-items">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">الصفحة الرئيسية</a>
+                    <a href="{{route('home')}}" class="nav-link">الصفحة الرئيسية</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">استكشف المواد </a>
+                <a href="{{route('stagesPage')}}" class="nav-link">استكشف المواد </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">المذكرات </a>

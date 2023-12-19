@@ -186,10 +186,10 @@ margin-top: 120px;        }
             <!-- <iclass=" fa fa-graduation-cap highlight-icon logo" ><span>Education</span></i>  -->
             <ul class="nav-items">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">الصفحة الرئيسية</a>
+                    <a href="{{route('home')}}" class="nav-link">الصفحة الرئيسية</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">استكشف المواد </a>
+                <a href="{{route('stagesPage')}}" class="nav-link">استكشف المواد </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">المذكرات </a>
@@ -261,12 +261,12 @@ margin-top: 120px;        }
                 </a>
                 <div>
                
-                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <a href="{{ route('login') }}" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري {{$course->monthly_subscription_price}}د.ك</a>
                 <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
                 <br>
                     
-                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <a href="{{ route('login') }}" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم {{$course->term_price}}د.ك</a>
                     <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
                 </div>
@@ -294,12 +294,12 @@ margin-top: 120px;        }
                 </a>
                 <div>
                
-                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <a href="{{ route('login') }}" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري {{$course->monthly_subscription_price}}د.ك</a>
                 <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
                 <br>
                     
-                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <a href="{{ route('login') }}" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم {{$course->term_price}}د.ك</a>
                     <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
                 </div>
@@ -327,12 +327,12 @@ margin-top: 120px;        }
                 </a>
                 <div>
                
-                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <a href="{{ route('login') }}" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري {{$course->monthly_subscription_price}}د.ك</a>
                 <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
                 <br>
                     
-                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <a href="{{ route('login') }}" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم {{$course->term_price}}د.ك</a>
                     <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
                 </div>
@@ -360,12 +360,12 @@ margin-top: 120px;        }
                 </a>
                 <div>
                
-                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <a href="{{ route('login') }}" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري {{$course->monthly_subscription_price}}د.ك</a>
                 <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
                 <br>
                     
-                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <a href="{{ route('login') }}" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم {{$course->term_price}}د.ك</a>
                     <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
                 </div>
@@ -393,12 +393,12 @@ margin-top: 120px;        }
                 </a>
                 <div>
                
-                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <a href="{{ route('login') }}" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري {{$course->monthly_subscription_price}}د.ك</a>
                 <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
                 <br>
                     
-                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <a href="{{ route('login') }}" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم {{$course->term_price}}د.ك</a>
                     <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
                 </div>
@@ -426,12 +426,12 @@ margin-top: 120px;        }
                 </a>
                 <div>
                
-                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <a href="{{ route('login') }}" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري {{$course->monthly_subscription_price}}د.ك</a>
                 <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
                 <br>
                     
-                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <a href="{{ route('login') }}" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم {{$course->term_price}}د.ك</a>
                     <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
                 </div>
@@ -459,12 +459,12 @@ margin-top: 120px;        }
                 </a>
                 <div>
                
-                <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري 15د.ك</a>
+                <a href="{{ route('login') }}"  style="color: #ffffff ; text-decoration: none; font-weight: bolder;" >اشتراك شهري {{$course->monthly_subscription_price}}د.ك</a>
                 <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
                 <br>
                     
-                    <a href="#" style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم 15د.ك</a>
+                    <a href="{{ route('login') }}"  style="color: #ffffff ; text-decoration: none; font-weight: bolder; margin-top: 10px;" >اشتراك ترم {{$course->term_price}}د.ك</a>
                     <img src="https://cdn-icons-png.flaticon.com/128/4379/4379578.png" width="18px">    
 
                 </div>

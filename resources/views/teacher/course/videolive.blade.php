@@ -40,7 +40,8 @@
 
         .content {
             display: none;
-            align-self: center
+            align-self: center;
+            text-align: right;
         }
 
         .content.active {
@@ -79,8 +80,9 @@
             display: flex;
             align-content: center;
             text-align: center;
-            background-color: #ddd ;
+            background-color: #bbb ;
             border-radius: 5px;
+            padding-bottom: 50px;
 
         }
         .anothercontainer{
@@ -217,26 +219,27 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-radius: 5px">
-        <a class="navbar-brand" href="#">Video Page</a>
+        <a class="navbar-brand" href="{{ app('url')->previous() }}">الرجوع </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item"style="font-size: 20px;">
+                    <a class="nav-link"  href="#"> الصفحة الرئيسية  </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+            <li class="nav-item"style="font-size: 20px;">
+                    <a class="nav-link"  href="#">اسئلة الدرس</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                <li class="nav-item active" style="font-size: 20px;">
+                    <a class="nav-link" href="#"> محتوي الدرس<span class="sr-only">(current)</span></a>
                 </li>
+                
+                
             </ul>
         </div>
     </nav>
-
     <div  class="container1">
         <div class="insidecontainer1">
             <h1 style="font-size: 22px;font-weight: bold;margin: 20px"> {{ $video->name }} </h1>
@@ -253,8 +256,7 @@
                         <ul>
                             @foreach ($comment as $item)
                                 <li>
-                                    <h2 style="font-size: 17px;font-weight: bold;margin: 20px"> {{ $item->comment }}
-                                    </h2>
+                                   <h2 style="background-color: #0893c5 ; padding:7px; border-radius: 3px ; font-size:15px; font-weight: bold;margin: 20px "><span style="font-weight: bold; text-align: right; font-size: 18px;  ">{{$item->user->name}}</span> : {{ $item->comment }} </h2>
                                 </li>
                             @endforeach
                         </ul>
@@ -293,14 +295,10 @@
 
     @foreach($tutorials as $tutorial)
     <!-- <div class="item" onclick="toggleContent('content1')"> الوحدة التعليمية الاولي : التكاثر ف الانسان</div> -->
- <div class="item" onclick="toggleContent('{{ $tutorial['id'] }}')"> {{$tutorial->name}} <img src="https://cdn-icons-png.flaticon.com/128/10464/10464776.png" style="margin-top:0px ;" width="20px" ></div> 
+ <div class="item" onclick="toggleContent('{{ $tutorial['id'] }}')"> {{$tutorial->name}} <img src="https://cdn-icons-png.flaticon.com/128/11869/11869083.png" style="margin-top:0px ;" width="25px" ></div> 
     <div class="content" id="{{ $tutorial['id'] }}">
     @foreach ($tutorial->video as $video)
-        @if($video -> type == 'free' )
-    <div   class="insidecontent" ><a href="#" width="100%"  style="text-decoration: none; color:#2980b9">  {{$video->name}} <img src="https://cdn-icons-png.flaticon.com/128/2377/2377746.png" style="margin-top:0px ;" width="20px"></a></div>
-        @else
-    <div  class="insidecontent">   {{$video->name}} <img src="https://cdn-icons-png.flaticon.com/128/10464/10464776.png" style="margin-top:0px ;" width="20px"></div>
-        @endif
+    <div   class="insidecontent" ><a href="{{ route('teacherCourseTutorialVideoShow', $video->id) }}" width="100%"  style="text-decoration: none; color:#2980b9">  {{$video->name}} <img src="https://cdn-icons-png.flaticon.com/128/2377/2377746.png" style="margin-top:0px ;" width="20px"></a></div>
     @endforeach
     </div>
     @endforeach

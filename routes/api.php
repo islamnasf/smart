@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CoursesController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -14,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
+Route::get('/courses',[CoursesController::class,'index']);
+Route::get('/tutorial/{course}',[CoursesController::class,'tutorial']);
 Route::group(['middleware'=>'api','prefix'=>'auth'],function($router){
     Route::post('/register',[AuthController::class,'register']);
     Route::post('/login',[AuthController::class,'login']);
+
 });

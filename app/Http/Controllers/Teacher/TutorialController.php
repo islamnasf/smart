@@ -7,8 +7,8 @@ use App\Models\Course;
 use App\Models\Tutorial;
 use App\Models\Video;
 use App\Models\VideoComment;
-use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TutorialController extends Controller
 {
