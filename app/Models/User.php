@@ -62,6 +62,10 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(VideoComment::class, "user_id", "id");
     }
 
+    public function cartitem()
+    {
+        return $this->hasMany(CartItem::class, "user_id", "id");
+    }
 
     public function getJWTIdentifier()
     {
