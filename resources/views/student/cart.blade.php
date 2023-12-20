@@ -19,8 +19,8 @@
         }
 
         .custom-div {
-            background-color: #ccc;
-            border: 1px solid #ccc;
+            background-color: #175166;
+            border: 1px solid #175166;
             display: flex;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -29,10 +29,16 @@
             position: relative;
             height:150px ;
             margin: 10px  ;
+
+        }
+        .custom-div h2{
+            margin:30px 50% 5px 5px; 
+            color:#f4f4f4 ;
+            font-size: 35px;
         }
         .custom-div p{
-            margin: 25px ;
-            color:#1e2028 ;
+            color:#f4f4f4 ;
+            margin-right: 60px;
             font-size: 25px;
 
         }
@@ -40,12 +46,13 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #e74c3c;
+            background-color: transparent;
             color: #fff;
             border: none;
-            padding: 8px 16px;
+            padding: 5px 12px;
             border-radius: 4px;
             cursor: pointer;
+            font-size: 20px;
         }
         @media screen and (max-width: 600px) {
             .body {
@@ -63,9 +70,20 @@
                 margin: 10px auto;
         }
     }
+    .imgclose:hover {
+        opacity: .9;
+    }
+    .donepay:hover{
+        background-color: #444;
+        box-shadow: 1px 1px 1px 2px black ;
+        opacity: .8;
+        
+
+
+    }
     </style>
     <div>
-        <h2>  اجمالي المشتريات </h2>
+        <h2 style="text-align: center; margin: 10px; background-color: #444; padding: 10px; color: #fff; border-radius: 5px;">  اجمالي المشتريات </h2>
     </div>
 <div class="body">
 
@@ -73,10 +91,12 @@
     <div class="custom-div">
 <form action="{{route('studentCartDelete',$cart->id)}}" method="post">
     @csrf
-        <button class="close-btn" onclick="closeDiv(this)">حذف</button>
+        <button class="close-btn"  onclick="closeDiv(this)"><img src="https://cdn-icons-png.flaticon.com/128/458/458594.png" width="28px" class="imgclose"></button>
         </form>
-        <p>{{$cart->course->subject_name}}</p>
-        <p>{{$cart->price}}</p>
+        <div style="flex-direction: column;">
+        <h2>{{$cart->course->subject_name}}</h2>
+        <p> سعر : {{$cart->price}} د.ك</p>
+        </div>
     </div>
     @endforeach
 
@@ -94,7 +114,21 @@
 </div>
 
 <div>
-        <h2> الاجمالي : {{$sumPrice}} </h2>
+        <h2 style="text-align: center; background-color:#bbb; padding: 8px;"> الاجمالي : {{$sumPrice}} د.ك</h2>
+    </div>
+
+    <div>
+    <label style="display: block;">
+        <input  style="text-align: right; background-color:#f4f4f4; padding: 8px;" type="radio" name="payment" value="one">
+        الدفع بواسطة : KNET
+    </label>
+    <label style="display: block;">
+        <input style="text-align: right; background-color:#f4f4f4; padding: 8px; " type="radio" name="payment" value="two">
+        الدفع بواسطة : Bookeey PG
+    </label>
+    </div>
+    <div>
+       <button type="submit" style="width: 100%;  border: 0px; text-align: center; background-color:#085166; padding: 6px; color: #fff; font-size: 28px; margin: 3px; opacity: 1;" class="donepay">اتمام عملية الدفع</button>
     </div>
 <!-- row closed -->
 @endsection
