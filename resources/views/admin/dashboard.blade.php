@@ -32,6 +32,18 @@
             transition: .5s;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
+        .buttonhover{
+            background-color: transparent; border: 0px; width:100%;
+        }
+        .buttonhover:hover{
+background-color: #175166;
+
+border-radius: 3px;
+
+        }
+        .buttonhover:hover h6{
+            color:#fff;
+        }
     </style>
 
 </head>
@@ -405,10 +417,18 @@
                             text-align: center;
                             padding: 15px;
                             border-radius: 0 0 5px 5px;">
-                                <h6 style="font-weight: bolder;font-size: 18px"> شهري
+                            <form action="{{route('',$item->id)}}">
+                                @csrf
+                               <button  class="buttonhover"  type="submit" > <h6 style="font-weight: bolder;font-size: 18px">  اشتراك شهري 
                                     {{ $item->monthly_subscription_price }} د.ك</h6>
-                                <h6 style="font-weight: bolder;font-size: 18px"> ترم كامل
+                                    </button>
+                            </form>
+                            <form action="{{route('',$item->id)}}">
+                                @csrf
+                                <button  class="buttonhover"  type="submit" ><h6 style="font-weight: bolder;font-size: 18px">  اشتراك ترم كامل
                                     {{ $item->term_price }} د.ك</h6>
+                                    </button>
+                            </form>
                             </div>
                         </a>
                     @endforeach
