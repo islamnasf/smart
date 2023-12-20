@@ -14,13 +14,19 @@ class CartController extends Controller
         $cart = CartItem::where("user_id", Auth::user()->id)->get();
         return view('student.cart', compact('cart'));
     }
-    
+
     public function store(Request $request, $course_id)
     {
         CartItem::create([
             'user_id' => Auth::user()->id,
             'course_id' => $course_id,
         ]);
+        return redirect()->back();
+    }
+    public function delete($course_id)
+    {
+        $cartItem = CartItem::find($course_id);
+        $cartItem->delete();
         return redirect()->back();
     }
 }

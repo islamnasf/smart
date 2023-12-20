@@ -135,7 +135,7 @@ route::group(['prefix' => 'dashboard/student/'], function () {
   //student->dashboard
   Route::get('/cart', [CartController::class, 'index'])->name('studentcart');
   Route::post('/cart/create/{course_id}', [CartController::class, 'store'])->name('studentCartCreate');
-
+  Route::post('/cart/delete/{course_id}', [CartController::class, 'delete'])->name('studentCartDelete');
 });
 
 
