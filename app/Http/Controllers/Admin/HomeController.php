@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CartItem;
 use App\Models\Course;
 use App\Models\Exam;
 use App\Models\User;
@@ -17,10 +18,12 @@ class HomeController extends Controller
         $studentCount = user::where('user_type', 'user')->count();
         $courses = Course::all()->count();
         $examCount = Exam::count();
+        $cart = CartItem::where("user_id", Auth::user()->id)->get();
+        $countCart = $cart->count();
 
         $subject = Auth::user()->group;
         $userSubject = Course::where('classroom', $subject)->get();
-        
-        return view('/admin/dashboard', compact('teacherCount', 'studentCount', 'examCount', 'courses', 'userSubject'));
+
+        return view('/admin/dashboard', compact('teacherCount', 'studentCount', 'examCount', 'courses', 'userSubject', 'cart', 'countCart'));
     }
 }
