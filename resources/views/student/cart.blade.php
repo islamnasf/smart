@@ -15,20 +15,27 @@
             padding: 0;
             display: flex;
             height: 50vh;
+            margin: 0px auto;
         }
 
         .custom-div {
-            background-color: #fff;
+            background-color: #ccc;
             border: 1px solid #ccc;
+            display: flex;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 50%;
+            width: 250px;
             border-radius: 8px;
             position: relative;
-            height:120px ;
+            height:150px ;
+            margin: 10px  ;
         }
+        .custom-div p{
+            margin-top: 40px ;
+            color:#1e2028 ;
+            font-size: 25px;
 
+        }
         .close-btn {
             position: absolute;
             top: 10px;
@@ -40,21 +47,31 @@
             border-radius: 4px;
             cursor: pointer;
         }
+        @media screen and (max-width: 600px) {
+            .body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 50vh;
+            margin: 0px auto;
+        }
+            .custom-div {
+                width: 280px;
+                margin: 10px auto;
+        }
+    }
     </style>
 <div class="body">
     <div class="custom-div">
+<form action="{{}}" method="post">
         <button class="close-btn" onclick="closeDiv(this)">حذف</button>
-        <p>محتوى العنصر div يمكنك وضع أي شيء هنا.</p>
-    </div>
-    <div class="custom-div">
-        <button class="close-btn" onclick="closeDiv(this)">حذف</button>
-        <p>محتوى العنصر  يمكنك أي  هنا.</p>
-    </div>
-    <div class="custom-div">
-        <button class="close-btn" onclick="closeDiv(this)">حذف</button>
-        <p>محتوى العنصر 0000000 يمكنك أي  هنا.</p>
-    </div>
+        </form>
+        <p>   يمكنك وضع أي شيء هنا.</p>
 
+    </div>
     <script>
         function closeDiv(button) {
             // الحصول على العنصر الأب (custom-div) للزر الذي تم النقر عليه
