@@ -44,6 +44,11 @@ border-radius: 3px;
         .buttonhover:hover h6{
             color:#fff;
         }
+        .headone:hover{
+            background-color: #175166;
+            opacity: .9;
+
+        }
     </style>
 
 </head>
@@ -403,42 +408,49 @@ border-radius: 3px;
             @endif
 
             @if (auth()->user()->user_type == 'user')
+            @if($countCart >= 1 )
+            <div>
+                <a href="{{route('studentcart')}}" class="headone" ><h3 style="text-align: center; background-color: #175166 ;  width: 100%; padding:8px ; color: #fff; border-radius: 5px;" >استكمال سلة المشتريات</h3>
+    </a>
+            </div>
+            @endif
                 <div
                     style="display: flex; flex-direction: row; justify-content: space-around; flex-wrap: wrap;margin: 30px">
-                    @foreach ($userSubject as $item)
-                        <a href="{{ route('showTutorial', $item->id) }}" class="subjectCard">
-                            <h4 style="color: aliceblue;margin: 15px; text-align: center">{{ $item->subject_name }}
-                            </h4>
-                            <h6 style="color: aliceblue;margin: 15px;text-align: center">أ/{{ $item->techer->name }}
-                            </h6>
-                            <div
-                                style="width: 100%;
-                            background-color: aliceblue;
-                            text-align: center;
-                            padding: 15px;
-                            border-radius: 0 0 5px 5px;">
-                           @foreach($cart as $cartitem)
-    @if($cartitem->course_id != $item->id)
-        <form action="{{ route('studentCartCreate', [$item->id, $item->monthly_subscription_price]) }}" method="post">
-            @csrf
-            <button class="buttonhover" type="submit">
-                <h6 style="font-weight: bolder; font-size: 18px"> اشتراك شهري {{ $item->monthly_subscription_price }} د.ك</h6>
-            </button>
-        </form>
-        <form action="{{ route('studentCartCreate', [$item->id, $item->term_price]) }}" method="post">
-            @csrf
-            <button class="buttonhover" type="submit">
-                <h6 style="font-weight: bolder; font-size: 18px"> اشتراك ترم كامل {{ $item->term_price }} د.ك</h6>
-            </button>
-        </form>
-    @else
-        الكورس في السلة
-    @endif
-@endforeach
+                    @foreach ($userSubject as $subject)
+    <a href="{{ route('showTutorial', $subject->id) }}" class="subjectCard">
+        <h4 style="color: aliceblue; margin: 15px; text-align: center">{{ $subject->subject_name }}</h4>
+        <h6 style="color: aliceblue; margin: 15px; text-align: center">أ/{{ $subject->techer->name }}</h6>
+        <div style="width: 100%; background-color: aliceblue; text-align: center; padding: 15px; border-radius: 0 0 5px 5px;">
+            @php
+                $isCourseInCart = false;
+                foreach ($cart as $cartItem) {
+                    if ($cartItem->course_id == $subject->id) {
+                        $isCourseInCart = true;
+                        break;
+                    }
+                }
+            @endphp
 
-                            </div>
-                        </a>
-                    @endforeach
+            @if (!$isCourseInCart)
+                <form action="{{ route('studentCartCreate', [$subject->id, $subject->monthly_subscription_price]) }}" method="post">
+                    @csrf
+                    <button class="buttonhover" type="submit">
+                        <h6 style="font-weight: bolder; font-size: 18px"> اشتراك شهري {{ $subject->monthly_subscription_price }} د.ك</h6>
+                    </button>
+                </form>
+
+                <form action="{{ route('studentCartCreate', [$subject->id, $subject->term_price]) }}" method="post">
+                    @csrf
+                    <button class="buttonhover" type="submit">
+                        <h6 style="font-weight: bolder; font-size: 18px"> اشتراك ترم كامل {{ $subject->term_price }} د.ك</h6>
+                    </button>
+                </form>
+            @else
+                <h4> الكورس فى سلة المشتريات </h4>
+            @endif
+        </div>
+    </a>
+@endforeach
                 </div>
             @endif
 
