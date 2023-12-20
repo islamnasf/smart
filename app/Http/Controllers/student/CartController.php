@@ -12,6 +12,10 @@ class CartController extends Controller
     public function index()
     {
         $cart = CartItem::where("user_id", Auth::user()->id)->get();
+        $count = $cart->count();
+        if ($count == 0) {
+            return redirect()->route('home');
+        }
         return view('student.cart', compact('cart'));
     }
 
