@@ -65,13 +65,16 @@
     }
     </style>
 <div class="body">
+    @foreach($cart as $cart)
     <div class="custom-div">
-<form action="{{}}" method="post">
+<form action="{{route('studentCartDelete',$cart->id)}}" method="post">
+    @csrf
         <button class="close-btn" onclick="closeDiv(this)">حذف</button>
         </form>
-        <p>   يمكنك وضع أي شيء هنا.</p>
+        <p>{{$cart->course->subject_name}}</p>
 
     </div>
+    @endforeach
     <script>
         function closeDiv(button) {
             // الحصول على العنصر الأب (custom-div) للزر الذي تم النقر عليه
