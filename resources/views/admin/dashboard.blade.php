@@ -15,17 +15,17 @@
 
     <style>
         .subjectCard {
-            width: 350px;
+            width: 300px;
             display: flex;
             justify-content: space-between;
             flex-direction: column;
             align-items: center;
             background-color: #175166;
             border-radius: 5px;
-            margin: 5px;
+            margin: 1px;
             position: relative;
             overflow: hidden;
-            transition: .5s
+            transition: .5s;
         }
 
         .subjectCard:hover {

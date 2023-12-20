@@ -46,6 +46,5 @@ class CoursesController extends Controller
             'tutorial'=> $tutorial,
         ],200);
      }
-
 }
 //

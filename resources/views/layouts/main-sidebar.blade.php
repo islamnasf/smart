@@ -197,6 +197,10 @@
                         </li>
                         <li>
                             <a href="{{ route('getProfile') }}" style="font-size: 20px;"><i class="fa fa-unlock-alt"
+                                    style="font-size: 20px;"></i><span class="right-nav-text"> سلة المشتريات </span></a>
+                        </li>
+                        <li>
+                            <a href="{{ route('getProfile') }}" style="font-size: 20px;"><i class="fa fa-unlock-alt"
                                     style="font-size: 20px;"></i><span class="right-nav-text">اعداد الحساب </span></a>
                         </li>
                     </ul>
