@@ -131,6 +131,13 @@ route::group(['prefix' => 'dashboard/teacher/'], function () {
   Route::post('course/tutorial/video/post/{videoId}', [TutorialController::class, 'createVideoComment'])->name('postVideoComment');
 });
 
+route::group(['prefix' => 'dashboard/student/'], function () {
+  //student->dashboard
+  Route::get('/cart', [CartController::class, 'index'])->name('studentcart');
+  Route::post('/cart/create/{course_id}', [CartController::class, 'store'])->name('studentCartCreate');
+
+});
+
 
 
 route::group(['prefix' => 'landingpage'], function () {
@@ -141,9 +148,6 @@ route::group(['prefix' => 'landingpage'], function () {
   Route::get('/subjects/showone/{course}', [StageController::class, 'showOneSubject'])->name('subjectsShowOne');
   Route::get('/subjects/freevideo/{video}', [StageController::class, 'showFreeVideo'])->name('freeVideo');
   Route::get('/filedownload/{file}', [StageController::class, 'download'])->name('fileDownload');
-//cart
-Route::get('/student/cart', [CartController::class, 'index'])->name('studentcart');
-
   //contactUs//
   Route::get('/contactus', [ContactUs::class, 'index'])->name('contactus');
   Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');

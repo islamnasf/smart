@@ -18,4 +18,8 @@ class Course extends Model
     {
         return $this->hasMany(tutorial::class, 'course_id', 'id');
     }
+    public function cartitem()
+    {
+        return $this->hasMany(CartItem::class, "course_id", "id");
+    }
 }
