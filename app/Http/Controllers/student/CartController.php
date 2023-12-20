@@ -13,11 +13,12 @@ class CartController extends Controller
     {
         $cart = CartItem::where("user_id", Auth::user()->id)->get();
         $count = $cart->count();
+        $sumPrice = $cart->sum("price");
         if ($count == 0) {
             toastr()->warning('لا يوجد عناصر في سلة المشتريات');
             return redirect()->route('dashboard');
         }
-        return view('student.cart', compact('cart'));
+        return view('student.cart', compact('cart', 'sumPrice'));
     }
 
     public function store(Request $request, $course_id, $price)
