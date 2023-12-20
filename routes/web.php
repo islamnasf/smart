@@ -16,6 +16,7 @@ use App\Http\Controllers\LandingPage\ContactUs;
 use App\Http\Controllers\LandingPage\StageController;
 use App\Http\Controllers\Sitesetteings;
 use App\Http\Controllers\Student\CartController;
+use App\Http\Controllers\student\SubscriptionController;
 use App\Http\Controllers\Teacher\SubjectController;
 use App\Http\Controllers\Teacher\TutorialController;
 use Illuminate\Support\Facades\Route;
@@ -134,6 +135,7 @@ route::group(['prefix' => 'dashboard/teacher/'], function () {
 route::group(['prefix' => 'dashboard/student/'], function () {
   //student->dashboard
   Route::get('/cart', [CartController::class, 'index'])->name('studentcart');
+  Route::get('/hema', [SubscriptionController::class, 'index'])->name('studentSubscription');
   Route::post('/cart/create/{course_id}/{price}', [CartController::class, 'store'])->name('studentCartCreate');
   Route::post('/cart/delete/{cart_id}', [CartController::class, 'delete'])->name('studentCartDelete');
 });

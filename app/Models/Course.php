@@ -22,4 +22,8 @@ class Course extends Model
     {
         return $this->hasMany(CartItem::class, "course_id", "id");
     }
+    public function user()
+    {
+        return $this->belongsToMany(User::class, 'user_courses', "user_id", "course_id", "id");
+    }
 }
