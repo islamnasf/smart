@@ -188,7 +188,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('home') }}" style="font-size: 18px;">
+                            <a href="#" style="font-size: 18px;">
                                 <div class="pull-left"><i class="ti-check-box"style="font-size: 18px;"></i><span
                                         class="right-nav-text">اشتراكاتك</span>
                                 </div>
@@ -196,7 +196,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('getProfile') }}" style="font-size: 20px;"><i class="fa fa-unlock-alt"
+                            <a href="{{route('studentcart')}}" style="font-size: 20px;"><i class="fa fa-cart-arrow-down"
                                     style="font-size: 20px;"></i><span class="right-nav-text"> سلة المشتريات </span></a>
                         </li>
                         <li>
