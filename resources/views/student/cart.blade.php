@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            height: 50vh;
+           max-height: 80vh;
             margin: 0px auto;
         }
 
@@ -31,7 +31,7 @@
             margin: 10px  ;
         }
         .custom-div p{
-            margin-top: 40px ;
+            margin: 25px ;
             color:#1e2028 ;
             font-size: 25px;
 
@@ -64,7 +64,11 @@
         }
     }
     </style>
+    <div>
+        <h2>  اجمالي المشتريات </h2>
+    </div>
 <div class="body">
+
     @foreach($cart as $cart)
     <div class="custom-div">
 <form action="{{route('studentCartDelete',$cart->id)}}" method="post">
@@ -73,8 +77,10 @@
         </form>
         <p>{{$cart->course->subject_name}}</p>
 
+
     </div>
     @endforeach
+
     <script>
         function closeDiv(button) {
             // الحصول على العنصر الأب (custom-div) للزر الذي تم النقر عليه
@@ -87,6 +93,10 @@
         }
     </script>
 </div>
+
+<div>
+        <h2> الاجمالي : {{}} </h2>
+    </div>
 <!-- row closed -->
 @endsection
 @section('js')

@@ -417,13 +417,13 @@ border-radius: 3px;
                             text-align: center;
                             padding: 15px;
                             border-radius: 0 0 5px 5px;">
-                            <form action="{{route('studentCartCreate',$item->id)}}" method="post">
+                            <form action="{{route('studentCartCreate',$item->id ,$item->monthly_subscription_price)}}" method="post">
                                 @csrf
                                <button  class="buttonhover"  type="submit" > <h6 style="font-weight: bolder;font-size: 18px">  اشتراك شهري 
                                     {{ $item->monthly_subscription_price }} د.ك</h6>
                                     </button>
                             </form>
-                            <form action="{{route('studentCartCreate',$item->id)}}" method="post">
+                            <form action="{{route('studentCartCreate',$item->id , $item->term_price)}}" method="post">
                                 @csrf
                                 <button  class="buttonhover"  type="submit" ><h6 style="font-weight: bolder;font-size: 18px">  اشتراك ترم كامل
                                     {{ $item->term_price }} د.ك</h6>
