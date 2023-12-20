@@ -23,9 +23,9 @@ class CartController extends Controller
         ]);
         return redirect()->back();
     }
-    public function delete($course_id)
+    public function delete($cart_id)
     {
-        $cartItem = CartItem::find($course_id);
+        $cartItem = CartItem::find($cart_id);
         $cartItem->delete();
         return redirect()->back();
     }
