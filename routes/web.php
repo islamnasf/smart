@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\SecretaryController;
 use App\Http\Controllers\LandingPage\ContactUs;
 use App\Http\Controllers\LandingPage\StageController;
 use App\Http\Controllers\Sitesetteings;
+use App\Http\Controllers\Student\CartController;
 use App\Http\Controllers\Teacher\SubjectController;
 use App\Http\Controllers\Teacher\TutorialController;
 use Illuminate\Support\Facades\Route;
@@ -140,6 +141,8 @@ route::group(['prefix' => 'landingpage'], function () {
   Route::get('/subjects/showone/{course}', [StageController::class, 'showOneSubject'])->name('subjectsShowOne');
   Route::get('/subjects/freevideo/{video}', [StageController::class, 'showFreeVideo'])->name('freeVideo');
   Route::get('/filedownload/{file}', [StageController::class, 'download'])->name('fileDownload');
+//cart
+Route::get('/student/cart', [CartController::class, 'index'])->name('studentcart');
 
   //contactUs//
   Route::get('/contactus', [ContactUs::class, 'index'])->name('contactus');
