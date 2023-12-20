@@ -76,8 +76,7 @@
         <button class="close-btn" onclick="closeDiv(this)">حذف</button>
         </form>
         <p>{{$cart->course->subject_name}}</p>
-
-
+        <p>{{$cart->price}}</p>
     </div>
     @endforeach
 
@@ -95,7 +94,7 @@
 </div>
 
 <div>
-        <h2> الاجمالي : {{}} </h2>
+        <h2> الاجمالي : {{$sumPrice}} </h2>
     </div>
 <!-- row closed -->
 @endsection
