@@ -20,10 +20,11 @@ class HomeController extends Controller
         $examCount = Exam::count();
         $cart = CartItem::where("user_id", Auth::user()->id)->get();
         $countCart = $cart->count();
+        $subs = User::find(auth()->user()->id)->course;
 
         $subject = Auth::user()->group;
         $userSubject = Course::where('classroom', $subject)->get();
 
-        return view('/admin/dashboard', compact('teacherCount', 'studentCount', 'examCount', 'courses', 'userSubject', 'cart', 'countCart'));
+        return view('/admin/dashboard', compact('teacherCount', 'studentCount', 'examCount', 'courses', 'userSubject', 'cart', 'countCart', 'subs'));
     }
 }
