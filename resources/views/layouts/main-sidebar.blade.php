@@ -54,7 +54,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('getSecretary')}}" style="font-size: 20px;"><i class="ti-blackboard"
+                            <a href="{{ route('getSecretary') }}" style="font-size: 20px;"><i class="ti-blackboard"
                                     style="font-size: 20px;"></i><span class="right-nav-text">السكرتارية </span></a>
                             <div class="clearfix"></div>
                         </li>
@@ -117,19 +117,22 @@
 
                         <li>
                             <a href="#" style="font-size: 20px;"><i class="ti-menu-alt"
-                                    style="font-size: 20px;"></i><span class="right-nav-text">الكورسات المفعلة </span> </a>
+                                    style="font-size: 20px;"></i><span class="right-nav-text">الكورسات المفعلة </span>
+                            </a>
                             <div class="clearfix"></div>
 
                         </li>
                         <li>
                             <a href="#" style="font-size: 20px;"><i class="fa fa-file-archive-o"
-                                    style="font-size: 20px;"></i><span class="right-nav-text">ارشيف الكورسات   </span> </a>
+                                    style="font-size: 20px;"></i><span class="right-nav-text">ارشيف الكورسات </span>
+                            </a>
                             <div class="clearfix"></div>
 
                         </li>
                         <li>
                             <a href="#" style="font-size: 20px;"><i class="fa fa-money"
-                                    style="font-size: 20px;"></i><span class="right-nav-text">الدفعات المحصلة </span> </a>
+                                    style="font-size: 20px;"></i><span class="right-nav-text">الدفعات المحصلة </span>
+                            </a>
                             <div class="clearfix"></div>
 
                         </li>
@@ -150,10 +153,11 @@
                                 <li> <a href="form-input.html" style="font-size: 18px;">اختبارات الترم التاني</a>
                                 </li>
                             </ul>
-</li>
+                        </li>
                         <li>
                             <a href="#" style="font-size: 20px;"><i class="fa fa-sign-in"
-                                    style="font-size: 20px;"></i><span class="right-nav-text"> اشتركات الطلبة  </span> </a>
+                                    style="font-size: 20px;"></i><span class="right-nav-text"> اشتركات الطلبة </span>
+                            </a>
                             <div class="clearfix"></div>
 
                         </li>
@@ -188,7 +192,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" style="font-size: 18px;">
+                            <a href="{{ route('studentSubscription') }}" style="font-size: 18px;">
                                 <div class="pull-left"><i class="ti-check-box"style="font-size: 18px;"></i><span
                                         class="right-nav-text">اشتراكاتك</span>
                                 </div>
@@ -196,8 +200,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('studentcart')}}" style="font-size: 20px;"><i class="fa fa-cart-arrow-down"
-                                    style="font-size: 20px;"></i><span class="right-nav-text"> سلة المشتريات </span></a>
+                            <a href="{{ route('studentcart') }}" style="font-size: 20px;"><i
+                                    class="fa fa-cart-arrow-down" style="font-size: 20px;"></i><span
+                                    class="right-nav-text"> سلة المشتريات </span></a>
                         </li>
                         <li>
                             <a href="{{ route('getProfile') }}" style="font-size: 20px;"><i class="fa fa-unlock-alt"

@@ -95,7 +95,6 @@
         اجمالي المشتريات </h2>
 </div>
 <div class="body">
-
     @foreach ($cart as $cart)
         <div class="custom-div">
             <form action="{{ route('studentCartDelete', $cart->id) }}" method="post">
@@ -127,8 +126,6 @@
     @csrf
     <div>
         <h2 style="text-align: center; background-color:#bbb; padding: 8px;"> الاجمالي : {{ $sumPrice }} د.ك</h2>
-
-
     </div>
 
     <div>

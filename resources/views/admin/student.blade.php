@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('css')
 @section('title')
-    الطلبة 
+    الطلبة
 @stop
 @endsection
 @section('page-header')
@@ -63,8 +63,8 @@
                                     <td>{{ $student->group }}</td>
                                     <td>{{ $student->phone }}</td>
                                     <td>{{ $student->user_password }}</td>
-                                    <td>{{$student->date}}</td>
-                                    <td>0</td>
+                                    <td>{{ $student->date }}</td>
+                                    <td>{{ $userCourseCount }}</td>
                                     <td>0</td>
                                     <td>
                                         <!-- Button trigger modal update -->
@@ -114,15 +114,18 @@
                                                         <form action="{{ route('updateStudent', $student->id) }}"
                                                             method="post">
                                                             @csrf
-                                                            <label style="font-size: 15px; font-weight: bold;"> اسم الطالب </label>
+                                                            <label style="font-size: 15px; font-weight: bold;"> اسم
+                                                                الطالب </label>
                                                             <input type="text" name="name" class="form-control"
                                                                 value="{{ $student->name }}">
                                                             </br>
-                                                            <label style="font-size: 15px; font-weight: bold;"> رقم الهاتف   </label>
+                                                            <label style="font-size: 15px; font-weight: bold;"> رقم
+                                                                الهاتف </label>
                                                             <input type="text" name="phone" class="form-control"
                                                                 value="{{ $student->phone }}">
                                                             </br>
-                                                            <label style="font-size: 15px; font-weight: bold;"> الرقم السري   </label>
+                                                            <label style="font-size: 15px; font-weight: bold;"> الرقم
+                                                                السري </label>
                                                             <input type="text" name="password" class="form-control"
                                                                 value="{{ $student->user_password }}">
                                                     </div>
@@ -153,23 +156,23 @@
                                                             method="post">
                                                             @csrf
                                                             <div>
-                              <select id="category" class="form-control" placeholder="المرحلة الدرسية "
-                                                               name="grade" >
-                                  <option selected>اختر المرحلة الدراسية </option>
-                                  <option value="ابتدائي">ابتدائي</option>
-                                  <option value="متوسط">متوسط</option>
-                                  <option value="ثانوي">ثانوي</option>
-                              </select>
+                                                                <select id="category" class="form-control"
+                                                                    placeholder="المرحلة الدرسية " name="grade">
+                                                                    <option selected>اختر المرحلة الدراسية </option>
+                                                                    <option value="ابتدائي">ابتدائي</option>
+                                                                    <option value="متوسط">متوسط</option>
+                                                                    <option value="ثانوي">ثانوي</option>
+                                                                </select>
                                                             </div>
                                                             </br>
 
                                                             <div>
-                                                                <select id="item" class="form-control" placeholder="الصف الدراسي"
-                                                                    name="group">
+                                                                <select id="item" class="form-control"
+                                                                    placeholder="الصف الدراسي" name="group">
                                                                     <option selected>اختر الصف الدراسية </option>
-                                                                  </select>
+                                                                </select>
                                                             </div>
-</br>
+                                                            </br>
                                                             <script>
                                                                 // Sample data for items based on categories
                                                                 const items = {
