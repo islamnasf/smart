@@ -227,7 +227,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
             <li class="nav-item"style="font-size: 20px;">
-                    <a class="nav-link"  href="#"> الصفحة الرئيسية  </a>
+                    <a class="nav-link"  href="{{route('dashboard')}}"> الصفحة الرئيسية  </a>
                 </li>
             <li class="nav-item"style="font-size: 20px;">
                     <a class="nav-link"  href="#">اسئلة الدرس</a>

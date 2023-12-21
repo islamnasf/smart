@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/courses',[CoursesController::class,'index']);
 Route::get('/tutorial/{course}',[CoursesController::class,'tutorial']);
+Route::get('/filedownload/{file}', [CoursesController::class, 'download']);
 Route::group(['middleware'=>'api','prefix'=>'auth'],function($router){
     Route::post('/register',[AuthController::class,'register']);
     Route::post('/login',[AuthController::class,'login']);
