@@ -22,10 +22,7 @@ class CoursesController extends Controller
             $courseten=Course::where('classroom','الصف العاشر')->get();
         
             $courseeleven=Course::where('classroom','الصف الحادي عشر')->get();
-        
             $coursetwelve=Course::where('classroom','الصف الثاني عشر')->get();
-        
-
             return response()->json([
                 'status'=>200,
                 'coursesix'=> $coursesix,
@@ -36,8 +33,6 @@ class CoursesController extends Controller
                 'courseeleven'=> $courseeleven,
                 'coursetwelve'=> $coursetwelve,
             ],200);
-
-        
     }
     public function tutorial(int $course){
         $tutorial=Tutorial::where('course_id',$course)->with('video')->get();
