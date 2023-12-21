@@ -434,6 +434,14 @@
                             <div
                                 style="width: 100%; background-color: aliceblue; text-align: center; padding: 15px; border-radius: 0 0 5px 5px;">
                                 @php
+                                    $isUserSub = false;
+                                    foreach ($subs as $sub) {
+                                        if ($sub->id == $subject->id) {
+                                            $isUserSub = true;
+                                            break;
+                                        }
+                                    }
+
                                     $isCourseInCart = false;
                                     foreach ($cart as $cartItem) {
                                         if ($cartItem->course_id == $subject->id) {
@@ -441,9 +449,13 @@
                                             break;
                                         }
                                     }
-                                @endphp
 
-                                @if (!$isCourseInCart)
+                                @endphp
+                                @if ($isUserSub == true)
+                                    <h4>انت مشترك في هذا الكورس</h4>
+                                @elseif($isCourseInCart == true)
+                                    <h4> الكورس فى سلة المشتريات </h4>
+                                @else
                                     <form
                                         action="{{ route('studentCartCreate', [$subject->id, $subject->monthly_subscription_price]) }}"
                                         method="post">
@@ -462,8 +474,6 @@
                                                 {{ $subject->term_price }} د.ك</h6>
                                         </button>
                                     </form>
-                                @else
-                                    <h4> الكورس فى سلة المشتريات </h4>
                                 @endif
                             </div>
                         </a>
