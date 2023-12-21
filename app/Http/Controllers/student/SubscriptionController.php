@@ -11,6 +11,7 @@ class SubscriptionController extends Controller
     public function index()
     {
         $user = User::find(auth()->user()->id)->course;
+        
         dd($user);
     }
 }

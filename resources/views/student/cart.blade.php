@@ -95,7 +95,6 @@
         اجمالي المشتريات </h2>
 </div>
 <div class="body">
-
     @foreach ($cart as $cart)
         <div class="custom-div">
             <form action="{{ route('studentCartDelete', $cart->id) }}" method="post">
@@ -123,16 +122,10 @@
         }
     </script>
 </div>
-<<<<<<< HEAD
 <form action="{{ route('studentPostOrder') }}" method="POST">
     @csrf
     <div>
         <h2 style="text-align: center; background-color:#bbb; padding: 8px;"> الاجمالي : {{ $sumPrice }} د.ك</h2>
-=======
-
-<div>
-        <h2 style="text-align: center; background-color:#ddd; padding: 8px;"> الاجمالي : {{$sumPrice}} د.ك</h2>
->>>>>>> d0efc3a96d1a8bb08320ac958c6afb6874294611
     </div>
 
     <div>
