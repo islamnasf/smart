@@ -8,6 +8,7 @@ use App\Models\Tutorial;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -100,7 +101,9 @@ class CourseController extends Controller
     public function video(Request $request, $tutorialId)
     {
         $tutorial = Tutorial::find($tutorialId)->video;
-        return view('admin.course.video', (compact('tutorial')));
+
+        $courses = User::find(Auth::user()->id)->course;
+        return view('admin.course.video', (compact('tutorial', 'courses')));
     }
 
     public function createVideo(Request $request, $tutorialId)
@@ -109,22 +112,22 @@ class CourseController extends Controller
             'name' => 'required',
             'link' => 'required',
         ]);
-        $data=new video();
-        if ($request->file('pdf') ) {
-        $file = $request->pdf;
-        $filename=$file->getClientOriginalName();
-        $request->pdf->storeAs('public/pdfs',$filename);
-        $data->pdf=$filename;
-            }
-            $data->name = $request->name;
-            $data->link = $request->link;
-            $data->type = $request->type;
-            $data->tutorial_id = $tutorialId;
-        $data->save();
-          toastr()->success('تم حفظ البيانات بنجاح');
-             return back(); 
+        $data = new video();
+        if ($request->file('pdf')) {
+            $file = $request->pdf;
+            $filename = $file->getClientOriginalName();
+            $request->pdf->storeAs('public/pdfs', $filename);
+            $data->pdf = $filename;
         }
-        
+        $data->name = $request->name;
+        $data->link = $request->link;
+        $data->type = $request->type;
+        $data->tutorial_id = $tutorialId;
+        $data->save();
+        toastr()->success('تم حفظ البيانات بنجاح');
+        return back();
+    }
+
     public function deleteVideo(Request $request, $id)
     {
         $video = Video::find($id);
