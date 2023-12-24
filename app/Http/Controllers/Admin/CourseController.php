@@ -144,5 +144,9 @@ class CourseController extends Controller
     {
         return view('admin.course.reports');
     }
-
+    public function subscribesCourses()
+    {
+        return view('admin.course.subscribe');
+    }
+    
 }
