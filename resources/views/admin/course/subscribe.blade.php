@@ -103,56 +103,20 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach($teachercourses as $sub)
                                 <tr>
-                                    <td><a
-                                            href="#"></a>
-                                    </td>
-                                    <td></td>
-                                    <td><a
-                                            href="#"></a>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <!-- Button trigger modal update -->
-                                        <a href="#"
-                                            class="btn btn-info btn-sm">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </a>
-                                        <!-- Button trigger modal delete -->
-                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                            data-target="#delete">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                        <div class="modal fade" id="delete" tabindex="-1"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">حذف الكورس</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <form action="#"
-                                                        method="post">
-                                                        @csrf
-                                                        <div class="modal-body">
-                                                            <h4> هل انت متاكد من حذف هذه المادة ؟</h4>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">اغلاق</button>
-                                                            <button type="submit" class="btn btn-primary"> حذف
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
+                                    <td>{{$sub->date}}</td>
+                                    <td>{{$sub->subject_name}}</td>
+                                    <td>{{$sub->subject_name}}</td>
+                                    <td>{{$sub->subject_name}}</td>
+                                    <td>{{$sub->subject_name}}</td>
+                                    <td>{{$sub->subject_name}}</td>
+                                    <td>{{$sub->subject_name}}</td>
+                                    <td>{{$sub->subject_name}}</td>
+                                    <td>{{$sub->subject_name}}</td>
                                 </tr>
+                                @endforeach
+
                             
                             </tfoot>
                     </table>
