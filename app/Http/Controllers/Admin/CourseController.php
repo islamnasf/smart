@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Tutorial;
 use App\Models\User;
+use App\Models\UserCourse;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -146,7 +147,21 @@ class CourseController extends Controller
     }
     public function subscribesCourses()
     {
-        return view('admin.course.subscribe');
+        $courses = UserCourse::join('users', 'user_courses.user_id', '=', 'users.id')
+        ->select('user_courses.*', 'user_courses.price as user_price')
+        ->get();
+        $priceAll = $courses->sum('user_price');
+        $teachercourses = Course::with('techer')->join('user_courses', 'courses.id', '=', 'user_courses.course_id')
+        ->select('user_courses.*', 'user_courses.price as teacher_price','courses.*')
+        ->get();
+
+        $price_all_teacher =0;
+        foreach($teachercourses as $price){                    
+        $price_all_teacher += $price->Teacher_ratio_course / 100 * $price->teacher_price;
+        }
+        
+       $platformEarn=$priceAll-$price_all_teacher;
+        return view('admin.course.subscribe' , compact('priceAll','platformEarn','price_all_teacher'));
     }
     
 }

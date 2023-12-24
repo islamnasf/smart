@@ -52,6 +52,7 @@ class CartController extends Controller
                 UserCourse::create([
                     "user_id" => $item->user_id,
                     "course_id" => $item->course_id,
+                    "price"=>$item->price,
                 ]);
                 $cartItem = CartItem::find($item->id);
                 $cartItem->delete();

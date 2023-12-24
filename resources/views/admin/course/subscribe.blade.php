@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-     الترم الاول
+    الاشتركات
 @stop
 @endsection
 <style>
@@ -20,10 +20,8 @@
 
         .containerone {
             display: flex;
-            height: 200px;
+            height: 120px;
             width: 100%;
-            border: 2px solid #333;
-            border-radius: 10px;
             overflow: hidden;
         }
 
@@ -32,24 +30,31 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #575252; /* لون الخلفية */
+            background-color: #023047; /* لون الخلفية */
             color: #fff; /* لون النص */
+            font-size: 23px;
+            
+
         }
         .itemone2 {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #7d7e7e ; /* لون الخلفية */
+            background-color: #219ebc ; /* لون الخلفية */
             color: #fff; /* لون النص */
+            font-size: 23px;
+
+
         }
         .itemone3 {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #afb0b0; /* لون الخلفية */
+            background-color: #669bbc; /* لون الخلفية */
             color: #fff; /* لون النص */
+            font-size: 23px;
         }
         @media (max-width: 600px) {
             .containerone {
@@ -66,9 +71,9 @@
 @section('page-header')
 <div class="rowone">
     <div class="containerone">
-        <div class="itemone1">ديف 1</div>
-        <div class="itemone2">ديف 2</div>
-        <div class="itemone3">ديف 3</div>
+        <div class="itemone1 itemone" > <img src="https://cdn-icons-png.flaticon.com/128/536/536105.png " width="80px" style="padding-left: 20px;"> اجمالي المبيعات {{$priceAll}} د.ك</div>
+        <div class="itemone2 itemone"><img src="https://cdn-icons-png.flaticon.com/128/536/536105.png " width="80px" style="padding-left: 20px;">ارباح المعلمين {{$price_all_teacher}} د.ك</div>
+        <div class="itemone3 itemone"><img src="https://cdn-icons-png.flaticon.com/128/536/536105.png " width="80px" style="padding-left: 20px;">ارباح المنصة {{$platformEarn}} د.ك</div>
     </div>
 </div>
 <!-- breadcrumb -->
@@ -85,12 +90,16 @@
                     <table id="datatable" class="table table-striped table-bordered p-0" style="text-align:center">
                         <thead>
                             <tr>
+                            <th>تاريخ الاشتراك  </th>
                                 <th>اسم المادة </th>
-                                <th>الصف</th>
+                                <th>اسم الاشتراك</th>
                                 <th>اسم المعلم</th>
-                                <th>الاشتراك الشهري</th>
-                                <th>سعر الترم</th>
-                                <th>العمليات</th>
+                                <th>اسم الطالب  </th>
+                                <th>سعر الاشتراك</th>
+                                <th>حساب المعلم</th>
+                                <th> صافي الربح</th>
+                                <th>تاريخ الانتهاء </th>
+
                             </tr>
                         </thead>
                         <tbody>
