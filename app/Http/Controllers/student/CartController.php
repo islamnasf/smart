@@ -7,7 +7,7 @@ use App\Models\CartItem;
 use App\Models\Order;
 use App\Models\UserCourse;
 use Auth;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 
 class CartController extends Controller
 {
@@ -22,13 +22,14 @@ class CartController extends Controller
         }
         return view('student.cart', compact('cart', 'sumPrice'));
     }
-
-    public function store(Request $request, $course_id, $price)
+    public function store(Request $request, $course_id, $price,$sub_name)
     {
         CartItem::create([
             'user_id' => Auth::user()->id,
             'course_id' => $course_id,
             'price' => $price,
+            // 'sub_name'=>$sub_name
+
         ]);
         return redirect()->back();
     }
@@ -52,6 +53,7 @@ class CartController extends Controller
                 UserCourse::create([
                     "user_id" => $item->user_id,
                     "course_id" => $item->course_id,
+                    "price"=>$item->price,
                 ]);
                 $cartItem = CartItem::find($item->id);
                 $cartItem->delete();

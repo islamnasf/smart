@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->bigInteger('user_id');
             $table->bigInteger('course_id');
+            $table->bigInteger('price');
             $table->timestamps();
         });
     }
