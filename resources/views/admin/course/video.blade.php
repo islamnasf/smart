@@ -19,10 +19,8 @@
             <h2 class="mb-0" style="color:#fff ; ">قائمة فيديوهات</h2>
             @if (Auth::user()->user_type !== 'user')
                 <button type="button" class="btn btn-info float-left float-sm-right " data-toggle="modal"
-                    data-target="#exampleModal"
-                    style="font-size: 18px; font-family:Amiri;
-            line-height: 1.2;"><img
-                        src="https://cdn-icons-png.flaticon.com/128/6348/6348571.png" width="26px"> -
+                    data-target="#exampleModal" style="font-size: 18px; font-family:Amiri; line-height: 1.2;">
+                    <img src="https://cdn-icons-png.flaticon.com/128/6348/6348571.png" width="26px"> -
                     اضافة فيديو جديد
                 </button>
             @endif
@@ -134,9 +132,23 @@
                         </thead>
                         <tbody>
                             @foreach ($tutorial as $video)
+                                @php
+                                    $isUserSub = false;
+                                    foreach ($courses as $sub) {
+                                        if ($sub->id == $video->id) {
+                                            $isUserSub = true;
+                                            break;
+                                        }
+                                    }
+                                @endphp
                                 <tr>
-                                    <td><a
-                                            href="{{ route('teacherCourseTutorialVideoShow', $video->id) }}">{{ $video->name }}</a>
+                                    <td>
+                                        @if ($isUserSub == true || $video->type == 'free' || Auth::user()->user_type !== 'user')
+                                            <a
+                                                href="{{ route('teacherCourseTutorialVideoShow', $video->id) }}">{{ $video->name }}</a>
+                                        @else
+                                            <a href="#">{{ $video->name }}</a>
+                                        @endif
                                     </td>
                                     @if ($video->type == 'cash')
                                         <td
