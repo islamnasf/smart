@@ -152,11 +152,11 @@ class CourseController extends Controller
         ->select('user_courses.*', 'user_courses.price as user_price')
         ->get();
         $priceAll = $courses->sum('user_price');
-        ///
+        //
         $teachercourses = Course::with('techer')->join('user_courses', 'courses.id', '=', 'user_courses.course_id')
         ->select('user_courses.*', 'user_courses.price as teacher_price',DB::raw("DATE_FORMAT(user_courses.created_at, '%d/ %m/ 20%y') as date"),'courses.*')
         ->get();
-/////
+        //
         $price_all_teacher =0;
         foreach($teachercourses as $price){                    
         $price_all_teacher += $price->Teacher_ratio_course / 100 * $price->teacher_price;

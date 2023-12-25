@@ -22,13 +22,12 @@ class CartController extends Controller
         }
         return view('student.cart', compact('cart', 'sumPrice'));
     }
-    public function store(Request $request, $course_id, $price,$sub_name)
+    public function store(Request $request, $course_id, $price)
     {
         CartItem::create([
             'user_id' => Auth::user()->id,
             'course_id' => $course_id,
             'price' => $price,
-            // 'sub_name'=>$sub_name
 
         ]);
         return redirect()->back();
