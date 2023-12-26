@@ -66,7 +66,7 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            height: 50vh;
+            max-height: 50vh;
             margin: 0px auto;
         }
 
