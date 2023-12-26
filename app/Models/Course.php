@@ -26,4 +26,8 @@ class Course extends Model
     {
         return $this->belongsToMany(User::class, 'user_courses', "user_id", "course_id", "id");
     }
+    public function package()
+    {
+        return $this->belongsToMany(Package::class, 'package_courses', "course_id", "package_id", "id");
+    }
 }

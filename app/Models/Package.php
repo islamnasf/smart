@@ -11,4 +11,8 @@ class Package extends Model
     protected $guarded = [];
 
     use HasFactory;
+    public function course()
+    {
+        return $this->belongsToMany(Course::class, 'package_courses', "course_id", "package_id", "id");
+    }
 }
