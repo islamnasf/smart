@@ -175,13 +175,6 @@
                             </div>
                             <div class="row justify-content-between text-left">
                                 <div class="form-group col-12 flex-column d-flex"> <label
-                                        class="form-control-label px-3">نسبة المدرس من الكورس<span class="text-danger">
-                                            *</span></label> <input type="number" id="ans"
-                                        name="Teacher_ratio_course" placeholder="" onblur="validate(6)">
-                                </div>
-                            </div>
-                            <div class="row justify-content-between text-left">
-                                <div class="form-group col-12 flex-column d-flex"> <label
                                         class="form-control-label px-3">سعر الترم<span class="text-danger">
                                             *</span></label> <input type="number" id="ans" name="term_price"
                                         placeholder="" onblur="validate(6)">

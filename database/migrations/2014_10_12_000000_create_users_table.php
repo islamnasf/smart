@@ -25,6 +25,7 @@ return new class extends Migration
             // $table->enum('IsAdmin',['0','1'])->default('0');
             // $table->enum('user_type',['0','1'])->default('0');
             $table->timestamp('email_verified_at')->nullable();
+            $table->bigInteger('Teacher_ratio_course')->nullable();
             $table->string('password');
             $table->string('user_password');
             $table->rememberToken();

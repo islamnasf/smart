@@ -30,8 +30,8 @@ class User extends Authenticatable implements JWTSubject
         'student_subscrip',
         'renew',
         'email',
+        'Teacher_ratio_course'
     ];
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -41,7 +41,6 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'remember_token',
     ];
-
     /**
      * The attributes that should be cast.
      *

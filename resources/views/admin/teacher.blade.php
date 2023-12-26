@@ -64,6 +64,13 @@
           @enderror
           </br>
           <input type="text" name="password" class="form-control" placeholder="الرقم السري">
+</br>
+          <input type="text" name="Teacher_ratio_course" class="form-control" placeholder="  نسبة المعلم من الكورسات ">
+
+@error('Teacher_ratio_course')
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror
+          
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
@@ -94,6 +101,7 @@
                 <th>اسم المعلم </th>
                 <th>الهاتف </th>
                 <th>الرقم السري</th>
+                <th> نسبة المعلم  </th>
                 <th> العمليات</th>
               </tr>
             </thead>
@@ -104,6 +112,7 @@
                 <td>{{$teacher->name}}</td>
                 <td>{{$teacher->phone}}</td>
                 <td>{{$teacher->user_password}}</td>
+                <td>{{$teacher->Teacher_ratio_course}}</td>
                 <td>
                   <!-- Button trigger modal update -->
                   <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -146,6 +155,8 @@
                             </br>
                             <label style="font-size: 15px; font-weight: bold;"> الرقم السري   </label>
                             <input type="text" name="password" class="form-control" value="{{ $teacher->user_password}}">
+                            <label style="font-size: 15px; font-weight: bold;">نسبة المعلم من الكورسات </label>
+                            <input type="text" name="Teacher_ratio_course" class="form-control" value="{{ $teacher->Teacher_ratio_course}}">
 
                           </div>
                         <div class="modal-footer">
@@ -181,7 +192,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Button trigger modal show -->
+                   Button trigger modal show -->
                   <!-- <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#show">
                           <i class="fa fa-eye"></i>
                           </button>
