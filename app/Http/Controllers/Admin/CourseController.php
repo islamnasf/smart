@@ -162,7 +162,7 @@ class CourseController extends Controller
         //
         $price_all_teacher =0;
         foreach($teachercourses as $price){                    
-        $price_all_teacher += $price->Teacher_ratio_course / 100 * $price->teacher_price;
+        $price_all_teacher += $price->techer->Teacher_ratio_course / 100 * $price->teacher_price;
         }
 
         

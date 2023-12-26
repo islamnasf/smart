@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->bigInteger('user_id');
             $table->bigInteger('course_id');
             $table->bigInteger('price');
+            $table->string('student_name');
             $table->timestamps();
         });
     }

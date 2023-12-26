@@ -53,6 +53,7 @@ class CartController extends Controller
                     "user_id" => $item->user_id,
                     "course_id" => $item->course_id,
                     "price"=>$item->price,
+                    "student_name"=> Auth::user()->name
                 ]);
                 $cartItem = CartItem::find($item->id);
                 $cartItem->delete();
