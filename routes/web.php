@@ -103,27 +103,23 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('course/tutorial/post/{courseId}', [CourseController::class, 'createTutorial'])->name('postTutorial');
   Route::post('course/tutorial/delete/{id}', [CourseController::class, 'deleteTutorial'])->name('deleteTutorial');
   Route::post('course/tutorial/edit/{id}', [CourseController::class, 'editTutorial'])->name('editTutorial');
-
-
   Route::get('course/tutorial/video/show/{tutorialId}', [CourseController::class, 'video'])->name('showTutorialVideo');
   Route::post('course/tutorial/video/post/{tutorialId}', [CourseController::class, 'createVideo'])->name('postTutorialVideo');
   Route::post('course/tutorial/video/delete/{id}', [CourseController::class, 'deleteVideo'])->name('deleteTutorialVideo');
   Route::post('course/tutorial/video/edit/{id}', [CourseController::class, 'editVideo'])->name('editTutorialVideo');
   Route::get('course/subscribes/', [CourseController::class, 'subscribesCourses'])->name('subscribesCourses');
-
-
   Route::get('package/show', [PackageContrller::class, 'index'])->name('showPackage');
   Route::get('package/archive/show', [PackageContrller::class, 'unActive'])->name('showPackageArchive');
   Route::post('package/post', [PackageContrller::class, 'create'])->name('postPackage');
+  Route::post('package/{package}', [PackageContrller::class, 'createPackageDetails'])->name('PackageDetails');
   Route::post('package/dalete/{packageId}', [PackageContrller::class, 'delete'])->name('deletePackage');
-  Route::post('package/edit/{id}', [PackageContrller::class, 'edit'])->name('editPackage');
+  Route::get('package/{package}', [PackageContrller::class, 'edit'])->name('editPackage');
+  Route::post('package/archive/{package}', [PackageContrller::class, 'archivePackage'])->name('archivePackage');
+  Route::post('package/unarchive/{package}', [PackageContrller::class, 'unarchivePackage'])->name('unarchivePackage');
 
   Route::get('reports/show', [CourseController::class, 'reports'])->name('showReports');
-
   Route::get('show/site/setting', [Sitesetteings::class, 'index'])->name('sitesettingsShow');
   Route::post('post/site/setting', [Sitesetteings::class, 'update'])->name('sitesettingsPost');
-
-
 });
 
 
