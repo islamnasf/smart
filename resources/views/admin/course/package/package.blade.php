@@ -108,7 +108,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">اضافة الاختبارت</h5>
+                <h5 class="modal-title" id="exampleModalLabel">اضافة </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -128,6 +128,12 @@
                                     *</span></label> <input type="text" id="ans" required name="description"
                                 placeholder="" onblur="validate(6)">
                         </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-12 flex-column d-flex"> <label class="form-control-label px-3">سعر الباقة <span class="text-danger">
+                                    *</span></label> <input type="text" id="fname" name="price" required
+                                onblur="validate(1)"> </div>
+                        
                     </div>
                     <div class="row justify-content-between text-left">
                         <div class="form-group col-sm-6 flex-column d-flex"> <label
@@ -173,9 +179,6 @@
         </div>
     </div>
 </div>
-
-
-
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -185,7 +188,6 @@
         </ul>
     </div>
 @endif
-
 <div class="row">
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
@@ -197,23 +199,21 @@
                                 <th>إسم الباقة</th>
                                 <th>الصف</th>
                                 <th>سعر الباقة</th>
-                                <th>نسبة المنصة</th>
                                 <th>العمليات</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($package as $packet)
                                 <tr>
-                                    <td>{{ $packet->name }}</td>
+                                    <td><a href="{{ route('editPackage' ,$packet->id )}}">{{ $packet->name }}</a></td>
                                     <td>{{ $packet->class }}</td>
                                     <td>{{ $packet->price }}</td>
-                                    <td>{{ $packet->platform_ratio }}</td>
                                     <td>
                                         <!-- Button trigger modal update -->
-                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+                                        <!-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                             data-target="#edit{{ $packet->id }}">
                                             <i class="fa fa-pencil-square"></i>
-                                        </button>
+                                        </button> -->
                                         <div class="modal fade" id="edit{{ $packet->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="container-fluid px-1 py-5 mx-auto">
@@ -312,10 +312,43 @@
                                             </div>
                                         </div>
                                         <!-- Button trigger modal delete -->
+                                        <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal"
+                                            data-target="#archivePackage{{ $packet->id }}">
+                                            <i class="fa fa-archive"></i>
+                                        </button>
+                                        <div class="modal fade" id="archivePackage{{ $packet->id }}" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">حذف الباقة</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form action="{{ route('archivePackage', $packet->id) }}"
+                                                        method="post">
+                                                        @csrf
+                                                        <div class="modal-body">
+                                                            <h4> هل انت متاكد من ارشيف هذه الباقة ؟</h4>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">اغلاق</button>
+                                                            <button type="submit" class="btn btn-primary"> ارشف
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                                             data-target="#delete{{ $packet->id }}">
                                             <i class="fa fa-trash"></i>
                                         </button>
+                                       
+                                        
                                         <div class="modal fade" id="delete{{ $packet->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
@@ -346,6 +379,7 @@
                                     </td>
                                 </tr>
                             @endforeach
+
                             </tfoot>
                     </table>
                 </div>

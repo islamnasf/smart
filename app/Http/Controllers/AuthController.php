@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\userLoginResource;
 use App\Http\Resources\userRegisterResource;
+use App\Models\Apiuser;
 use Illuminate\Http\Request;
 //use Auth;
 use Validator;
@@ -34,7 +35,7 @@ class AuthController extends Controller
         $user_password = ['user_password' => $request->password];
         $group = ['group' => $request->group];
         $grade = ['grade' => $request->grade];
-        $user=User::create(array_merge(
+        $user=Apiuser::create(array_merge(
             $validator->validated()+$user_password+$group+$grade,
             ['password'=>bcrypt($request->password)]
         ));

@@ -18,33 +18,6 @@
         background: linear-gradient(to right, rgb(255, 255, 255), rgb(231, 231, 231))
     }
 </style>
-{{-- 
-<div class="body">
-</div> --}}
-{{-- <form action="{{ route('studentPostOrder') }}" method="POST">
-    @csrf
-    <div>
-        <h2 style="text-align: center; background-color:#bbb; padding: 8px;"> الاجمالي : {{ $sumPrice }} د.ك</h2>
-    </div>
-
-    <div>
-        <label style="display: block;">
-            <input style="text-align: right; background-color:#f4f4f4; padding: 8px;" type="radio" name="payment"
-                value="one">
-            الدفع بواسطة : KNET
-        </label>
-        <label style="display: block;">
-            <input style="text-align: right; background-color:#f4f4f4; padding: 8px; " type="radio" name="payment"
-                value="two">
-            الدفع بواسطة : Bookeey PG
-        </label>
-    </div>
-    <div>
-        <button type="submit"
-            style="width: 100%;  border: 0px; text-align: center; background-color:#085166; padding: 6px; color: #fff; font-size: 28px; margin: 3px; opacity: 1;"
-            class="donepay">اتمام عملية الدفع</button>
-    </div>
-</form> --}}
 
 <div>
     <h2

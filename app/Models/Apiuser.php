@@ -18,6 +18,8 @@ class Apiuser extends Authenticatable implements JWTSubject
      *
      * @var array<int, string>
      */
+    protected $table = 'users';
+
     protected $fillable = [
         'name',
         'phone',

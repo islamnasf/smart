@@ -13,6 +13,6 @@ class Package extends Model
     use HasFactory;
     public function course()
     {
-        return $this->belongsToMany(Course::class, 'package_courses', "course_id", "package_id", "id");
+        return $this->belongsToMany(Course::class, 'package_courses', "package_id", "course_id", "id");
     }
 }
