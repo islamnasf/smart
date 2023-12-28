@@ -1,231 +1,338 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/10155/10155988.png" type="image/x-icon" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="assets/css/styles_one.css" rel="stylesheet">
-    <title> الصفحة الرئيسية </title>
-    <style>
-        #pre-loader {
-            background-color: #ffffff;
-            height: 100%;
-            width: 100%;
-            position: fixed;
-            z-index: 1;
-            margin-top: 0px;
-            top: 0px;
-            left: 0px;
-            bottom: 0px;
-            overflow: hidden !important;
-            right: 0px;
-            z-index: 999999;
-        }
-
-        #pre-loader img {
-            text-align: center;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            -webkit-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            z-index: 99;
-            margin: 0 auto;
-        }
-    </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/ass/css/all.min.css">
+    <link rel="stylesheet" href="assets/ass/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/ass/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/ass/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="assets/ass/css/style.css">
+    <title>Document</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
-
 <body>
-    <div id="pre-loader">
-        <img src="assets/images/pre-loader/loader-01.svg" alt="">
-    </div>
-    <main>
-        <!-- التنقل -->
-        <nav id="navbar">
-            <img src=" https://cdn-icons-png.flaticon.com/128/10155/10155988.png" class="  highlight-icon logo "
-                width="60px">
-            <!-- <iclass=" fa fa-graduation-cap highlight-icon logo" ><span>Education</span></i>  -->
-            <ul class="nav-items">
-                <li class="nav-item">
-                    <a href="{{route('home')}}" class="nav-link">الصفحة الرئيسية</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('stagesPage')}}" class="nav-link">استكشف المواد </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">المذكرات </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">بنك الاسئلة </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('contactus') }}" class="nav-link">تواصل معنا</a>
-                </li>
-            </ul>
-            @if (Auth::check())
-                <a class="cta dark" href="{{ route('getProfile') }}"
-                    style="text-decoration: none;"></button>{{ Auth()->user()->name }}</a>
-            @else
-                <a class="cta dark" href="{{ route('login') }}" style="text-decoration: none;">تسجيل الدخول </a>
-            @endif
-            <!-- <button class="cta dark">تسجيل دخول</button> -->
-            <i id="mobile-toggle" class="fa fa-solid fa-bars" style="margin-left: 25px;"></i>
-        </nav>
-        <!-- القسم الأساسي -->
-        <div class="hero">
-            <h1>يمكنك <span class="auto-type"></span></h1>
-            <div class="ctas">
-                <a class="cta purple" style="margin:25px; text-decoration: none;" href="{{route('stagesPage')}}">استكشف المواد</a>
-                <button class="cta purple" style="margin:25px;">استكشف المذكرات</button>
+    <header>
+        <nav class="navbar navbar-expand-lg shadow-sm ">
+            <div class="container">
+              <a class="navbar-brand fw-bold" href="#"><img src="assets/ass/img/logo.png" height="56" alt=""></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav fw-bold  fs-6 gap-3 mx-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">الرئيسية</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">المواد</a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      الباقات
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " aria-disabled="true">المدرسين</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <a  href="{{ route('login') }}" class="btn-20" ><span>تسجيل دخول</span></a>
+                </form>
+              </div>
             </div>
-
-        </div>
-        <!-- الميزات -->
-        <div class="container">
-
-        <div class="box" style="--clr:#5b98eb">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/2103/2103458.png"
-                            class="  highlight-icon logo " width="80px"></div>
-                    <div class="text">
-                        <h3> الكورسات المسجلة </h3>
-                    </div>
+          </nav>
+    </header>
+    <section id="hero">
+        <div class="container h-100">
+            <div class="contant  d-flex  justify-content-center align-items-center">
+                <div class="text">
+                    <h2 class="fs-1 fw-bold">منصة تعليمية بالكويت</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ad voluptate. Mollitia labore suscipit vitae recusandae delectus voluptas nobis, praesentium autem, quia quos libero quasi fugiat aliquam eius voluptate voluptatibus.</p>
+                   
+                    <a class="btn-20"  href="{{route('stagesPage')}}" ><span>استكشف المواد</span></a>
                 </div>
-            </div>
-            <div class="box" style="--clr:#fb3545 ">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/2097/2097068.png"
-                            class="  highlight-icon logo " width="80px"></div>
-                    <div class="text">
-                        <h3> المذكرات المطبوعة </h3>
-                    </div>
-                </div>
-            </div>
-
-          
-        <div class="box" style="--clr:#B0E0E6">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/779/779868.png"
-                            class="  highlight-icon logo " width="80px"></div>
-                    <div class="text">
-                        <h3> كورسات حضوري </h3>
-                    </div>
-                </div>
-            </div>
-            <div class="box" style="--clr:#33ec5b">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/4762/4762311.png"
-                            class="  highlight-icon logo " width="80px">
-                    </div>
-                    <div class="text">
-                        <h3>كورسات اونلاين </h3>
-                    </div>
-                </div>
-            </div>
-     
-            <div class="box" style="--clr:#eb5ae5">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/3750/3750032.png"
-                            class="  highlight-icon logo " width="80px"></div>
-                    <div class="text">
-                        <h3> مدرس خصوصي</h3>
-                    </div>
-                </div>
-            </div>
-         
-
-            <div class="box" style="--clr:#F8F8FF">
-                <div class="content">
-                    <div class="icon"> <img src="https://cdn-icons-png.flaticon.com/128/7851/7851689.png"
-                            class="  highlight-icon logo " width="80px"></div>
-                    <div class="text">
-                        <h3>اختبارات وبنوك </h3>
-                    </div>
-                </div>
-            </div>
-            </div>
-
-        <div class="features">
-            <h3>نبذه عن المنصة </h3>
-            <h6>معنا فالك التفوق</h6>
-            <div class="features-list">
-                <div class="feature">
-                    <div class="content">
-                        <img src=" https://cdn-icons-png.flaticon.com/128/10155/10155988.png"
-                            class="  highlight-icon logo " width="100px">
-                        <h2
-                            style="text-align: center; padding:10px; background-color: #0893c5; width:40%; margin:10px auto; margin-bottom: 25px; ">
-                            منصتنا </h2>
-                        <p>
-                            {{ $data->content1 }}
-                        </p>
-                        <p>
-                            {{ $data->content2 }}
-                        </p>
-                        <p>
-                            {{ $data->content3 }}
-                        </p>
-                        <p>
-                            {{ $data->content4 }}
-                        </p>
-
-                    </div>
-                    <img src="assets/education/purple-website.jpg " alt="purple website" class="img-descriprion" />
+                <div class="icon-hero">
+                    <img src="assets/ass/img/img-hero.png" width="620" alt="">
                 </div>
             </div>
         </div>
-    </main>
-    <footer>
-        <h3>Education</h3>
-        <p>تواصل معنا الآن</p>
-        <div class="icons">
-            <a href="{{ $data->fb }}"><i class="icon fa-brands fa-facebook"></i></a>
-            <a href="{{ $data->insta }}"><i class="icon fa-brands fa-instagram"></i></a>
-            <a href="{{ $data->twitter }}"><i class="icon fa-brands fa-twitter"></i></a>
+    </section>
+    <section id="packages">
+        <div class="container py-5">
+            <h4 class="text-center fw-bold fs-3 title">الباقات</h4>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-sm-12 mb-4">
+                    <div class="card" style="width: 22rem;">
+                        <img src="assets/ass/img/img-card2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn fw-bold btn-dark text-light">Go somewhere</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-4 col-sm-12 mb-4">
+                    <div class="card" style="width: 22rem;">
+                        <img src="assets/ass/img/img-card2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn fw-bold btn-dark text-light">Go somewhere</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-4 col-sm-12 mb-4">
+                    <div class="card" style="width: 22rem;">
+                        <img src="assets/ass/img/img-card2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn fw-bold btn-dark text-light">Go somewhere</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="courses">
+        <div class="container  py-5">
+            <h4 class="text-center title fw-bold">المواد</h4>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card" style="width: 22rem;">
+                        <img src="assets/ass/img/img-card.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card" style="width: 22rem;">
+                        <img src="assets/ass/img/img-card.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card" style="width: 22rem;">
+                        <img src="assets/ass/img/img-card.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Teachers">
+        <div class="container  py-5">
+            <h4 class="text-center title fw-bold">المدرسين</h4>
+            <div class="owl-carousel owl-theme">
+                <div class="item d-flex justify-content-center align-items-center gap-4 ">
+                        <img class="img-teach" src="assets/ass/img/icon-teach.png" alt="">
+                        <div class="teach-text">
+                            <h4>أ / اسلام ناصف</h4>
+                            <ul class="d-flex g">
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                            </ul>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis aperiam eius</p>
+                        </div>
+                </div>
+                <div class="item d-flex justify-content-center align-items-center gap-4">
+                        <img class="img-teach" src="assets/ass/img/icon-teach.png" alt="">
+                        <div class="teach-text">
+                            <h4>أ / اسلام ناصف</h4>
+                            <ul class="d-flex g">
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                            </ul>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis aperiam eius</p>
+                        </div>
+                </div>
+                <div class="item d-flex justify-content-center align-items-center gap-4">
+                        <img class="img-teach" src="assets/ass/img/icon-teach.png" alt="">
+                        <div class="teach-text">
+                            <h4>أ / اسلام ناصف</h4>
+                            <ul class="d-flex g">
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                            </ul>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis aperiam eius</p>
+                        </div>
+                </div>
+                <div class="item d-flex justify-content-center align-items-center gap-4">
+                        <img class="img-teach" src="assets/ass/img/icon-teach.png" alt="">
+                        <div class="teach-text">
+                            <h4>أ / اسلام ناصف</h4>
+                            <ul class="d-flex g">
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                            </ul>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis aperiam eius</p>
+                        </div>
+                </div>
+                <div class="item d-flex justify-content-center align-items-center gap-4">
+                        <img class="img-teach" src="assets/ass/img/icon-teach.png" alt="">
+                        <div class="teach-text">
+                            <h4>أ / اسلام ناصف</h4>
+                            <ul class="d-flex g">
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                                <li>
+                                    <img class="img-star" src="assets/ass/img/star.png"  alt="">
+                                </li>
+                            </ul>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis aperiam eius</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <sectioin id="studen">
+        <div class="container  py-5">
+            <h4 class="text-center title fw-bold">اراء الطلاب</h4>
+            <div class="owl-carousel owl-theme">
+                <div class="item d-flex justify-content-center align-items-center gap-4 ">
+                        <img class="img-teach" src="assets/ass/img/img-stu.png" alt="">
+                        <div class="teach-text">
+                            <h4>طالب / اسلام ناصف</h4>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis aperiam eius</p>
+                        </div>
+                </div>
+                <div class="item d-flex justify-content-center align-items-center gap-4">
+                        <img class="img-teach" src="assets/ass/img/img-gril.png" alt="">
+                        <div class="teach-text">
+                            <h4>طالب / اسلام ناصف</h4>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis aperiam eius</p>
+                        </div>
+                </div>
+                <div class="item d-flex justify-content-center align-items-center gap-4">
+                        <img class="img-teach" src="assets/ass/img/img-stu.png" alt="">
+                        <div class="teach-text">
+                            <h4>طالب / اسلام ناصف</h4>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis aperiam eius</p>
+                        </div>
+                </div>
+                <div class="item d-flex justify-content-center align-items-center gap-4">
+                        <img class="img-teach" src="assets/ass/img/img-gril.png" alt="">
+                        <div class="teach-text">
+                            <h4>طالب / اسلام ناصف</h4>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis aperiam eius</p>
+                        </div>
+                </div>
+                <div class="item d-flex justify-content-center align-items-center gap-4">
+                        <img class="img-teach" src="assets/ass/img/img-stu.png" alt="">
+                        <div class="teach-text">
+                            <h4>طالب / اسلام ناصف</h4>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis aperiam eius</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark text-light">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <img src="assets/ass/img/logo-white.png" width="300" alt="">
+                    <p class="fw-bold pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, tempora.</p>
+                </div>
+                <div class="col-lg-6 col-sm-12 justify-content-center">
+                    <div class="input-group  mb-5">
+                        <input type="text" class="form-control" placeholder="Enter email" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-success fw-bold border-rad" type="button" id="button-addon2">Subscribe</button>
+                    </div>
+                    <div class="icon-sc">
+                        <ul class="d-flex gap-3 justify-content-center">
+                            <li><i class="fa-brands fa-xl fa-facebook-f"></i></li>
+                            <li><i class="fa-brands fa-xl fa-x-twitter"></i></li>
+                            <li><i class="fa-brands fa-xl fa-instagram"></i></li>
+                            <li><i class="fa-brands fa-xl fa-snapchat"></i></li>
+                            <li><i class="fa-brands fa-xl fa-tiktok"></i></li>
+                            <li><i class="fa-brands fa-xl fa-youtube"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
-    <script src="assets/js/script_one.js"></script>
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
-    <script>
-        var typed = new Typed(".auto-type", {
 
-            strings: [" الانضمام لنخبة من أقوي معلمي دولة الكويت   ", "  الحصول علي اختبارات سابقة وبنوك حديثة "],
-            typeSpeed: 50,
-            backSpeed: 50,
-            loop: true
-        })
-        window.onscroll = function() {
-            scrollFunction()
-        };
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                document.getElementById("navbar").style.top = "0";
-                document.getElementById("navbar").style.opacity = "1";
-                document.getElementById("navbar").style.transition = ".5s";
-            } else {
-                document.getElementById("navbar").style.top = "0px";
-                document.getElementById("navbar").style.opacity = ".9";
-            }
-        }
-    </script>
-    @include('layouts.footer-scripts')
 
+    <script src="assets/ass/js/query-3.7.0.min.js"></script>
+    <script src="assets/ass/js/owl.carousel.min.js"></script>
+    <script src="assets/ass/js/all.min.js"></script>
+    <script type="module" src="assets/ass/js/bootstrap.min.js"></script>
+    <script type="module" src="assets/ass/js/script.js"></script>
 </body>
-
 </html>

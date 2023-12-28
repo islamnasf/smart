@@ -15,6 +15,7 @@ body{
     max-width: 1090px;
 
     height: 520px;
+    
     background: red;
     overflow: hidden;
     background: url("1.jpg") no-repeat center / cover;
