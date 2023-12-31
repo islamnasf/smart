@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->bigInteger('course_id');
             $table->bigInteger('price');
             $table->string('student_name');
+            $table->string('subscrip_type');
             $table->timestamps();
         });
     }

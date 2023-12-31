@@ -15,4 +15,12 @@ class Package extends Model
     {
         return $this->belongsToMany(Course::class, 'package_courses', "package_id", "course_id", "id");
     }
+    public function cartitem()
+    {
+        return $this->hasMany(CartItem::class, "package_id", "id");
+    }
+    public function user()
+    {
+        return $this->belongsToMany(User::class, 'user_packages', "user_id", "package_id", "id");
+    }
 }

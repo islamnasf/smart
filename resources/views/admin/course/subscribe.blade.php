@@ -15,7 +15,6 @@
         min-height: 100vh;
         background-color: #175166;
         width: 100%;
-
     }
 
     .containerone {
@@ -121,12 +120,7 @@
                             <tr>
                                 <td>{{$sub->date}}</td>
                                 <td>{{$sub->subject_name}}</td>
-                                <td> @if($sub->price == $sub->term_price)
-                                    اشتراك ترم
-                                    @else
-                                    اشتراك شهري
-                                    @endif
-                                </td>
+                                <td>{{$sub->subscrip_type}}</td>
                                 <td>{{$sub->techer->name}}</td>
                                 <td>{{$sub->student_name}}</td>
                                 <td>{{$sub->price}}</td>

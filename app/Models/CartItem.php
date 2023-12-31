@@ -18,6 +18,10 @@ class CartItem extends Model
     {
         return $this->belongsTo(Course::class, "course_id");
     }
+    public function package()
+    {
+        return $this->belongsTo(Package::class, "package_id");
+    }
     public function order()
     {
         return $this->hasMany(Order::class, "cart_items_id");

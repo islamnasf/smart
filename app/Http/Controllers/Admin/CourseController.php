@@ -164,8 +164,7 @@ class CourseController extends Controller
         foreach($teachercourses as $price){                    
         $price_all_teacher += $price->techer->Teacher_ratio_course / 100 * $price->teacher_price;
         }
-
-        
+ 
        $platformEarn=$priceAll-$price_all_teacher;
         return view('admin.course.subscribe' , compact('priceAll','platformEarn','price_all_teacher','teachercourses'));
     }
