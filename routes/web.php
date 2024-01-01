@@ -4,7 +4,7 @@ use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\GradeController;
 use App\Http\Controllers\Admin\HomeController;
-use App\Http\Controllers\Admin\PackageContrller;
+use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\ProfileSettingController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\TeacherController;
@@ -81,13 +81,13 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('/exam/edit', [ExamController::class, 'update'])->name('updateExam');
   Route::post('/exam/delete', [ExamController::class, 'delete'])->name('deleteExam');
   Route::get('/examdownload/{fileName}', [ExamController::class, 'download'])->name('examDownload');
-  //
+//
   Route::get('/getContact', [ContactController::class, 'index'])->name('getContact');
   Route::post('/deleteContact/{id}', [ContactController::class, 'delete'])->name('deleteContact');
 
   Route::get('/profileSetting', [ProfileSettingController::class, 'index'])->name('getProfile');
   Route::post('/profileSetting/{id}', [ProfileSettingController::class, 'update'])->name('updateProfile');
-
+//course
   Route::get('course/home', [CourseController::class, 'index'])->name('course');
   Route::get('course/add', [CourseController::class, 'create'])->name('addCourse');
   Route::post('course/create', [CourseController::class, 'store'])->name('createCourse');
@@ -96,9 +96,6 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('course/edit/show/{id}', [CourseController::class, 'showEdit'])->name('showEditCourse');
   Route::post('course/delete/{courseId}', [CourseController::class, 'delete'])->name('deleteCourse');
   Route::post('course/update/{id}', [CourseController::class, 'update'])->name('updateCourse');
-
-
-
   Route::get('course/tutorial/show/{courseId}', [CourseController::class, 'tutorial'])->name('showTutorial');
   Route::post('course/tutorial/post/{courseId}', [CourseController::class, 'createTutorial'])->name('postTutorial');
   Route::post('course/tutorial/delete/{id}', [CourseController::class, 'deleteTutorial'])->name('deleteTutorial');
@@ -108,15 +105,15 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('course/tutorial/video/delete/{id}', [CourseController::class, 'deleteVideo'])->name('deleteTutorialVideo');
   Route::post('course/tutorial/video/edit/{id}', [CourseController::class, 'editVideo'])->name('editTutorialVideo');
   Route::get('course/subscribes/', [CourseController::class, 'subscribesCourses'])->name('subscribesCourses');
-  Route::get('package/show', [PackageContrller::class, 'index'])->name('showPackage');
-  Route::get('package/archive/show', [PackageContrller::class, 'unActive'])->name('showPackageArchive');
-  Route::post('package/post', [PackageContrller::class, 'create'])->name('postPackage');
-  Route::post('package/{package}', [PackageContrller::class, 'createPackageDetails'])->name('PackageDetails');
-  Route::post('package/dalete/{packageId}', [PackageContrller::class, 'delete'])->name('deletePackage');
-  Route::get('package/{package}', [PackageContrller::class, 'edit'])->name('editPackage');
-  Route::post('package/archive/{package}', [PackageContrller::class, 'archivePackage'])->name('archivePackage');
-  Route::post('package/unarchive/{package}', [PackageContrller::class, 'unarchivePackage'])->name('unarchivePackage');
-
+  //package  
+  Route::get('package/show', [PackageController::class, 'index'])->name('showPackage');
+  Route::get('package/archive/show', [PackageController::class, 'unActive'])->name('showPackageArchive');
+  Route::post('package/post', [PackageController::class, 'create'])->name('postPackage');
+  Route::post('package/{package}', [PackageController::class, 'createPackageDetails'])->name('PackageDetails');
+  Route::post('package/dalete/{packageId}', [PackageController::class, 'delete'])->name('deletePackage');
+  Route::get('package/{package}', [PackageController::class, 'edit'])->name('editPackage');
+  Route::post('package/archive/{package}', [PackageController::class, 'archivePackage'])->name('archivePackage');
+  Route::post('package/unarchive/{package}', [PackageController::class, 'unarchivePackage'])->name('unarchivePackage');
   Route::get('reports/show', [CourseController::class, 'reports'])->name('showReports');
   Route::get('show/site/setting', [Sitesetteings::class, 'index'])->name('sitesettingsShow');
   Route::post('post/site/setting', [Sitesetteings::class, 'update'])->name('sitesettingsPost');
@@ -136,8 +133,8 @@ route::group(['prefix' => 'dashboard/student/'], function () {
   Route::get('/cart', [CartController::class, 'index'])->name('studentcart');
   Route::post('/post/order/item', [CartController::class, 'order'])->name('studentPostOrder');
   Route::post('/cart/create/{course_id}/{price}', [CartController::class, 'store'])->name('studentCartCreate');
-  Route::post('/cart/delete/{cart_id}', [CartController::class, 'delete'])->name('studentCartDelete');
-
+  Route::post('/cart/{package_id}/{price}', [CartController::class, 'storePackage'])->name('studentCartCreatePackage');
+  Route::post('/cart/{cart_id}', [CartController::class, 'delete'])->name('cartDelete');
   Route::get('/subscription', [SubscriptionController::class, 'index'])->name('studentSubscription');
 });
 

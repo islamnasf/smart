@@ -161,8 +161,8 @@
                                 الباقة<span class="text-danger">
                                     *</span></label>
                             <select required id="job" name="package_type">
-                                <option value="fullterm">ترم كامل</option>
-                                <option value="monthly">باقة شهرية</option>
+                                <option value="باقة ترم ">باقة ترم </option>
+                                <option value="باقة شهرية ">باقة شهرية</option>
                             </select>
                         </div>
                     </div>

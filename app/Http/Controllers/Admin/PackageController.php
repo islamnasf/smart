@@ -9,7 +9,7 @@ use App\Models\PackageCourses;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class PackageContrller extends Controller
+class PackageController extends Controller
 {
     public function index()
     {
@@ -20,7 +20,6 @@ class PackageContrller extends Controller
     {
         $package = Package::create($request->all());
         if ($package) {
-
             $courses = Course::where('classroom', $package->class)->get();
         }
        

@@ -20,7 +20,7 @@
         box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
         background-color: #fff;
         border-radius: 15px;
-        max-width: 600px;
+        max-width: 700px;
     }
 
     .blue-text {
@@ -74,6 +74,8 @@
     /* Additional Styles */
     .content-container {
         margin-top: 20px;
+        background-color: #eee;
+        border: #007d8a 2px solid;
     }
 
     .package-info {
@@ -113,11 +115,13 @@
         font-size: 25px;
         border-radius: 5px;
         margin-right: 20px;
+        width: 250px;
         
     }
 
     .checkbox-container input {
         margin-left: 10px;
+        width: 20%;
        
     }
 </style>

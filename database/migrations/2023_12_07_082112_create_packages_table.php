@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('package_type');
             $table->string('stage');
             $table->string('class');
-            $table->string('subject_count');
+            $table->string('subject_count')->nullable();
             $table->string('price')->nullable();
             $table->string('expiry_date');
             $table->boolean('is_active')->default(1);
