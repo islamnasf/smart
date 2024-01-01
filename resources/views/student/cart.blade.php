@@ -53,13 +53,11 @@
                                     <p>{{ $cart->course->classroom }}</p>
                                     <p class="text-start text-md-left pt-4">
                                         <strong> سعر : {{ $cart->price }} د.ك</strong>
-
                                     </p>
                                     <!-- Data -->
                                 </div>
                                 <div class="col-lg-4 text-right col-sm-12 mb-4 mb-lg-0">
                                     <!-- Price -->
-                                  
                                     <form action="{{ route('studentCartDelete', $cart->id) }}" method="post">
                                         @csrf
                                         <button type="submit" style="border: none ; background:none"
