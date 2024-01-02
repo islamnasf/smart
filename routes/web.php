@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\GradeController;
 use App\Http\Controllers\Admin\HomeController;
@@ -59,19 +60,7 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('/teacher', [TeacherController::class, 'index'])->name('getTeacher');
   Route::post('/teacher', [TeacherController::class, 'store'])->name('postTeacher');
   Route::post('/teacher/edit/{teacher}', [TeacherController::class, 'update'])->name('updateTeacher');
-  //secretary->admin
-  Route::get('/book', [BookController::class, 'index'])->name('getBook');
-  Route::post('/book', [BookController::class, 'store'])->name('postBook');
-  Route::post('/book/edit/{book}', [BookController::class, 'update'])->name('updateBook');
-  //mandub->admin->book
-  Route::get('/mandub', [MandubController::class, 'index'])->name('getMandub');
-  Route::post('/mandub', [MandubController::class, 'store'])->name('postMandub');
-  Route::post('/mandub/edit/{mandub}', [MandubController::class, 'update'])->name('updateMandub');
-
-  //book->admin
-  Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
-  Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');
-  Route::post('/secretary/edit/{secretary}', [SecretaryController::class, 'update'])->name('updateSecretary');
+  
 
   //dashboard
   Route::get('/', [HomeController::class, 'index'])->name('dashboard');
@@ -117,6 +106,35 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('reports/show', [CourseController::class, 'reports'])->name('showReports');
   Route::get('show/site/setting', [Sitesetteings::class, 'index'])->name('sitesettingsShow');
   Route::post('post/site/setting', [Sitesetteings::class, 'update'])->name('sitesettingsPost');
+  //books
+//book->admin 
+Route::get('/book', [BookController::class, 'index'])->name('getBook');
+Route::get('/book/add', [BookController::class, 'addBook'])->name('addBook');
+Route::post('/book/add', [BookController::class, 'store'])->name('postBook');
+Route::get('/store', [BookController::class, 'storeBook'])->name('getStore');
+Route::Post('/quantitybook/{book}', [BookController::class, 'addQuantity'])->name('addQuantity');
+Route::get('/termone', [BookController::class, 'termone'])->name('termone');
+Route::get('/termtow', [BookController::class, 'termtow'])->name('termtow');
+
+Route::post('/book/edit/{book}', [BookController::class, 'update'])->name('updateBook');
+
+//mandub->admin->book
+Route::get('/mandub', [MandubController::class, 'index'])->name('getMandub');
+Route::post('/mandub', [MandubController::class, 'store'])->name('postMandub');
+Route::post('/mandub/edit/{mandub}', [MandubController::class, 'update'])->name('updateMandub');
+//city->admin->book
+Route::get('/city', [CityController::class, 'index'])->name('getCity');
+Route::post('/city', [CityController::class, 'store'])->name('postCity');
+Route::post('/city/edit/{city}', [CityController::class, 'update'])->name('updateCity');
+Route::get('/city/mandoub/{city}', [CityController::class, 'addMandoub'])->name('addMandoubToCity');
+Route::post('/city/mandoub/add/{city}', [CityController::class, 'addNewMandoub'])->name('addNewMandoub');
+Route::post('/city/mandoub/delete/{mandoub}', [CityController::class, 'mandoubCityDelete'])->name('mandoubCityDelete');
+
+
+//secretary->admin
+Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
+Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');
+Route::post('/secretary/edit/{secretary}', [SecretaryController::class, 'update'])->name('updateSecretary');
 });
 
 

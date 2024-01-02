@@ -1,3 +1,6 @@
+@section('title')
+مذكرات
+@endsection
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,10 +39,17 @@
 
         <div class="content-wrapper">
 
-            <div class="row">
-                <img src="{{ url('assets/images/education.jpg') }}"
-                    style="width:95%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;"
-                    alt="">
+            <div class="page-title" style="margin-bottom: 20px;">
+                <div class="row">
+                    <div class="col-sm-12" style="color:#dc3545 ; margin:10px auto; background-color: #dc3545; padding-top: 10px; padding-bottom: 10px;  border-radius:7px; display: flex; justify-content: space-around;">
+
+                        <h1 class="mb-0" style="color:#fff ; "> <span class="text-danger">
+                                <i class=" fa fa-book highlight-icon mr-2" aria-hidden="true" style="color:#fff; font-size:45px;  "></i>
+                            </span>ادارة المذكرات </h1>
+
+                    </div>
+                </div>
+
             </div>
 
             <!-- widgets -->
@@ -52,15 +62,14 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-list-alt highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <i class=" fa fa-list-alt highlight-icon" aria-hidden="true" style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
 
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                         الطلبيات الجديدة</p>
+                                        الطلبيات الجديدة</p>
 
 
                                 </div>
@@ -77,15 +86,14 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa fa-clock-o highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:25px "></i>
+                                        <i class=" fa fa fa-clock-o highlight-icon" aria-hidden="true" style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:25px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
 
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        الطلبيات الحالية   </p>
+                                        الطلبيات الحالية </p>
 
 
                                 </div>
@@ -102,15 +110,14 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-briefcase highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <i class=" fa fa-briefcase highlight-icon" aria-hidden="true" style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
 
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        الطلبيات المكتملة  </p>
+                                        الطلبيات المكتملة </p>
                                 </div>
                             </div>
 
@@ -124,8 +131,7 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-credit-card highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <i class=" fa fa-credit-card highlight-icon" aria-hidden="true" style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
@@ -145,21 +151,20 @@
 
             <div class="row">
 
-                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <a href="{{route('addBook')}}" class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-plus-square highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <i class=" fa fa-plus-square highlight-icon" aria-hidden="true" style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
 
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        اضافة مذكرة   </p>
+                                        اضافة مذكرة </p>
 
                                 </div>
                             </div>
@@ -168,20 +173,18 @@
                     </div>
                 </a>
 
-                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <a href="{{route('termone')}}" class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
-                                        <i class=" fa fa fa-check-square-o highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                    <span>
+                                        <img src="https://cdn-icons-png.flaticon.com/128/9180/9180579.png" width="65px" style="padding-top:15px;padding-bottom:25px">
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                         المذكرات المفعلة</p>
+                                        الترم الاول </p>
                                 </div>
                             </div>
 
@@ -189,74 +192,69 @@
                     </div>
                 </a>
 
-                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <a href="{{route('termtow')}}" class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-danger">
-                                        <i class="fa fa-archive highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                    <span>
+                                        <img src="https://cdn-icons-png.flaticon.com/128/3601/3601634.png" width="65px" style="padding-top:15px;padding-bottom:25px">
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        ارشيف المذكرات  </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span class="text-danger">
-                                        <i class="fa fa-check-circle highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                                    </span>
-                                </div>
-                                <div class="float-center text-center">
-                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        الباقات المفعلة    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span class="text-danger">
-                                        <i class="fa fa-file-archive-o highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
-                                    </span>
-                                </div>
-                                <div class="float-center text-center">
-                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                        ارشيف الباقات  </p>
+                                        الترم الثاني </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </a>
 
-                 <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                   <div class="card card-statistics h-100">
+                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                    <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-home highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <i class="fa fa-check-circle highlight-icon" aria-hidden="true" style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                    </span>
+                                </div>
+                                <div class="float-center text-center">
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                        الباقات المفعلة </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                    <div class="card card-statistics h-100">
+                        <div class="card-body">
+                            <div class="clearfix">
+                                <div class="float-left">
+                                    <span class="text-danger">
+                                        <i class="fa fa-file-archive-o highlight-icon" aria-hidden="true" style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
+                                    </span>
+                                </div>
+                                <div class="float-center text-center">
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                        ارشيف الباقات </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="{{route('getStore')}}" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                    <div class="card card-statistics h-100">
+                        <div class="card-body">
+                            <div class="clearfix">
+                                <div class="float-left">
+                                    <span class="text-danger">
+                                        <i class=" fa fa-home highlight-icon" aria-hidden="true" style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
@@ -268,55 +266,52 @@
                     </div>
                 </a>
 
-                <a  href="{{ route('getMandub') }}" class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                   <div class="card card-statistics h-100">
+                <a href="{{ route('getMandub') }}" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                    <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-users highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <i class=" fa fa-users highlight-icon" aria-hidden="true" style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                         المناديب </p>
+                                        المناديب </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ route('getCity') }}" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                    <div class="card card-statistics h-100">
+                        <div class="card-body">
+                            <div class="clearfix">
+                                <div class="float-left">
+                                    <span class="text-danger">
+                                        <i class=" fa fa-globe highlight-icon" aria-hidden="true" style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                    </span>
+                                </div>
+                                <div class="float-center text-center">
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
+                                        المحافظات </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </a>
                 <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                   <div class="card card-statistics h-100">
+                    <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class=" fa fa-globe highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
+                                        <i class=" fa fa-bars highlight-icon" aria-hidden="true" style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                         المحافظات </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                   <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span class="text-danger">
-                                        <i class=" fa fa-bars highlight-icon" aria-hidden="true"
-                                            style="color:#175166; font-size:60px; padding-top:15px;padding-bottom:15px "></i>
-                                    </span>
-                                </div>
-                                <div class="float-center text-center">
-                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
-                                         تقرير المعلمين </p>
+                                        تقرير المعلمين </p>
                                 </div>
                             </div>
                         </div>

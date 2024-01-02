@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -68,4 +69,14 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'adminCheck'=>\App\Http\Middleware\AdminCheck::class
     ];
+    protected $commands = [
+        // Other commands...
+        \App\Console\Commands\UpdateExpiredCourses::class,
+    ];
+    protected function schedule(Schedule $schedule)
+{
+    // تشغيل الأمر يوميًا في منتصف الليل
+    $schedule->command('courses:update-expired')->dailyAt('00:00');
+}
+
 }

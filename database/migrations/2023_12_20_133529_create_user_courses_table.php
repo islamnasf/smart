@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->bigInteger('price');
             $table->string('student_name');
             $table->string('subscrip_type');
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

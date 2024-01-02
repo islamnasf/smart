@@ -11,11 +11,9 @@
     }
 
     .main {
-        width: 390px;
+        width: 400px;
         max-width: 1090px;
-
-        height: 520px;
-
+        height: 535px;
         background: red;
         overflow: hidden;
         background: url("1.jpg") no-repeat center / cover;
@@ -93,7 +91,7 @@
     }
 
     .login {
-        height: 480px;
+        height: 525px;
         background: #eee;
         border-radius: 60% / 10%;
         transform: translateY(45px);
@@ -150,13 +148,11 @@
                     <option value="male">ذكر</option>
                     <option value="female">انثي</option>
                 </select>
-
                 <select id="category" name="grade">
                     <option value="ابتدائي">ابتدائي</option>
                     <option value="متوسط">متوسط</option>
                     <option value="ثانوي">ثانوي</option>
                 </select>
-
                 <select id="item" name="group"></select>
                 <script>
                     // Sample data for items based on categories

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('css')
 @section('title')
-    التقارير
+التقارير
 @stop
 @endsection
 @section('page-header')
@@ -14,9 +14,8 @@
 
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">حسابات الكورسات المسجلة</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-        aria-expanded="false" aria-label="Toggle navigation">
+    <div class="navbar-brand">حسابات الكورسات المسجلة</div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 </nav>
@@ -27,39 +26,22 @@
         <div class="card-header">
             <h5 class="card-title">التقارير</h5>
         </div>
-        <div class="card-body">
-            <!-- Your report table goes here -->
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">إجمالى مبيعات المواد</th>
-                        <th scope="col">إجمالى أرباح المنصة من المواد</th>
-                        <th scope="col">إجمالى أرباح المعلمين من الباقات</th>
-                        <th scope="col">إجمالى أرباح المعلمين من المواد</th>
-                        <th scope="col">إجمالى مبيعات الباقات </th>
-                        <th scope="col">إجمالى أرباح المنصة من الباقات</th>
-                        <!-- Add more columns as needed -->
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Sample data -->
-                    <tr>
-                        <td>$5000</td>
-                        <td>$5000</td>
-                        <td>$5000</td>
-                        <td>$5000</td>
-                        <td>$5000</td>
-                        <td>$5000</td>
-                    </tr>
-                    <!-- Add more rows with data -->
-                </tbody>
-            </table>
-            <h3 class="navbar-brand">إجمالى مبيعات المنصة خلال الترم : 4418 د.ك</h3>
+        <div class="container text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card-body bg-dark text-white">
+                <h3 class="text-lg mb-3 text-white">إجمالى ارباح المنصة من الكورسات : {{$platformEarn}} د.ك</h3>
+                <h3 class="text-lg mb-3 text-white"> إجمالى ارباح المعلمين من الكورسات : {{$price_all_teacher}} د.ك</h3>
+                <h2 class="text-lg text-white">إجمالى مبيعات المنصة من الكورسات خلال الترم : {{$priceAll}} د.ك</h2>
+            </div>
         </div>
     </div>
 </div>
+
+    </div>
+</div>
 <script>
-    
+
 </script>
 
 <!-- row closed -->

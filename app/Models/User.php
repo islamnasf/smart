@@ -56,6 +56,10 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(Course::class, 'techer_id', 'id');
     }
+    public function teacherbook()
+    {
+        return $this->hasMany(Book::class, 'techer_id', 'id');
+    }
     public function comment()
     {
         return $this->hasMany(VideoComment::class, "user_id", "id");
@@ -78,6 +82,12 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->getKey();
     }
+ 
+    public function city()
+    {
+        return $this->belongsToMany(City::class, 'mandub_cities', "city_id", "mandoub_id", "id");
+    }
+
 
     public function getJWTCustomClaims()
     {
