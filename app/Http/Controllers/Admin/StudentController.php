@@ -20,8 +20,15 @@ class StudentController extends Controller
             $userCourse = User::find($student->id)->course;
             $userCourseCount = $userCourse->count();
         }
+        if($userCourseCount){
+            return view('admin.student', compact(['students', 'studentCount', 'userCourseCount']));
 
-        return view('admin.student', compact('students', 'studentCount', 'userCourseCount'));
+        }else{
+            return view('admin.student', compact(['students', 'studentCount']));
+
+        }
+
+
     }
     public function update(StudentEditRequest $request, int $student)
     {

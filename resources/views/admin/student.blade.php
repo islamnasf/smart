@@ -64,7 +64,15 @@
                                     <td>{{ $student->phone }}</td>
                                     <td>{{ $student->user_password }}</td>
                                     <td>{{ $student->date }}</td>
-                                    <td>{{ $userCourseCount }}</td>
+
+                                    <td>
+                                    @if(isset($userCourseCount) && $userCourseCount)
+                                        {{ $userCourseCount }}
+                                    @else
+                                    0
+                                    @endif
+
+                                    </td>
                                     <td>0</td>
                                     <td>
                                         <!-- Button trigger modal update -->

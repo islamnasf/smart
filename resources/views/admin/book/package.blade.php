@@ -338,8 +338,6 @@
                                             data-target="#delete">
                                             <i class="fa fa-trash"></i>
                                         </button>
-                                       
-                                        
                                         <div class="modal fade" id="delete{{ $packet->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
