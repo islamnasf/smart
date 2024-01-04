@@ -11,12 +11,10 @@ header{
     background-color: #fff;
     z-index: 100000;
 }
-a{
-    text-decoration: none;
-}
+
 #hero{
-    background-image: url(/assets/ass/img/bg-hero.jpg);  
-      background-position: center;
+    background-image: url(/assets/ass/img/bg-hero.jpg);
+    background-position: center;
     background-size: cover;
     height: calc(100vh - 56px);
     overflow: hidden;
@@ -32,18 +30,25 @@ a{
 .icon-hero{
     width: 500px;
 }
+.card{
+    width: 20rem;
+}
 @media  (max-width: 767px) {
 
     .contant {
         flex-direction: column;
         text-align: center;
-        padding-top: 11rem;
+        padding-top: 5rem;
     }
     .contant .text{
         width: 100%;
+        padding-bottom: 5rem;
     }
     .icon-hero img{
         width: 460px;
+    }
+    .card{
+        width: 100%;
     }
 }
 
@@ -60,14 +65,14 @@ a{
     }
 }
 #packages {
-    background-color: #eaeaea;
+    background-color: #f7f7f9;
 }
 
 #courses {
     background-color: #fff;
 }
 #Teachers {
-    background-color: #eaeaea;
+    background-color: #f7f7f9;
 }
 #studen {
     background-color: #fff;
@@ -107,7 +112,9 @@ a{
     50% { right: 100%; }
     100% { right: 0; }
 }
-
+a{
+    text-decoration: none;
+}
 .icon-sc li {
     height: 40px;
     width: 40px;
@@ -187,6 +194,9 @@ a{
   padding: 0;
   text-transform: uppercase;
 }
+.btn-20 h5:hover{
+    color: #000;
+}
 .btn-20:disabled {
   cursor: default;
 }
@@ -225,4 +235,13 @@ a{
 .btn-20:hover:before {
   transform: skew(45deg) translateX(75%);
   
+}
+
+
+/* login */
+#login {
+    background-image: url(/assets/ass/img/bg-hero.jpg);
+    background-position: center;
+    background-size: cover;
+    height: calc(100vh - 82);
 }

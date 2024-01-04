@@ -19,8 +19,21 @@
     </div>
 
 </div>
+<div  class="text-center" style="width:50% ;margin:0px auto ">
+<h4 style="font-size: 25px; color: #555;">  اختر الصف الدراسي  </h4>
+</div>
 
-
+<div class="row" style="width: 100%; margin: 15px auto; display: flex; justify-content: center;">
+    <a href="{{route('booksShow','four')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/3840/3840753.png" width="100%" class="pl-1 image" alt="Icon 1"></a>
+    <a href="{{route('booksShow','five')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/3840/3840754.png" width="100%" class="pl-1 image" alt="Icon 2"></a>
+    <a href="{{route('booksShow','six')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/3840/3840755.png" width="100%" class="pl-1 image" alt="Icon 3"></a>
+    <a href="{{route('booksShow','seven')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/3840/3840771.png" width="100%" class="pl-1 image" alt="Icon 4"></a>
+    <a href="{{route('booksShow','eight')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/3840/3840772.png" width="100%" class="pl-1 image" alt="Icon 5"></a>
+    <a href="{{route('booksShow','nine')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/3840/3840773.png" width="100%" class="pl-1 image" alt="Icon 6"></a>
+    <a href="{{route('booksShow','ten')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/6912/6912885.png" width="100%" class="pl-1 image" alt="Icon 7"></a>
+    <a href="{{route('booksShow','eleven')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/6912/6912910.png" width="100%" class="pl-1 image" alt="Icon 8"></a>
+    <a href="{{route('booksShow','twelve')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/6912/6912921.png" width="100%" class="pl-1 image" alt="Icon 9"></a>
+</div>
 <!-- breadcrumb -->
 @endsection
 @section('content')
@@ -84,22 +97,22 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                               
+
                                                 <div class="modal-body">
-                                                <div class="mb-2">
-                                                    <div class="alert alert-success" role="alert" style="font-size: 16px;">
-                                                        يرجى إدخال الكمية المراد إضافتها على المخزون
-                                                        <i class="fa fa-exclamation mr-3" ></i>
+                                                    <div class="mb-2">
+                                                        <div class="alert alert-success" role="alert" style="font-size: 16px;">
+                                                            يرجى إدخال الكمية المراد إضافتها على المخزون
+                                                            <i class="fa fa-exclamation mr-3"></i>
+                                                        </div>
                                                     </div>
-                                                </div>
                                                     <form action="{{route('addQuantity',$book->id)}}" method="post">
                                                         @csrf
-                                                        <label style="font-size: 15px; font-weight: bold;">  الكمية الجديدة المضافة </label>
+                                                        <label style="font-size: 15px; font-weight: bold;"> الكمية الجديدة المضافة </label>
                                                         <input type="number" name="quantity" class="form-control" required>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-                                                    <button type="submit" class="btn btn-primary"> اضافة  </button>
+                                                    <button type="submit" class="btn btn-primary"> اضافة </button>
                                                 </div>
                                                 </form>
                                             </div>

@@ -75,19 +75,17 @@
 @stop
 @endsection
 @section('page-header')
-<div class="row">
-    <!-- breadcrumb -->
-    <img src="{{ url('assets/images/teacher.jpg') }}"
-        style="width:92%; height:180px;  display: block; margin:15px auto; margin-top:0px; object-fit: fill; border-radius: 5px;"
-        alt="">
-</div>
-
 <div class="page-title">
     <div class="row">
         <div class="col-sm-12"
-            style="color:#dc3545 ; margin:10px auto; background-color: #dc3545; padding-top: 10px; padding-bottom: 10px;  border-radius:7px; display: flex; justify-content: space-around;">
-            <h2 class="mb-0" style="color:#fff ; ">قائمة الباقات المفعلة</h2>
-            <button type="button" class="btn btn-info float-left float-sm-right " data-toggle="modal"
+            style="color:#dc3545 ; margin:10px auto; background-color: #dc3545; padding-top: 15px; padding-bottom: 15px;  border-radius:7px; display: flex; justify-content: space-around;">
+            <h1 class="mb-0" style="color:#fff; font-size: 45px; "><img src="https://cdn-icons-png.flaticon.com/128/6192/6192115.png" width="60px" class="mr-3"  >قائمة الباقات المفعلة   </h1>
+        </div>
+    </div>
+</div>
+<div class="page-title">
+    <div class="row">
+        <div class="col-sm-12">            <button type="button" class="btn btn-info float-left float-sm-right " data-toggle="modal"
                 data-target="#exampleModal"
                 style="font-size: 18px; font-family:Amiri;
             line-height: 1.2;"><img
@@ -97,12 +95,10 @@
         </div>
     </div>
 </div>
-
 <!-- breadcrumb -->
 @endsection
 @section('content')
 <!-- row -->
-
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -116,7 +112,7 @@
 
             <div class="card">
                 <h5 class="text-center mb-4">بيانات الباقة الأساسية</h5>
-                <form class="form-card" action="{{ route('postPackage') }}" method="POST">
+                <form class="form-card" action="{{ route('postPackageBook') }}" method="POST">
                     @csrf
                     <div class="row justify-content-between text-left">
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">إسم
@@ -152,19 +148,12 @@
                         </div>
                     </div>
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label
+                        <div class="form-group col-sm-12 flex-column d-flex"> <label
                                 class="form-control-label px-3">تاريخ إنتهاء الباقة<span class="text-danger">
                                     *</span></label> <input required type="date" id="job" name="expiry_date"
                                 placeholder="" onblur="validate(5)"> </div>
 
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">نوع
-                                الباقة<span class="text-danger">
-                                    *</span></label>
-                            <select required id="job" name="package_type">
-                                <option value="اشتراك ترم ">باقة ترم </option>
-                                <option value="اشتراك شهري">باقة شهرية</option>
-                            </select>
-                        </div>
+                       
                     </div>
                     <div class="row justify-content-between">
                         <div class="form-group col-sm-6 flex-column d-flex">
@@ -199,15 +188,17 @@
                                 <th>إسم الباقة</th>
                                 <th>الصف</th>
                                 <th>سعر الباقة</th>
+                                <th>تاريخ الانتهاء</th>
                                 <th>العمليات</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($package as $packet)
                                 <tr>
-                                    <td><a href="{{ route('editPackage' ,$packet->id )}}">{{ $packet->name }}</a></td>
+                                    <td>{{ $packet->name }}</td>
                                     <td>{{ $packet->class }}</td>
                                     <td>{{ $packet->price }}</td>
+                                    <td>{{ $packet->expiry_date }}</td>
                                     <td>
                                         <!-- Button trigger modal update -->
                                         <!-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
@@ -313,7 +304,7 @@
                                         </div>
                                         <!-- Button trigger modal delete -->
                                         <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal"
-                                            data-target="#archivePackage{{ $packet->id }}">
+                                            data-target="#archivePackage">
                                             <i class="fa fa-archive"></i>
                                         </button>
                                         <div class="modal fade" id="archivePackage{{ $packet->id }}" tabindex="-1"
@@ -344,12 +335,9 @@
                                             </div>
                                         </div>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                            data-target="#delete{{ $packet->id }}">
+                                            data-target="#delete">
                                             <i class="fa fa-trash"></i>
                                         </button>
-                                        <a  href="{{ route('editPackage' ,$packet->id )}}" class="btn btn-info ">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
                                        
                                         
                                         <div class="modal fade" id="delete{{ $packet->id }}" tabindex="-1"

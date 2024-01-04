@@ -63,7 +63,7 @@
                                     <div class="dropdown-menu dropdown-menu-right dropdown-big dropdown-notifications">
                                         <div style="padding:2px; padding-right: 20px; font-size: 15px;">
                                             <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$book->id}}">
-                                                <a href=" #"><i class="fa fa-edit"></i></a>
+                                                <a href="{{route('editBook',$book->id)}}"><i class="fa fa-edit"></i></a>
                                             </button>
                                             تعديل البيانات 
                                         </div>

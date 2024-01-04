@@ -112,12 +112,13 @@ Route::get('/book', [BookController::class, 'index'])->name('getBook');
 Route::get('/book/add', [BookController::class, 'addBook'])->name('addBook');
 Route::post('/book/add', [BookController::class, 'store'])->name('postBook');
 Route::get('/store', [BookController::class, 'storeBook'])->name('getStore');
+Route::get('/store/show/{name}', [BookController::class, 'showBooksClass'])->name('booksShow');
+
 Route::Post('/quantitybook/{book}', [BookController::class, 'addQuantity'])->name('addQuantity');
 Route::get('/termone', [BookController::class, 'termone'])->name('termone');
 Route::get('/termtow', [BookController::class, 'termtow'])->name('termtow');
-
+Route::get('/book/edit/{book}', [BookController::class, 'edit'])->name('editBook');
 Route::post('/book/edit/{book}', [BookController::class, 'update'])->name('updateBook');
-
 //mandub->admin->book
 Route::get('/mandub', [MandubController::class, 'index'])->name('getMandub');
 Route::post('/mandub', [MandubController::class, 'store'])->name('postMandub');
@@ -129,15 +130,15 @@ Route::post('/city/edit/{city}', [CityController::class, 'update'])->name('updat
 Route::get('/city/mandoub/{city}', [CityController::class, 'addMandoub'])->name('addMandoubToCity');
 Route::post('/city/mandoub/add/{city}', [CityController::class, 'addNewMandoub'])->name('addNewMandoub');
 Route::post('/city/mandoub/delete/{mandoub}', [CityController::class, 'mandoubCityDelete'])->name('mandoubCityDelete');
-
+//package//book
+Route::get('/book/package', [BookController::class, 'allPackage'])->name('getPackage');
+Route::post('package/book/post', [BookController::class, 'create'])->name('postPackageBook');
 
 //secretary->admin
 Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
 Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');
 Route::post('/secretary/edit/{secretary}', [SecretaryController::class, 'update'])->name('updateSecretary');
 });
-
-
 route::group(['prefix' => 'dashboard/teacher/'], function () {
   //teacher->dashboard->course
   Route::get('course/show', [SubjectController::class, 'index'])->name('teacherCourse');

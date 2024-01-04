@@ -210,7 +210,7 @@
                     </div>
                 </a>
 
-                <a href="#" class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <a href="{{route('getPackage')}}" class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">

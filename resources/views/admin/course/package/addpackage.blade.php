@@ -20,7 +20,7 @@
         box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
         background-color: #fff;
         border-radius: 15px;
-        max-width: 700px;
+        max-width: 900px;
     }
 
     .blue-text {
@@ -74,7 +74,7 @@
     /* Additional Styles */
     .content-container {
         margin-top: 20px;
-        background-color: #eee;
+        background-color: #006d7a;
         border: #007d8a 2px solid;
     }
 
@@ -86,7 +86,7 @@
         font-size: 18px;
         text-align: center;
     }
-    
+
 
     .course-list {
         list-style-type: none;
@@ -116,13 +116,26 @@
         border-radius: 5px;
         margin-right: 20px;
         width: 250px;
-        
+
     }
+
+    .package-info p {
+        background-color: #fff;
+        padding: 10px;
+    }
+
+    .package-info li {
+        background-color: #006d7a;
+        color: #eee;
+        padding: 5px;
+        text-align: center;
+    }
+
 
     .checkbox-container input {
         margin-left: 10px;
         width: 20%;
-       
+        border: #007d8a 2px solid
     }
 </style>
 @endsection
@@ -138,13 +151,13 @@
 @section('content')
 
 @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
 @endif
 <!-- row -->
 <div class="row">
@@ -157,13 +170,25 @@
                     <div class="package-info">
                         <p class="mb-3"><strong> اسم الباقة : </strong> {{ $package->name }}</p>
                         <p class="mb-3"><strong> سعر الباقة : </strong> {{ $package->price }} د.ك</p>
-                        <p style="text-align: right;"><strong>كورسات الباقة:</strong></p>
+                        @if(isset($packagecourses) && (is_array($packagecourses) || is_object($packagecourses)))
+                        <p style="text-align: right;"><strong> كورسات الباقة الحالية  ({{ count($packagecourses) }})</strong></p>
+                        <ul class="course-list">
+                            @foreach($packagecourses as $cour)
+                            <li>{{ $cour->subject_name }}</li>
+                            @endforeach
+                        </ul>
+                        @endif
+                        @if(isset($packagecourses) && $packagecourses)
+                        <p style="text-align: right;"><strong> تغير كورسات الباقة </strong></p>
+                        @else
+                        <p style="text-align: right;"><strong>اضافة كورسات جديدة للباقة </strong></p>
+                        @endif
                         <ul class="course-list">
                             @forelse($courses as $course)
                             <li>
                                 <label>
-                                    <div class="checkbox-container" >
-                                        <input type="checkbox"  name="selected_subjects[]" value="{{ $course->id }}" data-price="{{ $course->price }}" class="course-checkbox" >
+                                    <div class="checkbox-container">
+                                        <input type="checkbox" name="selected_subjects[]" value="{{ $course->id }}" data-price="{{ $course->price }}" class="course-checkbox">
                                         {{ $course->subject_name }}
                                     </div>
                                 </label>

@@ -87,6 +87,15 @@
             opacity: .9;
 
         }
+        .back11 {
+                width: 95%
+            }
+        
+        @media only screen and (max-width: 600px) {
+            .back11 {
+                width: 82%
+            }
+        }
     </style>
 
 </head>
@@ -106,9 +115,9 @@
         <!--=================================
  Main content -->
         <!-- main-content -->
-        <div class="content-wrapper">
-            <div class="row">
-                <img src="{{ asset('assets/images/education.jpg') }}" style="width:95%;  display: block; margin:30px; object-fit: contain; border-radius: 10px;" alt="">
+        <div class="content-wrapper ">
+            <div class="row ">
+                <img src="{{ asset('assets/images/education.jpg') }}"  class="back11" style=" display: block; margin:30px; object-fit: contain; border-radius: 10px;" alt="">
             </div>
             <!-- widgets -->
             @if (auth()->user()->user_type == 'admin')
@@ -466,7 +475,7 @@
                         اسم الباقة : {{ $package->name }}
                     </h4>
                     <div style="display: flex; flex-direction: row; font-size: 18px; color: #dc3545;">
-                        <strong>  المواد  </strong> :
+                        <strong> المواد </strong> :
                         @foreach($package->course as $index => $pack)
                         <span> {{ $pack->subject_name }} </span>
                         @if (!$loop->last)
@@ -486,14 +495,14 @@
                         اسم الباقة : {{ $package->name }}
                     </h4>
                     <div style="display: flex; flex-direction: row; font-size: 18px; color: #dc3545;">
-                        <strong>  المواد  </strong> :
+                        <strong> المواد </strong> :
                         @foreach($package->course as $index => $pack)
-                         <span> {{ $pack->subject_name }} </span>
+                        <span> {{ $pack->subject_name }} </span>
                         @if (!$loop->last)
                         <span> - </span>
                         @endif
                         @endforeach
-                         .
+                        .
                     </div>
                     <h6 style="color: aliceblue; margin: 15px; text-align: center">
                         عدد لمواد : {{ $package->course->count() }}

@@ -65,10 +65,17 @@ class PackageController extends Controller
 
             $courses = Course::where('classroom', $package->class)->get();
         }
-        // $pac_course=PackageCourses::where('package_id',$package->id)->first();
-        //     $courses=Course::where('id',$pac_course->course_id)->get();
-        return view("admin.course.package.addpackage", compact('courses', 'package'));        
-    }
+        $packagecourse=PackageCourses::where("package_id",$package->id)->get();
+        $packagecourses = [];
+        foreach ($packagecourse as $packagecourse) {
+            $cour = course::find($packagecourse->course_id);
+            if ($cour) {
+                $packagecourses[] = $cour;
+            }
+        }
+
+        return view("admin.course.package.addpackage", compact(['courses', 'package','packagecourses']));        
+}
     public function archivePackage($id)
     {
         $package = Package::find($id);
