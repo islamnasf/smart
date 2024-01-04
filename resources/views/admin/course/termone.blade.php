@@ -10,7 +10,7 @@
 
 <div class="row">
     <div>
-        <h2 style="position: absolute; left:10%; top:10%; color:#dc3545"> اجمالي عدد الكورسات لهذا الترم
+        <h2 style="position: absolute; left:10%; top:10%; color:#dc3545">  
             ({{ $count }})</h2>
     </div>
     <!-- breadcrumb -->

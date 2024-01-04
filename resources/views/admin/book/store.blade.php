@@ -5,6 +5,23 @@
 @stop
 @endsection
 @section('page-header')
+<style>
+    .link9h4{
+        font-size: 25px; color: #555;
+    }
+    .link9{
+        
+        width: 5.55%;
+    }
+    @media only screen and (max-width: 600px) {
+        .link9 {
+        width: 10.11%;
+    }
+    .link9h4{
+        font-size: 20px; color: #555;
+    }
+}
+</style>
 
 
 <div class="page-title">
@@ -20,19 +37,19 @@
 
 </div>
 <div  class="text-center" style="width:50% ;margin:0px auto ">
-<h4 style="font-size: 25px; color: #555;">  اختر الصف الدراسي  </h4>
+<h4  class="link9h4">  اختر الصف الدراسي  </h4>
 </div>
 
 <div class="row" style="width: 100%; margin: 15px auto; display: flex; justify-content: center;">
-    <a href="{{route('booksShow','four')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/3840/3840753.png" width="100%" class="pl-1 image" alt="Icon 1"></a>
-    <a href="{{route('booksShow','five')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/3840/3840754.png" width="100%" class="pl-1 image" alt="Icon 2"></a>
-    <a href="{{route('booksShow','six')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/3840/3840755.png" width="100%" class="pl-1 image" alt="Icon 3"></a>
-    <a href="{{route('booksShow','seven')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/3840/3840771.png" width="100%" class="pl-1 image" alt="Icon 4"></a>
-    <a href="{{route('booksShow','eight')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/3840/3840772.png" width="100%" class="pl-1 image" alt="Icon 5"></a>
-    <a href="{{route('booksShow','nine')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/3840/3840773.png" width="100%" class="pl-1 image" alt="Icon 6"></a>
-    <a href="{{route('booksShow','ten')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/6912/6912885.png" width="100%" class="pl-1 image" alt="Icon 7"></a>
-    <a href="{{route('booksShow','eleven')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/6912/6912910.png" width="100%" class="pl-1 image" alt="Icon 8"></a>
-    <a href="{{route('booksShow','twelve')}}" style="width: 5.55%;"><img src="https://cdn-icons-png.flaticon.com/128/6912/6912921.png" width="100%" class="pl-1 image" alt="Icon 9"></a>
+    <a href="{{route('booksShow','four')}}" class="link9" ><img src="https://cdn-icons-png.flaticon.com/128/3840/3840753.png" width="100%" class="pl-1 image" alt="Icon 1"></a>
+    <a href="{{route('booksShow','five')}}"  class="link9" ><img src="https://cdn-icons-png.flaticon.com/128/3840/3840754.png" width="100%" class="pl-1 image" alt="Icon 2"></a>
+    <a href="{{route('booksShow','six')}}"  class="link9" ><img src="https://cdn-icons-png.flaticon.com/128/3840/3840755.png" width="100%" class="pl-1 image" alt="Icon 3"></a>
+    <a href="{{route('booksShow','seven')}}"  class="link9" ><img src="https://cdn-icons-png.flaticon.com/128/3840/3840771.png" width="100%" class="pl-1 image" alt="Icon 4"></a>
+    <a href="{{route('booksShow','eight')}}"   class="link9"><img src="https://cdn-icons-png.flaticon.com/128/3840/3840772.png" width="100%" class="pl-1 image" alt="Icon 5"></a>
+    <a href="{{route('booksShow','nine')}}"  class="link9" ><img src="https://cdn-icons-png.flaticon.com/128/3840/3840773.png" width="100%" class="pl-1 image" alt="Icon 6"></a>
+    <a href="{{route('booksShow','ten')}}"  class="link9" ><img src="https://cdn-icons-png.flaticon.com/128/6912/6912885.png" width="100%" class="pl-1 image" alt="Icon 7"></a>
+    <a href="{{route('booksShow','eleven')}}"  class="link9" ><img src="https://cdn-icons-png.flaticon.com/128/6912/6912910.png" width="100%" class="pl-1 image" alt="Icon 8"></a>
+    <a href="{{route('booksShow','twelve')}}"  class="link9" ><img src="https://cdn-icons-png.flaticon.com/128/6912/6912921.png" width="100%" class="pl-1 image" alt="Icon 9"></a>
 </div>
 <!-- breadcrumb -->
 @endsection
