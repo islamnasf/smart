@@ -55,12 +55,7 @@
           </br>
 
           <input type="text" name="phone" class="form-control" placeholder=" رقم هاتف المندوب">
-          </br>
           @error('phone')
-          <div class="alert alert-danger">{{ $message }}</div>
-          @enderror
-            <input type="text" name="email" class="form-control" placeholder=" ايميل المندوب">
-          @error('email')
           <div class="alert alert-danger">{{ $message }}</div>
           @enderror
           </br>
@@ -94,7 +89,6 @@
               <tr>
                 <th>اسم المندوب </th>
                 <th>الهاتف </th>
-                <th>الايميل </th>
                 <th>الرقم السري</th>
                 <th> العمليات</th>
               </tr>
@@ -105,7 +99,6 @@
               <tr>
                 <td>{{$mandub->name}}</td>
                 <td>{{$mandub->phone}}</td>
-                <td>{{$mandub->email}}</td>
                 <td>{{$mandub->user_password}}</td>
                 <td>
                   <!-- Button trigger modal update -->
@@ -143,8 +136,6 @@
                             </br>
                             <label style="font-size: 15px; font-weight: bold;"> رقم الهاتف    </label>
                             <input type="text" name="phone" class="form-control" value="{{ $mandub->phone}}">
-                            </br>
-                            <input type="text" name="email" class="form-control" value="{{ $mandub->email}}">
                             </br>
                             <label style="font-size: 15px; font-weight: bold;"> الرقم السري   </label>
                             <input type="text" name="password" class="form-control" value="{{ $mandub->user_password}}">

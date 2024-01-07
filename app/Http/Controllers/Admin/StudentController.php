@@ -16,19 +16,10 @@ class StudentController extends Controller
     {
         $students = user::select('*', DB::raw("DATE_FORMAT(created_at, '%d/ %m/ 20%y') as date"))->where('user_type', 'user')->get();
         $studentCount = User::where('user_type', 'user')->count();
-        foreach ($students as $student) {
-            $userCourse = User::find($student->id)->course;
-            $userCourseCount = $userCourse->count();
-        }
-        if($userCourseCount){
-            return view('admin.student', compact(['students', 'studentCount', 'userCourseCount']));
-
-        }else{
+    
             return view('admin.student', compact(['students', 'studentCount']));
 
-        }
-
-
+        
     }
     public function update(StudentEditRequest $request, int $student)
     {

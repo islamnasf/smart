@@ -17,4 +17,12 @@ class Book extends Model
     {
         return $this->belongsTo(User::class, 'techer_id', 'id');
     }
+    public function cartbook()
+    {
+        return $this->hasMany(BookCart::class, "book_id", "id");
+    }
+    public function target()
+    {
+        return $this->belongsTo(TargetBook::class, 'id', 'book_id');
+    }
 }

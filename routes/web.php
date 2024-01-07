@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\ExamController;
 use App\Http\Controllers\Admin\MandubController;
 use App\Http\Controllers\Admin\SecretaryController;
+use App\Http\Controllers\Admin\TermController;
 use App\Http\Controllers\LandingPage\ContactUs;
 use App\Http\Controllers\LandingPage\StageController;
 use App\Http\Controllers\Sitesetteings;
@@ -113,12 +114,16 @@ Route::get('/book/add', [BookController::class, 'addBook'])->name('addBook');
 Route::post('/book/add', [BookController::class, 'store'])->name('postBook');
 Route::get('/store', [BookController::class, 'storeBook'])->name('getStore');
 Route::get('/store/show/{name}', [BookController::class, 'showBooksClass'])->name('booksShow');
+Route::post('/store/target/books', [BookController::class, 'createTarget'])->name('postTarget');
 
 Route::Post('/quantitybook/{book}', [BookController::class, 'addQuantity'])->name('addQuantity');
 Route::get('/termone', [BookController::class, 'termone'])->name('termone');
 Route::get('/termtow', [BookController::class, 'termtow'])->name('termtow');
 Route::get('/book/edit/{book}', [BookController::class, 'edit'])->name('editBook');
 Route::post('/book/edit/{book}', [BookController::class, 'update'])->name('updateBook');
+Route::post('/termone/book', [TermController::class, 'createTermOne'])->name('termOneDetail');
+Route::post('/termtow/book', [TermController::class, 'createTermTow'])->name('termTowDetail');
+
 //mandub->admin->book
 Route::get('/mandub', [MandubController::class, 'index'])->name('getMandub');
 Route::post('/mandub', [MandubController::class, 'store'])->name('postMandub');

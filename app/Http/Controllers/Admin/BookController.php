@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\AnotherPackage;
 use App\Models\Book;
 use App\Models\Package;
+use App\Models\TargetBook;
+use App\Models\TermOne;
+use App\Models\TermTow;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -35,7 +38,7 @@ class BookController extends Controller
         $data->techer_id = $request->techer_id;
         $data->stage = $request->stage;
         $data->classroom = $request->classroom;
-        $data->expiry_date = $request->expiry_date;
+        // $data->expiry_date = $request->expiry_date;
         $data->quantity = $request->quantity;
         $data->teacher_ratio = floatval($request->teacher_ratio);
         $data->book_price = $request->book_price;
@@ -45,40 +48,41 @@ class BookController extends Controller
         return view("admin.book.home");
     }
     public function storeBook(){
-        $books=Book::select('*')->get();
+        $books= book::with('target')->select('*')->get();
         return view('/admin/book/store',compact('books') );
     }
     
     public function showBooksClass(string $name){
         if($name == 'four'){
-            $books = book::where('classroom', 'الصف الرابع')->get();
+            $books = book::with('target')->where('classroom', 'الصف الرابع')->get();
         }
         elseif($name == 'five'){
-            $books = book::where('classroom', 'الصف الخامس')->get();
+            $books = book::with('target')->where('classroom', 'الصف الخامس')->get();
         }
         elseif($name == 'seven'){
-            $books = book::where('classroom', 'الصف السابع')->get();
+            $books = book::with('target')->where('classroom', 'الصف السابع')->get();
         }
         if($name == 'six'){
-            $books = book::where('classroom', 'الصف السادس')->get();
+            $books = book::with('target')->where('classroom', 'الصف السادس')->get();
+            
         }
         elseif($name == 'seven'){
-            $books = book::where('classroom', 'الصف السابع')->get();
+            $books = book::with('target')->where('classroom', 'الصف السابع')->get();
         }
         elseif($name == 'eight'){
-            $books = book::where('classroom', 'الصف الثامن')->get();
+            $books = book::with('target')->where('classroom', 'الصف الثامن')->get();
         }
         elseif($name == 'nine'){
-            $books = book::where('classroom', 'الصف التاسع')->get();
+            $books = book::with('target')->where('classroom', 'الصف التاسع')->get();
         }
         elseif($name == 'ten'){
-            $books = book::where('classroom', 'الصف العاشر')->get();
+            $books = book::with('target')->where('classroom', 'الصف العاشر')->get();
         }
         elseif($name == 'eleven'){
-            $books = book::where('classroom', 'الصف الحادي عشر')->get();
+            $books = book::with('target')->where('classroom', 'الصف الحادي عشر')->get();
         }
         elseif($name == 'twelve'){
-            $books = book::where('classroom', 'الصف الثاني عشر')->get();
+            $books = book::with('target')->where('classroom', 'الصف الثاني عشر')->get();
         }
         return view('/admin/book/store', compact('books'));
     }
@@ -86,7 +90,6 @@ class BookController extends Controller
     public function addQuantity(request $request, int $book){
         $book=Book::findOrFail($book);
         $oldQuantity=$book->quantity;
-
         $book->update([
             'quantity'=>$oldQuantity + $request->quantity
         ]);
@@ -96,13 +99,15 @@ class BookController extends Controller
     }
     public function termone()
     {
+        $term = TermOne::first();
         $books = Book::where('term_type', 'termone')->get();
-        return view("admin.book.termone", compact("books"));
+        return view("admin.book.termone", compact("books","term"));
     }
     public function termtow()
     {
+        $term = TermTow::first();
         $books = Book::where('term_type', 'termtow')->get();
-        return view("admin.book.termtow", compact("books"));
+        return view("admin.book.termtow", compact("books","term"));
     }
     public function edit(int $book){
         $book=Book::findOrfail($book);
@@ -122,7 +127,7 @@ class BookController extends Controller
         }
         $data->name = $request->name;
         $data->techer_id = $request->techer_id;
-        $data->expiry_date = $request->expiry_date;
+        // $data->expiry_date = $request->expiry_date;
         $data->quantity = $request->quantity;
         $data->teacher_ratio = floatval($request->teacher_ratio);
         $data->book_price = $request->book_price;
@@ -156,5 +161,30 @@ class BookController extends Controller
         }
         return back();
     }
-    
+    //target
+    public function createTarget(Request $request)
+    {
+        $selectedBooks = $request->input('selected_subjects');
+        if(!$selectedBooks){
+            toastr()->error('لا يوجد مذكرات');
+            return back();
+        }
+        $target = $request->input('target');
+        foreach ($selectedBooks as $bookId) {
+            $book = Book::find($bookId);
+            if ($book) {
+                $printValue = $target - $book->quantity;
+                
+                TargetBook::updateOrCreate(
+                    ['book_id' => $bookId],
+                    [
+                        'target' => $target,
+                        'print' => $printValue,
+                    ]
+                );
+            }
+        }
+        toastr()->success('تم حفظ البيانات بنجاح');
+        return back();
+    }
 }

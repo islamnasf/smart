@@ -292,7 +292,7 @@
                                 <!-- <p class="text-center">تسجيل دخول</p> -->
                                 <!-- Email input -->
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="loginName">رقم الجوال</label>
+                                    <label class="form-label" for="loginName">رقم الهاتف</label>
                                     <input type="text" id="loginName" name="phone" class="form-control"  required/>
                                 </div>
 
@@ -357,14 +357,8 @@
                                 </div>
                                 <!-- Email input -->
                                 <div class="form-outline mb-4">
-                                <label class="form-label" >رقم الجوال</label>
+                                <label class="form-label" >رقم الهاتف</label>
                                     <input type="text" name="phone" required=""  class="form-control" required />
-                                </div>
-                                <div class="form-outline mb-4">
-                                    <select class="form-select" id="registerEmail" aria-label="Default select example" name="gender" required>
-                                        <option value="male">ذكر</option>
-                                        <option value="female">انثي</option>
-                                    </select>
                                 </div>
                                
                                 <div class="form-outline mb-4">

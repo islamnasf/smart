@@ -154,9 +154,9 @@
                                 </div>
                             </div>
                             <div class="row justify-content-between text-left">
-                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">تاريخ إنتهاء العرض<span class="text-danger">
-                                            *</span></label> <input required type="date" id="job" name="expiry_date" placeholder="" onblur="validate(5)"> </div>
-
+                            <div class="form-group col-6 flex-column d-flex"> <label class="form-control-label px-3">الكمية <span class="text-danger">
+                                            *</span></label> <input type="number" id="ans" name="quantity" placeholder="" onblur="validate(6)">
+                                </div>
                                 <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">الترم<span class="text-danger">
                                             *</span></label>
                                     <select required id="job" name="term_type">
@@ -174,11 +174,7 @@
                                 </div>
                             </div>
 
-                            <div class="row justify-content-between text-left">
-                                <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3">الكمية <span class="text-danger">
-                                            *</span></label> <input type="number" id="ans" name="quantity" placeholder="" onblur="validate(6)">
-                                </div>
-                            </div>
+                            
     <div class="row justify-content-between text-left" >
         <div class="col-md-12 flex-column d-flex">
             <div class="form-group">

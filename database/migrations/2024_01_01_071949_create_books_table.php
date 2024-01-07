@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigInteger('techer_id');
             $table->string('stage');
             $table->string('classroom');
-            $table->string('expiry_date');
+            // $table->string('expiry_date')->nullable();
             $table->bigInteger('quantity')->nullable();
             $table->float('Teacher_ratio')->nullable();
             $table->bigInteger('book_price')->nullable();

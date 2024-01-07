@@ -157,7 +157,7 @@
             </div>
         </div>
     </section>
-    <section id="courses">
+    <!-- <section id="courses">
         <div class="container  py-5">
             <h4 class="text-center title fw-bold">أفضل المواد</h4>
             <div class="row justify-content-center">
@@ -190,7 +190,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <section id="Teachers">
         <div class="container  py-5">
             <h4 class="text-center title fw-bold">المدرسين</h4>

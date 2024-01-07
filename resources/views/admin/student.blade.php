@@ -66,11 +66,7 @@
                                     <td>{{ $student->date }}</td>
 
                                     <td>
-                                    @if(isset($userCourseCount) && $userCourseCount)
-                                        {{ $userCourseCount }}
-                                    @else
-                                    0
-                                    @endif
+                                    {{$student->course()->count();}}
 
                                     </td>
                                     <td>0</td>
