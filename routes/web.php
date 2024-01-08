@@ -123,11 +123,13 @@ Route::get('/book/edit/{book}', [BookController::class, 'edit'])->name('editBook
 Route::post('/book/edit/{book}', [BookController::class, 'update'])->name('updateBook');
 Route::post('/termone/book', [TermController::class, 'createTermOne'])->name('termOneDetail');
 Route::post('/termtow/book', [TermController::class, 'createTermTow'])->name('termTowDetail');
-
 //mandub->admin->book
 Route::get('/mandub', [MandubController::class, 'index'])->name('getMandub');
 Route::post('/mandub', [MandubController::class, 'store'])->name('postMandub');
 Route::post('/mandub/edit/{mandub}', [MandubController::class, 'update'])->name('updateMandub');
+Route::get('/mandub/storage/{mandub}', [MandubController::class, 'mandubStorage'])->name('mandubStorage');
+Route::post('/mandub/minimum/{mandub}/{Book}', [MandubController::class, 'addMinimum'])->name('addMinimum');
+Route::post('/mandub/{mandub}/{Book}/addquantity', [MandubController::class, 'addMandubQuantity'])->name('postMandubQuantity');
 //city->admin->book
 Route::get('/city', [CityController::class, 'index'])->name('getCity');
 Route::post('/city', [CityController::class, 'store'])->name('postCity');

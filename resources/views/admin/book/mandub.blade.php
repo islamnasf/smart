@@ -7,7 +7,7 @@
 @section('page-header')
 <div class="row">
   <div>
-    <h2 style="position: absolute; left:10%; top:10%; color:#dc3545"> اجمالي عدد المناديب ({{$count}})</h2>
+    <h2 style="position: absolute; left:10%; top:15%; color:#dc3545">   المناديب ({{$count}})</h2>
   </div>
   <!-- breadcrumb -->
   <img src="{{url('assets/images/teacher.jpg')}}"
@@ -114,6 +114,12 @@
                       </button>
                       تعديل البيانات
                     </div>
+                   <a href="{{route('mandubStorage',$mandub->id)}}"> <div style="padding:2px; padding-right: 20px; font-size: 15px;">
+                      <button type="button" class="btn btn-dark btn-sm" >
+                        <i class="fa fa-home"></i>
+                      </button>
+                      مخزن المندوب 
+                    </div></a>
                   </div>
                   <!--edit Modal-->
                   <div class="modal fade" id="edit{{$mandub->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"

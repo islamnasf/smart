@@ -82,10 +82,16 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->getKey();
     }
- 
+
     public function city()
     {
         return $this->belongsToMany(City::class, 'mandub_cities', "city_id", "mandoub_id", "id");
+    }
+    public function mandubBooks()
+    {
+        return $this->belongsToMany(Book::class, 'mandub_books', 'mandub_id', 'book_id')
+            ->withPivot('mandub_quantity', 'minimum')
+            ->withTimestamps();
     }
 
 

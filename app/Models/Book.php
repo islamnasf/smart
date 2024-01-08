@@ -25,4 +25,11 @@ class Book extends Model
     {
         return $this->belongsTo(TargetBook::class, 'id', 'book_id');
     }
+    public function mandubBooks()
+    {
+        return $this->belongsToMany(User::class, 'mandub_books', 'book_id', 'mandub_id')
+            ->withPivot('mandub_quantity', 'minimum')
+            ->withTimestamps();
+    }
+    
 }
