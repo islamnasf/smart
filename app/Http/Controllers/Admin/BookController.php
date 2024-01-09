@@ -185,4 +185,67 @@ class BookController extends Controller
         toastr()->success('تم حفظ البيانات بنجاح');
         return back();
     }
+    public function updateQuantityClass(Request $request)
+    {
+        $selectedBooks = $request->input('selected_subjects');
+        if (!$selectedBooks) {
+            toastr()->error('لا يوجد مذكرات');
+            return back();
+        }
+        $quantity = $request->input('quantity');
+        foreach ($selectedBooks as $bookId) {
+            $book = Book::find($bookId);
+            if ($book) {
+                $newquantity = $quantity + $book->quantity;
+
+                $book->update(
+                    [
+                        'quantity' => $newquantity,
+                    ]
+                );
+            }
+        }
+        toastr()->success('تم حفظ البيانات بنجاح');
+        return back();
+    }
+    public function finishPrint(Request $request)
+    {
+        $selectedBooks = $request->input('selected_subjects');
+        if (!$selectedBooks) {
+            toastr()->error('لا يوجد مذكرات');
+            return back();
+        }
+        foreach ($selectedBooks as $bookId) {
+            $book = Book::find($bookId);
+            if ($book) {
+                $newquantity = $book->target->print + $book->quantity;
+                TargetBook::where('book_id', $bookId)->first()->update(['print' => 0]);
+
+                $book->update(
+                    [
+                        'quantity' => $newquantity,
+                    ]
+                );
+            }
+        }
+        toastr()->success('تم حفظ البيانات بنجاح');
+        return back();
+    }
+
+    public function printBookFinish( $book)
+    {
+        $book = Book::where('id',$book)->first();
+
+        if ($book) {
+            $newquantity = $book->target->print + $book->quantity;
+            TargetBook::where('book_id', $book->id)->first()->update(['print' => 0]);
+
+            $book->update([
+                'quantity' => $newquantity,
+            ]);
+        }
+
+        toastr()->success('تم حفظ البيانات بنجاح');
+        return back();
+    }
 }

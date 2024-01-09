@@ -115,7 +115,10 @@ Route::post('/book/add', [BookController::class, 'store'])->name('postBook');
 Route::get('/store', [BookController::class, 'storeBook'])->name('getStore');
 Route::get('/store/show/{name}', [BookController::class, 'showBooksClass'])->name('booksShow');
 Route::post('/store/target/books', [BookController::class, 'createTarget'])->name('postTarget');
-
+Route::post('/store/quantity/class/books', [BookController::class, 'updateQuantityClass'])->name('postQuantityClassroom');
+Route::post('/store/print/finish/class/books', [BookController::class, 'finishPrint'])->name('finishPrint');
+Route::get('/store/print/finishprint/done/{book}', [BookController::class, 'printBookFinish'])->name('printBookFinish');
+//
 Route::Post('/quantitybook/{book}', [BookController::class, 'addQuantity'])->name('addQuantity');
 Route::get('/termone', [BookController::class, 'termone'])->name('termone');
 Route::get('/termtow', [BookController::class, 'termtow'])->name('termtow');
@@ -130,6 +133,11 @@ Route::post('/mandub/edit/{mandub}', [MandubController::class, 'update'])->name(
 Route::get('/mandub/storage/{mandub}', [MandubController::class, 'mandubStorage'])->name('mandubStorage');
 Route::post('/mandub/minimum/{mandub}/{Book}', [MandubController::class, 'addMinimum'])->name('addMinimum');
 Route::post('/mandub/{mandub}/{Book}/addquantity', [MandubController::class, 'addMandubQuantity'])->name('postMandubQuantity');
+Route::get('/mandub/book/class/{name}/{mandub}', [MandubController::class, 'showBooksClass'])->name('booksMandubShow');
+Route::get('/mandub/book/update/distributor/active/{book}/{mandub}', [MandubController::class, 'updateDistributorActive'])->name('updateDistributorActive');
+Route::get('/mandub/book/update/mandub/active/{book}/{mandub}', [MandubController::class, 'updateMandubActive'])->name('updateMandubActive');
+Route::post('/store/station/{mandub}', [MandubController::class, 'createStation'])->name('postStation');
+
 //city->admin->book
 Route::get('/city', [CityController::class, 'index'])->name('getCity');
 Route::post('/city', [CityController::class, 'store'])->name('postCity');

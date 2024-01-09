@@ -17,13 +17,12 @@
     }
 
     .goal {
-        width: 18%;
         align-items: center;
     }
 
     @media only screen and (max-width: 1300px) {
         .goal {
-            width: 25%;
+            width: 100%;
         }
     }
 
@@ -76,9 +75,15 @@
 $name = request()->route('name');
 @endphp
 
-@if ($name >= 'four' && $name <= 'twelve' ||$name=='eight' ||$name=='five' ||$name=='eleven' ) <div class="text-center goal">
-    <button style="background-color: #175166; border: none;border-radius: 5px;" type="button" data-toggle="modal" data-target="#target">
+@if ($name >= 'four' && $name <= 'twelve' ||$name=='eight' ||$name=='five' ||$name=='eleven' ) <div class="text-center goal ">
+    <button style="background-color: #175166; border: none;border-radius: 5px; margin: 3px;" type="button" data-toggle="modal" data-target="#target">
         <h4 style="background-color: #175166; padding: 10px 10px 0px 10px ;  color: #fff; font-size: 30px;"> <img src="https://cdn-icons-png.flaticon.com/128/4127/4127795.png" width="27px"> المستهدف </h4>
+    </button>
+    <button style="background-color: #175166; border: none;border-radius: 5px; margin: 3px;" type="button" data-toggle="modal" data-target="#addquantity">
+        <h4 style="background-color: #175166; padding: 10px 10px 0px 10px ;  color: #fff; font-size: 30px;"> <img src="https://cdn-icons-png.flaticon.com/128/13783/13783803.png" width="32px"> الكمية </h4>
+    </button>
+    <button style="background-color: #175166; border: none;border-radius: 5px; margin: 3px;" type="button" data-toggle="modal" data-target="#addpirnt">
+        <h4 style="background-color: #175166; padding: 10px 10px 0px 10px ;  color: #fff; font-size: 30px;"> <img src="https://cdn-icons-png.flaticon.com/128/839/839184.png" width="27px"> الطباعة </h4>
     </button>
     </div>
     @endif
@@ -97,34 +102,34 @@ $name = request()->route('name');
                         <h5 class="modal-title" id="exampleModalLabel"> اختر من هذه المواد </h5>
 
                         <table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">اختيار</th>
-            <th scope="col">اسم المذكرة</th>
-            <th scope="col">الكمية الحالية</th>
-        </tr>
-    </thead>
-    <tbody>
-        @forelse($books as $book)
-            <tr>
-                <th scope="row">{{ $loop->iteration }}</th>
-                <td>
-                    <label class="form-check">
-                        <input type="checkbox" name="selected_subjects[]" value="{{ $book->id }}" class="form-check-input">
-                    </label>
-                </td>
-                <td>{{ $book->name }}</td>
-                <td>{{ $book->quantity }}</td>
-               
-            </tr>
-        @empty
-            <tr>
-                <td colspan="4" class="text-center">لا توجد مذكرات متاحة حالياً.</td>
-            </tr>
-        @endforelse
-    </tbody>
-</table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">اختيار</th>
+                                    <th scope="col">اسم المذكرة</th>
+                                    <th scope="col">الكمية الحالية</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($books as $book)
+                                <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>
+                                        <label class="form-check">
+                                            <input type="checkbox" name="selected_subjects[]" value="{{ $book->id }}" class="form-check-input">
+                                        </label>
+                                    </td>
+                                    <td>{{ $book->name }}</td>
+                                    <td>{{ $book->quantity }}</td>
+
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="4" class="text-center">لا توجد مذكرات متاحة حالياً.</td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
 
 
                         <div class="form-group mt-3">
@@ -136,6 +141,124 @@ $name = request()->route('name');
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
                         <button type="submit" class="btn btn-primary">حفظ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addquantity" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">الكمية </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{route('postQuantityClassroom')}}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <h5 class="modal-title" id="exampleModalLabel"> اختر من هذه المواد </h5>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">اختيار</th>
+                                    <th scope="col">اسم المذكرة</th>
+                                    <th scope="col">الكمية الحالية</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($books as $book)
+                                <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>
+                                        <label class="form-check">
+                                            <input type="checkbox" name="selected_subjects[]" value="{{ $book->id }}" class="form-check-input">
+                                        </label>
+                                    </td>
+                                    <td>{{ $book->name }}</td>
+                                    <td>{{ $book->quantity }}</td>
+
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="4" class="text-center">لا توجد مذكرات متاحة حالياً.</td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+
+
+                        <div class="form-group mt-3">
+                            <label for="quantity" class="form-label" style="font-size: 15px; font-weight: bold;">اضافة كمية جديدة </label>
+                            <input type="number" name="quantity" id="quantity" class="form-control" required placeholder="اضع هنا الكمية المضافة ">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                        <button type="submit" class="btn btn-primary">حفظ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addpirnt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">الطباعة </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{route('finishPrint')}}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <h5 class="modal-title" id="exampleModalLabel"> اختر من هذه المواد </h5>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">اختيار</th>
+                                    <th scope="col">اسم المذكرة</th>
+                                    <th scope="col">الكمية المراد طباعتها</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($books as $book)
+                                <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>
+                                        <label class="form-check">
+                                            <input type="checkbox" name="selected_subjects[]" value="{{ $book->id }}" class="form-check-input">
+                                        </label>
+                                    </td>
+                                    <td>{{ $book->name }}</td>
+                                    <td>
+                                        @if($book->target)
+                                        {{ $book->target->print }}
+                                        @else
+                                        0
+                                        @endif
+                                    </td>
+
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="4" class="text-center">لا توجد مذكرات متاحة حالياً.</td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                        <button type="submit" class="btn btn-primary">تم الطباعة</button>
                     </div>
                 </form>
             </div>
@@ -167,8 +290,7 @@ $name = request()->route('name');
                                 <tr>
                                     <th> المذكرة </th>
                                     <th> الصف </th>
-                                    <th>المعلم </th>
-                                    <th>سعر البيع </th>
+                                    <th>المستهدف</th>
                                     <th>الكمية</th>
                                     <th>الطباعة </th>
                                     <th> العمليات</th>
@@ -179,8 +301,14 @@ $name = request()->route('name');
                                 <tr>
                                     <td>{{$book->name}}</td>
                                     <td>{{$book->classroom}}</td>
-                                    <td>{{$book->techer->name}}</td>
-                                    <td>{{$book->book_price}}</td>
+                                    <td>
+                                        @if($book->target)
+                                        {{$book->target->target}}
+                                        @else
+                                        {{$book->quantity}}
+                                        @endif
+                                    </td>
+
                                     <td>{{$book->quantity}}</td>
                                     <td>
                                         @if($book->target)
@@ -200,6 +328,12 @@ $name = request()->route('name');
                                                 </button>
                                                 اضافة كمية
                                             </div>
+                                            <a href="{{route('printBookFinish',$book->id)}}" style="padding:2px; padding-right: 20px; font-size: 15px;">
+                                                <button type="button" class="btn btn-success btn-sm" >
+                                                    <i class="fa fa-check"></i>
+                                                </button>
+                                                تم الطباعة  
+                                            </a>
                                         </div>
                                         <!-- edit  -->
                                         <div class="modal fade" id="edit{{$book->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -232,6 +366,7 @@ $name = request()->route('name');
                                                 </div>
                                             </div>
                                         </div>
+
 
                                     </td>
 
