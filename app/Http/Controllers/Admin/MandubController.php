@@ -193,11 +193,11 @@ class MandubController extends Controller
             toastr()->error('لا يوجد مذكرات');
             return back();
         }
-        $station = $request->input('station');
+        $station = $request-> station ;
 
         foreach ($selectedBooks as $bookId) {
             $mandubBook = $mandub->mandubBooks()->where('book_id', $bookId)->first();
-                
+            $book = book::findOrFail($bookId);
                 $stationValue = ($station ?? 0) + ($mandub->mandubBooks->first()->pivot->station ?? 0);
                 MandubBook::updateOrCreate(
                     ['book_id' => $bookId, 'mandub_id' => $mandubId],
@@ -207,8 +207,12 @@ class MandubController extends Controller
                         'mandub_active' => 0,
                     ]
                 );
+                $book->update([
+                    'quantity' => $book->quantity - $request->station
+                ]);
             
-        }
+        
+    }
     
         toastr()->success('تم حفظ البيانات بنجاح');
         return back();
