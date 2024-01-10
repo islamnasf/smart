@@ -193,27 +193,27 @@ class MandubController extends Controller
             toastr()->error('لا يوجد مذكرات');
             return back();
         }
-        $station = $request-> station ;
+        $mandub_target = $request-> mandub_target ;
 
         foreach ($selectedBooks as $bookId) {
             $mandubBook = $mandub->mandubBooks()->where('book_id', $bookId)->first();
             $book = book::findOrFail($bookId);
-                $stationValue = ($station ?? 0) + ($mandub->mandubBooks->first()->pivot->station ?? 0);
+                $targetValue = ($mandub_target ?? 0) ;
+                $stationValue = $targetValue - ($mandubBook->pivot->mandub_quantity ?? 0);
+
                 MandubBook::updateOrCreate(
                     ['book_id' => $bookId, 'mandub_id' => $mandubId],
                     [
                         'station' => $stationValue,
+                        'mandub_target'=>$targetValue,
                         'distributor_active' => 0,
                         'mandub_active' => 0,
                     ]
                 );
                 $book->update([
-                    'quantity' => $book->quantity - $request->station
+                    'quantity' => $book->quantity - $stationValue
                 ]);
-            
-        
     }
-    
         toastr()->success('تم حفظ البيانات بنجاح');
         return back();
     }

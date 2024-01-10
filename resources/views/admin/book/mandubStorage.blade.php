@@ -96,7 +96,7 @@ $name = request()->route('name');
 
 @if ($name >= 'four' && $name <= 'twelve' ||$name=='eight' ||$name=='five' ||$name=='eleven' ) <div class="text-center goal ">
     <button style="background-color: #175166; border: none;border-radius: 5px; margin: 3px;" type="button" data-toggle="modal" data-target="#station{{$mandub->id}}">
-        <h4 style="background-color: #175166; padding: 10px 10px 0px 10px ;  color: #fff; font-size: 30px;"> <img src="https://cdn-icons-png.flaticon.com/128/4127/4127795.png" width="27px"> التوريد </h4>
+        <h4 style="background-color: #175166; padding: 10px 10px 0px 10px ;  color: #fff; font-size: 30px;"> <img src="https://cdn-icons-png.flaticon.com/128/4127/4127795.png" width="27px"> المستهدف </h4>
     </button>
     </div>
     @endif
@@ -104,7 +104,7 @@ $name = request()->route('name');
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">التوريد </h5>
+                    <h5 class="modal-title" id="exampleModalLabel">المستهدف</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -121,6 +121,8 @@ $name = request()->route('name');
                                     <th scope="col">اختيار</th>
                                     <th scope="col">اسم المذكرة</th>
                                     <th scope="col">الكمية الحالية</th>
+                                    <th scope="col">كمية المندوب</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -135,6 +137,16 @@ $name = request()->route('name');
                                     <td>{{ $book->name }}</td>
                                     <td>{{ $book->quantity }}</td>
 
+                                    <td>
+                                        @php
+
+                                        $mandubBook = $book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first();
+                                        $mandubQuantity = optional($book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first())->pivot->mandub_quantity ?? 0;
+                                        $backgroundClass = $mandubQuantity < 2 ? 'bg-danger' : 'bg-success' ; @endphp <span class="{{ $backgroundClass }}" style="padding: 8px; border-radius: 3px; color: #fff;">
+                                            {{ $mandubQuantity }} 
+                                            </span> <br>
+                                    </td>
+
                                 </tr>
                                 @empty
                                 <tr>
@@ -146,8 +158,8 @@ $name = request()->route('name');
 
 
                         <div class="form-group mt-3">
-                            <label for="quantity" class="form-label" style="font-size: 15px; font-weight: bold;">التوريد من المخزن الرئيسي</label>
-                            <input type="number" name="station" id="station" class="form-control" required placeholder="اضع هنا الكمية المرادة ">
+                            <label for="mandub_target" class="form-label" style="font-size: 15px; font-weight: bold;">المستهدف</label>
+                            <input type="number" name="mandub_target" id="mandub_target" class="form-control" required placeholder="اضع هنا الكمية المرادة ">
                         </div>
                     </div>
 
@@ -183,8 +195,8 @@ $name = request()->route('name');
                                     <th>المذكرة </th>
                                     <th>الصف </th>
                                     <th> كمية المخزن الرئيسي </th>
-                                    <th>المستهدف</th>
                                     <th> كمية المندوب </th>
+                                    <th>المستهدف</th>
                                     <th> توريد </th>
                                     <th> الموزع </th>
                                     <th> المندوب </th>
@@ -199,15 +211,6 @@ $name = request()->route('name');
                                     <td>{{$book->classroom}}</td>
                                     <td>{{$book->quantity}}</td>
                                     <td>
-                                        @if($book->target)
-                                        {{$book->target->target}}
-                                        @else
-                                        0
-                                        @endif
-
-                                    </td>
-
-                                    <td>
                                         @php
 
                                         $mandubBook = $book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first();
@@ -216,6 +219,14 @@ $name = request()->route('name');
                                             {{ $mandubQuantity }} مذكرة
                                             </span> <br>
                                     </td>
+                                    <th>
+                                        @php
+
+                                        $mandubBook = $book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first();
+                                        $mandub_target = optional($book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first())->pivot->mandub_target ?? 0;
+                                        $backgroundClass = $mandub_target < 2 ? 'bg-danger' : 'bg-success' ; @endphp <span class="{{ $backgroundClass }}" style="padding: 8px; border-radius: 3px; color: #fff;">
+                                            {{ $mandub_target }} مذكرة
+                                    </th>
                                     <th>
                                         @php
 
@@ -233,7 +244,7 @@ $name = request()->route('name');
                                             @if($distributor_active == 0)
                                             <a href="{{route('updateDistributorActive',[$book->id,$mandub->id])}}"> ✓ </a>
                                             @else
-                                            ✗ 
+                                            ✗
                                             @endif
                                     </th>
                                     <th>
@@ -245,7 +256,7 @@ $name = request()->route('name');
                                             @if($mandub_active == 0)
                                             <a href="{{route('updateMandubActive',[$book->id,$mandub->id])}}"> ✓ </a>
                                             @else
-                                            ✗ 
+                                            ✗
                                             @endif
                                     </th>
                                     <td>

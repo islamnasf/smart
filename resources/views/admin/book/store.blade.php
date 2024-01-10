@@ -290,8 +290,8 @@ $name = request()->route('name');
                                 <tr>
                                     <th> المذكرة </th>
                                     <th> الصف </th>
-                                    <th>المستهدف</th>
                                     <th>الكمية</th>
+                                    <th>المستهدف</th>
                                     <th>الطباعة </th>
                                     <th> العمليات</th>
                                 </tr>
@@ -301,6 +301,8 @@ $name = request()->route('name');
                                 <tr>
                                     <td>{{$book->name}}</td>
                                     <td>{{$book->classroom}}</td>
+                                    <td>{{$book->quantity}}</td>
+                                 
                                     <td>
                                         @if($book->target)
                                         {{$book->target->target}}
@@ -308,8 +310,6 @@ $name = request()->route('name');
                                         {{$book->quantity}}
                                         @endif
                                     </td>
-
-                                    <td>{{$book->quantity}}</td>
                                     <td>
                                         @if($book->target)
                                         {{$book->target->print}}
@@ -329,10 +329,10 @@ $name = request()->route('name');
                                                 اضافة كمية
                                             </div>
                                             <a href="{{route('printBookFinish',$book->id)}}" style="padding:2px; padding-right: 20px; font-size: 15px;">
-                                                <button type="button" class="btn btn-success btn-sm" >
+                                                <button type="button" class="btn btn-success btn-sm">
                                                     <i class="fa fa-check"></i>
                                                 </button>
-                                                تم الطباعة  
+                                                تم الطباعة
                                             </a>
                                         </div>
                                         <!-- edit  -->

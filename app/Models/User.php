@@ -90,7 +90,7 @@ class User extends Authenticatable implements JWTSubject
     public function mandubBooks()
     {
         return $this->belongsToMany(Book::class, 'mandub_books', 'mandub_id', 'book_id')
-            ->withPivot('mandub_quantity', 'minimum','station','distributor_active','mandub_active')
+            ->withPivot('mandub_quantity', 'minimum','station','distributor_active','mandub_active','mandub_target')
             ->withTimestamps();
     }
 

@@ -244,7 +244,6 @@ class BookController extends Controller
                 'quantity' => $newquantity,
             ]);
         }
-
         toastr()->success('تم حفظ البيانات بنجاح');
         return back();
     }

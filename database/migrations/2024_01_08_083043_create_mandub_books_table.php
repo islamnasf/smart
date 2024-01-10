@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('book_id')->constrained('books');
             $table->foreignId('mandub_id')->constrained('users');
             $table->bigInteger('station')->nullable();
+            $table->bigInteger('mandub_target')->nullable();
             $table->boolean('mandub_active')->default(0);
             $table->boolean('distributor_active')->default(0);
             $table->timestamps();
