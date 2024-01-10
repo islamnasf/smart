@@ -19,12 +19,13 @@ class PackageController extends Controller
     public function create(Request $request)
     {
         $package = Package::create($request->all());
-        if ($package) {
-            $courses = Course::where('classroom', $package->class)->get();
+        if (!$package) {
+            return redirect()->back()->with('error', 'حدثت مشكلة أثناء إنشاء الباقة');
         }
-       
-       
-
+        $courses = Course::where('classroom', $package->class)->get();
+        if ($courses->isEmpty()) {
+            return redirect()->back()->with('warning', 'لا توجد كورسات متاحة لهذه الفئة.');
+        }
         return view("admin.course.package.addpackage", compact('courses', 'package'));
     }
 
@@ -47,9 +48,8 @@ class PackageController extends Controller
             'created_at' => Carbon::now(),
         ];
         $pack->course()->sync($selectedCourses, $data);
-        $package = Package::has('course')->where('is_active', 1)->get();
         toastr()->success('تم حفظ البيانات بنجاح');
-        return view("admin.course.package.package", compact("package"));
+        return redirect()->route('showPackage');
     }
 
     public function delete($packageId)
@@ -61,19 +61,30 @@ class PackageController extends Controller
     public function edit(Request $request, $packageId)
     {
         $package = Package::find($packageId);
-        if ($package) {
-
-            $courses = Course::where('classroom', $package->class)->get();
+    
+        if (!$package) {
+            toastr()->error('الصف لا يحتوي على كورسات');
+            return redirect()->route('showPackage');
         }
-        $packagecourse=PackageCourses::where("package_id",$package->id)->get();
+    
+        $courses = Course::where('classroom', $package->class)->get();
+    
+        $packagecourse = PackageCourses::where("package_id", $package->id)->get();
+    
+        if ($packagecourse->isEmpty()) {
+            toastr()->error('الباقة لا تحتوي على مواد');
+            return redirect()->route('showPackage');
+        }
+    
         $packagecourses = [];
-        foreach ($packagecourse as $packagecourse) {
-            $cour = course::find($packagecourse->course_id);
+    
+        foreach ($packagecourse as $packagecourseItem) {
+            $cour = Course::find($packagecourseItem->course_id);
+    
             if ($cour) {
                 $packagecourses[] = $cour;
             }
         }
-
         return view("admin.course.package.addpackage", compact(['courses', 'package','packagecourses']));        
 }
     public function archivePackage($id)

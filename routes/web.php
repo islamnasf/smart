@@ -107,6 +107,7 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('reports/show', [CourseController::class, 'reports'])->name('showReports');
   Route::get('show/site/setting', [Sitesetteings::class, 'index'])->name('sitesettingsShow');
   Route::post('post/site/setting', [Sitesetteings::class, 'update'])->name('sitesettingsPost');
+  
   //books
 //book->admin 
 Route::get('/book', [BookController::class, 'index'])->name('getBook');
@@ -137,7 +138,6 @@ Route::get('/mandub/book/class/{name}/{mandub}', [MandubController::class, 'show
 Route::get('/mandub/book/update/distributor/active/{book}/{mandub}', [MandubController::class, 'updateDistributorActive'])->name('updateDistributorActive');
 Route::get('/mandub/book/update/mandub/active/{book}/{mandub}', [MandubController::class, 'updateMandubActive'])->name('updateMandubActive');
 Route::post('/store/station/{mandub}', [MandubController::class, 'createStation'])->name('postStation');
-
 //city->admin->book
 Route::get('/city', [CityController::class, 'index'])->name('getCity');
 Route::post('/city', [CityController::class, 'store'])->name('postCity');
@@ -148,7 +148,7 @@ Route::post('/city/mandoub/delete/{mandoub}', [CityController::class, 'mandoubCi
 //package//book
 Route::get('/book/package', [BookController::class, 'allPackage'])->name('getPackage');
 Route::post('package/book/post', [BookController::class, 'create'])->name('postPackageBook');
-
+Route::post('package/book/{package}', [BookController::class, 'createPackageDetails'])->name('postPackageDetails');
 //secretary->admin
 Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
 Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');
@@ -161,7 +161,6 @@ route::group(['prefix' => 'dashboard/teacher/'], function () {
   Route::get('course/tutorial/video/show/{videoId}', [TutorialController::class, 'showVideo'])->name('teacherCourseTutorialVideoShow');
   Route::post('course/tutorial/video/post/{videoId}', [TutorialController::class, 'createVideoComment'])->name('postVideoComment');
 });
-
 route::group(['prefix' => 'dashboard/student/'], function () {
   //student->dashboard
   Route::get('/cart', [CartController::class, 'index'])->name('studentcart');
@@ -171,9 +170,6 @@ route::group(['prefix' => 'dashboard/student/'], function () {
   Route::post('/cart/{cart_id}', [CartController::class, 'delete'])->name('cartDelete');
   Route::get('/subscription', [SubscriptionController::class, 'index'])->name('studentSubscription');
 });
-
-
-
 route::group(['prefix' => 'landingpage'], function () {
   //landingpage->stages ////ااستكشف المواد
   Route::get('/stage/information/{name}', [StageController::class, 'stageInfon'])->name('stageInfonShow');
