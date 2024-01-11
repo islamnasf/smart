@@ -12,6 +12,7 @@ use App\Models\TermOne;
 use App\Models\TermTow;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
@@ -148,17 +149,82 @@ class BookController extends Controller
     //package
     public function allPackage()
     {
-        $package = AnotherPackage::with('book')->where('is_active', 1)->get();
+        $package = AnotherPackage::has('book')->where('is_active', 1)->get();
         return view("admin.book.package", compact("package"));
     }
     public function create(Request $request)
     {
         $package = AnotherPackage::create($request->all());
-        if ($package) {
-            $courses = book::where('classroom', $package->class)->get();
+    
+        if (!$package) {
+            return redirect()->back()->with('error', 'حدثت مشكلة أثناء إنشاء الباقة');
         }
-        return back();
+    
+        $books = book::where('classroom', $package->class)->get();
+    
+        if ($books->isEmpty()) {
+            return redirect()->back()->with('warning', 'لا توجد كتب متاحة لهذه الفئة.');
+        }
+    
+        return view("admin.book.addpackage", compact('books', 'package'));
     }
+    
+
+    public function createPackageDetails(Request $request, int $package)
+    { 
+    $request->validate([
+        'selected_subjects' => 'required|array|min:1',
+    ], [
+        'selected_subjects.required' => 'يجب اختيار كورس واحد على الأقل.',
+        'selected_subjects.min' => 'يجب اختيار كورس واحد على الأقل.',
+    ]);
+    
+        $pack = AnotherPackage::find($package);
+        if (!$pack) {
+            return redirect()->back()->with('error', 'لم يتم العثور على الباقة');
+        }
+        
+        $selectedBooks = $request->input('selected_subjects', []);
+        $data = [
+            'created_at' => Carbon::now(),
+        ];
+        $pack->book()->sync($selectedBooks, $data);
+        toastr()->success('تم حفظ البيانات بنجاح');
+        return redirect()->route('getPackage');
+    }
+    public function archivePackage($id)
+    {
+        $package = AnotherPackage::find($id);
+        if ($package) {
+            $package->update(['is_active' => 0]);    
+            return redirect()->back()->with('success', 'تم تحديث حالة الأرشيف بنجاح.');
+        } else {
+            return redirect()->back()->with('error', 'العنصر غير موجود.');
+        }
+    }
+    public function unarchivePackage($id)
+    {
+        $package = AnotherPackage::find($id);
+        if ($package) {
+            $package->update(['is_active' => 1]);    
+            return redirect()->back()->with('success', 'تم تحديث حالة الأرشيف بنجاح.');
+        } else {
+            return redirect()->back()->with('error', 'العنصر غير موجود.');
+        }
+    }
+    public function unActive()
+    {
+        $package = AnotherPackage::where('is_active', 0)->get();
+        return view("admin.book.packageArchive", compact("package"));
+    }
+    public function delete($packageId)
+    {
+        $package = AnotherPackage::find($packageId);
+        $package->delete();
+        return redirect()->back()->with("success", "تم الحذف بنجاح");
+    }
+
+
     //target
     public function createTarget(Request $request)
     {
@@ -232,9 +298,9 @@ class BookController extends Controller
         return back();
     }
 
-    public function printBookFinish( $book)
+    public function printBookFinish($book)
     {
-        $book = Book::where('id',$book)->first();
+        $book = Book::where('id', $book)->first();
 
         if ($book) {
             $newquantity = $book->target->print + $book->quantity;

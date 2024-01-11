@@ -33,6 +33,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 require __DIR__ . '/auth.php';
 
 
@@ -61,7 +62,7 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('/teacher', [TeacherController::class, 'index'])->name('getTeacher');
   Route::post('/teacher', [TeacherController::class, 'store'])->name('postTeacher');
   Route::post('/teacher/edit/{teacher}', [TeacherController::class, 'update'])->name('updateTeacher');
-  
+
 
   //dashboard
   Route::get('/', [HomeController::class, 'index'])->name('dashboard');
@@ -71,13 +72,13 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('/exam/edit', [ExamController::class, 'update'])->name('updateExam');
   Route::post('/exam/delete', [ExamController::class, 'delete'])->name('deleteExam');
   Route::get('/examdownload/{fileName}', [ExamController::class, 'download'])->name('examDownload');
-//
+  //
   Route::get('/getContact', [ContactController::class, 'index'])->name('getContact');
   Route::post('/deleteContact/{id}', [ContactController::class, 'delete'])->name('deleteContact');
 
   Route::get('/profileSetting', [ProfileSettingController::class, 'index'])->name('getProfile');
   Route::post('/profileSetting/{id}', [ProfileSettingController::class, 'update'])->name('updateProfile');
-//course
+  //course
   Route::get('course/home', [CourseController::class, 'index'])->name('course');
   Route::get('course/add', [CourseController::class, 'create'])->name('addCourse');
   Route::post('course/create', [CourseController::class, 'store'])->name('createCourse');
@@ -108,51 +109,54 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('show/site/setting', [Sitesetteings::class, 'index'])->name('sitesettingsShow');
   Route::post('post/site/setting', [Sitesetteings::class, 'update'])->name('sitesettingsPost');
   //books
-//book->admin 
-Route::get('/book', [BookController::class, 'index'])->name('getBook');
-Route::get('/book/add', [BookController::class, 'addBook'])->name('addBook');
-Route::post('/book/add', [BookController::class, 'store'])->name('postBook');
-Route::get('/store', [BookController::class, 'storeBook'])->name('getStore');
-Route::get('/store/show/{name}', [BookController::class, 'showBooksClass'])->name('booksShow');
-Route::post('/store/target/books', [BookController::class, 'createTarget'])->name('postTarget');
-Route::post('/store/quantity/class/books', [BookController::class, 'updateQuantityClass'])->name('postQuantityClassroom');
-Route::post('/store/print/finish/class/books', [BookController::class, 'finishPrint'])->name('finishPrint');
-Route::get('/store/print/finishprint/done/{book}', [BookController::class, 'printBookFinish'])->name('printBookFinish');
-//
-Route::Post('/quantitybook/{book}', [BookController::class, 'addQuantity'])->name('addQuantity');
-Route::get('/termone', [BookController::class, 'termone'])->name('termone');
-Route::get('/termtow', [BookController::class, 'termtow'])->name('termtow');
-Route::get('/book/edit/{book}', [BookController::class, 'edit'])->name('editBook');
-Route::post('/book/edit/{book}', [BookController::class, 'update'])->name('updateBook');
-Route::post('/termone/book', [TermController::class, 'createTermOne'])->name('termOneDetail');
-Route::post('/termtow/book', [TermController::class, 'createTermTow'])->name('termTowDetail');
-//mandub->admin->book
-Route::get('/mandub', [MandubController::class, 'index'])->name('getMandub');
-Route::post('/mandub', [MandubController::class, 'store'])->name('postMandub');
-Route::post('/mandub/edit/{mandub}', [MandubController::class, 'update'])->name('updateMandub');
-Route::get('/mandub/storage/{mandub}', [MandubController::class, 'mandubStorage'])->name('mandubStorage');
-Route::post('/mandub/minimum/{mandub}/{Book}', [MandubController::class, 'addMinimum'])->name('addMinimum');
-Route::post('/mandub/{mandub}/{Book}/addquantity', [MandubController::class, 'addMandubQuantity'])->name('postMandubQuantity');
-Route::get('/mandub/book/class/{name}/{mandub}', [MandubController::class, 'showBooksClass'])->name('booksMandubShow');
-Route::get('/mandub/book/update/distributor/active/{book}/{mandub}', [MandubController::class, 'updateDistributorActive'])->name('updateDistributorActive');
-Route::get('/mandub/book/update/mandub/active/{book}/{mandub}', [MandubController::class, 'updateMandubActive'])->name('updateMandubActive');
-Route::post('/store/station/{mandub}', [MandubController::class, 'createStation'])->name('postStation');
-
-//city->admin->book
-Route::get('/city', [CityController::class, 'index'])->name('getCity');
-Route::post('/city', [CityController::class, 'store'])->name('postCity');
-Route::post('/city/edit/{city}', [CityController::class, 'update'])->name('updateCity');
-Route::get('/city/mandoub/{city}', [CityController::class, 'addMandoub'])->name('addMandoubToCity');
-Route::post('/city/mandoub/add/{city}', [CityController::class, 'addNewMandoub'])->name('addNewMandoub');
-Route::post('/city/mandoub/delete/{mandoub}', [CityController::class, 'mandoubCityDelete'])->name('mandoubCityDelete');
-//package//book
-Route::get('/book/package', [BookController::class, 'allPackage'])->name('getPackage');
-Route::post('package/book/post', [BookController::class, 'create'])->name('postPackageBook');
-
-//secretary->admin
-Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
-Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');
-Route::post('/secretary/edit/{secretary}', [SecretaryController::class, 'update'])->name('updateSecretary');
+  //book->admin 
+  Route::get('/book', [BookController::class, 'index'])->name('getBook');
+  Route::get('/book/add', [BookController::class, 'addBook'])->name('addBook');
+  Route::post('/book/add', [BookController::class, 'store'])->name('postBook');
+  Route::get('/store', [BookController::class, 'storeBook'])->name('getStore');
+  Route::get('/store/show/{name}', [BookController::class, 'showBooksClass'])->name('booksShow');
+  Route::post('/store/target/books', [BookController::class, 'createTarget'])->name('postTarget');
+  Route::post('/store/quantity/class/books', [BookController::class, 'updateQuantityClass'])->name('postQuantityClassroom');
+  Route::post('/store/print/finish/class/books', [BookController::class, 'finishPrint'])->name('finishPrint');
+  Route::get('/store/print/finishprint/done/{book}', [BookController::class, 'printBookFinish'])->name('printBookFinish');
+  //
+  Route::Post('/quantitybook/{book}', [BookController::class, 'addQuantity'])->name('addQuantity');
+  Route::get('/termone', [BookController::class, 'termone'])->name('termone');
+  Route::get('/termtow', [BookController::class, 'termtow'])->name('termtow');
+  Route::get('/book/edit/{book}', [BookController::class, 'edit'])->name('editBook');
+  Route::post('/book/edit/{book}', [BookController::class, 'update'])->name('updateBook');
+  Route::post('/termone/book', [TermController::class, 'createTermOne'])->name('termOneDetail');
+  Route::post('/termtow/book', [TermController::class, 'createTermTow'])->name('termTowDetail');
+  //mandub->admin->book
+  Route::get('/mandub', [MandubController::class, 'index'])->name('getMandub');
+  Route::post('/mandub', [MandubController::class, 'store'])->name('postMandub');
+  Route::post('/mandub/edit/{mandub}', [MandubController::class, 'update'])->name('updateMandub');
+  Route::get('/mandub/storage/{mandub}', [MandubController::class, 'mandubStorage'])->name('mandubStorage');
+  Route::post('/mandub/minimum/{mandub}/{Book}', [MandubController::class, 'addMinimum'])->name('addMinimum');
+  Route::post('/mandub/{mandub}/{Book}/addquantity', [MandubController::class, 'addMandubQuantity'])->name('postMandubQuantity');
+  Route::get('/mandub/book/class/{name}/{mandub}', [MandubController::class, 'showBooksClass'])->name('booksMandubShow');
+  Route::get('/mandub/book/update/distributor/active/{book}/{mandub}', [MandubController::class, 'updateDistributorActive'])->name('updateDistributorActive');
+  Route::get('/mandub/book/update/mandub/active/{book}/{mandub}', [MandubController::class, 'updateMandubActive'])->name('updateMandubActive');
+  Route::post('/store/station/{mandub}', [MandubController::class, 'createStation'])->name('postStation');
+  //city->admin->book
+  Route::get('/city', [CityController::class, 'index'])->name('getCity');
+  Route::post('/city', [CityController::class, 'store'])->name('postCity');
+  Route::post('/city/edit/{city}', [CityController::class, 'update'])->name('updateCity');
+  Route::get('/city/mandoub/{city}', [CityController::class, 'addMandoub'])->name('addMandoubToCity');
+  Route::post('/city/mandoub/add/{city}', [CityController::class, 'addNewMandoub'])->name('addNewMandoub');
+  Route::post('/city/mandoub/delete/{mandoub}', [CityController::class, 'mandoubCityDelete'])->name('mandoubCityDelete');
+  //package//book
+  Route::get('/book/package', [BookController::class, 'allPackage'])->name('getPackage');
+  Route::post('package/book/post', [BookController::class, 'create'])->name('postPackageBook');
+  Route::post('package/book/{package}', [BookController::class, 'createPackageDetails'])->name('postPackageDetails');
+  Route::post('package/book/archive/{package}', [BookController::class, 'archivePackage'])->name('archivePackageBook');
+  Route::post('package/book/unarchive/{package}', [BookController::class, 'unarchivePackage'])->name('unarchivePackageBook');
+  Route::post('package/book/dalete/{packageId}', [BookController::class, 'delete'])->name('deletePackageBook');
+  Route::get('package/book/{package}', [PackageController::class, 'edit'])->name('editPackageBook');
+  //secretary->admin
+  Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
+  Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');
+  Route::post('/secretary/edit/{secretary}', [SecretaryController::class, 'update'])->name('updateSecretary');
 });
 route::group(['prefix' => 'dashboard/teacher/'], function () {
   //teacher->dashboard->course
@@ -161,7 +165,6 @@ route::group(['prefix' => 'dashboard/teacher/'], function () {
   Route::get('course/tutorial/video/show/{videoId}', [TutorialController::class, 'showVideo'])->name('teacherCourseTutorialVideoShow');
   Route::post('course/tutorial/video/post/{videoId}', [TutorialController::class, 'createVideoComment'])->name('postVideoComment');
 });
-
 route::group(['prefix' => 'dashboard/student/'], function () {
   //student->dashboard
   Route::get('/cart', [CartController::class, 'index'])->name('studentcart');
@@ -171,9 +174,6 @@ route::group(['prefix' => 'dashboard/student/'], function () {
   Route::post('/cart/{cart_id}', [CartController::class, 'delete'])->name('cartDelete');
   Route::get('/subscription', [SubscriptionController::class, 'index'])->name('studentSubscription');
 });
-
-
-
 route::group(['prefix' => 'landingpage'], function () {
   //landingpage->stages ////ااستكشف المواد
   Route::get('/stage/information/{name}', [StageController::class, 'stageInfon'])->name('stageInfonShow');
@@ -186,7 +186,3 @@ route::group(['prefix' => 'landingpage'], function () {
   Route::get('/contactus', [ContactUs::class, 'index'])->name('contactus');
   Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');
 });
-
-
-
-

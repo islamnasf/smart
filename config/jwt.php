@@ -130,9 +130,7 @@ return [
     | Specify the hashing algorithm that will be used to sign the token.
     |
     */
-
     'algo' => env('JWT_ALGO', Tymon\JWTAuth\Providers\JWT\Provider::ALGO_HS256),
-
     /*
     |--------------------------------------------------------------------------
     | Required Claims
