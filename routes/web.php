@@ -68,6 +68,8 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('/', [HomeController::class, 'index'])->name('dashboard');
   //exam->admin
   Route::get('/exam', [ExamController::class, 'index'])->name('getExam');
+  Route::get('/selectTerm', [ExamController::class, 'selectTerm'])->name('selectTerm');
+  Route::get('/selectType', [ExamController::class, 'selectType'])->name('selectType');
   Route::post('/exam', [ExamController::class, 'store'])->name('postExam');
   Route::post('/exam/edit', [ExamController::class, 'update'])->name('updateExam');
   Route::post('/exam/delete', [ExamController::class, 'delete'])->name('deleteExam');

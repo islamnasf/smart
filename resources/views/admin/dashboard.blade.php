@@ -202,7 +202,7 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span>
-                                        <a href="{{ route('getExam') }}">
+                                        <a href="{{ route('selectTerm') }}">
                                             <i class=" fa fa-check-square-o  highlight-icon" aria-hidden="true" style="color:#175166; font-size:70px; padding-top:15px; padding-bottom:15px  "></i>
                                         </a>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
