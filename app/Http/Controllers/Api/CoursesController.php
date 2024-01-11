@@ -12,15 +12,10 @@ class CoursesController extends Controller
 {
     public function index(){
             $coursesix=Course::where('classroom','الصف السادس')->get();
-        
             $courseseven=Course::where('classroom','الصف السابع')->get();
-        
             $courseeight=Course::where('classroom','الصف الثامن')->get();
-        
             $coursenine=Course::where('classroom','الصف التاسع')->get();
-        
             $courseten=Course::where('classroom','الصف العاشر')->get();
-        
             $courseeleven=Course::where('classroom','الصف الحادي عشر')->get();
             $coursetwelve=Course::where('classroom','الصف الثاني عشر')->get();
             return response()->json([
@@ -43,7 +38,6 @@ class CoursesController extends Controller
      }
      public function download($fileName)
      {
-
         return response()->download(storage_path('app/public/pdfs/'.$fileName));
      }
 }

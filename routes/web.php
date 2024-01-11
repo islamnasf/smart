@@ -154,7 +154,8 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('package/book/archive/{package}', [BookController::class, 'archivePackage'])->name('archivePackageBook');
   Route::post('package/book/unarchive/{package}', [BookController::class, 'unarchivePackage'])->name('unarchivePackageBook');
   Route::post('package/book/dalete/{packageId}', [BookController::class, 'delete'])->name('deletePackageBook');
-  Route::get('package/book/{package}', [PackageController::class, 'edit'])->name('editPackageBook');
+  Route::get('package/book/{package}', [BookController::class, 'editPackage'])->name('editPackageBook');
+  Route::get('package/archive/book/show', [BookController::class, 'unActive'])->name('showPackageArchiveBook');
   //secretary->admin
   Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
   Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');
