@@ -261,58 +261,73 @@
                                         </div>
                                     </div>
                                     <!-- Button trigger modal delete -->
-                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#archivePackage">
-                                        <i class="fa fa-archive"></i>
-                                    </button>
-                                    <div class="modal fade" id="archivePackage{{ $packet->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">حذف الباقة</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <form action="{{ route('archivePackage', $packet->id) }}" method="post">
-                                                    @csrf
-                                                    <div class="modal-body">
-                                                        <h4> هل انت متاكد من ارشيف هذه الباقة ؟</h4>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-                                                        <button type="submit" class="btn btn-primary"> ارشف
+                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal"
+                                            data-target="#archivePackage{{ $packet->id }}">
+                                            <i class="fa fa-archive"></i>
+                                        </button>
+                                        <div class="modal fade" id="archivePackage{{ $packet->id }}" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">حذف الباقة</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                </form>
+                                                    <form action="{{ route('archivePackageBook', $packet->id) }}"
+                                                        method="post">
+                                                        @csrf
+                                                        <div class="modal-body">
+                                                            <h4> هل انت متاكد من ارشيف هذه الباقة ؟</h4>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">اغلاق</button>
+                                                            <button type="submit" class="btn btn-primary"> ارشف
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                    <div class="modal fade" id="delete{{ $packet->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">حذف الباقة</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <form action="{{ route('deletePackage', $packet->id) }}" method="post">
-                                                    @csrf
-                                                    <div class="modal-body">
-                                                        <h4> هل انت متاكد من حذف هذه الباقة ؟</h4>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-                                                        <button type="submit" class="btn btn-primary"> حذف
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                            data-target="#delete{{ $packet->id }}">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                        <a  href="{{ route('editPackageBook' ,$packet->id )}}" class="btn btn-info ">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                       
+                                        
+                                        <div class="modal fade" id="delete{{ $packet->id }}" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">حذف الباقة</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                </form>
+                                                    <form action="{{ route('deletePackageBook', $packet->id) }}"
+                                                        method="post">
+                                                        @csrf
+                                                        <div class="modal-body">
+                                                            <h4> هل انت متاكد من حذف هذه الباقة ؟</h4>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">اغلاق</button>
+                                                            <button type="submit" class="btn btn-primary"> حذف
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                 </td>
                             </tr>
                             @endforeach
