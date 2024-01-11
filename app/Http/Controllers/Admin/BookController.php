@@ -7,6 +7,7 @@ use App\Models\AnotherPackage;
 use App\Models\Book;
 use App\Models\MandubBook;
 use App\Models\Package;
+use App\Models\PackageBook;
 use App\Models\TargetBook;
 use App\Models\TermOne;
 use App\Models\TermTow;
@@ -63,10 +64,7 @@ class BookController extends Controller
             $books = book::with('target')->where('classroom', 'الصف الرابع')->get();
         } elseif ($name == 'five') {
             $books = book::with('target')->where('classroom', 'الصف الخامس')->get();
-        } elseif ($name == 'seven') {
-            $books = book::with('target')->where('classroom', 'الصف السابع')->get();
-        }
-        if ($name == 'six') {
+        }elseif ($name == 'six') {
             $books = book::with('target')->where('classroom', 'الصف السادس')->get();
         } elseif ($name == 'seven') {
             $books = book::with('target')->where('classroom', 'الصف السابع')->get();
@@ -155,35 +153,31 @@ class BookController extends Controller
     public function create(Request $request)
     {
         $package = AnotherPackage::create($request->all());
-    
+
         if (!$package) {
             return redirect()->back()->with('error', 'حدثت مشكلة أثناء إنشاء الباقة');
         }
-    
+
         $books = book::where('classroom', $package->class)->get();
-    
+
         if ($books->isEmpty()) {
             return redirect()->back()->with('warning', 'لا توجد كتب متاحة لهذه الفئة.');
         }
-    
+
         return view("admin.book.addpackage", compact('books', 'package'));
     }
-    
-
     public function createPackageDetails(Request $request, int $package)
-    { 
-    $request->validate([
-        'selected_subjects' => 'required|array|min:1',
-    ], [
-        'selected_subjects.required' => 'يجب اختيار كورس واحد على الأقل.',
-        'selected_subjects.min' => 'يجب اختيار كورس واحد على الأقل.',
-    ]);
-    
+    {
+        $request->validate([
+            'selected_subjects' => 'required|array|min:1',
+        ], [
+            'selected_subjects.required' => 'يجب اختيار كورس واحد على الأقل.',
+            'selected_subjects.min' => 'يجب اختيار كورس واحد على الأقل.',
+        ]);
         $pack = AnotherPackage::find($package);
         if (!$pack) {
             return redirect()->back()->with('error', 'لم يتم العثور على الباقة');
         }
-        
         $selectedBooks = $request->input('selected_subjects', []);
         $data = [
             'created_at' => Carbon::now(),
@@ -196,7 +190,7 @@ class BookController extends Controller
     {
         $package = AnotherPackage::find($id);
         if ($package) {
-            $package->update(['is_active' => 0]);    
+            $package->update(['is_active' => 0]);
             return redirect()->back()->with('success', 'تم تحديث حالة الأرشيف بنجاح.');
         } else {
             return redirect()->back()->with('error', 'العنصر غير موجود.');
@@ -206,11 +200,33 @@ class BookController extends Controller
     {
         $package = AnotherPackage::find($id);
         if ($package) {
-            $package->update(['is_active' => 1]);    
+            $package->update(['is_active' => 1]);
             return redirect()->back()->with('success', 'تم تحديث حالة الأرشيف بنجاح.');
         } else {
             return redirect()->back()->with('error', 'العنصر غير موجود.');
         }
+    }
+    public function editPackage(Request $request, $packageId)
+    {
+        $package = Package::find($packageId);
+        if (!$package) {
+            toastr()->error('الصف لا يحتوي على كورسات');
+            return redirect()->route('showPackage');
+        }
+        $books = book::where('classroom', $package->class)->get();
+        $packagebooks = PackageBook::where("package_id", $package->id)->get();
+        if ($packagebooks->isEmpty()) {
+            toastr()->error('الباقة لا تحتوي على مواد');
+            return redirect()->route('showPackage');
+        }
+        $packagebooks = [];
+        foreach ($packagebooks as $packagebookItem) {
+            $book = Book::find($packagebookItem->book_id);
+            if ($book) {
+                $packagebooks[] = $book;
+            }
+        }
+        return view("admin.book.addpackage", compact(['books','package','packagebooks']));
     }
     public function unActive()
     {
@@ -223,9 +239,8 @@ class BookController extends Controller
         $package->delete();
         return redirect()->back()->with("success", "تم الحذف بنجاح");
     }
-
-
-    //target
+////end package book
+//target
     public function createTarget(Request $request)
     {
         $selectedBooks = $request->input('selected_subjects');
