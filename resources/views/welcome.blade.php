@@ -29,14 +29,9 @@
                     <a class="nav-link" href="/stages.html">المواد</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/stages_notes.html">المذكرات</a>
+                    <a class="nav-link" href="{{route('getNotesStage')}}">المذكرات</a>
                   </li>
-                  <li class="nav-item ">
-                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      الباقات
-                    </a>
-                    
-                  </li>
+                 
                   <li class="nav-item">
                     <a class="nav-link " aria-disabled="true">المدرسين</a>
                   </li>

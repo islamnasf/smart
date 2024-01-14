@@ -9,12 +9,16 @@ class NotesController extends Controller
 {
     public function index()
     {
-        return view('landingpage/books/stages');
+        return view('landingpage/books/stages_notes');
     }
 //second page
-    public function classes()
+    public function highSchool()
     {
-        return view('landingpage.books.stageinfo');
+        return view('landingpage.books.high_school_notes');
     }
 //third page  
+public function middleSchool()
+{
+    return view('landingpage.books.middle_school_notes');
+}
 }

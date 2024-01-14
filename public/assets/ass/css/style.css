@@ -252,7 +252,7 @@ header{
 }
 /* login */
 #login {
-    background-image: url(/ass/img/bg-hero.jpg);
+    background-image: url(/assets/ass/img/bg-hero.jpg);
     background-position: center;
     background-size: cover;
     height: calc(100vh - 82);
@@ -261,7 +261,7 @@ header{
     display: flex;
     align-items: center;
     height: 500px;
-    background-image: url(/ass/img/img-top.jpg);
+    background-image: url(/assets/ass/img/img-top.jpg);
     background-size: cover  ;
     object-fit: contain;
     background-position: center;

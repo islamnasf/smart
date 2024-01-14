@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\MandubController;
 use App\Http\Controllers\Admin\SecretaryController;
 use App\Http\Controllers\Admin\TermController;
 use App\Http\Controllers\LandingPage\ContactUs;
+use App\Http\Controllers\LandingPage\NotesController;
 use App\Http\Controllers\LandingPage\StageController;
 use App\Http\Controllers\Sitesetteings;
 use App\Http\Controllers\Student\CartController;
@@ -188,4 +189,7 @@ route::group(['prefix' => 'landingpage'], function () {
   //contactUs//
   Route::get('/contactus', [ContactUs::class, 'index'])->name('contactus');
   Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');
+  //books//notes
+  Route::get('/books/stages', [NotesController::class, 'index'])->name('getNotesStage');
+
 });
