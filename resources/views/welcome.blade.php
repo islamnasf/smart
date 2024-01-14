@@ -26,7 +26,7 @@
                     <a class="nav-link active" aria-current="page" href="index.html">الرئيسية</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/stages.html">المواد</a>
+                    <a class="nav-link" href="{{route('getLandingSubjectsStage')}}">المواد</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{route('getNotesStage')}}">المذكرات</a>

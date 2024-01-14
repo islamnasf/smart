@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,37 +13,38 @@
     <title>Document</title>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg shadow-sm ">
             <div class="container">
-              <a class="navbar-brand fw-bold" href="index.html"><img src="/assets/ass/img/logo.png" height="56" alt=""></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav fw-bold  fs-6 gap-3 mx-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">الرئيسية</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/stages.html">المواد</a>
-                  </li>
-                  
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{{route('getNotesStage')}}">المذكرات</a>
-                  </li>
-                 
-                  <li class="nav-item">
-                    <a class="nav-link " aria-disabled="true">المدرسين</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <button class="btn-20"><span>تسجيل دخول</span></button>
-                </form>
-              </div>
+                <a class="navbar-brand fw-bold" href="index.html"><img src="/assets/ass/img/logo.png" height="56" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav fw-bold  fs-6 gap-3 mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/stages.html">المواد</a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{route('getNotesStage')}}">المذكرات</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " aria-disabled="true">المدرسين</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <button class="btn-20"><span>تسجيل دخول</span></button>
+                    </form>
+                </div>
             </div>
-          </nav>
+        </nav>
     </header>
     <section id="top-hero">
         <h2 class="text-center mx-auto text-light fs-2 fw-bold">مذكرات سمارت طريقك نحو التفوق </h2>
@@ -52,22 +54,26 @@
             <h3 class="text-center pb-2 title">برجاء إختيار المرحلة</h3>
             <div class="row text-center">
                 <div class="col-lg-3 col-md-6 col-sm-12 pb-5">
-                    <div class="box">
+                    <div class="box" onclick="showAlert()">
                         <a href="#" class="text-light">
                             <img src="/assets/ass/img/school.png" class="mb-3" width="150" alt="">
                             <h5 class="one">الابتدائية</h5>
                         </a>
                     </div>
-                    
                 </div>
+                <script>
+                    function showAlert() {
+                        alert("لايوجد كورسات لهذه المرحلة!");
+                    }
+                </script>
                 <div class="col-lg-3 col-md-6 col-sm-12 pb-5">
-                    <a href="/middle_school_notes.html" class="text-light">
+                    <a href="{{route('getMiddleSchool')}}" class="text-light">
                         <img src="/assets/ass/img/school.png" class="mb-3" width="150" alt="">
                         <h5 class="two">المتوسطة</h5>
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12 pb-5">
-                    <a href="/high_school_notes.html" class="text-light">
+                    <a href="{{route('getHighSchool')}}" class="text-light">
                         <img src="/assets/ass/img/school.png" class="mb-3" width="150" alt="">
                         <h5 class="there">الثانوية</h5>
                     </a>
@@ -110,7 +116,7 @@
                 <a href=""><img src="/assets/ass/img/apple.png" width="200" alt=""></a>
             </div>
             <p class="text-center pt-5 text-d">جميع الحقوق محفوظة ل منصة Srmat Studen </p>
-            <a class="link-warning text-decoration-none fw-bold text-center" href="https://coding-site.com" target="_blank" rel="noopener noreferrer"><span class="text-light fw-bold">made by</span>  <span class="text-danger"> &hearts;</span> coding-site.com</a>
+            <a class="link-warning text-decoration-none fw-bold text-center" href="https://coding-site.com" target="_blank" rel="noopener noreferrer"><span class="text-light fw-bold">made by</span> <span class="text-danger"> &hearts;</span> coding-site.com</a>
         </div>
     </footer>
     <script src="/assets/ass/js/all.min.js"></script>
@@ -119,4 +125,5 @@
     <script type="module" src="/assets/ass/js/bootstrap.min.js"></script>
     <script type="module" src="/assets/ass/js/script.js"></script>
 </body>
+
 </html>

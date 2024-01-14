@@ -15,8 +15,10 @@ use App\Http\Controllers\Admin\MandubController;
 use App\Http\Controllers\Admin\SecretaryController;
 use App\Http\Controllers\Admin\TermController;
 use App\Http\Controllers\LandingPage\ContactUs;
+use App\Http\Controllers\LandingPage\LandingSubjectsController;
 use App\Http\Controllers\LandingPage\NotesController;
 use App\Http\Controllers\LandingPage\StageController;
+use App\Http\Controllers\LandingPage\SubjectsController;
 use App\Http\Controllers\Sitesetteings;
 use App\Http\Controllers\Student\CartController;
 use App\Http\Controllers\Student\SubscriptionController;
@@ -191,5 +193,10 @@ route::group(['prefix' => 'landingpage'], function () {
   Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');
   //books//notes
   Route::get('/books/stages', [NotesController::class, 'index'])->name('getNotesStage');
-
+  Route::get('/books/middleSchool', [NotesController::class, 'middleSchool'])->name('getMiddleSchool');
+  Route::get('/books/highSchool', [NotesController::class, 'highSchool'])->name('getHighSchool');
+ //subjest
+ Route::get('/subjects/landingpage/stages', [LandingSubjectsController::class, 'index'])->name('getLandingSubjectsStage');
+ Route::get('/subjects/middleSchool', [LandingSubjectsController::class, 'middleSchool'])->name('getMiddleSchoolSubjects');
+ Route::get('/subjects/highSchool', [LandingSubjectsController::class, 'highSchool'])->name('getHighSchoolSubjects');
 });
