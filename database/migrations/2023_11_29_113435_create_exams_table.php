@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('book_test')->nullable();
             $table->string('solved_test')->nullable();
             $table->string('unsolved_test')->nullable();
+            $table->string('kiser_1')->nullable();
+            $table->string('kiser_2')->nullable();
+            $table->string('final_review')->nullable();
             $table->timestamps();
         });
     }
