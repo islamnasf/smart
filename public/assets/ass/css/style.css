@@ -42,7 +42,7 @@ header{
     bottom: 0;
 }
 .card{
-    width: 22rem;
+    width: 100%;
 }
 @media  (max-width: 767px) {
 
@@ -60,6 +60,9 @@ header{
     }
     .card{
         width: 100%;
+    }
+    .contant-card {
+        flex-direction: column;
     }
 }
 
@@ -277,4 +280,11 @@ h5.one , h5.two , h5.there , h5.four {
     margin: auto;
     background-color: #212529;
 } 
-
+.shoping {
+    position: relative;
+}
+.shoping span{
+    position: absolute;
+    right: 50%;
+    top: 50%;
+}

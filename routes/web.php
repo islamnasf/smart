@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Book\OrderController;
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\ContactController;
@@ -159,6 +160,9 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('package/book/dalete/{packageId}', [BookController::class, 'delete'])->name('deletePackageBook');
   Route::get('package/book/{package}', [BookController::class, 'editPackage'])->name('editPackageBook');
   Route::get('package/archive/book/show', [BookController::class, 'unActive'])->name('showPackageArchiveBook');
+  //book/order/
+  Route::get('/book/neworder', [OrderController::class, 'neworder'])->name('getNewOrder');
+
   //secretary->admin
   Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
   Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');

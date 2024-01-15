@@ -19,6 +19,6 @@ class LandingSubjectsController extends Controller
     //third page  
     public function middleSchool()
     {
-        return view('landingpage.sujbect.middle_school');
+        return view('landingpage.subject.middle_school');
     }
 }
