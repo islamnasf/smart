@@ -28,23 +28,26 @@
                             <a class="nav-link active" aria-current="page" href="index.html">الرئيسية</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/stages.html">المواد</a>
-                        </li>
+                    <a class="nav-link" href="{{route('getLandingSubjectsStage')}}">المواد</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('getNotesStage')}}">المذكرات</a>
+                  </li>
+                 
+                  <li class="nav-item">
+                    <a class="nav-link " aria-disabled="true">المدرسين</a>
+                  </li>
+                </ul>
 
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{route('getNotesStage')}}">المذكرات</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link " aria-disabled="true">المدرسين</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <button class="btn-20"><span>تسجيل دخول</span></button>
-                    </form>
-                </div>
+                @if (Auth::check())
+                <a class="btn-20" href="{{ route('getProfile') }}"
+                    style="text-decoration: none;"></button><span>{{ Auth()->user()->name }}</span></a>
+            @else
+                <a class="btn-20" href="{{ route('login') }}" ><span>تسجيل الدخول</span></a>
+            @endif  
+              </div>
             </div>
-        </nav>
+          </nav>
     </header>
     <section id="top-hero">
         <h2 class="text-center mx-auto text-light fs-2 fw-bold">مذكرات سمارت طريقك نحو التفوق </h2>

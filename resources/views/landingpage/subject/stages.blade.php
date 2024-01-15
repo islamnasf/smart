@@ -26,21 +26,23 @@
                     <a class="nav-link active" aria-current="page" href="index.html">الرئيسية</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/stages.html">المواد</a>
+                    <a class="nav-link" href="{{route('getLandingSubjectsStage')}}">المواد</a>
                   </li>
-                  <li class="nav-item ">
-                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      الباقات
-                    </a>
-                    
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('getNotesStage')}}">المذكرات</a>
                   </li>
+                 
                   <li class="nav-item">
                     <a class="nav-link " aria-disabled="true">المدرسين</a>
                   </li>
                 </ul>
-                <form class="d-flex" role="search">
-                  <button class="btn-20"><span>تسجيل دخول</span></button>
-                </form>
+
+                @if (Auth::check())
+                <a class="btn-20" href="{{ route('getProfile') }}"
+                    style="text-decoration: none;"></button><span>{{ Auth()->user()->name }}</span></a>
+            @else
+                <a class="btn-20" href="{{ route('login') }}" ><span>تسجيل الدخول</span></a>
+            @endif  
               </div>
             </div>
           </nav>
