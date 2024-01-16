@@ -162,7 +162,7 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('package/archive/book/show', [BookController::class, 'unActive'])->name('showPackageArchiveBook');
   //book/order/
   Route::get('/book/neworder', [OrderController::class, 'neworder'])->name('getNewOrder');
-
+  Route::get('/book/neworder/details', [OrderController::class, 'neworderDetails'])->name('getNewOrderDetails');
   //secretary->admin
   Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
   Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');
@@ -199,8 +199,12 @@ route::group(['prefix' => 'landingpage'], function () {
   Route::get('/books/stages', [NotesController::class, 'index'])->name('getNotesStage');
   Route::get('/books/middleSchool', [NotesController::class, 'middleSchool'])->name('getMiddleSchool');
   Route::get('/books/highSchool', [NotesController::class, 'highSchool'])->name('getHighSchool');
- //subjest
+  Route::get('/books/notes/class/{name}', [NotesController::class, 'classNotes'])->name('getNotesClass');
+  Route::get('/pdf/book/free/{fileName}', [NotesController::class, 'downloadPdf'])->name('pdfBookFree');
+
+  //subjest
  Route::get('/subjects/landingpage/stages', [LandingSubjectsController::class, 'index'])->name('getLandingSubjectsStage');
  Route::get('/subjects/middleSchool', [LandingSubjectsController::class, 'middleSchool'])->name('getMiddleSchoolSubjects');
  Route::get('/subjects/highSchool', [LandingSubjectsController::class, 'highSchool'])->name('getHighSchoolSubjects');
+
 });

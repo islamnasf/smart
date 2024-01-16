@@ -12,7 +12,7 @@
             <div class="row text-center">
                 <div class="col-lg-3 col-md-6 col-sm-12 pb-5">
                     <div class="box">
-                        <a href="#" class="text-light">
+                        <a href="{{route('getCoursesClassRoom','six')}}" class="text-light">
                             <img src="/assets/ass/img/6.png" class="mb-3" width="150" alt="">
                             <h5 class="one">الصف السادس</h5>
                         </a>

@@ -11,13 +11,14 @@ use Illuminate\Http\Request;
 class CoursesController extends Controller
 {
     public function index(){
-            $coursesix=Course::where('classroom','الصف السادس')->get();
-            $courseseven=Course::where('classroom','الصف السابع')->get();
-            $courseeight=Course::where('classroom','الصف الثامن')->get();
-            $coursenine=Course::where('classroom','الصف التاسع')->get();
-            $courseten=Course::where('classroom','الصف العاشر')->get();
-            $courseeleven=Course::where('classroom','الصف الحادي عشر')->get();
-            $coursetwelve=Course::where('classroom','الصف الثاني عشر')->get();
+            $coursesix=Course::with('techer')->where('classroom','الصف السادس')->get();
+
+            $courseseven=Course::with('techer')->where('classroom','الصف السابع')->get();
+            $courseeight=Course::with('techer')->where('classroom','الصف الثامن')->get();
+            $coursenine=Course::with('techer')->where('classroom','الصف التاسع')->get();
+            $courseten=Course::with('techer')->where('classroom','الصف العاشر')->get();
+            $courseeleven=Course::with('techer')->where('classroom','الصف الحادي عشر')->get();
+            $coursetwelve=Course::with('techer')->where('classroom','الصف الثاني عشر')->get();
             return response()->json([
                 'status'=>200,
                 'coursesix'=> $coursesix,

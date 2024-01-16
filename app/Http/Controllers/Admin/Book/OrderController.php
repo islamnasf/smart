@@ -11,4 +11,7 @@ class OrderController extends Controller
     {
         return view('admin/book/orders/newOrder');
     }
+    public function neworderDetails(){
+        return view('admin/book/orders/orderDetails');
+    }
 }

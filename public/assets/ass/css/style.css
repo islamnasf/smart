@@ -279,7 +279,11 @@ h5.one , h5.two , h5.there , h5.four {
     height: 45px;
     margin: auto;
     background-color: #212529;
-} 
+}
+#ten {
+    height: 200px;
+}
+
 .shoping {
     position: relative;
 }
@@ -287,4 +291,5 @@ h5.one , h5.two , h5.there , h5.four {
     position: absolute;
     right: 50%;
     top: 50%;
+    
 }

@@ -12,7 +12,7 @@
             <div class="row text-center">
                 <div class="col-lg-4 col-md-6 col-sm-12 pb-5">
                     <div class="box">
-                        <a href="#" class="text-light">
+                        <a href="{{route('getNotesClass','ten')}}" class="text-light">
                             <img src="/assets/ass/img/10.png" class="mb-3" width="250" alt="">
                             <h5 class="one">الصف العاشر</h5>
                         </a>
@@ -20,13 +20,13 @@
                     
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 pb-5">
-                    <a href="#" class="text-light">
+                    <a href="{{route('getNotesClass','eleven')}}" class="text-light">
                         <img src="/assets/ass/img/11.png" class="mb-3" width="250" alt="">
                         <h5 class="two">الصف الحادي عشر</h5>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 pb-5">
-                    <a href="#" class="text-light">
+                    <a href="{{route('getNotesClass','twelve')}}" class="text-light">
                         <img src="/assets/ass/img/12.png" class="mb-3" width="250" alt="">
                         <h5 class="there">الصف الثاني عشر</h5>
                     </a>
