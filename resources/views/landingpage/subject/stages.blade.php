@@ -1,6 +1,9 @@
 @section('title')
 مواد | Smart Student
 @endsection
+@section('active1')
+active
+@endsection
 @include('landingpage.layouts.head')
     <section id="top-hero">
         <h2 class="text-center mx-auto text-light fs-2 fw-bold">كل اللى تحتاجه للتفوق بمكان واحد</h2>

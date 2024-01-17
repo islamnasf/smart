@@ -5,6 +5,7 @@ namespace App\Http\Controllers\LandingPage;
 use App\Http\Controllers\Controller;
 use App\Models\AnotherPackage;
 use App\Models\Book;
+use App\Models\BookCart;
 use App\Models\Package;
 use Illuminate\Http\Request;
 
@@ -26,75 +27,76 @@ class NotesController extends Controller
     }
     public function classNotes(string $name)
     {
-        if ($name == 'four') {
-            $books = Book::where('classroom', 'الصف الرابع')->get();
-            $book_Packages = AnotherPackage::has('book')->where('class', 'الصف الرابع')->get();
-            $course_Packages = Package::has('course')->where('class', 'الصف الرابع')->get();
-            //
-            $bookPackage = AnotherPackage::has('book')->where('class', 'الصف الرابع')->first();
-            $coursePackage = Package::has('course')->where('class', 'الصف الرابع')->first();
-        } elseif ($name == 'five') {
-            $books = Book::where('classroom', 'الصف الخامس')->get();
-            $book_Packages = AnotherPackage::has('book')->where('class', 'الصف الخامس')->get();
-            $course_Packages = Package::has('course')->where('class', 'الصف الخامس')->get();
-            //
-            $bookPackage = AnotherPackage::has('book')->where('class', 'الصف الخامس')->first();
-            $coursePackage = Package::has('course')->where('class', 'الصف الخامس')->first();
-        } elseif ($name == 'six') {
-            $books = Book::where('classroom', 'الصف السادس')->get();
-            $book_Packages = AnotherPackage::has('book')->where('class', 'الصف السادس')->get();
-            $course_Packages = Package::has('course')->where('class', 'الصف السادس')->get();
-            //
-            $bookPackage = AnotherPackage::has('book')->where('class', 'الصف السادس')->first();
-            $coursePackage = Package::has('course')->where('class', 'الصف السادس')->first();
-        } elseif ($name == 'seven') {
-            $books = Book::where('classroom', 'الصف السابع')->get();
-            $book_Packages = AnotherPackage::has('book')->where('class', 'الصف السابع')->get();
-            $course_Packages = Package::has('course')->where('class',  'الصف السابع')->get();
-            //
-            $bookPackage = AnotherPackage::has('book')->where('class', 'الصف السابع')->first();
-            $coursePackage = Package::has('course')->where('class', 'الصف السابع')->first();
-        } elseif ($name == 'eight') {
-            $books = Book::where('classroom', 'الصف الثامن')->get();
-            $book_Packages = AnotherPackage::has('book')->where('class', 'الصف الثامن')->get();
-            $course_Packages = Package::has('course')->where('class', 'الصف الثامن')->get();
-            //
-            $bookPackage = AnotherPackage::has('book')->where('class', 'الصف الثامن')->first();
-            $coursePackage = Package::has('course')->where('class', 'الصف الثامن')->first();
-        } elseif ($name == 'nine') {
-            $books = Book::where('classroom', 'الصف التاسع')->get();
-            $book_Packages = AnotherPackage::has('book')->where('class', 'الصف التاسع')->get();
-            $course_Packages = Package::has('course')->where('class', 'الصف التاسع')->get();
-            //
-            $bookPackage = AnotherPackage::has('book')->where('class', 'الصف التاسع')->first();
-            $coursePackage = Package::has('course')->where('class', 'الصف التاسع')->first();
-        } elseif ($name == 'ten') {
-            $books = Book::where('classroom', 'الصف العاشر')->get();
-            $book_Packages = AnotherPackage::has('book')->where('class', 'الصف العاشر')->get();
-            $course_Packages = Package::has('course')->where('class', 'الصف العاشر')->get();
-            //
-            $bookPackage = AnotherPackage::has('book')->where('class', 'الصف العاشر')->first();
-            $coursePackage = Package::has('course')->where('class', 'الصف العاشر')->first();
-        } elseif ($name == 'eleven') {
-            $books = Book::where('classroom', 'الصف الحادي عشر')->get();
-            $book_Packages = AnotherPackage::has('book')->where('class', 'الصف الحادي عشر')->get();
-            $course_Packages = Package::has('course')->where('class',  'الصف الحادي عشر')->get();
-            //
-            $bookPackage = AnotherPackage::has('book')->where('class',  'الصف الحادي عشر')->first();
-            $coursePackage = Package::has('course')->where('class','الصف الحادي عشر')->first();
-        } elseif ($name == 'twelve') {
-            $books = Book::where('classroom', 'الصف الثاني عشر')->get();
-            $book_Packages = AnotherPackage::has('book')->where('class', 'الصف الثاني عشر')->get();
-            $course_Packages = Package::has('course')->where('class', 'الصف الثاني عشر')->get();
-            //
-            $bookPackage = AnotherPackage::has('book')->where('class', 'الصف الثاني عشر')->first();
-            $coursePackage = Package::has('course')->where('class', 'الصف الثاني عشر')->first();
+        $classroomMap = [
+            'four' => 'الصف الرابع',
+            'five' => 'الصف الخامس',
+            'six' => 'الصف السادس',
+            'seven' => 'الصف السابع',
+            'eight' => 'الصف الثامن',
+            'nine' => 'الصف التاسع',
+            'ten' => 'الصف العاشر',
+            'eleven' => 'الصف الحادي عشر',
+            'twelve' => 'الصف الثاني عشر',
+        ];
+
+        if (isset($classroomMap[$name])) {
+            $classroom = $classroomMap[$name];
+
+            $books = Book::where('classroom', $classroom)->get();
+            $book_Packages = AnotherPackage::has('book')->where('class', $classroom)->get();
+            $course_Packages = Package::has('course')->where('class', $classroom)->get();
+
+            $bookPackage = AnotherPackage::has('book')->where('class', $classroom)->first();
+            $coursePackage = Package::has('course')->where('class', $classroom)->first();
+
+
+            return view('landingpage.books.notes_class', compact('books', 'book_Packages', 'course_Packages', 'bookPackage', 'coursePackage'));
         }
-        return view('landingpage.books.notes_class', compact('books', 'book_Packages', 'course_Packages','bookPackage' ,'coursePackage'));
     }
+
     public function downloadPdf($fileName)
     {
 
         return response()->download(storage_path('app/public/pdf/books/' . $fileName));
+    }
+    //cart // 
+    public function cartBooks()
+    {
+
+        $sessionId = session()->getId();
+        $items = BookCart::where('session_id', $sessionId)->get();
+        return view('landingpage.books.cart', compact('items'));
+    }
+
+    //cart // book //add 
+    public function addToCartbooks(Request $request)
+    {
+        BookCart::create([
+            'session_id' => session()->getId(),
+            'book_id' => $request->book_id,
+            'quantity' => $request->quantity,
+            'price' => $request->price,
+        ]);
+        toastr()->success('تم اضافة الكتاب  بنجاح');
+        return back();
+    }
+    public function addToCartPackages(Request $request)
+    {
+        BookCart::create([
+            'session_id' => session()->getId(),
+            'package_id' => $request->package_id,
+            'quantity' => $request->quantity,
+            'price' => $request->price,
+        ]);
+        toastr()->success('تم اضافة الباقة  بنجاح');
+        return back();
+    }
+
+    public function deleteCartBooksItem(int $cart)
+    {
+        $cartItem = BookCart::find($cart);
+        $cartItem->delete();
+        toastr()->success(' تم الحذف بنجاح');
+        return redirect()->back();
     }
 }

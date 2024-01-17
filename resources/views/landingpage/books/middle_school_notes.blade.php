@@ -1,6 +1,9 @@
 @section('title')
 مذكرات | Smart Student
 @endsection
+@section('active2')
+active
+@endsection
 @include('landingpage.layouts.head')
 
     <section id="top-hero">

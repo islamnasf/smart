@@ -185,13 +185,13 @@ route::group(['prefix' => 'dashboard/student/'], function () {
   Route::get('/subscription', [SubscriptionController::class, 'index'])->name('studentSubscription');
 });
 route::group(['prefix' => 'landingpage'], function () {
-  //landingpage->stages ////ااستكشف المواد
-  Route::get('/stage/information/{name}', [StageController::class, 'stageInfon'])->name('stageInfonShow');
-  Route::get('/subject/stages', [StageController::class, 'index'])->name('stagesPage');
-  Route::get('/subjects/show/{name}', [StageController::class, 'showAllSubjects'])->name('subjectsShow');
-  Route::get('/subjects/showone/{course}', [StageController::class, 'showOneSubject'])->name('subjectsShowOne');
-  Route::get('/subjects/freevideo/{video}', [StageController::class, 'showFreeVideo'])->name('freeVideo');
-  Route::get('/filedownload/{file}', [StageController::class, 'download'])->name('fileDownload');
+  // //landingpage->stages ////ااستكشف المواد
+  // Route::get('/stage/information/{name}', [StageController::class, 'stageInfon'])->name('stageInfonShow');
+  // Route::get('/subject/stages', [StageController::class, 'index'])->name('stagesPage');
+  // Route::get('/subjects/show/{name}', [StageController::class, 'showAllSubjects'])->name('subjectsShow');
+  // Route::get('/subjects/showone/{course}', [StageController::class, 'showOneSubject'])->name('subjectsShowOne');
+  // Route::get('/subjects/freevideo/{video}', [StageController::class, 'showFreeVideo'])->name('freeVideo');
+  // Route::get('/filedownload/{file}', [StageController::class, 'download'])->name('fileDownload');
   //contactUs//
   Route::get('/contactus', [ContactUs::class, 'index'])->name('contactus');
   Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');
@@ -201,10 +201,15 @@ route::group(['prefix' => 'landingpage'], function () {
   Route::get('/books/highSchool', [NotesController::class, 'highSchool'])->name('getHighSchool');
   Route::get('/books/notes/class/{name}', [NotesController::class, 'classNotes'])->name('getNotesClass');
   Route::get('/pdf/book/free/{fileName}', [NotesController::class, 'downloadPdf'])->name('pdfBookFree');
+  Route::get('/books/carts', [NotesController::class, 'cartBooks'])->name('getCartBooks');
+  //book/cart
+  Route::post('cart/add/new/book', [NotesController::class, 'addToCartbooks'])->name('addToCartbooks');
+  Route::post('cart/add/new/package/packagebooks', [NotesController::class, 'addToCartPackages'])->name('addToCartPackages');
+  Route::get('/delete/Cart/Books/Item/{cart}', [NotesController::class, 'deleteCartBooksItem'])->name('deleteCartBooksItem');
 
   //subjest
- Route::get('/subjects/landingpage/stages', [LandingSubjectsController::class, 'index'])->name('getLandingSubjectsStage');
- Route::get('/subjects/middleSchool', [LandingSubjectsController::class, 'middleSchool'])->name('getMiddleSchoolSubjects');
- Route::get('/subjects/highSchool', [LandingSubjectsController::class, 'highSchool'])->name('getHighSchoolSubjects');
-
+  Route::get('/subjects/landingpage/stages', [LandingSubjectsController::class, 'index'])->name('getLandingSubjectsStage');
+  Route::get('/subjects/middleSchool', [LandingSubjectsController::class, 'middleSchool'])->name('getMiddleSchoolSubjects');
+  Route::get('/subjects/highSchool', [LandingSubjectsController::class, 'highSchool'])->name('getHighSchoolSubjects');
+  Route::get('/subjects/courses/class/{name}', [LandingSubjectsController::class, 'getCoursesClassRoom'])->name('getCoursesClassRoom');
 });

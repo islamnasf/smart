@@ -24,3 +24,35 @@ $(document).ready(function(){
         }
     })
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    var quantityInputs = document.querySelectorAll(".input-number");
+    var decrementButtons = document.querySelectorAll(".input-number-decrement");
+    var incrementButtons = document.querySelectorAll(".input-number-increment");
+
+    decrementButtons.forEach(function (button, index) {
+        button.addEventListener("click", function () {
+            decrementQuantity(index);
+        });
+    });
+
+    incrementButtons.forEach(function (button, index) {
+        button.addEventListener("click", function () {
+            incrementQuantity(index);
+        });
+    });
+
+    function decrementQuantity(index) {
+        var currentValue = parseInt(quantityInputs[index].value, 10);
+        if (currentValue > 1) {
+            quantityInputs[index].value = currentValue - 1;
+        }
+    }
+
+    function incrementQuantity(index) {
+        var currentValue = parseInt(quantityInputs[index].value, 10);
+        quantityInputs[index].value = currentValue + 1;
+    }
+});
+
+

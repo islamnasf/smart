@@ -291,5 +291,37 @@ h5.one , h5.two , h5.there , h5.four {
     position: absolute;
     right: 50%;
     top: 50%;
-    
 }
+a .fa-trash {
+    padding: 16px 18px;
+    font-size: 24px;
+    background-color: #e8e9ea;
+    border-radius: 50%;
+}
+
+/* Add some basic styling for the quantity container */
+.btn_min_max {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style the increment and decrement buttons */
+.quantity {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #eee;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Style the disabled decrement button */
+.quantity[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+ 

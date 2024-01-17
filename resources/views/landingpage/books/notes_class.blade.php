@@ -1,6 +1,9 @@
 @section('title')
 مذكرات | Smart Student
 @endsection
+@section('active2')
+active
+@endsection
 @include('landingpage.layouts.head')
 <section id="ten">
     <div class="container bg-light d-flex justify-content-start align-items-end h-100">
@@ -25,13 +28,32 @@
                         <img src="/assets/ass/img/books.png" width="150" alt="">
                     </div>
                     <div class="shoping d-flex">
-                        <a class="btn btn-warning my-4 mx-auto text-dark fw-bold" href="#">إضافة إلي السلة <i class="fa-solid fa-basket-shopping"></i></a>
+                        @php
+                        $sessionId = session()->getId();
+                        $bookInCart = \App\Models\BookCart::where('session_id', $sessionId)->where('book_id', $book->id)->exists();
+                        @endphp
+
+                        @if($bookInCart)
+                        <a href="{{route('getCartBooks')}}" class="btn btn-info my-4 mx-auto text-dark fw-bold">
+                            الكتاب موجود في السلة
+                        </a>
+                        @else
+                        <form action="{{ route('addToCartbooks') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="book_id" value="{{ $book->id }}">
+                            <input type="hidden" name="price" value="{{ $book->book_price }}">
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" class="btn btn-warning my-4 mx-auto text-dark fw-bold ms-3" onclick="disableButton()">
+                                إضافة إلى السلة <i class="fa-solid fa-basket-shopping"></i>
+                            </button>
+                        </form>
+                        @endif
+
                         <a class="btn btn-dark my-4 mx-auto  fw-bold" href="{{route('pdfBookFree',$book->pdf)}}">تجربة مجانية <i class="fa-solid fa-download"></i></a>
                     </div>
                 </div>
             </div>
             @endforeach
-
         </div>
         <div class="row ">
             @foreach($book_Packages as $package)
@@ -54,7 +76,26 @@
                     </div>
                     <div class="d-flex justify-content-center align-items-center mx-auto gap-5 ">
                         <h6 class="fw-bold  pt-2"> سعر الباقة <span class="text-danger">({{$package->price}} د.ك)</span><del class="ms-2 d-block text-center">{{$package->price*2}} د.ك</del></h6>
-                        <a class="btn btn-warning my-4 mx-auto text-dark fw-bold" href="#">إضافة إلي السلة<i class="fa-solid fa-basket-shopping"></i></a>
+                        @php
+                        $sessionId = session()->getId();
+                        $packageInCart = \App\Models\BookCart::where('session_id', $sessionId)->where('package_id', $package->id)->exists();
+                        @endphp
+
+                        @if($packageInCart)
+                        <a href="{{route('getCartBooks')}}" class="btn btn-info my-4 mx-auto text-dark fw-bold">
+                            الباقة موجود في السلة
+                        </a>
+                        @else
+                        <form action="{{ route('addToCartPackages') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="package_id" value="{{ $package->id }}">
+                            <input type="hidden" name="price" value="{{ $package->price }}">
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" class="btn btn-warning my-4 mx-auto text-dark fw-bold " onclick="disableButton()">
+                                إضافة إلى السلة <i class="fa-solid fa-basket-shopping"></i>
+                            </button>
+                        </form>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -82,7 +123,7 @@
                     </div>
                     <div class="d-flex justify-content-center align-items-center mx-auto gap-5 ">
                         <h6 class="fw-bold  pt-2"> سعر الباقة <span class="text-danger">({{$package->price}} د.ك)</span><del class="ms-2 d-block text-center">{{$package->price*2}} د.ك</del></h6>
-                        <a class="btn btn-warning my-4 mx-auto text-dark fw-bold" href="{{route('login')}}">إشتراك<i class="fa-solid fa-basket-shopping"></i></a>
+                        <a class="btn btn-warning my-4 mx-auto text-dark fw-bold" href="{{route('login')}}">إشتراك</a>
                     </div>
                 </div>
             </div>
@@ -117,7 +158,7 @@
                     </div>
                     <div class="d-flex justify-content-center align-items-center mx-auto gap-5 ">
                         <h6 class="fw-bold  pt-2"> سعر الباقة <span class="text-danger">({{$bookPackage->price+$coursePackage->price}} د.ك)</span><del class="ms-2 d-block text-center">{{$bookPackage->price*2+$coursePackage->price*2 }} د.ك</del></span></h6>
-                        <a class="btn btn-warning my-4 mx-auto text-dark fw-bold" href="#">إشتراك<i class="fa-solid fa-basket-shopping"></i></a>
+                        <a class="btn btn-warning my-4 mx-auto text-dark fw-bold" href="{{route('login')}}">إشتراك</a>
                     </div>
                 </div>
             </div>

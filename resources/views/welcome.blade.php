@@ -1,6 +1,9 @@
 @section('title')
 منصة تعلمية شاملة | SMART STUDEN
 @endsection
+@section('active')
+active
+@endsection
 @include('landingpage.layouts.head')
     <section id="hero">
         <div class="container h-100">
@@ -8,7 +11,7 @@
                 <div class="text">
                     <h2 class="fs-1 fw-bold">منصة تعليمية شاملة</h2>
                     <p class="fs-5">منصة تعليمية متكاملة بمدرسين محترفين ومحتوى متميز يغطي جميع المراحل الدراسية. تقدم مذكرات وكورسات على الإنترنت، مما يوفر تجربة تعلم شاملة وممتعة للطلاب.</p>
-                    <a href="/stages.html"><button class="btn-20"><span>استكشف المواد</span></button></a>
+                    <a href="{{route('getLandingSubjectsStage')}}"><button class="btn-20"><span>استكشف المواد</span></button></a>
                 </div>
                 <div class="icon-hero">
                     <img src="assets/ass/img/img-hero.png" width="620" alt="">
