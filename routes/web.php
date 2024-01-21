@@ -162,7 +162,8 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('package/archive/book/show', [BookController::class, 'unActive'])->name('showPackageArchiveBook');
   //book/order/
   Route::get('/book/neworder', [OrderController::class, 'neworder'])->name('getNewOrder');
-  Route::get('/book/neworder/details', [OrderController::class, 'neworderDetails'])->name('getNewOrderDetails');
+  Route::post('/book/delete/NewOrder/Details/{order}', [OrderController::class, 'deleteNewOrderDetails'])->name('deleteNewOrderDetails');
+  Route::get('/book/neworder/details/{order}', [OrderController::class, 'neworderDetails'])->name('getNewOrderDetails');
   //secretary->admin
   Route::get('/secretary', [SecretaryController::class, 'index'])->name('getSecretary');
   Route::post('/secretary', [SecretaryController::class, 'store'])->name('postSecretary');
@@ -205,7 +206,9 @@ route::group(['prefix' => 'landingpage'], function () {
   //book/cart
   Route::post('cart/add/new/book', [NotesController::class, 'addToCartbooks'])->name('addToCartbooks');
   Route::post('cart/add/new/package/packagebooks', [NotesController::class, 'addToCartPackages'])->name('addToCartPackages');
+  Route::post('cart/add/quantity/package/{cart}', [NotesController::class, 'postnewquantitybook'])->name('postnewquantitybook');
   Route::get('/delete/Cart/Books/Item/{cart}', [NotesController::class, 'deleteCartBooksItem'])->name('deleteCartBooksItem');
+  Route::post('cart/order/done', [NotesController::class, 'neworderbook'])->name('postneworderbook');  
 
   //subjest
   Route::get('/subjects/landingpage/stages', [LandingSubjectsController::class, 'index'])->name('getLandingSubjectsStage');

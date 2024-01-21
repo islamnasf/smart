@@ -55,4 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
+document.getElementById("done").addEventListener("click", function() {
+    var targetElement = document.getElementById("chackout");
+  
+    targetElement.classList.add("show");
+  });

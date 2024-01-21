@@ -14,4 +14,8 @@ class City extends Model
     {
         return $this->belongsToMany(User::class, 'mandub_cities', "mandoub_id", "city_id", "id");
     }
+    public function order()
+    {
+        return $this->hasOne(OrderBookDetail::class, "city_id");
+    }
 }

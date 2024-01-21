@@ -93,7 +93,10 @@ class User extends Authenticatable implements JWTSubject
             ->withPivot('mandub_quantity', 'minimum','station','distributor_active','mandub_active','mandub_target')
             ->withTimestamps();
     }
-
+    public function order()
+    {
+        return $this->hasOne(OrderBookDetail::class, "mandub_id");
+    }
 
     public function getJWTCustomClaims()
     {

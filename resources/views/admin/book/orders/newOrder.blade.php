@@ -38,7 +38,6 @@
                     <table id="datatable" class="table table-striped table-bordered p-0" style="text-align:center">
                         <thead>
                             <tr>
-
                                 <th>وقت الطلب </th>
                                 <th> اسم المشتري </th>
                                 <th>رقم التليفون </th>
@@ -47,22 +46,24 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($orders as $order)
                             <tr>
-
-                                <td></td>
-                                <td></td>
-
+                                <td>{{$order->created_at}}</td>
+                                <td>{{$order->buyer}}</td>
+                                <td>{{$order->phone}}</td>
                                 <td>
-
+                                    @php
+                                    $city = \App\Models\City::where('id', $order->city_id)->first(); 
+                                    @endphp
+                                    {{$city->name}}
                                 </td>
-                                <td></td>
                                 <td>
                                     <!-- Button trigger modal update -->
                                     <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-sliders" style="font-size: 20px;"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-big dropdown-notifications">
-                                        <a href="{{route('getNewOrderDetails')}}">
+                                        <a href="{{route('getNewOrderDetails',$order->id)}}">
                                             <div style="padding:2px; padding-right: 20px; font-size: 15px;">
                                                 <button type="button" class="btn btn-dark btn-sm">
                                                     <i class="fa fa-angle-down"></i>
@@ -71,7 +72,7 @@
                                             </div>
                                         </a>
                                         <div style="padding:2px; padding-right: 20px; font-size: 15px;">
-                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete">
+                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{$order->id}}">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                             حذف
@@ -81,7 +82,7 @@
                                     </div>
 
 
-                                    <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="delete{{$order->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -90,7 +91,7 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <form action="#" method="post">
+                                                <form action="{{route('deleteNewOrderDetails',$order->id)}}" method="post">
                                                     @csrf
                                                     <h4 class="modal-body">
                                                         هل انت متاكد من حذف هذه العملية ؟
@@ -113,7 +114,7 @@
                                 </td>
 
                             </tr>
-
+                            @endforeach
 
                             </tfoot>
 

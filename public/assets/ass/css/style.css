@@ -265,7 +265,7 @@ header{
     align-items: center;
     height: 500px;
     background-image: url(/assets/ass/img/img-top.jpg);
-    background-size: cover  ;
+    background-size:cover;
     object-fit: contain;
     background-position: center;
 }
@@ -323,5 +323,12 @@ a .fa-trash {
     background-color: #ccc;
     cursor: not-allowed;
 }
+.lh-condensed { line-height: 1.25; }
 
- 
+.hide{
+    transition: 300ms;
+    display: none;
+}
+.show {
+    display: block;
+}

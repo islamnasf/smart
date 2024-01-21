@@ -60,7 +60,7 @@ active
                     <div class="card bg-dark">
                         <img src="assets/ass/img/professor.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                          <h5 class="card-title btn-20 text-center"><span>مدرس خصوصي</span></h5>
+                          <h5 class="card-title btn-20 text-center"><span>معلمك الخاص  </span></h5>
                         </div>
                       </div>
                 </div>

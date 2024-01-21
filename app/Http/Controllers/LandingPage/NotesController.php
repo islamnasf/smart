@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\AnotherPackage;
 use App\Models\Book;
 use App\Models\BookCart;
+use App\Models\City;
+use App\Models\OrderBookDetail;
+use App\Models\OrderBookItem;
 use App\Models\Package;
 use Illuminate\Http\Request;
 
@@ -64,8 +67,9 @@ class NotesController extends Controller
     {
 
         $sessionId = session()->getId();
+        $cities = City::all();
         $items = BookCart::where('session_id', $sessionId)->get();
-        return view('landingpage.books.cart', compact('items'));
+        return view('landingpage.books.cart', compact('items', 'cities'));
     }
 
     //cart // book //add 
@@ -99,4 +103,71 @@ class NotesController extends Controller
         toastr()->success(' تم الحذف بنجاح');
         return redirect()->back();
     }
+    
+    //postnewquantitybook
+    public function postnewquantitybook(Request $request, int $cart) {
+        $cartItem = BookCart::find($cart);
+        if ($cartItem) {
+            $book = Book::find($cartItem->book_id);
+            $package = AnotherPackage::find($cartItem->package_id);
+            if ($book) {
+                $cartItem->update([
+                    'quantity' => $request->count,
+                    'price' => $request->count * $book->book_price,
+                ]);
+            }
+            if ($package) {
+                $cartItem->update([
+                    'quantity' => $request->count,
+                    'price' => $request->count * $package->price,
+                ]);
+            }
+        
+        return response()->json(['success' => true, 'message' => 'تم تحديث الكمية بنجاح']);
+    }
+
+    return response()->json(['success' => false, 'message' => 'حدث خطأ أثناء تحديث الكمية']);  
+  }
+    //order
+    public function neworderbook(Request $request)
+    {
+        $sessionId = session()->getId();
+        $items = BookCart::where('session_id', $sessionId)->get();
+    
+        if ($items->isNotEmpty()) {
+            $price = 0;
+    
+            $newOrder = OrderBookDetail::create([
+                'buyer' => $request->buyer,
+                'phone' => $request->phone,
+                'address' => $request->address,
+                'city_id' => $request->city_id,
+            ]);
+    
+            foreach ($items as $item) {
+                $orderitem = OrderBookItem::create([
+                    'session_id' => $sessionId,
+                    'book_id' => $item->book_id,
+                    'package_id' => $item->package_id,
+                    'quantity' => $item->quantity,
+                    'price' => $item->price,
+                    'order_id' => $newOrder->id,
+                ]);
+    
+                $price += $item->price;
+            }
+    
+            $newOrder->update([
+                'price_all' => $price,
+            ]);
+    
+            // حذف العناصر بعد إنشاء الأوردر
+            BookCart::where('session_id', $sessionId)->delete();
+    
+            return back();
+        }
+    }
+    
+    
+
 }
