@@ -78,37 +78,6 @@ $bookInCartCount = \App\Models\BookCart::where('session_id', $sessionId)->count(
                   <input type="number" id="count" data-price="2489.91" data-id="2406" name="count" class="quantity2406 form-control text-center input-number" value="{{ $item->quantity }}" min="1" step="1" oninput="updateQuantity()">
                 </form>
 
-                <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // استهداف جميع عناصر الإدخال بناءً على الفئة
-        var quantityInputs = document.querySelectorAll(".quantity2406");
-
-        // إضافة مستمع لحدث الإدخال لكل عنصر
-        quantityInputs.forEach(function(input) {
-            input.addEventListener("input", function() {
-                updateQuantity(this); // يمرر الدالة العنصر الحالي
-            });
-        });
-
-        // الدالة لتحديث الكمية
-        function updateQuantity(input) {
-            var formData = new FormData(input.form);
-
-            fetch(input.form.action, {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                // يمكنك إضافة التحديثات التي ترغب فيها هنا
-                console.log("تم تحديث الكمية بنجاح!");
-            })
-            .catch(error => {
-                console.error("حدث خطأ أثناء تحديث الكمية:", error);
-            });
-        }
-    });
-</script>
 
 
               </div>
@@ -202,6 +171,37 @@ $bookInCartCount = \App\Models\BookCart::where('session_id', $sessionId)->count(
   </div>
 </section>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // استهداف جميع عناصر الإدخال بناءً على الفئة
+        var quantityInputs = document.querySelectorAll(".quantity2406");
+
+        // إضافة مستمع لحدث الإدخال لكل عنصر
+        quantityInputs.forEach(function(input) {
+            input.addEventListener("input", function() {
+                updateQuantity(this); // يمرر الدالة العنصر الحالي
+            });
+        });
+
+        // الدالة لتحديث الكمية
+        function updateQuantity(input) {
+            var formData = new FormData(input.form);
+
+            fetch(input.form.action, {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // يمكنك إضافة التحديثات التي ترغب فيها هنا
+                console.log("تم تحديث الكمية بنجاح!");
+            })
+            .catch(error => {
+                console.error("حدث خطأ أثناء تحديث الكمية:", error);
+            });
+        }
+    });
+</script>
 @else
 <h1 class="text-center py-5"> لا يوجد مشتريات حاليا </h1>
 @endif
