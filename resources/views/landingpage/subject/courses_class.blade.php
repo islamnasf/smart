@@ -17,21 +17,23 @@ active
         <h4 class="text-center title fw-bold pt-5">مواد الصف</h4>
         <div class="owl-carousel owl-theme pb-5 text-center">
             @foreach($courses as $course)
-            <div class="item">
-                <div class="card bg-light text-dark ">
-                    <div class="contant-2 mt-3 ms-3 d-flex gap-5 justify-content-center align-items-center">
-                        <h5 class="fw-bold">{{$course->subject_name}}</h5>
-                        <img src="/assets/ass/img/books1.png" width="150" alt="">
-                    </div>
-                    <div class="shoping d-flex">
-                        <a class="btn btn-warning mt-2 mx-auto text-dark fw-bold " href="{{route('login')}}" style="letter-spacing: .7px;"> إشتراك شهر {{$course->monthly_subscription_price}} د.ك</a>
-                    </div>
-                    <div class="shoping d-flex">
-                        <a class="btn btn-warning my-1 mx-auto text-dark fw-bold " href="{{route('login')}}" style="letter-spacing: 1.1px;"> إشتراك ترم {{$course->term_price}} د.ك</a>
+                <div class="item">
+
+                    <div class="card bg-light text-dark ">
+                        <a href="{{route('getSubjectTutorialsAndFreeVideos',$course->id)}}" class="contant-2 mt-3 ms-3 d-flex gap-5 justify-content-center align-items-center text-dark">
+                            <h5 class="fw-bold">{{$course->subject_name}}</h5>
+                            <img src="/assets/ass/img/books1.png" width="150" alt="">
+                        </a>
+                        <div class="shoping d-flex">
+                            <a class="btn btn-warning mt-2 mx-auto text-dark fw-bold " href="{{route('login')}}" style="letter-spacing: .7px;"> إشتراك شهر {{$course->monthly_subscription_price}} د.ك</a>
+                        </div>
+                        <div class="shoping d-flex">
+                            <a class="btn btn-warning my-1 mx-auto text-dark fw-bold " href="{{route('login')}}" style="letter-spacing: 1.1px;"> إشتراك ترم {{$course->term_price}} د.ك</a>
+                        </div>
+
                     </div>
 
                 </div>
-            </div>
             @endforeach
         </div>
         <div class="row ">
@@ -81,7 +83,26 @@ active
                     </div>
                     <div class="d-flex justify-content-center align-items-center mx-auto gap-5 ">
                         <h6 class="fw-bold  pt-2"> سعر الباقة <span class="text-danger">({{$package->price}} د.ك)</span><del class="ms-2 d-block text-center">{{$package->price*2}} د.ك</del></h6>
-                        <a class="btn btn-warning my-4 mx-auto text-dark fw-bold" href="#">إضافة إلي السلة<i class="fa-solid fa-basket-shopping"></i></a>
+                        @php
+                        $sessionId = session()->getId();
+                        $packageInCart = \App\Models\BookCart::where('session_id', $sessionId)->where('package_id', $package->id)->exists();
+                        @endphp
+
+                        @if($packageInCart)
+                        <a href="{{route('getCartBooks')}}" class="btn btn-info my-4 mx-auto text-dark fw-bold">
+                            الباقة موجوده في السلة
+                        </a>
+                        @else
+                        <form action="{{ route('addToCartPackages') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="package_id" value="{{ $package->id }}">
+                            <input type="hidden" name="price" value="{{ $package->price }}">
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" class="btn btn-warning my-4 mx-auto text-dark fw-bold " onclick="disableButton()">
+                                إضافة إلى السلة <i class="fa-solid fa-basket-shopping"></i>
+                            </button>
+                        </form>
+                        @endif
                     </div>
                 </div>
             </div>

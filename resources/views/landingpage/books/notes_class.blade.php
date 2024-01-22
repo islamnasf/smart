@@ -83,7 +83,7 @@ active
 
                         @if($packageInCart)
                         <a href="{{route('getCartBooks')}}" class="btn btn-info my-4 mx-auto text-dark fw-bold">
-                            الباقة موجود في السلة
+                            الباقة موجوده في السلة
                         </a>
                         @else
                         <form action="{{ route('addToCartPackages') }}" method="post">

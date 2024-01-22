@@ -64,6 +64,9 @@ header{
     .contant-card {
         flex-direction: column;
     }
+    #videos iframe {
+        width: 350px;
+    }
 }
 
 @keyframes animate {
@@ -265,7 +268,7 @@ header{
     align-items: center;
     height: 500px;
     background-image: url(/assets/ass/img/img-top.jpg);
-    background-size:cover;
+    background-size: cover  ;
     object-fit: contain;
     background-position: center;
 }
@@ -298,7 +301,6 @@ a .fa-trash {
     background-color: #e8e9ea;
     border-radius: 50%;
 }
-
 /* Add some basic styling for the quantity container */
 .btn_min_max {
     display: flex;

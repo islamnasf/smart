@@ -123,7 +123,10 @@ $bookInCartCount = \App\Models\BookCart::where('session_id', $sessionId)->count(
             <h5 class="fw-bold">المجموع الكلي</h5>
             <span class="text-dark-200 fw-bold"> {{ $total }} د.ك </span>
           </div>
-          <botton id="done" class="btn btn-danger fw-bold my-3 mx-auto">اتمام عملية الشراء</botton>
+          <a href="{{route('getNotesStage')}}" class="btn btn-info fw-bold my-3 mx-auto "> تسوق المزيد</a>
+
+          <botton id="done" class="btn btn-danger fw-bold my-3 mx-auto ">اتمام عملية الشراء</botton>
+
         </div>
         <form action="{{route('postneworderbook')}}" method="post">
           @csrf
@@ -142,16 +145,8 @@ $bookInCartCount = \App\Models\BookCart::where('session_id', $sessionId)->count(
                   <input type="text" class="form-control" id="phone" placeholder="05555555" required="" name="phone">
                 </div>
               </div>
-              <div class="mb-3">
-                <label for="email">البريد الإلكتروني <span class="text-muted">(Optional)</span></label>
-                <input type="email" class="form-control" id="email" placeholder="you@example.com">
-              </div>
-              <div class="mb-3">
-                <label for="address">سطر العنوان</label>
-                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="" name="address">
-              </div>
               <div class="row">
-                <div class="col-md-5 mb-3">
+                <div class="col-md-12 mb-3">
                   <label for="country">المحافظة</label>
                   <select class="form-select d-block w-100" id="country" required="" name="city_id">
                     <option selected>اختار...</option>
@@ -161,6 +156,11 @@ $bookInCartCount = \App\Models\BookCart::where('session_id', $sessionId)->count(
                   </select>
                 </div>
               </div>
+              <div class="mb-3">
+                <label for="address"> العنوان</label>
+                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="" name="address">
+              </div>
+             
               <hr class="mb-4">
               <button class="btn btn-danger btn-lg btn-block" type="submit">تأكيد عملية الشراء</button>
             </div>
@@ -172,35 +172,35 @@ $bookInCartCount = \App\Models\BookCart::where('session_id', $sessionId)->count(
 </section>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // استهداف جميع عناصر الإدخال بناءً على الفئة
-        var quantityInputs = document.querySelectorAll(".quantity2406");
+  document.addEventListener("DOMContentLoaded", function() {
+    // استهداف جميع عناصر الإدخال بناءً على الفئة
+    var quantityInputs = document.querySelectorAll(".quantity2406");
 
-        // إضافة مستمع لحدث الإدخال لكل عنصر
-        quantityInputs.forEach(function(input) {
-            input.addEventListener("input", function() {
-                updateQuantity(this); // يمرر الدالة العنصر الحالي
-            });
-        });
-
-        // الدالة لتحديث الكمية
-        function updateQuantity(input) {
-            var formData = new FormData(input.form);
-
-            fetch(input.form.action, {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                // يمكنك إضافة التحديثات التي ترغب فيها هنا
-                console.log("تم تحديث الكمية بنجاح!");
-            })
-            .catch(error => {
-                console.error("حدث خطأ أثناء تحديث الكمية:", error);
-            });
-        }
+    // إضافة مستمع لحدث الإدخال لكل عنصر
+    quantityInputs.forEach(function(input) {
+      input.addEventListener("input", function() {
+        updateQuantity(this); // يمرر الدالة العنصر الحالي
+      });
     });
+
+    // الدالة لتحديث الكمية
+    function updateQuantity(input) {
+      var formData = new FormData(input.form);
+
+      fetch(input.form.action, {
+          method: "POST",
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          // يمكنك إضافة التحديثات التي ترغب فيها هنا
+          console.log("تم تحديث الكمية بنجاح!");
+        })
+        .catch(error => {
+          console.error("حدث خطأ أثناء تحديث الكمية:", error);
+        });
+    }
+  });
 </script>
 @else
 <h1 class="text-center py-5"> لا يوجد مشتريات حاليا </h1>

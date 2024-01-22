@@ -26,7 +26,7 @@ active
                     <div class="card bg-dark">
                         <img src="assets/ass/img/online-course.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                          <h5 class="card-title btn-20 text-center"><span>الكورسات المسجلة</span></h5>
+                          <a href="{{route('getLandingSubjectsStage')}}"><h5 class="card-title btn-20 text-center"><span>الكورسات المسجلة</span></h5></a>
                         </div>
                       </div>
                 </div>
@@ -34,7 +34,7 @@ active
                     <div class="card bg-dark">
                         <img src="assets/ass/img/notepad.jpg" class="card-img-top " alt="...">
                         <div class="card-body">
-                          <h5 class="card-title btn-20 text-center"><span>المذكرات المطبوعة</span></h5>
+                          <a href="{{route('getNotesStage')}}" ><h5 class="card-title btn-20 text-center"><span>المذكرات المطبوعة</span></h5></a>
                         </div>
                       </div>
                 </div>

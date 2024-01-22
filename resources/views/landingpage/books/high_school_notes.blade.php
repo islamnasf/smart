@@ -5,7 +5,6 @@
 active
 @endsection
 @include('landingpage.layouts.head')
-
     <section id="top-hero">
         <h2 class="text-center mx-auto text-light fs-2 fw-bold">كل اللى تحتاجه للتفوق بمكان واحد</h2>
     </section>
@@ -20,7 +19,6 @@ active
                             <h5 class="one">الصف العاشر</h5>
                         </a>
                     </div>
-                    
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 pb-5">
                     <a href="{{route('getNotesClass','eleven')}}" class="text-light">

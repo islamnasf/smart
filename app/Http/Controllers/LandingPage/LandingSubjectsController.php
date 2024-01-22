@@ -93,5 +93,9 @@ class LandingSubjectsController extends Controller
         }
         return view('landingpage.subject.courses_class', compact('courses', 'book_Packages', 'course_Packages','bookPackage' ,'coursePackage'));
     }
+    public function getSubjectTutorialsAndFreeVideos(int $course){
+        $courseDetails=Course::has('tutorial')->where('id',$course)->with('tutorial.video')->first();
+        return view('landingpage.subject.allTutorialAndVideo',compact('courseDetails'));
+    }
 
 }

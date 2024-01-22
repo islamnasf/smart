@@ -27,7 +27,7 @@
                 </div>
             </div>
             
-            <p class="text-center pt-5 text-d">جميع الحقوق محفوظة ل منصة Srmat Studen </p>
+            <p class="text-center pt-5 text-d">جميع الحقوق محفوظة لمنصة smart Studen </p>
             <a class="link-warning text-decoration-none fw-bold text-center" href="https://coding-site.com" target="_blank" rel="noopener noreferrer"><span class="text-light fw-bold">made by</span>  <span class="text-danger"> &hearts;</span> coding-site.com</a>
         </div>
     </footer>

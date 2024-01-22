@@ -31,7 +31,9 @@
             </span>
           </a>
 
+
         </div>
+      
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -48,9 +50,9 @@
               <a class="nav-link @yield('active2')" href="{{route('getNotesStage')}}">المذكرات</a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link @yield('active3')" aria-disabled="true">المدرسين</a>
-            </li>
+            </li> -->
           </ul>
 
           @if (Auth::check())

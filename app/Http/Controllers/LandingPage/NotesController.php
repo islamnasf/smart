@@ -163,9 +163,9 @@ class NotesController extends Controller
     
             // حذف العناصر بعد إنشاء الأوردر
             BookCart::where('session_id', $sessionId)->delete();
-    
-            return back();
-        }
+            toastr()->success('شكرا لشراء من منصة samrt student');
+            return view('landingpage/books/stages_notes');
+        }        
     }
     
     

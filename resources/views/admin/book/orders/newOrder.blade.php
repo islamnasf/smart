@@ -42,6 +42,7 @@
                                 <th> اسم المشتري </th>
                                 <th>رقم التليفون </th>
                                 <th> المحافظه</th>
+                                <th> الاجمالي</th>
                                 <th>العمليات </th>
                             </tr>
                         </thead>
@@ -51,11 +52,18 @@
                                 <td>{{$order->created_at}}</td>
                                 <td>{{$order->buyer}}</td>
                                 <td>{{$order->phone}}</td>
+                               
                                 <td>
                                     @php
-                                    $city = \App\Models\City::where('id', $order->city_id)->first(); 
+                                    $city = \App\Models\City::where('id', $order->city_id)->first();
                                     @endphp
                                     {{$city->name}}
+                                </td>
+                                <td>
+                                    @php
+                                    $city = \App\Models\City::where('id', $order->city_id)->first();
+                                    @endphp
+                                    {{$city->deliver_price + $order->price_all}}
                                 </td>
                                 <td>
                                     <!-- Button trigger modal update -->
