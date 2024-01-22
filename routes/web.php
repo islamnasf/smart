@@ -216,6 +216,7 @@ route::group(['prefix' => 'landingpage'], function () {
   Route::get('/subjects/highSchool', [LandingSubjectsController::class, 'highSchool'])->name('getHighSchoolSubjects');
   Route::get('/subjects/courses/class/{name}', [LandingSubjectsController::class, 'getCoursesClassRoom'])->name('getCoursesClassRoom');
   Route::get('/subjects/courses/class/tutorial/free/video/{course}', [LandingSubjectsController::class, 'getSubjectTutorialsAndFreeVideos'])->name('getSubjectTutorialsAndFreeVideos');
+  Route::get('/filedownload/{file}', [StageController::class, 'download'])->name('fileDownload');
 
   
 });

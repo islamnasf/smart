@@ -15,6 +15,6 @@ class Tutorial extends Model
     }
     public function course()
     {
-        return $this->belongsTo(course::class,"course_id","id");
+        return $this->belongsTo(Course::class,"course_id","id");
     }
 }

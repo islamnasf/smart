@@ -16,7 +16,7 @@ class Course extends Model
     }
     public function tutorial()
     {
-        return $this->hasMany(tutorial::class, 'course_id', 'id');
+        return $this->hasMany(Tutorial::class, 'course_id', 'id');
     }
     public function cartitem()
     {
