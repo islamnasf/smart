@@ -128,6 +128,7 @@ class NotesController extends Controller
 
     return response()->json(['success' => false, 'message' => 'حدث خطأ أثناء تحديث الكمية']);  
   }
+  
     //order
     public function neworderbook(Request $request)
     {
@@ -154,6 +155,20 @@ class NotesController extends Controller
                     'order_id' => $newOrder->id,
                 ]);
     
+                if ($item->book_id) {
+                    $book = Book::find($item->book_id);
+                    if ($book) {
+                        $book->decrement('quantity', $item->quantity);
+                    }
+                }
+    
+                if ($item->package_id) {
+                    $package = AnotherPackage::find($item->package_id);
+                    if ($package) {
+                        $package->book()->decrement('quantity', $item->quantity);
+                    }
+                }
+    
                 $price += $item->price;
             }
     
@@ -161,12 +176,13 @@ class NotesController extends Controller
                 'price_all' => $price,
             ]);
     
-            // حذف العناصر بعد إنشاء الأوردر
             BookCart::where('session_id', $sessionId)->delete();
-            toastr()->success('شكرا لشراء من منصة samrt student');
-            return view('landingpage/books/stages_notes');
-        }        
+    
+            // إعرض رسالة الشكر بعد اتمام الطلب
+            return view('landingpage/books/stages_notes', ['thankYou' => true]);
+        }
     }
+    
     
     
 

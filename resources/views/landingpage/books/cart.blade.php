@@ -126,7 +126,6 @@ $bookInCartCount = \App\Models\BookCart::where('session_id', $sessionId)->count(
           <a href="{{route('getNotesStage')}}" class="btn btn-info fw-bold my-3 mx-auto "> تسوق المزيد</a>
 
           <botton id="done" class="btn btn-danger fw-bold my-3 mx-auto ">اتمام عملية الشراء</botton>
-
         </div>
         <form action="{{route('postneworderbook')}}" method="post">
           @csrf
@@ -160,7 +159,6 @@ $bookInCartCount = \App\Models\BookCart::where('session_id', $sessionId)->count(
                 <label for="address"> العنوان</label>
                 <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="" name="address">
               </div>
-             
               <hr class="mb-4">
               <button class="btn btn-danger btn-lg btn-block" type="submit">تأكيد عملية الشراء</button>
             </div>
@@ -170,6 +168,8 @@ $bookInCartCount = \App\Models\BookCart::where('session_id', $sessionId)->count(
     </div>
   </div>
 </section>
+
+
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {

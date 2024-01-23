@@ -8,7 +8,18 @@ active
 
     <section id="top-hero">
         <h2 class="text-center mx-auto text-light fs-2 fw-bold">مذكرات سمارت طريقك نحو التفوق </h2>
+        <p id="thankYouMessage" class="alert alert-success mt-3" style="display: none;">
+  شكرًا لك على ثقتك، تم الطلب بنجاح!
+</p>
     </section>
+    
+@if(isset($thankYou) && $thankYou)
+  <script>
+    // جعل عنصر الشكر مرئيًا
+    document.getElementById('thankYouMessage').style.display = 'block';
+  </script>
+@endif
+
     <section id="bottom-hero">
         <div class="container py-5">
             <h3 class="text-center pb-2 title">برجاء إختيار المرحلة</h3>

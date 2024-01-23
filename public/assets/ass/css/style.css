@@ -268,9 +268,12 @@ header{
     align-items: center;
     height: 500px;
     background-image: url(/assets/ass/img/img-top.jpg);
-    background-size: cover  ;
+    background-size: cover;
     object-fit: contain;
     background-position: center;
+    flex-direction: column;
+    justify-content: center;
+  
 }
 #bottom-hero {
     background-color: #ffffff;

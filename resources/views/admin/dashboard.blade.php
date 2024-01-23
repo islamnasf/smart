@@ -21,30 +21,10 @@
             color: #fff;
         }
 
-        .packageCard {
-            width: 430px;
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
-            align-items: center;
-            background-color: #198754;
-            border-radius: 5px;
-            margin: 1px;
-            position: relative;
-            overflow: hidden;
-            transition: .5s;
-            margin-bottom: 10px;
-        }
 
-        .head4 {
-            color: #fff;
-            font-size: 25px;
-        }
 
-        .packageCard:hover {
-            transition: .5s;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
+
+
 
         .subjectCard {
             width: 300px;
@@ -87,10 +67,11 @@
             opacity: .9;
 
         }
+
         .back11 {
-                width: 95%
-            }
-        
+            width: 95%
+        }
+
         @media only screen and (max-width: 600px) {
             .back11 {
                 width: 82%
@@ -117,7 +98,7 @@
         <!-- main-content -->
         <div class="content-wrapper ">
             <div class="row ">
-                <img src="{{ asset('assets/images/education.jpg') }}"  class="back11" style=" display: block; margin:30px; object-fit: contain; border-radius: 10px;" alt="">
+                <img src="{{ asset('assets/images/education.jpg') }}" class="back11" style=" display: block; margin:30px; object-fit: contain; border-radius: 10px;" alt="">
             </div>
             <!-- widgets -->
             @if (auth()->user()->user_type == 'admin')
@@ -184,6 +165,44 @@
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
+                                @if ($PackageBook && $PackageCourse)
+                                
+                                <div class="col-lg-6 col-sm-12 mx-auto">
+                                    <div class="card mb-3 w-100 bg-light text-dark">
+                                        <div class="contant-card d-flex align-items-center ">
+                                            <div class="contant-1 ps-4">
+                                                <h5 class="fw-bold  pt-2"> الباقة <span class="text-danger">(الماسية)</span></h5>
+                                                <span class="text-dark d-block">(تشمل {{$PackageBook->book()->count();}} مذكرات & تشمل {{$PackageCourse->course()->count();}}مواد)</span>
+                                                <div><strong> المذكرات : </strong>
+                                                    @foreach($PackageBook->book as $book)
+                                                    <span class="text-dark"> {{$book->name}}</span>
+                                                    @if (!$loop->last)
+                                                    <span> - </span>
+                                                    @endif
+                                                    @endforeach
+                                                </div>
+                                                <div> <strong>المواد : </strong>
+                                                    @foreach($PackageCourse->course as $course)
+                                                    <span class="text-dark"> {{$course->subject_name}}</span>
+                                                    @if (!$loop->last)
+                                                    <span> - </span>
+                                                    @endif
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                            <div class="img-card1 ms-auto pe-4 py-4">
+                                                <img src="/assets/ass/img/img-card3.png" width="150" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center mx-auto gap-5 ">
+                                            <h6 class="fw-bold  pt-2"> سعر الباقة <span class="text-danger">({{$bookPackage->price+$coursePackage->price}} د.ك)</span><del class="ms-2 d-block text-center">{{$bookPackage->price*2+$coursePackage->price*2 }} د.ك</del></span></h6>
+                                            <a class="btn btn-warning my-4 mx-auto text-dark fw-bold" href="{{route('login')}}">إشتراك</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+
+
                                 <div class="float-right text-center">
                                     <a href="{{ route('course') }}">
                                         <p class="card-text text-dark" style="font-size: 27px; padding-top:15px ;">
@@ -432,19 +451,20 @@
 
             @if (auth()->user()->user_type == 'user')
             @if ($countCart >= 1)
-            <div class="d-flex text-center text-dark w-100" >
-              <div class="mx-auto d-flex"><a href="{{ route('studentcart') }}" >
-                <div class="img-cart">
-                <img width="100" src="/assets/ass/img/shopping-cart_1170576.svg" alt="">
-                </div>
-                <div  class="text-center ">
-                    <h3 class="fw-bold mb-4"><span class="text-danger">الاجمالي : </span> {{$sumPrice}} د.ك</h4>
-                </div>
-                </a></div>
+            <div class="d-flex text-center text-dark w-100">
+                <div class="mx-auto d-flex"><a href="{{ route('studentcart') }}">
+                        <div class="img-cart">
+                            <img width="100" src="/assets/ass/img/shopping-cart_1170576.svg" alt="">
+                        </div>
+                        <div class="text-center ">
+                            <h3 class="fw-bold mb-4"><span class="text-danger">الاجمالي : </span> {{$sumPrice}} د.ك</h4>
+                        </div>
+                    </a></div>
             </div>
             @endif
+            @if($userPackage->count() > 0)
             <h2 class="text-center mx-auto text-light py-3 rounded bg-danger w-50">الباقات</h2>
-            <div class="d-flex justify-contant-center flex-wrap align-items-center">
+            <div class="d-flex justify-content-center flex-wrap align-items-center">
                 @foreach($userPackage as $package)
 
                 @php
@@ -467,12 +487,37 @@
                 @if ($isUserSub == true)
 
                 @elseif($isPackageInCart == true)
-                <div class="packageCard">
-                <h4 class="text-center text-light pt-3">
+                <div class="bg-dark p-4 m-3 rounded">
+                    <h4 class="text-center text-light pt-3">
                         اسم الباقة : {{ $package->name }}
                     </h4>
                     <div class="d-flex text-light">
-                        <h5 class="fs-2 fw-bold text-light"> المواد : (</h5> 
+                        <h5 class="fs-2 fw-bold text-light"> المواد : (</h5>
+                        @foreach($package->course as $index => $pack)
+                        <h5 class="text-light"> {{ $pack->subject_name }} </h5>
+
+                        @if (!$loop->last)
+                        <h5 class="text-light"> - </h5>
+                        @endif
+                        @if ($loop->last)
+                        <h5 class="text-light"> ) </h5>
+                        @endif
+                        @endforeach
+
+
+                    </div>
+                    <h6 class="text-center text-light">
+                        عدد لمواد : {{ $package->course->count() }}
+                    </h6>
+                    <h4 class="py-3 bg-light px-2 rounded"> الباقة فى سلة المشتريات </h4>
+                </div>
+                @else
+                <div class="bg-dark p-4 m-3 rounded">
+                    <h4 class="text-center text-light pt-3">
+                        اسم الباقة : {{ $package->name }}
+                    </h4>
+                    <div class="d-flex">
+                        <h5 class="fs-2 fw-bold text-light"> المواد : (</h5>
                         @foreach($package->course as $index => $pack)
                         <h5 class="text-light"> {{ $pack->subject_name }} </h5>
                         @if (!$loop->last)
@@ -482,41 +527,17 @@
                         <h5 class="text-light"> ) </h5>
                         @endif
                         @endforeach
-                        
-                        
                     </div>
                     <h6 class="text-center text-light">
                         عدد لمواد : {{ $package->course->count() }}
                     </h6>
-                    <h4 class="head4"> الباقة فى سلة المشتريات </h4>
-                </div>
-                @else
-                <div class="packageCard">
-                    <h4 class="text-center text-light pt-3">
-                        اسم الباقة : {{ $package->name }}
-                    </h4>
-                    <div class="d-flex">
-                    <h5 class="fs-2 fw-bold text-light"> المواد : (</h5> 
-                    @foreach($package->course as $index => $pack)
-                        <h5 class="text-light"> {{ $pack->subject_name }} </h5>
-                        @if (!$loop->last)
-                        <h5 class="text-light"> - </h5>
-                        @endif
-                        @if ($loop->last)
-                        <h5 class="text-light"> ) </h5>
-                        @endif
-                        @endforeach
-                    </div>
-                    <h6 class="text-center text-light">
-                        عدد لمواد : {{ $package->course->count() }}
-                    </h6>
-                    <div style="width: 100%; background-color: aliceblue; text-align: center; padding: 15px; border-radius: 0 0 5px 5px;">
+                    <div>
                         <form action="{{ route('studentCartCreatePackage', [$package->id ,$package->price]) }}" method="post">
                             @csrf
-                            <button class="buttonhover" type="submit">
-                                <h6 style="font-weight: bolder; font-size: 18px"> سعر الاشتراك
+                            <button class="btn btn-light py-3" type="submit">
+                                <h4 class="fw-bold"> سعر الاشتراك
                                     {{ $package->price }} د.ك
-                                </h6>
+                                </h4>
                             </button>
                         </form>
                     </div>
@@ -524,57 +545,60 @@
                 @endif
                 @endforeach
             </div>
-            <h2 class="text-center title">الكورسات</h2>
-            <div style="display: flex; flex-direction: row; justify-content: space-around; flex-wrap: wrap;margin: 30px">
+            @endif
+            <h2 class="text-center mx-auto text-light py-3 rounded bg-danger w-50">الكورسات</h2>
+            <div class="d-flex justify-content-center flex-wrap">
                 @foreach ($userSubject as $subject)
-                <a href="{{ route('showTutorial', $subject->id) }}" class="subjectCard">
-                    <h4 class="text-center text-light">
-                        {{ $subject->subject_name }}
-                    </h4>
-                    <h6 class="text-center text-light">
-                        أ/{{ $subject->techer->name }}</h6>
-                    <div style="width: 100%; background-color: aliceblue; text-align: center; padding: 15px; border-radius: 0 0 5px 5px;">
-                        @php
-                        $isUserSub = false;
-                        foreach ($subs as $sub) {
-                        if ($sub->id == $subject->id) {
-                        $isUserSub = true;
-                        break;
-                        }
-                        }
+                <div class="bg-dark p-3 m-3 rounded">
+                    <a href="{{ route('showTutorial', $subject->id) }}">
+                        <h4 class="text-center text-light">
+                            {{ $subject->subject_name }}
+                        </h4>
+                        <h6 class="text-center text-light">
+                            أ/{{ $subject->techer->name }}</h6>
+                        <div class="bg-light p-3 rounded">
+                            @php
+                            $isUserSub = false;
+                            foreach ($subs as $sub) {
+                            if ($sub->id == $subject->id) {
+                            $isUserSub = true;
+                            break;
+                            }
+                            }
 
-                        $isCourseInCart = false;
-                        foreach ($cart as $cartItem) {
-                        if ($cartItem->course_id == $subject->id) {
-                        $isCourseInCart = true;
-                        break;
-                        }
-                        }
-                        @endphp
-                        @if ($isUserSub == true)
-                        <h4>انت مشترك في هذا الكورس</h4>
-                        @elseif($isCourseInCart == true)
-                        <h4> الكورس فى سلة المشتريات </h4>
-                        @else
-                        <form action="{{ route('studentCartCreate', [$subject->id, $subject->monthly_subscription_price]) }}" method="post">
-                            @csrf
-                            <button class="buttonhover" type="submit">
-                                <h6 style="font-weight: bolder; font-size: 18px"> اشتراك شهري
-                                    {{ $subject->monthly_subscription_price }} د.ك
-                                </h6>
-                            </button>
-                        </form>
-                        <form action="{{ route('studentCartCreate', [$subject->id, $subject->term_price]) }}" method="post">
-                            @csrf
-                            <button class="buttonhover" type="submit">
-                                <h6 style="font-weight: bolder; font-size: 18px"> اشتراك ترم كامل
-                                    {{ $subject->term_price }} د.ك
-                                </h6>
-                            </button>
-                        </form>
-                        @endif
-                    </div>
-                </a>
+                            $isCourseInCart = false;
+                            foreach ($cart as $cartItem) {
+                            if ($cartItem->course_id == $subject->id) {
+                            $isCourseInCart = true;
+                            break;
+                            }
+                            }
+                            @endphp
+                            @if ($isUserSub == true)
+                            <h4>انت مشترك في هذا الكورس</h4>
+                            @elseif($isCourseInCart == true)
+                            <h4> الكورس فى سلة المشتريات </h4>
+                            @else
+                            <form action="{{ route('studentCartCreate', [$subject->id, $subject->monthly_subscription_price]) }}" method="post">
+                                @csrf
+                                <button class="buttonhover" type="submit">
+                                    <h6 style="font-weight: bolder; font-size: 18px"> اشتراك شهري
+                                        {{ $subject->monthly_subscription_price }} د.ك
+                                    </h6>
+                                </button>
+                            </form>
+                            <form action="{{ route('studentCartCreate', [$subject->id, $subject->term_price]) }}" method="post">
+                                @csrf
+                                <button class="buttonhover" type="submit">
+                                    <h6 style="font-weight: bolder; font-size: 18px"> اشتراك ترم كامل
+                                        {{ $subject->term_price }} د.ك
+                                    </h6>
+                                </button>
+                            </form>
+                            @endif
+                        </div>
+                    </a>
+                </div>
                 @endforeach
             </div>
             @endif
