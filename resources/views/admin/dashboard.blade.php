@@ -27,7 +27,7 @@
             justify-content: space-between;
             flex-direction: column;
             align-items: center;
-            background-color: #175166;
+            background-color: #198754;
             border-radius: 5px;
             margin: 1px;
             position: relative;
@@ -279,10 +279,9 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;">
+                                    <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
                                         إعداد
                                         المنصة</p>
-
                                 </div>
                             </div>
 
@@ -303,7 +302,7 @@
                                 </div>
                                 <div class="float-right text-center">
                                     <a href="{{ route('getProfile') }}">
-                                        <p class="card-text text-dark" style="font-size: 27px; padding-top:25px ;"> إعداد
+                                        <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;"> إعداد
                                             الحساب</p>
                                     </a>
                                 </div>
@@ -324,14 +323,14 @@
                                 <div class="float-left">
                                     <span>
                                         <a href="{{ route('teacherCourse') }}">
-                                            <img src="https://cdn-icons-png.flaticon.com/128/5000/5000269.png" width="65px" style="padding-top:15px;padding-bottom:25px">
+                                            <img src="https://cdn-icons-png.flaticon.com/128/5000/5000269.png" width="60px" style="padding-top:15px;padding-bottom:25px">
                                         </a>
                                         <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
                                     <a href="{{ route('teacherCourse') }}">
-                                        <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">الكورسات المسجلة
+                                        <p class="card-text fw-bold text-dark" style="font-size: 18px; padding-top:25px ;">الكورسات المسجلة
                                     </a>
                                     </p>
                                 </div>
@@ -340,7 +339,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <!-- <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -349,11 +348,10 @@
                                         <a href="#">
                                             <img src="https://cdn-icons-png.flaticon.com/128/12740/12740855.png" width="65px" style="padding-top:15px;padding-bottom:25px">
                                         </a>
-                                        <!-- <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <a href="#">
+                                    <a href="{{route('getPaymentHistoryTeacher')}}">
                                         <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">الدفعات المحصلة </p>
                                     </a>
                                 </div>
@@ -361,7 +359,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
@@ -374,8 +372,8 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <a href='#'>
-                                        <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">اشتركات الطلبة</p>
+                                    <a href="{{route('getCourseSubscription')}}">
+                                        <p class="card-text fw-bold text-dark" style="font-size: 18px; padding-top:25px ;">اشتركات الطلبة</p>
                                     </a>
                                 </div>
                             </div>
@@ -396,8 +394,8 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-center">
-                                    <a href="#">
-                                        <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">
+                                    <a href="{{route('getBookEarnTeacher')}}">
+                                        <p class="card-text  fw-bold text-dark" style="font-size: 18px; padding-top:25px ;">
                                             ارباح المذكرات</p>
                                     </a>
                                 </div>
@@ -419,7 +417,7 @@
                                 </div>
                                 <div class="float-right text-center">
                                     <a href="{{ route('getProfile') }}">
-                                        <p class="card-text text-dark" style="font-size: 20px; padding-top:25px ;">
+                                        <p class="card-text fw-bold text-dark" style="font-size: 18px; padding-top:25px ;">
                                             ملفك الشخصي</p>
                                     </a>
                                 </div>
@@ -434,20 +432,19 @@
 
             @if (auth()->user()->user_type == 'user')
             @if ($countCart >= 1)
-            <div style="text-align: center; background-color: #dc3545 ;  width: 100%; padding:8px ;  margin-bottom: 10px; color: #fff; border-radius: 5px;">
-                <a href="{{ route('studentcart') }}" class="headone">
-                    <h2 style="color: #fff;">
-                        استكمال سلة المشتريات
-                        <img src="https://cdn-icons-png.flaticon.com/128/13097/13097061.png" width="40">
-                    </h2>
-                    <h4 style="color:#fff">
-                        {{$sumPrice}} د.ك
-                    </h4>
-                </a>
+            <div class="d-flex text-center text-dark w-100" >
+              <div class="mx-auto d-flex"><a href="{{ route('studentcart') }}" >
+                <div class="img-cart">
+                <img width="100" src="/assets/ass/img/shopping-cart_1170576.svg" alt="">
+                </div>
+                <div  class="text-center ">
+                    <h3 class="fw-bold mb-4"><span class="text-danger">الاجمالي : </span> {{$sumPrice}} د.ك</h4>
+                </div>
+                </a></div>
             </div>
             @endif
-            <h2 class="text-center title">الباقات</h2>
-            <div style="display: flex; flex-direction: row; justify-content: space-around; flex-wrap: wrap;margin: 30px">
+            <h2 class="text-center mx-auto text-light py-3 rounded bg-danger w-50">الباقات</h2>
+            <div class="d-flex justify-contant-center flex-wrap align-items-center">
                 @foreach($userPackage as $package)
 
                 @php
@@ -471,40 +468,46 @@
 
                 @elseif($isPackageInCart == true)
                 <div class="packageCard">
-                    <h4 style="color: aliceblue; margin: 15px; text-align: center">
+                <h4 class="text-center text-light pt-3">
                         اسم الباقة : {{ $package->name }}
                     </h4>
-                    <div style="display: flex; flex-direction: row; font-size: 18px; color: #dc3545;">
-                        <strong> المواد </strong> :
+                    <div class="d-flex text-light">
+                        <h5 class="fs-2 fw-bold text-light"> المواد : (</h5> 
                         @foreach($package->course as $index => $pack)
-                        <span> {{ $pack->subject_name }} </span>
+                        <h5 class="text-light"> {{ $pack->subject_name }} </h5>
                         @if (!$loop->last)
-                        <span> - </span>
+                        <h5 class="text-light"> - </h5>
+                        @endif
+                        @if ($loop->last)
+                        <h5 class="text-light"> ) </h5>
                         @endif
                         @endforeach
-                        .
+                        
+                        
                     </div>
-                    <h6 style="color: aliceblue; margin: 15px; text-align: center">
+                    <h6 class="text-center text-light">
                         عدد لمواد : {{ $package->course->count() }}
                     </h6>
                     <h4 class="head4"> الباقة فى سلة المشتريات </h4>
                 </div>
                 @else
                 <div class="packageCard">
-                    <h4 style="color: aliceblue; margin: 15px; text-align: center">
+                    <h4 class="text-center text-light pt-3">
                         اسم الباقة : {{ $package->name }}
                     </h4>
-                    <div style="display: flex; flex-direction: row; font-size: 18px; color: #dc3545;">
-                        <strong> المواد </strong> :
-                        @foreach($package->course as $index => $pack)
-                        <span> {{ $pack->subject_name }} </span>
+                    <div class="d-flex">
+                    <h5 class="fs-2 fw-bold text-light"> المواد : (</h5> 
+                    @foreach($package->course as $index => $pack)
+                        <h5 class="text-light"> {{ $pack->subject_name }} </h5>
                         @if (!$loop->last)
-                        <span> - </span>
+                        <h5 class="text-light"> - </h5>
+                        @endif
+                        @if ($loop->last)
+                        <h5 class="text-light"> ) </h5>
                         @endif
                         @endforeach
-                        .
                     </div>
-                    <h6 style="color: aliceblue; margin: 15px; text-align: center">
+                    <h6 class="text-center text-light">
                         عدد لمواد : {{ $package->course->count() }}
                     </h6>
                     <div style="width: 100%; background-color: aliceblue; text-align: center; padding: 15px; border-radius: 0 0 5px 5px;">
@@ -525,10 +528,10 @@
             <div style="display: flex; flex-direction: row; justify-content: space-around; flex-wrap: wrap;margin: 30px">
                 @foreach ($userSubject as $subject)
                 <a href="{{ route('showTutorial', $subject->id) }}" class="subjectCard">
-                    <h4 style="color: aliceblue; margin: 15px; text-align: center">
+                    <h4 class="text-center text-light">
                         {{ $subject->subject_name }}
                     </h4>
-                    <h6 style="color: aliceblue; margin: 15px; text-align: center">
+                    <h6 class="text-center text-light">
                         أ/{{ $subject->techer->name }}</h6>
                     <div style="width: 100%; background-color: aliceblue; text-align: center; padding: 15px; border-radius: 0 0 5px 5px;">
                         @php

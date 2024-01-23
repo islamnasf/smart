@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('css')
-    الكورسات
 @section('title')
+الكورسات
+
 @stop
 @endsection
 @section('page-header')

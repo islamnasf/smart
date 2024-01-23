@@ -128,7 +128,7 @@ active
                 </div>
             </div>
             @endforeach
-            @if ($bookPackage || $coursePackage)
+            @if ($bookPackage  && $coursePackage)
             <div class="col-lg-6 col-sm-12 mx-auto">
                 <div class="card mb-3 w-100 bg-light text-dark">
                     <div class="contant-card d-flex align-items-center ">

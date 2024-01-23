@@ -86,7 +86,7 @@
                     <table id="datatable" class="table table-striped table-bordered p-0" style="text-align:center">
                         <thead>
                             <tr>
-                                <th>عنوان الحلقة</th>
+                                <th>الوحدة  </th>
                                 @if (Auth::user()->user_type !== 'user')
                                     <th>العمليات</th>
                                 @endif

@@ -24,6 +24,7 @@ use App\Http\Controllers\Sitesetteings;
 use App\Http\Controllers\Student\CartController;
 use App\Http\Controllers\Student\SubscriptionController;
 use App\Http\Controllers\Teacher\SubjectController;
+use App\Http\Controllers\Teacher\TeacherPaymentsController;
 use App\Http\Controllers\Teacher\TutorialController;
 use Illuminate\Support\Facades\Route;
 
@@ -175,6 +176,9 @@ route::group(['prefix' => 'dashboard/teacher/'], function () {
   Route::get('course/tutorial/show/{courseId}', [TutorialController::class, 'index'])->name('teacherCourseTutorialShow');
   Route::get('course/tutorial/video/show/{videoId}', [TutorialController::class, 'showVideo'])->name('teacherCourseTutorialVideoShow');
   Route::post('course/tutorial/video/post/{videoId}', [TutorialController::class, 'createVideoComment'])->name('postVideoComment');
+  Route::get('payment/history/show/', [TeacherPaymentsController::class, 'getPaymentHistoryTeacher'])->name('getPaymentHistoryTeacher');
+  Route::get('payment/course/subscription',[TeacherPaymentsController::class, 'getCourseSubscription'])->name('getCourseSubscription');
+  Route::get('payment/book/earn', [TeacherPaymentsController::class, 'getBookEarnTeacher'])->name('getBookEarnTeacher');
 });
 route::group(['prefix' => 'dashboard/student/'], function () {
   //student->dashboard

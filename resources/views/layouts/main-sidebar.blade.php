@@ -16,7 +16,7 @@
                         </li>
 
                         <li>
-                            <a href="#" style="font-size: 18px;">
+                            <a href="{{route('home')}}" style="font-size: 18px;">
                                 <div class="pull-left"><i class="ti-palette" style="font-size: 18px;"></i><span
                                         class="right-nav-text">تصفح موقع المنصة</span></div>
                                 <div class="clearfix"></div>
@@ -25,7 +25,7 @@
                         </li>
                         <!-- menu item calendar-->
                         <li>
-                            <a href="#" style="font-size: 20px;">
+                            <a href="{{ route('getStudent') }}" style="font-size: 20px;">
                                 <div class="pull-left"><i class="ti-calendar"></i><span class="right-nav-text"
                                         style="font-size: 20px;">ادارة الطلبة</span></div>
                                 <div class="clearfix"></div>
@@ -33,20 +33,20 @@
 
                         </li>
                         <li>
-                            <a href="#" style="font-size: 20px;">
+                            <a href="{{ route('getTeacher') }}"style="font-size: 20px;">
                                 <div class="pull-left"><i class="ti-id-badge" style="font-size: 20px;"
                                         style="font-size: 20px;"></i><span class="right-nav-text">المعلمين</span></div>
                                 <div class="clearfix"></div>
                             </a>
                         </li>
                         <li>
-                            <a href="#" style="font-size: 20px;"><i class="ti-menu-alt"
+                            <a  href="{{ route('course') }}" style="font-size: 20px;"><i class="ti-menu-alt"
                                     style="font-size: 20px;"></i><span class="right-nav-text">الكورسات</span> </a>
                             <div class="clearfix"></div>
 
                         </li>
                         <li>
-                            <a href="#" style="font-size: 20px;">
+                            <a href="{{ route('getBook') }}" style="font-size: 20px;">
                                 <div class="pull-left"><i class="ti-layout-tab-window"
                                         style="font-size: 20px;"></i><span class="right-nav-text">ادارة المذكرات </span>
                                 </div>
@@ -88,7 +88,7 @@
 
                         <!-- menu item maps-->
                         <li>
-                            <a href="#" style="font-size: 20px;"><i class="fa fa-unlock-alt"
+                            <a href="{{ route('getProfile') }}"  style="font-size: 20px;"><i class="fa fa-unlock-alt"
                                     style="font-size: 20px;"></i><span class="right-nav-text">اعداد الحساب </span></a>
                         </li>
                     </ul>
@@ -106,7 +106,7 @@
                         </li>
 
                         <li>
-                            <a href="#" style="font-size: 18px;">
+                            <a href="{{route('home')}}"  style="font-size: 18px;">
                                 <div class="pull-left"><i class="ti-palette" style="font-size: 18px;"></i><span
                                         class="right-nav-text">تصفح موقع المنصة</span></div>
                                 <div class="clearfix"></div>
@@ -116,29 +116,29 @@
 
 
                         <li>
-                            <a href="#" style="font-size: 20px;"><i class="ti-menu-alt"
+                            <a href="{{ route('teacherCourse') }}" style="font-size: 20px;"><i class="ti-menu-alt"
                                     style="font-size: 20px;"></i><span class="right-nav-text">الكورسات المفعلة </span>
                             </a>
                             <div class="clearfix"></div>
 
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#" style="font-size: 20px;"><i class="fa fa-file-archive-o"
                                     style="font-size: 20px;"></i><span class="right-nav-text">ارشيف الكورسات </span>
                             </a>
                             <div class="clearfix"></div>
 
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <a href="#" style="font-size: 20px;"><i class="fa fa-money"
                                     style="font-size: 20px;"></i><span class="right-nav-text">الدفعات المحصلة </span>
                             </a>
                             <div class="clearfix"></div>
 
-                        </li>
+                        </li> -->
 
                         <!-- menu item Form-->
-                        <li>
+                        <!-- <li>
                             <a href="javascript:void(0);" data-toggle="collapse" data-target="#Form"
                                 style="font-size: 20px;">
                                 <div class="pull-left"><i class="ti-files" style="font-size: 20px;"></i><span
@@ -153,10 +153,17 @@
                                 <li> <a href="form-input.html" style="font-size: 18px;">اختبارات الترم التاني</a>
                                 </li>
                             </ul>
+                        </li> -->
+                        <li>
+                            <a href="{{route('getCourseSubscription')}}" style="font-size: 20px;"><i class="fa fa-sign-in"
+                                    style="font-size: 20px;"></i><span class="right-nav-text"> اشتركات الطلبة </span>
+                            </a>
+                            <div class="clearfix"></div>
+
                         </li>
                         <li>
-                            <a href="#" style="font-size: 20px;"><i class="fa fa-sign-in"
-                                    style="font-size: 20px;"></i><span class="right-nav-text"> اشتركات الطلبة </span>
+                            <a href="{{route('getBookEarnTeacher')}}" style="font-size: 20px;"><i class="fa fa-money"
+                                    style="font-size: 20px;"></i><span class="right-nav-text">  ارباح المذكرات </span>
                             </a>
                             <div class="clearfix"></div>
 
@@ -167,7 +174,7 @@
 
                         <!-- menu item maps-->
                         <li>
-                            <a href="#" style="font-size: 20px;"><i class="fa fa-unlock-alt"
+                            <a href="{{ route('getProfile') }}" style="font-size: 20px;"><i class="fa fa-unlock-alt"
                                     style="font-size: 20px;"></i><span class="right-nav-text">اعداد الحساب </span></a>
                         </li>
                     </ul>

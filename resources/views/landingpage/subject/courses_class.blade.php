@@ -62,6 +62,7 @@ active
                 </div>
             </div>
             @endforeach
+            
             <h4 class="fw-bold my-4 text-center">اقترحات</h4>
             @foreach($book_Packages as $package)
             <div class="col-lg-6 col-sm-12 mx-auto ">
@@ -109,7 +110,7 @@ active
 
             @endforeach
 
-            @if ($bookPackage || $coursePackage)
+            @if ($bookPackage && $coursePackage)
             <div class="col-lg-6 col-sm-12 mx-auto">
                 <div class="card mb-3 w-100 bg-light text-dark">
                     <div class="contant-card d-flex align-items-center ">
