@@ -17,7 +17,13 @@ class ProfileSettingController extends Controller
   {
     $requests = $request->all();
     $user = User::find($id);
-    $user->update($requests);
+    $user->update([
+      'name' => $request->name,
+      'phone' => $request->phone,
+      'email' => $request->email,
+      'password' => $request->password,
+      'user_password' => $request->password,
+    ]);
     toastr()->success('تم حفظ البيانات بنجاح');
     return redirect()->route('getProfile');
   }

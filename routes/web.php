@@ -20,6 +20,7 @@ use App\Http\Controllers\LandingPage\LandingSubjectsController;
 use App\Http\Controllers\LandingPage\NotesController;
 use App\Http\Controllers\LandingPage\StageController;
 use App\Http\Controllers\LandingPage\SubjectsController;
+use App\Http\Controllers\MyFatoorahController;
 use App\Http\Controllers\Sitesetteings;
 use App\Http\Controllers\Student\CartController;
 use App\Http\Controllers\Student\SubscriptionController;
@@ -127,7 +128,8 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('/store/print/finish/class/books', [BookController::class, 'finishPrint'])->name('finishPrint');
   Route::get('/store/print/finishprint/done/{book}', [BookController::class, 'printBookFinish'])->name('printBookFinish');
   //
-  Route::Post('/quantitybook/{book}', [BookController::class, 'addQuantity'])->name('addQuantity');
+
+  Route::post('/quantitybook/{book}', [BookController::class, 'addQuantity'])->name('addQuantity');
   Route::get('/termone', [BookController::class, 'termone'])->name('termone');
   Route::get('/termtow', [BookController::class, 'termtow'])->name('termtow');
   Route::get('/book/edit/{book}', [BookController::class, 'edit'])->name('editBook');
@@ -177,7 +179,7 @@ route::group(['prefix' => 'dashboard/teacher/'], function () {
   Route::get('course/tutorial/video/show/{videoId}', [TutorialController::class, 'showVideo'])->name('teacherCourseTutorialVideoShow');
   Route::post('course/tutorial/video/post/{videoId}', [TutorialController::class, 'createVideoComment'])->name('postVideoComment');
   Route::get('payment/history/show/', [TeacherPaymentsController::class, 'getPaymentHistoryTeacher'])->name('getPaymentHistoryTeacher');
-  Route::get('payment/course/subscription',[TeacherPaymentsController::class, 'getCourseSubscription'])->name('getCourseSubscription');
+  Route::get('payment/course/subscription', [TeacherPaymentsController::class, 'getCourseSubscription'])->name('getCourseSubscription');
   Route::get('payment/book/earn', [TeacherPaymentsController::class, 'getBookEarnTeacher'])->name('getBookEarnTeacher');
 });
 route::group(['prefix' => 'dashboard/student/'], function () {
@@ -212,7 +214,7 @@ route::group(['prefix' => 'landingpage'], function () {
   Route::post('cart/add/new/package/packagebooks', [NotesController::class, 'addToCartPackages'])->name('addToCartPackages');
   Route::post('cart/add/quantity/package/{cart}', [NotesController::class, 'postnewquantitybook'])->name('postnewquantitybook');
   Route::get('/delete/Cart/Books/Item/{cart}', [NotesController::class, 'deleteCartBooksItem'])->name('deleteCartBooksItem');
-  Route::post('cart/order/done', [NotesController::class, 'neworderbook'])->name('postneworderbook');  
+  Route::post('cart/order/done', [NotesController::class, 'neworderbook'])->name('postneworderbook');
 
   //subjest
   Route::get('/subjects/landingpage/stages', [LandingSubjectsController::class, 'index'])->name('getLandingSubjectsStage');
@@ -222,5 +224,7 @@ route::group(['prefix' => 'landingpage'], function () {
   Route::get('/subjects/courses/class/tutorial/free/video/{course}', [LandingSubjectsController::class, 'getSubjectTutorialsAndFreeVideos'])->name('getSubjectTutorialsAndFreeVideos');
   Route::get('/filedownload/{file}', [StageController::class, 'download'])->name('fileDownload');
 
-  
+
 });
+
+Route::get('payment/myfatoorah', [MyFatoorahController::class, 'index'])->name('myFatoorahIndex');

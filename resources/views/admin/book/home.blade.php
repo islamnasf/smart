@@ -51,7 +51,7 @@
                 </div>
 
             </div>
-
+ 
             <!-- widgets -->
             <!-- widgets -->
             <div class="row">
@@ -67,11 +67,8 @@
                                     </span>
                                 </div>
                                 <div class="float-center text-center">
-
                                     <p class="card-text text-dark" style="font-size: 23px; padding-top:25px ;">
                                         الطلبيات الجديدة</p>
-
-
                                 </div>
                             </div>
 

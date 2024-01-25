@@ -240,13 +240,14 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-radius: 5px">
         <a class="navbar-brand" href="{{ app('url')->previous() }}">الرجوع </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item" style="font-size: 20px;">
-                    <a class="nav-link" href="{{route('dashboard')}}"> الصفحة الرئيسية </a>
+                    <a class="nav-link" href="{{ route('dashboard') }}"> الصفحة الرئيسية </a>
                 </li>
                 <li class="nav-item" style="font-size: 20px;">
                     <a class="nav-link" href="#">اسئلة الدرس</a>
@@ -262,7 +263,8 @@
     <div class="container1">
         <div class="insidecontainer1">
             <h1 style="font-size: 22px;font-weight: bold;margin: 20px"> {{ $video->name }} </h1>
-            <iframe style="margin: 5px;" src="{!! $video->link !!}" class="videostyle" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <iframe style="margin: 5px;" src="{!! $video->link !!}" class="videostyle" frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             <div class="insidecontainer2">
                 <div class="tabs">
                     <button class="tab" onclick="showTab('section1')">تعليقات الدرس</button>
@@ -271,18 +273,23 @@
 
                 <div id="section1" class="content active">
                     @if (!is_null($comment) && count($comment) > 0)
-                    <ul>
-                        @foreach ($comment as $item)
-                        <li>
-                            <h2 style="background-color: #0893c5 ; padding:7px; border-radius: 3px ; font-size:15px; font-weight: bold;margin: 20px "><span style="font-weight: bold; text-align: right; font-size: 18px;  ">{{$item->user->name}}</span> : {{ $item->comment }} </h2>
-                        </li>
-                        @endforeach
-                    </ul>
+                        <ul>
+                            @foreach ($comment as $item)
+                                <li>
+                                    <h2
+                                        style="background-color: #0893c5 ; padding:7px; border-radius: 3px ; font-size:15px; font-weight: bold;margin: 20px ">
+                                        <span
+                                            style="font-weight: bold; text-align: right; font-size: 18px;  ">{{ $item->user->name }}</span>
+                                        : {{ $item->comment }}
+                                    </h2>
+                                </li>
+                            @endforeach
+                        </ul>
                     @else
-                    <h2 style="font-size: 17px;
+                        <h2 style="font-size: 17px;
                 font-weight: bold;
                 margin: 20px">
-                        لم يتم إضافة اى تعليقات أو روابط على هذا الدرس</h2>
+                            لم يتم إضافة اى تعليقات أو روابط على هذا الدرس</h2>
                     @endif
                 </div>
 
@@ -292,11 +299,13 @@
                         <div class="form-group">
                             <h4 style="text-align: center;margin: 5px; color: gray;">إضافة تعليق جديد</h4>
                             <label style="margin: 5px; color: gray;" for="message">تعليقك</label>
-                            <textarea required name="comment" id="" msg cols="30" rows="5" class="form-control" style="background-color: rgb(255, 255, 255);"></textarea>
+                            <textarea required name="comment" id="" msg cols="30" rows="5" class="form-control"
+                                style="background-color: rgb(255, 255, 255);"></textarea>
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn bg-slate-900 btn-block btn-lg btn-primary waves-effect waves-light">اضافة
+                            <button type="submit"
+                                class="btn bg-slate-900 btn-block btn-lg btn-primary waves-effect waves-light">اضافة
                                 تعليق</button>
                         </div>
                     </form>
@@ -304,38 +313,46 @@
             </div>
         </div>
         @php
-            $user=Auth()->user()->id;
+            $user = Auth()->user()->id;
             $sub = \App\Models\UserCourse::where('course_id', $courses->id)->first();
-            @endphp
-            @if($user == $sub->user_id )
-        <div>
-            <!-- 0000 -->
-           
-            <div class="tutorial">
-                <div class="accordion">
-                    <h4 style="color: #ffffff ; text-align: center; ">قائمة دروس مادة {{$courses->subject_name}}</h4>
+        @endphp
+        @if ($user == $sub?->user_id)
+            <div>
+                <!-- 0000 -->
+                <div class="tutorial">
+                    <div class="accordion">
+                        <h4 style="color: #ffffff ; text-align: center; ">قائمة دروس مادة {{ $courses->subject_name }}
+                        </h4>
 
-                    @foreach($tutorials as $tutorial)
-                    <!-- <div class="item" onclick="toggleContent('content1')"> الوحدة التعليمية الاولي : التكاثر ف الانسان</div> -->
-                    <div class="item" onclick="toggleContent('{{ $tutorial['id'] }}')"> {{$tutorial->name}} <img src="https://cdn-icons-png.flaticon.com/128/11869/11869083.png" style="margin-top:0px ;" width="25px"></div>
-                    <div class="content" id="{{ $tutorial['id'] }}">
-                        @foreach ($tutorial->video as $video)
-                        <div class="insidecontent"><a href="{{ route('teacherCourseTutorialVideoShow', $video->id) }}" width="100%" style="text-decoration: none; color:#2980b9"> {{$video->name}} <img src="https://cdn-icons-png.flaticon.com/128/2377/2377746.png" style="margin-top:0px ;" width="20px"></a></div>
+                        @foreach ($tutorials as $tutorial)
+                            <!-- <div class="item" onclick="toggleContent('content1')"> الوحدة التعليمية الاولي : التكاثر ف الانسان</div> -->
+                            <div class="item" onclick="toggleContent('{{ $tutorial['id'] }}')"> {{ $tutorial->name }}
+                                <img src="https://cdn-icons-png.flaticon.com/128/11869/11869083.png"
+                                    style="margin-top:0px ;" width="25px">
+                            </div>
+                            <div class="content" id="{{ $tutorial['id'] }}">
+                                @foreach ($tutorial->video as $video)
+                                    <div class="insidecontent"><a
+                                            href="{{ route('teacherCourseTutorialVideoShow', $video->id) }}"
+                                            width="100%" style="text-decoration: none; color:#2980b9">
+                                            {{ $video->name }} <img
+                                                src="https://cdn-icons-png.flaticon.com/128/2377/2377746.png"
+                                                style="margin-top:0px ;" width="20px"></a></div>
+                                @endforeach
+                            </div>
                         @endforeach
+
                     </div>
-                    @endforeach
 
+                    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+                    <script>
+                        function toggleContent(contentId) {
+                            $("#" + contentId).toggleClass("active").siblings(".content").removeClass("active");
+                        }
+                    </script>
+                    <!-- 000 -->
                 </div>
-
-                <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-                <script>
-                    function toggleContent(contentId) {
-                        $("#" + contentId).toggleClass("active").siblings(".content").removeClass("active");
-                    }
-                </script>
-                <!-- 000 -->
             </div>
-        </div>
         @endif
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
