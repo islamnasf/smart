@@ -320,6 +320,9 @@ header {
     background-size: cover;
     object-fit: contain;
     background-position: center;
+    flex-direction: column;
+    justify-content: center;
+  
 }
 
 #bottom-hero {

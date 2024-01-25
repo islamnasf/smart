@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AnotherPackage;
 use App\Models\CartItem;
 use App\Models\Course;
 use App\Models\Exam;
@@ -29,7 +30,9 @@ class HomeController extends Controller
         $subject = Auth::user()->group;
         $userSubject = Course::where('classroom', $subject)->get();
         $userPackage = Package::has('course')->where('class', $subject)->get();
+        $PackageCourse = Package::has('course')->where('class', $subject)->first();
+        $PackageBook = AnotherPackage::has('book')->where('class', $subject)->first();
         //
-        return view('/admin/dashboard', compact('teacherCount', 'studentCount', 'examCount', 'courses', 'userSubject', 'cart', 'countCart', 'subs','paks','userPackage' ,'sumPrice'));
+        return view('/admin/dashboard', compact('teacherCount', 'studentCount', 'examCount', 'courses', 'userSubject', 'cart', 'countCart', 'subs','paks','userPackage' ,'sumPrice' ,'PackageCourse','PackageBook'));
     }
 }

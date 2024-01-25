@@ -170,15 +170,15 @@
                     <div class="package-info">
                         <p class="mb-3"><strong> اسم الباقة : </strong> {{ $package->name }}</p>
                         <p class="mb-3"><strong> سعر الباقة : </strong> {{ $package->price }} د.ك</p>
-                        @if(isset($packagebooks) && (is_array($packagebooks) || is_object($packagebooks)))
-                        <p style="text-align: right;"><strong> مذكرات الباقة الحالية  ({{ count($packagebooks) }})</strong></p>
+                        @if(isset($selectedBooks ) && (is_array($selectedBooks ) || is_object($selectedBooks )))
+                        <p style="text-align: right;"><strong> مذكرات الباقة الحالية  ({{ count($selectedBooks ) }})</strong></p>
                         <ul class="course-list">
-                            @foreach($packagebooks as $book)
+                            @foreach($selectedBooks as $book)
                             <li>{{ $book->name }}</li>
                             @endforeach
                         </ul>
                         @endif
-                        @if(isset($packagebooks) && $packagebooks)
+                        @if(isset($selectedBooks) && $selectedBooks)
                         <p style="text-align: right;"><strong> تغير مذكرات الباقة </strong></p>
                         @else
                         <p style="text-align: right;"><strong>اضافة مذكرات جديدة للباقة </strong></p>

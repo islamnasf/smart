@@ -210,26 +210,36 @@ class BookController extends Controller
     }
     public function editPackage(Request $request, $packageId)
     {
-        $package = Package::find($packageId);
+        $package = AnotherPackage::find($packageId);
+    
         if (!$package) {
-            toastr()->error('الصف لا يحتوي على كورسات');
+            toastr()->error('الصف لا يحتوي على مذكرات');
             return redirect()->route('showPackage');
         }
-        $books = book::where('classroom', $package->class)->get();
+    
+        $books = Book::where('classroom', $package->class)->get();
         $packagebooks = PackageBook::where("package_id", $package->id)->get();
+    
         if ($packagebooks->isEmpty()) {
-            toastr()->error('الباقة لا تحتوي على مواد');
+            toastr()->error('الباقة لا تحتوي على مذكرات');
             return redirect()->route('showPackage');
         }
-        $packagebooks = [];
+    
+        $selectedBooks = [];
+    
         foreach ($packagebooks as $packagebookItem) {
             $book = Book::find($packagebookItem->book_id);
+    
             if ($book) {
-                $packagebooks[] = $book;
+                $selectedBooks[] = $book;
             }
         }
-        return view("admin.book.addpackage", compact(['books', 'package', 'packagebooks']));
+    
+        return view("admin.book.addpackage", compact(['books', 'package', 'selectedBooks']));
     }
+    
+    
+
     public function unActive()
     {
         $package = AnotherPackage::where('is_active', 0)->get();

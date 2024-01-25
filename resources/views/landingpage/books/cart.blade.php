@@ -65,7 +65,7 @@ $bookInCartCount = \App\Models\BookCart::where('session_id', $sessionId)->count(
             <div class="col-lg-5">
               <div class="contant-cart">
                 <h4 class="ms-5">{{$package->name}}</h4>
-                <h6 class="ms-5">{{$package->book()->count();}} مذكرات</h6>
+                <h6 class="ms-5">{{$package->book()->count()}} مذكرات</h6>
                 <span class="fw-bold fs-5 text-dark ms-2">{{$item->price}} د.ك</span> -
                 <span class="fw-bold fs-5 text-danger ms-1 "><del>{{$item->price*2}} د.ك</del></span>
               </div>
@@ -126,7 +126,6 @@ $bookInCartCount = \App\Models\BookCart::where('session_id', $sessionId)->count(
           <a href="{{route('getNotesStage')}}" class="btn btn-info fw-bold my-3 mx-auto "> تسوق المزيد</a>
 
           <botton id="done" class="btn btn-danger fw-bold my-3 mx-auto ">اتمام عملية الشراء</botton>
-
         </div>
         <form action="{{route('postneworderbook')}}" method="post">
           @csrf
@@ -160,7 +159,6 @@ $bookInCartCount = \App\Models\BookCart::where('session_id', $sessionId)->count(
                 <label for="address"> العنوان</label>
                 <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="" name="address">
               </div>
-             
               <hr class="mb-4">
               <button class="btn btn-danger btn-lg btn-block" type="submit">تأكيد عملية الشراء</button>
             </div>
@@ -170,6 +168,8 @@ $bookInCartCount = \App\Models\BookCart::where('session_id', $sessionId)->count(
     </div>
   </div>
 </section>
+
+
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
