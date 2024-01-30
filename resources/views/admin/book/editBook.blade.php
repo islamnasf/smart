@@ -1,5 +1,5 @@
 @section('title')
-تعديل بيانات المذكرة
+    تعديل بيانات المذكرة
 @stop
 <!DOCTYPE html>
 <html lang="en">
@@ -122,26 +122,35 @@
                 <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
                     <div class="card">
                         <h5 class="text-center mb-4"> تعديل بيانات المذكرة </h5>
-                        <form action="{{ route('updateBook',$book->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('updateBook', $book->id) }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="row justify-content-between text-left">
-                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">إسم المذكرة <span class="text-danger">
-                                            *</span></label> <input type="text" id="fname" name="name" value="{{$book->name}}" required onblur="validate(1)"></div>
-                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">مدرس المادة<span class="text-danger">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                        class="form-control-label px-3">إسم المذكرة <span class="text-danger">
+                                            *</span></label> <input type="text" id="fname" name="name"
+                                        value="{{ $book->name }}" required onblur="validate(1)"></div>
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                        class="form-control-label px-3">مدرس المادة<span class="text-danger">
                                             *</span></label>
-                                    <select type="text" id="lname" required name="techer_id" onblur="validate(2)">
-                                    <option selected value="{{ $book->techer->id }}">{{ $book->techer->name }}</option>
+                                    <select type="text" id="lname" required name="techer_id"
+                                        onblur="validate(2)">
+                                        <option selected value="{{ $book->techer->id }}">{{ $book->techer->name }}
+                                        </option>
                                         @foreach ($techer as $tech)
-                                        <option value="{{ $tech->id }}">{{ $tech->name }}</option>
+                                            <option value="{{ $tech->id }}">{{ $tech->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="row justify-content-between text-left">
-                            <div class="form-group col-6 flex-column d-flex"> <label class="form-control-label px-3">الكمية <span class="text-danger">
-                                            *</span></label> <input type="number" id="ans" name="quantity" placeholder="" onblur="validate(6)" value="{{$book->quantity}}">
+                                <div class="form-group col-6 flex-column d-flex"> <label
+                                        class="form-control-label px-3">الكمية <span class="text-danger">
+                                            *</span></label> <input type="number" id="ans" name="quantity"
+                                        placeholder="" onblur="validate(6)" value="{{ $book->quantity }}">
                                 </div>
-                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">الترم<span class="text-danger">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                        class="form-control-label px-3">الترم<span class="text-danger">
                                             *</span></label>
                                     <select required id="job" name="term_type">
                                         <option value="termone">الترم الاول</option>
@@ -149,12 +158,38 @@
                                     </select>
                                 </div>
                             </div>
+
+
                             <div class="row justify-content-between text-left">
-                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">سعر المذكرة <span class="text-danger">
-                                            *</span></label> <input type="number" id="ans" name="book_price" required onblur="validate(6)" value="{{$book->book_price}}"> </div>
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                        class="form-control-label px-3">المرحلة<span class="text-danger">
+                                            *</span></label>
+                                    <select id="category" name="classroom" required>
+                                        <option value='{{ $book->classroom }}'>{{ $book->classroom }}</option>
+                                        <option value='الصف الرابع'>'الصف الرابع'</option>
+                                        <option value='الصف الخامس'>'الصف الخامس'</option>
+                                        <option value='الصف السادس'>'الصف السادس'</option>
+                                        <option value='الصف السابع'>'الصف السابع'</option>
+                                        <option value='الصف الثامن'>'الصف الثامن'</option>
+                                        <option value='الصف التاسع'>'الصف التاسع'</option>
+                                        <option value='الصف العاشر'>'الصف العاشر'</option>
+                                        <option value='الصف الحادي عشر'>'الصف الحادي عشر'</option>
+                                        <option value='الصف الثاني عشر'>'الصف الثاني عشر '</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                        class="form-control-label px-3">سعر المذكرة <span class="text-danger">
+                                            *</span></label> <input type="number" id="ans" name="book_price"
+                                        required onblur="validate(6)" value="{{ $book->book_price }}"> </div>
                                 <div class="form-group col-sm-6 flex-column d-flex">
-                                    <label class="form-control-label px-3">ربح المعلم <span class="text-danger">*</span></label>
-                                    <input type="number" id="ans" name="teacher_ratio" required onblur="validate(6)" min="0.1" step="0.1" value="{{$book->Teacher_ratio}}">
+                                    <label class="form-control-label px-3">ربح المعلم <span
+                                            class="text-danger">*</span></label>
+                                    <input type="number" id="ans" name="teacher_ratio" required
+                                        onblur="validate(6)" min="0.1" step="0.1"
+                                        value="{{ $book->Teacher_ratio }}">
                                 </div>
                             </div>
 
@@ -162,8 +197,11 @@
                                 <div class="col-md-12 flex-column d-flex">
                                     <div class="form-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="file" name="pdf" placeholder="" onchange="displayFileName()"  value="{{$book->pdf}}">
-                                            <label class=" custom-file-label1 " for="file">  {{$book->pdf}}  </label>
+                                            <input type="file" class="custom-file-input" id="file"
+                                                name="pdf" placeholder="" onchange="displayFileName()"
+                                                value="{{ $book->pdf }}">
+                                            <label class=" custom-file-label1 " for="file"> {{ $book->pdf }}
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -185,7 +223,8 @@
                                 }
                             </script>
                             <div class="row justify-content-center mt-5">
-                                <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">تعديل المذكرة</button> </div>
+                                <div class="form-group col-sm-6"> <button type="submit"
+                                        class="btn-block btn-primary">تعديل المذكرة</button> </div>
                             </div>
                         </form>
                     </div>
@@ -265,11 +304,6 @@
 
                 return flag;
             }
-            const items = {
-                ابتدائي: ['الصف الرابع', 'الصف الخامس'],
-                متوسط: ['الصف السادس', 'الصف السابع', 'الصف الثامن', 'الصف التاسع'],
-                ثانوي: ['الصف العاشر ', 'الصف الحادي عشر ', 'الصف الثاني عشر ']
-            };
             // Function to update the items based on the selected category
             function updateItems() {
                 const categorySelect = document.getElementById('category');

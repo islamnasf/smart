@@ -172,7 +172,7 @@
                                         <div class="contant-card d-flex align-items-center ">
                                             <div class="contant-1 ps-4">
                                                 <h5 class="fw-bold  pt-2"> الباقة <span class="text-danger">(الماسية)</span></h5>
-                                                <span class="text-dark d-block">(تشمل {{$PackageBook->book()->count();}} مذكرات & تشمل {{$PackageCourse->course()->count();}}مواد)</span>
+                                                <span class="text-dark d-block">(تشمل {{$PackageBook->book()->count()}} مذكرات & تشمل {{$PackageCourse->course()->count();}}مواد)</span>
                                                 <div><strong> المذكرات : </strong>
                                                     @foreach($PackageBook->book as $book)
                                                     <span class="text-dark"> {{$book->name}}</span>

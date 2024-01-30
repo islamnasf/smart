@@ -65,7 +65,7 @@ $bookInCartCount = \App\Models\BookCart::where('session_id', $sessionId)->count(
             <div class="col-lg-5">
               <div class="contant-cart">
                 <h4 class="ms-5">{{$package->name}}</h4>
-                <h6 class="ms-5">{{$package->book()->count();}} مذكرات</h6>
+                <h6 class="ms-5">{{$package->book()->count()}} مذكرات</h6>
                 <span class="fw-bold fs-5 text-dark ms-2">{{$item->price}} د.ك</span> -
                 <span class="fw-bold fs-5 text-danger ms-1 "><del>{{$item->price*2}} د.ك</del></span>
               </div>

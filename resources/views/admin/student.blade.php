@@ -66,7 +66,7 @@
                                     <td>{{ $student->date }}</td>
 
                                     <td>
-                                    {{$student->course()->count();}}
+                                        {{ $student->course()->count() }}
 
                                     </td>
                                     <td>0</td>
