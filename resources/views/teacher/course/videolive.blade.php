@@ -310,11 +310,9 @@
             @if($user == $sub->user_id )
         <div>
             <!-- 0000 -->
-           
             <div class="tutorial">
                 <div class="accordion">
                     <h4 style="color: #ffffff ; text-align: center; ">قائمة دروس مادة {{$courses->subject_name}}</h4>
-
                     @foreach($tutorials as $tutorial)
                     <!-- <div class="item" onclick="toggleContent('content1')"> الوحدة التعليمية الاولي : التكاثر ف الانسان</div> -->
                     <div class="item" onclick="toggleContent('{{ $tutorial['id'] }}')"> {{$tutorial->name}} <img src="https://cdn-icons-png.flaticon.com/128/11869/11869083.png" style="margin-top:0px ;" width="25px"></div>

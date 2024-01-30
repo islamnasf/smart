@@ -139,11 +139,30 @@ class CourseController extends Controller
     }
     public function editVideo(Request $request, $id)
     {
-        $video = Video::find($id);
-        $video->update($request->all());
+        $data = Video::find($id);
+        
+        $request->validate([
+            'name' => 'required',
+            'link' => 'required',
+        ]);
+    
+        if ($request->hasFile('pdf')) {
+            $file = $request->file('pdf');
+            $filename = $file->getClientOriginalName();
+            $file->storeAs('public/pdfs', $filename);
+            $data->pdf = $filename;
+        }
+    
+        $data->name = $request->name;
+        $data->link = $request->link;
+        $data->type = $request->type;
+    
+        $data->save();
+    
         toastr()->success('تم حفظ البيانات بنجاح');
         return back();
     }
+    
 
     public function reports()
     {

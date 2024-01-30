@@ -13,7 +13,6 @@ class TeacherController extends Controller
         $count=user::where('user_type','teacher')->count();
         return view('/admin/teacher', compact('teachers','count'));
         }
-
     public function store(Request $request)
     {
         $rules=[
@@ -21,7 +20,7 @@ class TeacherController extends Controller
             'phone' => ['required', 'unique:'.User::class ,'digits:8'],
             'password' => ['required'],
             'Teacher_ratio_course' => ['required'],
-
+            'teacher_description' => ['required'],
         ];
         $customMessages = [
             'name.required' => 'يجب ادخال الاسم   ',
@@ -30,6 +29,8 @@ class TeacherController extends Controller
             'phone.unique' => 'هذا الفون موجود مسبقا',
             'phone.digits' => 'رقم الهاتف  يجب ان يكون 8 ارقام فقط   ',      
             'Teacher_ratio_course.required'=>'يجب ادخال النسبة للمدرس',
+            'teacher_description.required'=>'يجب ادخال وصف للمدرس ',
+            
         ];
         $request->validate($rules, $customMessages);
         $user = User::create([
@@ -37,7 +38,10 @@ class TeacherController extends Controller
             'phone' => $request->phone,
             'password' =>$request->password,
             'user_password' =>$request->password,
-            'Teacher_ratio_course'=>$request->Teacher_ratio_course
+            'Teacher_ratio_course'=>$request->Teacher_ratio_course,
+            'teacher_description'=>$request->teacher_description,
+
+
         ]);
         if($user){
             $user->update([
@@ -54,6 +58,8 @@ class TeacherController extends Controller
             'phone' => ['required','digits:8'],
             'password' => ['required'],
             'Teacher_ratio_course' => ['required'],
+            'teacher_description' => ['required'],
+
         ];
         $customMessages = [
             'name.required' => 'يجب ادخال الاسم ',
@@ -61,8 +67,8 @@ class TeacherController extends Controller
             'password.required' => 'يجب ادخال كلمة السر ',
             'phone.unique' => 'هذا الفون موجود مسبقا',
             'phone.digits' => 'رقم الهاتف  يجب ان يكون 8 ارقام فقط   ',   
-            'Teacher_ratio_course.required'=>'يجب ادخال النسبة للمدرس',   
-            
+            'Teacher_ratio_course.required'=>'يجب ادخال النسبة للمدرس',     
+            'teacher_description.required'=>'يجب ادخال وصف للمدرس ',
           ];
         $request->validate($rules, $customMessages);
         User::findOrFail($teacher)->update([
@@ -70,8 +76,8 @@ class TeacherController extends Controller
             'phone' => $request->phone,
             'password' =>$request->password,
             'user_password' =>$request->password,
-            'Teacher_ratio_course'=>$request->Teacher_ratio_course
-
+            'Teacher_ratio_course'=>$request->Teacher_ratio_course,
+            'teacher_description'=>$request->teacher_description,
         ]);
         toastr()->success('تم حفظ البيانات بنجاح');
         return back();

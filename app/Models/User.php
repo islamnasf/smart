@@ -30,7 +30,9 @@ class User extends Authenticatable implements JWTSubject
         'student_subscrip',
         'renew',
         'email',
-        'Teacher_ratio_course'
+        'Teacher_ratio_course',
+        'teacher_description'
+
     ];
     /**
      * The attributes that should be hidden for serialization.
@@ -87,10 +89,10 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->belongsToMany(City::class, 'mandub_cities', "city_id", "mandoub_id", "id");
     }
-    public function mandubBooks()
+   public function mandubBooks()
     {
-        return $this->belongsToMany(Book::class, 'mandub_books', 'mandub_id', 'book_id')
-            ->withPivot('mandub_quantity', 'minimum','station','distributor_active','mandub_active','mandub_target')
+        return $this->belongsToMany(Book::class, 'mandub_books')
+            ->withPivot('mandub_quantity', 'minimum', 'station', 'distributor_active', 'mandub_active', 'mandub_target')
             ->withTimestamps();
     }
     public function order()

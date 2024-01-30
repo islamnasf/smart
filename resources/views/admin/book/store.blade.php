@@ -302,7 +302,7 @@ $name = request()->route('name');
                                     <td>{{$book->name}}</td>
                                     <td>{{$book->classroom}}</td>
                                     <td>{{$book->quantity}}</td>
-                                 
+
                                     <td>
                                         @if($book->target)
                                         {{$book->target->target}}
@@ -328,13 +328,20 @@ $name = request()->route('name');
                                                 </button>
                                                 اضافة كمية
                                             </div>
-                                            <a href="{{route('printBookFinish',$book->id)}}" style="padding:2px; padding-right: 20px; font-size: 15px;">
+                                            <a href="{{route('printBookFinish',$book->id)}}" style="padding:2px; padding-right: 20px; font-size: 15px; display: block; ">
                                                 <button type="button" class="btn btn-success btn-sm">
                                                     <i class="fa fa-check"></i>
                                                 </button>
                                                 تم الطباعة
                                             </a>
+                                            <div style="padding:2px; padding-right: 20px; font-size: 15px;">
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{ $book->id }}">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                                حذف الكتاب
+                                            </div>
                                         </div>
+
                                         <!-- edit  -->
                                         <div class="modal fade" id="edit{{$book->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
@@ -362,6 +369,30 @@ $name = request()->route('name');
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
                                                         <button type="submit" class="btn btn-primary"> اضافة </button>
                                                     </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- delete -->
+                                        <div class="modal fade" id="delete{{ $book->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">حذف الكتاب </h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form method="post" action="{{ route('deleteBookFromStore', $book->id) }}" >
+                                                        @csrf
+                                                        <div class="modal-body">
+                                                            <h4> هل انت متاكد من حذف هذا الكتاب ؟</h4>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                                                            <button type="submit" class="btn btn-primary"> حذف
+                                                            </button>
+                                                        </div>
                                                     </form>
                                                 </div>
                                             </div>

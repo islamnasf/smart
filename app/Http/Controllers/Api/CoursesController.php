@@ -31,7 +31,7 @@ class CoursesController extends Controller
             ],200);
     }
     public function tutorial(int $course){
-        $tutorial=Tutorial::where('course_id',$course)->with('video')->get();
+        $tutorial=Tutorial::where('course_id',$course)->has('video')->get();
         return response()->json([
             'status'=>200,
             'tutorial'=> $tutorial,

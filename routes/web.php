@@ -15,17 +15,20 @@ use App\Http\Controllers\Admin\ExamController;
 use App\Http\Controllers\Admin\MandubController;
 use App\Http\Controllers\Admin\SecretaryController;
 use App\Http\Controllers\Admin\TermController;
+use App\Http\Controllers\FatoorahController;
 use App\Http\Controllers\LandingPage\ContactUs;
 use App\Http\Controllers\LandingPage\LandingSubjectsController;
 use App\Http\Controllers\LandingPage\NotesController;
 use App\Http\Controllers\LandingPage\StageController;
 use App\Http\Controllers\LandingPage\SubjectsController;
+use App\Http\Controllers\MyFatoorahController;
 use App\Http\Controllers\Sitesetteings;
 use App\Http\Controllers\Student\CartController;
 use App\Http\Controllers\Student\SubscriptionController;
 use App\Http\Controllers\Teacher\SubjectController;
 use App\Http\Controllers\Teacher\TeacherPaymentsController;
 use App\Http\Controllers\Teacher\TutorialController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,8 +46,8 @@ require __DIR__ . '/auth.php';
 
 
 Route::get('/', function () {
-  $data = \App\Models\Sitesetteings::find(1);
-  return view('welcome', compact('data'));
+  $teacherData=User::where('user_type','teacher')->get();
+  return view('welcome',compact('teacherData'));
 })->name('home');
 
 
@@ -55,6 +58,8 @@ Route::fallback(function () {
   return view("errors.404");
 });
 
+Route::GET('payment/myfatoorah', [FatoorahController::class, 'checkout'])->name('myFatoorahIndex');
+Route::GET('payment/callback', [FatoorahController::class, 'callback'])->name('callback');
 
 route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], function () {
   //student->admin
@@ -126,6 +131,7 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('/store/quantity/class/books', [BookController::class, 'updateQuantityClass'])->name('postQuantityClassroom');
   Route::post('/store/print/finish/class/books', [BookController::class, 'finishPrint'])->name('finishPrint');
   Route::get('/store/print/finishprint/done/{book}', [BookController::class, 'printBookFinish'])->name('printBookFinish');
+  Route::post('/delete/Book/From/Store/{book}', [BookController::class, 'deleteBookFromStore'])->name('deleteBookFromStore');
   //
   Route::Post('/quantitybook/{book}', [BookController::class, 'addQuantity'])->name('addQuantity');
   Route::get('/termone', [BookController::class, 'termone'])->name('termone');

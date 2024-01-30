@@ -15,15 +15,14 @@ active
 
     @if($courseDetails->tutorial->isEmpty())
     <h1 class="text-center py-5 mb-5">الفيديو غير موجود </h1>
-    @else
-    @foreach($courseDetails->tutorial as $index => $tutorial)
-    @if($tutorial->video->isEmpty() && $tutorial->video[0]->link->isEmpty())
-    <h1 class="text-center py-5 mb-5">الفيديو غير متاح</h1>
-    @endif
-    @endforeach
+    <!--@else-->
+    <!--@foreach($courseDetails->tutorial as $index => $tutorial)-->
+    <!--@if($tutorial->video->isEmpty())-->
+    <!--<h1 class="text-center py-5 mb-5">الفيديو غير متاح</h1>-->
+    <!--@endif-->
+    <!--@endforeach-->
     @endif
 </section>
-
 <section id="videos">
     <div class="container py-5">
         <div class="row">

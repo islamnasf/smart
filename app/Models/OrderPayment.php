@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MandubBook extends Model
+class OrderPayment extends Model
 {
     protected $guarded = [];
     use HasFactory;
-
 }

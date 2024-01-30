@@ -104,9 +104,8 @@
                     </div>
                 </div>
             </div>
-            <form class="col-md-4" action="{{ route('studentPostOrder') }}" method="POST">
+            <form class="col-md-4" action="{{ route('myFatoorahIndex') }}" method="GET">
                 @csrf
-
                 <div class="card mb-4">
                     <div class="card-header py-3">
                         <h5 class="mb-0">ملخص</h5>

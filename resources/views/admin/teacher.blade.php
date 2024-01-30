@@ -46,9 +46,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-
       <div class="modal-body">
-
         <form action="{{route('postTeacher')}}" method="post">
           @csrf
           <input type="text" name="name" class="form-control" placeholder="اسم المعلم ">
@@ -56,12 +54,12 @@
           <div class="alert alert-danger">{{ $message }}</div>
           @enderror
           </br>
-
           <input type="text" name="phone" class="form-control" placeholder=" رقم هاتف المعلم">
-
           @error('phone')
           <div class="alert alert-danger">{{ $message }}</div>
           @enderror
+          </br>
+          <input type="text" name="teacher_description" class="form-control" placeholder="نبذه عن المعلم">
           </br>
           <input type="text" name="password" class="form-control" placeholder="الرقم السري">
 </br>
@@ -102,6 +100,7 @@
                 <th>الهاتف </th>
                 <th>الرقم السري</th>
                 <th> نسبة المعلم  </th>
+                <th>نبذه عن المعلم</th>
                 <th> العمليات</th>
               </tr>
             </thead>
@@ -113,6 +112,8 @@
                 <td>{{$teacher->phone}}</td>
                 <td>{{$teacher->user_password}}</td>
                 <td>{{$teacher->Teacher_ratio_course}}</td>
+                <td>{{$teacher->teacher_description}}</td>
+
                 <td>
                   <!-- Button trigger modal update -->
                   <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -153,6 +154,11 @@
                             <label style="font-size: 15px; font-weight: bold;"> رقم الهاتف    </label>
                             <input type="text" name="phone" class="form-control" value="{{ $teacher->phone}}">
                             </br>
+                            </br>
+                            <label style="font-size: 15px; font-weight: bold;"> نبذه عن المعلم     </label>
+                            <input type="text" name="teacher_description" class="form-control" value="{{ $teacher->teacher_description}}">
+                            </br>
+
                             <label style="font-size: 15px; font-weight: bold;"> الرقم السري   </label>
                             <input type="text" name="password" class="form-control" value="{{ $teacher->user_password}}">
                             <label style="font-size: 15px; font-weight: bold;">نسبة المعلم من الكورسات </label>

@@ -57,12 +57,19 @@ class NotesController extends Controller
         }
     }
 
-    public function downloadPdf($fileName)
+    //
+   public function downloadPdf($fileName)
     {
-
-        return response()->download(storage_path('app/public/pdf/books/' . $fileName));
+        $filePath = storage_path('app/public/pdf/books/' . $fileName);
+    
+        if (file_exists($filePath)) {
+            return response()->download($filePath);
+        } else { 
+            toastr()->error(' الملف غير موجود حالياً');
+            return redirect()->back(); 
+        }
     }
-    //cart // 
+        //cart // 
     public function cartBooks()
     {
 
@@ -182,8 +189,4 @@ class NotesController extends Controller
             return view('landingpage/books/stages_notes', ['thankYou' => true]);
         }
     }
-    
-    
-    
-
 }

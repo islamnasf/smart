@@ -15,6 +15,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\QueryException;
 
 class BookController extends Controller
 {
@@ -338,4 +339,25 @@ class BookController extends Controller
         toastr()->success('تم حفظ البيانات بنجاح');
         return back();
     }
+
+public function deleteBookFromStore(int $book)
+{
+    try {
+        $bookModel = Book::findOrFail($book);
+        
+        // Attempt to delete the book
+        $bookModel->delete();
+
+        toastr()->success('تم حذف البيانات');
+    } catch (QueryException $e) {
+        // Check if the exception is due to a foreign key constraint violation
+        if ($e->errorInfo[1] === 1451) {
+            toastr()->error('لا يمكن حذف الكتاب لأنه مرتبط بسجلات في جدول آخر.');
+        } else {
+            // Handle other database-related exceptions
+            toastr()->error('حدث خطأ أثناء محاولة حذف البيانات.');
+        }
+    }
+    return back();
+}
 }

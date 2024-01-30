@@ -24,7 +24,7 @@ class AuthController extends Controller
         $validator=Validator::make($request->all() ,[
             'name'=>'required',
             'phone'=>'required|unique:users|digits:8',
-            'password'=>'required|min:6'
+            'password'=>'required|min:3'
         ]);
         if($validator->fails()){
             return response()->json([
@@ -50,7 +50,7 @@ class AuthController extends Controller
     public function login(Request $request){
         $validator=Validator::make($request->all(),[
             'phone'=>'required',
-            'password'=>'required|min:6'
+            'password'=>'required|min:3'
         ]);
         if($validator->fails()){
             return response()->json([
@@ -98,7 +98,7 @@ class AuthController extends Controller
                 'min:11',
                 'max:11',
             ],
-            'password'=>'required|min:6' 
+            'password'=>'required|min:3' 
         ]);
         try {
             $user = JWTAuth::parseToken()->authenticate();
