@@ -315,19 +315,31 @@
         @php
             $user = Auth()->user()->id;
             $sub = \App\Models\UserCourse::where('course_id', $courses->id)->first();
-            @endphp
-            @if($user == $sub->user_id )
-        <div>
-            <!-- 0000 -->
-            <div class="tutorial">
-                <div class="accordion">
-                    <h4 style="color: #ffffff ; text-align: center; ">قائمة دروس مادة {{$courses->subject_name}}</h4>
-                    @foreach($tutorials as $tutorial)
-                    <!-- <div class="item" onclick="toggleContent('content1')"> الوحدة التعليمية الاولي : التكاثر ف الانسان</div> -->
-                    <div class="item" onclick="toggleContent('{{ $tutorial['id'] }}')"> {{$tutorial->name}} <img src="https://cdn-icons-png.flaticon.com/128/11869/11869083.png" style="margin-top:0px ;" width="25px"></div>
-                    <div class="content" id="{{ $tutorial['id'] }}">
-                        @foreach ($tutorial->video as $video)
-                        <div class="insidecontent"><a href="{{ route('teacherCourseTutorialVideoShow', $video->id) }}" width="100%" style="text-decoration: none; color:#2980b9"> {{$video->name}} <img src="https://cdn-icons-png.flaticon.com/128/2377/2377746.png" style="margin-top:0px ;" width="20px"></a></div>
+        @endphp
+        @if ($user == $sub?->user_id)
+            <div>
+                <!-- 0000 -->
+                <div class="tutorial">
+                    <div class="accordion">
+                        <h4 style="color: #ffffff ; text-align: center; ">قائمة دروس مادة {{ $courses->subject_name }}
+                        </h4>
+
+                        @foreach ($tutorials as $tutorial)
+                            <!-- <div class="item" onclick="toggleContent('content1')"> الوحدة التعليمية الاولي : التكاثر ف الانسان</div> -->
+                            <div class="item" onclick="toggleContent('{{ $tutorial['id'] }}')"> {{ $tutorial->name }}
+                                <img src="https://cdn-icons-png.flaticon.com/128/11869/11869083.png"
+                                    style="margin-top:0px ;" width="25px">
+                            </div>
+                            <div class="content" id="{{ $tutorial['id'] }}">
+                                @foreach ($tutorial->video as $video)
+                                    <div class="insidecontent"><a
+                                            href="{{ route('teacherCourseTutorialVideoShow', $video->id) }}"
+                                            width="100%" style="text-decoration: none; color:#2980b9">
+                                            {{ $video->name }} <img
+                                                src="https://cdn-icons-png.flaticon.com/128/2377/2377746.png"
+                                                style="margin-top:0px ;" width="20px"></a></div>
+                                @endforeach
+                            </div>
                         @endforeach
 
                     </div>
