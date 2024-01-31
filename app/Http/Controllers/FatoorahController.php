@@ -149,7 +149,7 @@ class FatoorahController extends Controller
                     }
                 }
                 CartItem::where("user_id", Auth::user()->id)->delete();
-                toastr()->success(' نجح الدفع ');
+                toastr()->success(' تمت عملية الدفع بنجاح ');
                 return redirect()->route('dashboard');
             }
         }

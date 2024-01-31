@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\AnotherPackage;
 use App\Models\City;
+use App\Models\MandubBook;
 use App\Models\MandubCity;
 use App\Models\OrderBookDetail;
 use App\Models\OrderBookItem;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -84,6 +86,14 @@ class MandubAppController extends Controller
             'status' => 200,
             'orders' => $complateorder,
         ], 200);
+    }
+    public function mandubBooks($mandub){
+        $mandubStore=User::where('id',$mandub)->with('mandubBooks')->get();
+        return response()->json([
+            'status' => 200,
+            'namdubStore' => $mandubStore,
+        ], 200);
+
     }
     
 }
