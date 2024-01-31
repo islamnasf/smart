@@ -168,23 +168,18 @@ class NotesController extends Controller
                         $book->decrement('quantity', $item->quantity);
                     }
                 }
-    
                 if ($item->package_id) {
                     $package = AnotherPackage::find($item->package_id);
                     if ($package) {
                         $package->book()->decrement('quantity', $item->quantity);
                     }
                 }
-    
                 $price += $item->price;
             }
-    
             $newOrder->update([
                 'price_all' => $price,
             ]);
-    
             BookCart::where('session_id', $sessionId)->delete();
-    
             // إعرض رسالة الشكر بعد اتمام الطلب
             return view('landingpage/books/stages_notes', ['thankYou' => true]);
         }

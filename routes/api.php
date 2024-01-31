@@ -38,7 +38,6 @@ Route::group(['middleware'=>'api'],function($router){
     Route::post('/order/current/to/complate/{order}', [MandubAppController::class, 'changeOrderTocomplate']);
     Route::get('/order/complate/orders/{mandub}', [MandubAppController::class, 'complateOrders']);
     Route::get('/mandub/books/quantity/{mandub}', [MandubAppController::class, 'mandubBooks']);
+    Route::get('/mandub/books/packages/classes', [MandubAppController::class, 'booksandpackagesClasses']);
 
-
- 
 });

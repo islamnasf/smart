@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\AnotherPackage;
+use App\Models\Book;
 use App\Models\City;
 use App\Models\MandubBook;
 use App\Models\MandubCity;
@@ -94,6 +95,15 @@ class MandubAppController extends Controller
             'namdubStore' => $mandubStore,
         ], 200);
 
+    }
+    public function booksandpackagesClasses(){
+        $books=Book::all();
+        $packages=AnotherPackage::all();
+        return response()->json([
+            'status' => 200,
+            'books' => $books,
+            'packages' => $packages,
+        ], 200);
     }
     
 }
