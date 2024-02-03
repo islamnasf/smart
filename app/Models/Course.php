@@ -24,10 +24,15 @@ class Course extends Model
     }
     public function user()
     {
-        return $this->belongsToMany(User::class, 'user_courses', "user_id", "course_id", "id");
+        return $this->belongsToMany(User::class, 'user_courses', "course_id", "user_id", "id");
     }
     public function package()
     {
         return $this->belongsToMany(Package::class, 'package_courses', "course_id", "package_id", "id");
     }
+    protected $casts = [
+        'Teacher_ratio_course' => 'decimal:2',
+        'term_price' => 'decimal:2',
+        'monthly_subscription_price' => 'decimal:2',
+    ];
 }

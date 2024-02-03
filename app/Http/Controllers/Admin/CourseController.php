@@ -103,7 +103,6 @@ class CourseController extends Controller
     public function video(Request $request, $tutorialId)
     {
         $tutorial = Tutorial::find($tutorialId)->video;
-
         $courses = User::find(Auth::user()->id)->course;
         return view('admin.course.video', (compact('tutorial', 'courses')));
     }

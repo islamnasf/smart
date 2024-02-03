@@ -9,7 +9,7 @@
 <!-- breadcrumb -->
 <div class="row">
     <div>
-        <h2 style="position: absolute; left:10%; top:10%; color:#dc3545"> الاجمالي (0)</h2>
+        <h2 style="position: absolute; left:10%; top:10%; color:#dc3545"> الاجمالي ({{$courses->count()}})</h2>
     </div>
     <!-- breadcrumb -->
     <img src="{{ url('assets/images/teacher.jpg') }}"
@@ -67,7 +67,8 @@
                                             href="{{ route('teacherCourseTutorialShow', $course->id) }}">{{ $course->subject_name }}</a>
                                     </td>
                                     <td>{{ $course->classroom }}</td>
-                                    <td>0</td>
+                                    <td>
+                                    {{ $course->user()->count()}}
                                     </td>
                                 </tr>
                             @endforeach

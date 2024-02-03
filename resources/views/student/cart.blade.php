@@ -35,8 +35,7 @@
                     <div class="card-body">
                         <!-- Single item -->
                         @foreach ($cart as $cart)
-                            <div
-                                style="display: flex; justify-content: space-around;flex-direction: row;align-items: center">
+                            <div class="d-flex justify-contant-center flex-wrap  text-center">
                                 @if ($cart->course != null)
                                     <div class="col-lg-3 col-sm-12 mb-4 mb-lg-0">
                                         <!-- Image -->
@@ -103,20 +102,7 @@
                         <!-- Single item -->
                     </div>
                 </div>
-                <div class="card mb-4 mb-lg-0">
-                    <div class="card-body">
-                        <p><strong>وسائل الدفع لدينا</strong></p>
-                        <img class="me-2" width="45px"
-                            src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
-                            alt="Visa" />
-                        <img class="me-2" width="45px"
-                            src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
-                            alt="American Express" />
-                        <img class="me-2" width="45px"
-                            src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
-                            alt="Mastercard" />
-                    </div>
-                </div>
+              
             </div>
             <form class="col-md-4" action="{{ route('myFatoorahIndex') }}" method="GET">
                 @csrf
@@ -135,9 +121,7 @@
                                 class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                 <div>
                                     <strong>المبلغ الإجمالي</strong>
-                                    <strong>
-                                        <p class="mb-0">(بما في ذلك ضريبة القيمة المضافة)</p>
-                                    </strong>
+
                                 </div>
                                 <span><strong>الاجمالي : {{ $sumPrice }} د.ك</strong></span>
                             </li>

@@ -23,4 +23,7 @@ class Package extends Model
     {
         return $this->belongsToMany(User::class, 'user_packages', "user_id", "package_id", "id");
     }
+    protected $casts = [
+        'price' => 'decimal:2',
+    ];
 }

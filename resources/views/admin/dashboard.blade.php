@@ -453,8 +453,8 @@
             @if ($countCart >= 1)
             <div class="d-flex text-center text-dark w-100">
                 <div class="mx-auto d-flex"><a href="{{ route('studentcart') }}">
-                        <div class="img-cart">
-                            <img width="100" src="/assets/ass/img/shopping-cart_1170576.svg" alt="">
+                        <div class="img-cart " >
+                            <img width="60" src="/assets/ass/img/shopping-cart_1170576.svg" alt=""> <strong class="h4">اذهب الي السلة</strong>   
                         </div>
                         <div class="text-center ">
                             <h3 class="fw-bold mb-4"><span class="text-danger">الاجمالي : </span> {{$sumPrice}} د.ك</h4>
@@ -575,7 +575,7 @@
                             }
                             @endphp
                             @if ($isUserSub == true)
-                            <h4>انت مشترك في هذا الكورس</h4>
+                            <h4 class="bg-success rounded p-3 text-light">انت مشترك في هذا الكورس</h4>
                             @elseif($isCourseInCart == true)
                             <h4> الكورس فى سلة المشتريات </h4>
                             @else

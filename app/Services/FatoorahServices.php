@@ -44,13 +44,11 @@ class FatoorahServices
             return false;
         }
     }
-
     public function sendPayment($data)
     {
         $response  = $this->buildRequest('v2/SendPayment', 'POST', $data);
         return $response;
     }
-
     public function getPaymentStatus($data)
     {
         $response  = $this->buildRequest('v2/getPaymentStatus', 'POST', $data);

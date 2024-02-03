@@ -162,18 +162,18 @@ class NotesController extends Controller
                     'order_id' => $newOrder->id,
                 ]);
     
-                if ($item->book_id) {
-                    $book = Book::find($item->book_id);
-                    if ($book) {
-                        $book->decrement('quantity', $item->quantity);
-                    }
-                }
-                if ($item->package_id) {
-                    $package = AnotherPackage::find($item->package_id);
-                    if ($package) {
-                        $package->book()->decrement('quantity', $item->quantity);
-                    }
-                }
+                // if ($item->book_id) {
+                //     $book = Book::find($item->book_id);
+                //     if ($book) {
+                //         $book->decrement('quantity', $item->quantity);
+                //     }
+                // }
+                // if ($item->package_id) {
+                //     $package = AnotherPackage::find($item->package_id);
+                //     if ($package) {
+                //         $package->book()->decrement('quantity', $item->quantity);
+                //     }
+                // }
                 $price += $item->price;
             }
             $newOrder->update([

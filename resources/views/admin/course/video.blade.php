@@ -128,7 +128,8 @@
                             @php
                             $isUserSub = false;
                             foreach ($courses as $sub) {
-                            if ($sub->id == $video->id) {
+                                $tut_item = \App\Models\Tutorial::where('course_id' ,$sub->id )->first();
+                                if ($tut_item && $tut_item->id == $video->tutorial_id) {
                             $isUserSub = true;
                             break;
                             }
