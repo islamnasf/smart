@@ -132,6 +132,8 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::post('/store/print/finish/class/books', [BookController::class, 'finishPrint'])->name('finishPrint');
   Route::get('/store/print/finishprint/done/{book}', [BookController::class, 'printBookFinish'])->name('printBookFinish');
   Route::post('/delete/Book/From/Store/{book}', [BookController::class, 'deleteBookFromStore'])->name('deleteBookFromStore');
+  Route::get('/delete/quantity/books/Store', [BookController::class, 'deleteQuantityBookFromStore'])->name('deleteBookQuantityFromStore');
+
   //
   Route::Post('/quantitybook/{book}', [BookController::class, 'addQuantity'])->name('addQuantity');
   Route::get('/termone', [BookController::class, 'termone'])->name('termone');

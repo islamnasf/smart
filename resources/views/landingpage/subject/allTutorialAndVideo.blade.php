@@ -52,10 +52,14 @@ active
             <div class="col-lg-6 col-sm-12 text-center">
                 @foreach($courseDetails->tutorial as $index => $tutorial)
                 @if($index == 0) <!-- التحقق مما إذا كانت هذه هي الدورة التعليمية الأولى -->
+                @isset($tutorial->video[0]->link)
                 <iframe src="{{$tutorial->video[0]->link}}" width="540" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                @endisset
+                 @isset($tutorial->video[0]->pdf)
                 @if($tutorial->video[0]->pdf !=null)
                 <a class="btn btn-success" download href="{{route('fileDownload', $tutorial->video[0]->pdf)}}">مذكرة الدرس <i class="fa-solid fa-download"></i></a>
                 @endif
+                @endisset
                 @endif
                 @endforeach
             </div>

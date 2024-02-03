@@ -18,6 +18,11 @@ class NotesController extends Controller
     {
         return view('landingpage/books/stages_notes');
     }
+    //first page
+    public function primarySchool()
+    {
+        return view('landingpage.books.primary_school');
+    }
     //second page
     public function highSchool()
     {

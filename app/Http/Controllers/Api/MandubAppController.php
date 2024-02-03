@@ -128,10 +128,10 @@ class MandubAppController extends Controller
     {
         $mandubBooks = MandubBook::where('mandub_id', $mandub)->where('book_id', $book)->first();
         $newMandubQuantity = $mandubBooks->mandub_quantity + $mandubBooks->station;
-        $book = Book::where('id', $book)->first();
-        $book->update([
-            'quantity' => $book->quantity - $mandubBooks->station,
-        ]);
+        // $book = Book::where('id', $book)->first();
+        // $book->update([
+        //     'quantity' => $book->quantity - $mandubBooks->station,
+        // ]);
         $mandubBooks->update([
             'mandub_quantity' => $newMandubQuantity,
             'station' => 0

@@ -362,4 +362,16 @@ public function deleteBookFromStore(int $book)
     }
     return back();
 }
+
+public function deleteQuantityBookFromStore(){
+    $b=Book::all();
+    foreach($b as $item){
+        $item->update([
+            'quantity'=> 0
+        ]);
+    }
+    $books = book::with('target')->select('*')->get();
+    return view('/admin/book/store', compact('books'));
+}
+
 }
