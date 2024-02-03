@@ -39,13 +39,13 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::get('/order/complate/orders/{mandub}', [MandubAppController::class, 'complateOrders']);
     Route::get('/mandub/books/quantity/{mandub}', [MandubAppController::class, 'mandubBooks']);
     Route::Post('/mandub/books/station/to/quantity/{mandub}/{book}', [MandubAppController::class, 'addedNewBookFromStore']);
-
     Route::get('/mandub/books/packages/classes', [MandubAppController::class, 'booksandpackagesClasses']);
     //make order
     Route::Post('/mandub/add/book/to/cart/{mandub}/{book}', [MandubAppController::class, 'addToCartbooks']);
     Route::Post('/mandub/add/package/to/cart/{mandub}/{package}', [MandubAppController::class, 'addToCartPackages']);
     Route::Post('/mandub/books/cart/delete/book/{book}', [MandubAppController::class, 'deleteBookItem']);
     Route::Post('/mandub/books/cart/delete/package/{package}', [MandubAppController::class, 'deletePackageItem']);
+    Route::Post('/mandub/books/cart/delete/package/all/{mandub}', [MandubAppController::class, 'deleteAllItemsFromOrder']);
     Route::Post('/mandub/books/cart/create/current/order/{mandub}/{city}', [MandubAppController::class, 'neworderbook']);
 
     

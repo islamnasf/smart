@@ -11,7 +11,7 @@ class OrderBookItem extends Model
     use HasFactory;
     public function book()
     {
-        return $this->belongsTo(book::class, "book_id");
+        return $this->belongsTo(Book::class, "book_id");
     }
     public function package()
     {

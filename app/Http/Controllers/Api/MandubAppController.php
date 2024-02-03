@@ -18,31 +18,31 @@ use Illuminate\Support\Facades\Auth;
 class MandubAppController extends Controller
 {
     public function index($mandub)
-{
-    $mandubCities = MandubCity::where('mandoub_id', $mandub)->get();
+    {
+        $mandubCities = MandubCity::where('mandoub_id', $mandub)->get();
 
-    if ($mandubCities->isEmpty()) {
+        if ($mandubCities->isEmpty()) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No MandubCity found for the given mandoub.',
+            ], 404);
+        }
+
+        $cityIds = $mandubCities->pluck('city_id');
+        $cities = City::whereIn('id', $cityIds)->get();
+        $orders = [];
+
+        foreach ($cities as $city) {
+            $cityOrders = OrderBookDetail::where('city_id', $city->id)->where('status', 'new')->get()->toArray();
+            $orders = array_merge($orders, $cityOrders);
+        }
+
         return response()->json([
-            'status' => 404,
-            'message' => 'No MandubCity found for the given mandoub.',
-        ], 404);
+            'status' => 200,
+            'cities' => $cities,
+            'orders' => $orders,
+        ], 200);
     }
-
-    $cityIds = $mandubCities->pluck('city_id');
-    $cities = City::whereIn('id', $cityIds)->get();
-    $orders = [];
-
-    foreach ($cities as $city) {
-        $cityOrders = OrderBookDetail::where('city_id', $city->id)->where('status', 'new')->get()->toArray();
-        $orders = array_merge($orders, $cityOrders);
-    }
-
-    return response()->json([
-        'status' => 200,
-        'cities' => $cities,
-        'orders' => $orders,
-    ], 200);
-}
 
 
     public function orderDetails($order)
@@ -106,51 +106,52 @@ class MandubAppController extends Controller
             'orders' => $complateorder,
         ], 200);
     }
-    public function mandubBooks($mandub){
-        $mandubStore=User::where('id',$mandub)->with('mandubBooks')->get();
+    public function mandubBooks($mandub)
+    {
+        $mandubStore = User::where('id', $mandub)->with('mandubBooks')->get();
         return response()->json([
             'status' => 200,
             'namdubStore' => $mandubStore,
         ], 200);
-
     }
-    public function booksandpackagesClasses(){
-        $books=Book::all();
-        $packages=AnotherPackage::all();
+    public function booksandpackagesClasses()
+    {
+        $books = Book::all();
+        $packages = AnotherPackage::all();
         return response()->json([
             'status' => 200,
             'books' => $books,
             'packages' => $packages,
         ], 200);
     }
-    public function addedNewBookFromStore($mandub,$book)
+    public function addedNewBookFromStore($mandub, $book)
     {
-        $mandubBooks=MandubBook::where('mandub_id',$mandub)->where('book_id',$book)->first();
-        $newMandubQuantity=$mandubBooks->mandub_quantity+$mandubBooks->station;
-        $book=Book::where('id', $book)->first();
+        $mandubBooks = MandubBook::where('mandub_id', $mandub)->where('book_id', $book)->first();
+        $newMandubQuantity = $mandubBooks->mandub_quantity + $mandubBooks->station;
+        $book = Book::where('id', $book)->first();
         $book->update([
-            'quantity'=>$book->quantity - $mandubBooks->station,
+            'quantity' => $book->quantity - $mandubBooks->station,
         ]);
         $mandubBooks->update([
-            'mandub_quantity'=>$newMandubQuantity,
-            'station'=>0
+            'mandub_quantity' => $newMandubQuantity,
+            'station' => 0
         ]);
         return response()->json([
             'status' => 200,
-            'new' =>$mandubBooks ,
+            'new' => $mandubBooks,
         ], 200);
-    }    
-       public function addToCartbooks(Request $request , $mandub , $book )
-       {
-        $bookcart=BookCart::where('session_id',$mandub)->where('book_id',$book)->first();
-        if(!$bookcart){
-        $bookcart= BookCart::create([
-               'session_id' =>$mandub ,
-               'book_id' => $book,
-               'quantity' => $request->quantity,
-               'price' => $request->price,
-           ]);
-        }else{
+    }
+    public function addToCartbooks(Request $request, $mandub, $book)
+    {
+        $bookcart = BookCart::where('session_id', $mandub)->where('book_id', $book)->first();
+        if (!$bookcart) {
+            $bookcart = BookCart::create([
+                'session_id' => $mandub,
+                'book_id' => $book,
+                'quantity' => $request->quantity,
+                'price' => $request->price,
+            ]);
+        } else {
             $bookcart->update([
                 'session_id' => $mandub,
                 'book_id' => $book,
@@ -160,21 +161,21 @@ class MandubAppController extends Controller
         }
         return response()->json([
             'status' => 200,
-            'book_cart' =>$bookcart ,
+            'book_cart' => $bookcart,
         ], 200);
-       }
+    }
 
-       public function addToCartPackages(Request $request  , $mandub , $package)
-       {
-        $bookcart=BookCart::where('package_id',$package)->where('session_id',$mandub)->where('package_id',$package)->first();
-        if(!$bookcart){  
-        BookCart::create([
-               'session_id' => $mandub,
-               'package_id' => $package,
-               'quantity' => $request->quantity,
-               'price' => $request->price,
-           ]);
-        }else{
+    public function addToCartPackages(Request $request, $mandub, $package)
+    {
+        $bookcart = BookCart::where('package_id', $package)->where('session_id', $mandub)->where('package_id', $package)->first();
+        if (!$bookcart) {
+            BookCart::create([
+                'session_id' => $mandub,
+                'package_id' => $package,
+                'quantity' => $request->quantity,
+                'price' => $request->price,
+            ]);
+        } else {
             $bookcart->update([
                 'session_id' => $mandub,
                 'package_id' => $package,
@@ -184,57 +185,64 @@ class MandubAppController extends Controller
         }
         return response()->json([
             'status' => 200,
-            'package_cart' =>$bookcart,
+            'package_cart' => $bookcart,
         ], 200);
-       }
-       public function deleteBookItem(int $cart)
-       {
-           $cartItem = BookCart::where('book_id' ,$cart)->first();
-           $cartItem->delete();
-           return response()->json([
-            'status' => 200,
-            'package_cart' =>$cartItem,
-        ], 200);
-       }
-       public function deletePackageItem(int $cart)
-       {
-        $cartItem = BookCart::where('package_id' ,$cart)->first();
+    }
+    public function deleteBookItem(int $cart)
+    {
+        $cartItem = BookCart::where('book_id', $cart)->first();
         $cartItem->delete();
-           return response()->json([
+        return response()->json([
             'status' => 200,
-            'package_cart' =>$cartItem,
+            'package_cart' => $cartItem,
         ], 200);
-       }
+    }
+    public function deletePackageItem(int $cart)
+    {
+        $cartItem = BookCart::where('package_id', $cart)->first();
+        $cartItem->delete();
+        return response()->json([
+            'status' => 200,
+            'package_cart' => $cartItem,
+        ], 200);
+    }
+    public function deleteAllItemsFromOrder(Request $request, $mandub)
+    {
+        $sessionId = $mandub;
+        $items=BookCart::where('session_id', $sessionId)->delete();
+        return response()->json([
+            'status' => 200,
+            'items' => $items,
+        ], 200);
+    }
+    public function neworderbook(Request $request, $mandub, $city)
+    {
+        $sessionId = $mandub;
+        $items = BookCart::where('session_id', $sessionId)->get();
+        $newOrder = OrderBookDetail::create([
+            'buyer' => $request->buyer,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'city_id' => $city,
+            'price_all' => $request->price_all,
+            'status' => 'current',
+            'mandub_id' => $mandub
+        ]);
+        foreach ($items as $item) {
+            OrderBookItem::create([
+                'session_id' => $sessionId,
+                'book_id' => $item->book_id,
+                'package_id' => $item->package_id,
+                'quantity' => $item->quantity,
+                'price' => $item->price,
+                'order_id' => $newOrder->id,
+            ]);
+        }
+        BookCart::where('session_id', $sessionId)->delete();
 
-       public function neworderbook(Request $request ,$mandub,$city)
-       {
-           $sessionId = $mandub;
-           $items = BookCart::where('session_id', $sessionId)->get();
-               $newOrder = OrderBookDetail::create([
-                   'buyer' => $request->buyer,
-                   'phone' => $request->phone,
-                   'address' => $request->address,
-                   'city_id' => $city,
-                   'price_all' => $request->price_all,
-                   'status'=>'current',
-                   'mandub_id'=>$mandub
-               ]);
-               foreach ($items as $item) {
-                       OrderBookItem::create([
-                       'session_id' => $sessionId,
-                       'book_id' => $item->book_id,
-                       'package_id' => $item->package_id,
-                       'quantity' => $item->quantity,
-                       'price' => $item->price,
-                       'order_id' => $newOrder->id,
-                   ]);
-               }
-               BookCart::where('session_id', $sessionId)->delete();
-
-               return response()->json([
-                'status' => 200,
-                'newOrder' =>$newOrder,
-            ], 200);   
-        
-       }
+        return response()->json([
+            'status' => 200,
+            'newOrder' => $newOrder,
+        ], 200);
+    }
 }
