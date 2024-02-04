@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\MandubBook;
+use App\Models\TargetBook;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -184,36 +185,61 @@ class MandubController extends Controller
         return back()->with('success', 'تمت العملية بنجاح.');
     }
     //postStation
-    public function createStation(request $request, int $mandubId)
+    public function createStation(Request $request, int $mandubId)
     {
         $mandub = User::findOrFail($mandubId);
-           
+    
         $selectedBooks = $request->input('selected_subjects');
         if (!$selectedBooks) {
             toastr()->error('لا يوجد مذكرات');
             return back();
         }
-        $mandub_target = $request-> mandub_target ;
-
+        $mandub_target = $request->mandub_target;
+    
         foreach ($selectedBooks as $bookId) {
             $mandubBook = $mandub->mandubBooks()->where('book_id', $bookId)->first();
-            $book = book::findOrFail($bookId);
-                $targetValue = ($mandub_target ?? 0) ;
-                $stationValue = $targetValue - ($mandubBook->pivot->mandub_quantity ?? 0);
-
-                MandubBook::updateOrCreate(
-                    ['book_id' => $bookId, 'mandub_id' => $mandubId],
-                    [
-                        'station' => $stationValue,
-                        'mandub_target'=>$targetValue,
-                        'distributor_active' => 0,
-                        'mandub_active' => 0,
-                    ]
-                );
+            $book = Book::findOrFail($bookId);
+            $targetValue = ($mandub_target ?? 0);
+            $stationValue = $targetValue - ($mandubBook->pivot->mandub_quantity ?? 0);
+    
+            MandubBook::updateOrCreate(
+                ['book_id' => $bookId, 'mandub_id' => $mandubId],
+                [
+                    'station' => $stationValue,
+                    'mandub_target' => $targetValue,
+                    'distributor_active' => 0,
+                    'mandub_active' => 0,
+                ]
+            );
+    
+            $newQuantityData = $book->quantity - $stationValue;
+    
+            if ($newQuantityData > 0) {
                 $book->update([
-                    'quantity' => $book->quantity - $stationValue
+                    'quantity' => $newQuantityData
                 ]);
-    }
+            } elseif ($newQuantityData <= 0) {
+                $book_target = TargetBook::where('book_id', $book->id)->first();
+    
+                if ($book_target) {
+                    $book_target->update([
+                        'print' =>  - $book->quantity  + $stationValue ,
+                        'target' =>  - $book->quantity + $stationValue ,
+                    ]);
+                } else {
+                    TargetBook::create([
+                        'book_id' => $book->id,
+                        'print' => -$book->quantity + $stationValue ,
+                        'target' => -$book->quantity + $stationValue ,
+                    ]);
+                }
+    
+                $book->update([
+                    'quantity' => 0
+                ]);
+            }
+        }
+    
         toastr()->success('تم حفظ البيانات بنجاح');
         return back();
     }

@@ -121,7 +121,7 @@ $name = request()->route('name');
                                     <th scope="col">اختيار</th>
                                     <th scope="col">اسم المذكرة</th>
                                     <th scope="col">الكمية الحالية</th>
-                                    <th scope="col">كمية المندوب</th>
+                                    <th scope="col">مخزن المندوب</th>
 
                                 </tr>
                             </thead>
@@ -195,7 +195,7 @@ $name = request()->route('name');
                                     <th>المذكرة </th>
                                     <th>الصف </th>
                                     <th> كمية المخزن الرئيسي </th>
-                                    <th> كمية المندوب </th>
+                                    <th> مخزن المندوب </th>
                                     <th>المستهدف</th>
                                     <th> توريد </th>
                                     <th> الموزع </th>
@@ -216,7 +216,7 @@ $name = request()->route('name');
                                         $mandubBook = $book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first();
                                         $mandubQuantity = optional($book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first())->pivot->mandub_quantity ?? 0;
                                         $backgroundClass = $mandubQuantity < 2 ? 'bg-danger' : 'bg-success' ; @endphp <span class="{{ $backgroundClass }}" style="padding: 8px; border-radius: 3px; color: #fff;">
-                                            {{ $mandubQuantity }} مذكرة
+                                            {{ $mandubQuantity }} 
                                             </span> <br>
                                     </td>
                                     <th>
@@ -224,23 +224,23 @@ $name = request()->route('name');
 
                                         $mandubBook = $book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first();
                                         $mandub_target = optional($book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first())->pivot->mandub_target ?? 0;
-                                        $backgroundClass = $mandub_target < 2 ? 'bg-danger' : 'bg-success' ; @endphp <span class="{{ $backgroundClass }}" style="padding: 8px; border-radius: 3px; color: #fff;">
-                                            {{ $mandub_target }} مذكرة
+                                        $backgroundClass = $mandub_target < 2 ? 'bg-success' : 'bg-danger' ; @endphp <span class="{{ $backgroundClass }}" style="padding: 8px; border-radius: 3px; color: #fff;">
+                                            {{ $mandub_target }} 
                                     </th>
                                     <th>
                                         @php
 
                                         $mandubBook = $book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first();
                                         $station = optional($book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first())->pivot->station ?? 0;
-                                        $backgroundClass = $station < 2 ? 'bg-danger' : 'bg-success' ; @endphp <span class="{{ $backgroundClass }}" style="padding: 8px; border-radius: 3px; color: #fff;">
-                                            {{ $station }} مذكرة
+                                        $backgroundClass = $station < 2 ? 'bg-success' : 'bg-danger' ; @endphp <span class="{{ $backgroundClass }}" style="padding: 8px; border-radius: 3px; color: #fff;">
+                                            {{ $station }} 
                                     </th>
                                     <th>
                                         @php
 
                                         $mandubBook = $book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first();
                                         $distributor_active = optional($book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first())->pivot->distributor_active ?? "✗";
-                                        $backgroundClass = $distributor_active == 1 ? 'bg-danger' : 'bg-success' ; @endphp <span class="{{ $backgroundClass }}" style="padding: 8px; border-radius: 3px; color: #fff;">
+                                        $backgroundClass = $distributor_active == 1 ? 'bg-success' : 'bg-danger' ; @endphp <span class="{{ $backgroundClass }}" style="padding: 8px; border-radius: 3px; color: #fff;">
                                             @if($distributor_active == 0)
                                             <a href="{{route('updateDistributorActive',[$book->id,$mandub->id])}}"> ✓ </a>
                                             @else
@@ -252,7 +252,7 @@ $name = request()->route('name');
 
                                         $mandubBook = $book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first();
                                         $mandub_active = optional($book->mandubBooks->where('pivot.mandub_id', $mandub->id)->first())->pivot->mandub_active ?? "✗";
-                                        $backgroundClass = $mandub_active == 1 ? 'bg-danger' : 'bg-success' ; @endphp <span class="{{ $backgroundClass }}" style="padding: 8px; border-radius: 3px; color: #fff;">
+                                        $backgroundClass = $mandub_active == 1 ? 'bg-success' : 'bg-danger' ; @endphp <span class="{{ $backgroundClass }}" style="padding: 8px; border-radius: 3px; color: #fff;">
                                             @if($mandub_active == 0)
                                             <a href="{{route('updateMandubActive',[$book->id,$mandub->id])}}"> ✓ </a>
                                             @else
