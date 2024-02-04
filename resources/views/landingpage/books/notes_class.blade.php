@@ -13,9 +13,11 @@
 
 
 </section>
+@foreach ($books as $book)
+@endforeach
 <section>
     <div class="container py-5">
-        <h4 class="text-center title fw-bold pt-5">مذكرات الصف</h4>
+        <h4 class="text-center title fw-bold pt-5">مذكرات {{$book->classroom}} </h4>
 
         <div class="owl-carousel owl-theme pb-5 text-center">
 

@@ -79,9 +79,9 @@ $name = request()->route('name');
     <button style="background-color: #175166; border: none;border-radius: 5px; margin: 3px;" type="button" data-toggle="modal" data-target="#target">
         <h4 style="background-color: #175166; padding: 10px 10px 0px 10px ;  color: #fff; font-size: 30px;"> <img src="https://cdn-icons-png.flaticon.com/128/4127/4127795.png" width="27px"> المستهدف </h4>
     </button>
-    <button style="background-color: #175166; border: none;border-radius: 5px; margin: 3px;" type="button" data-toggle="modal" data-target="#addquantity">
+    <!-- <button style="background-color: #175166; border: none;border-radius: 5px; margin: 3px;" type="button" data-toggle="modal" data-target="#addquantity">
         <h4 style="background-color: #175166; padding: 10px 10px 0px 10px ;  color: #fff; font-size: 30px;"> <img src="https://cdn-icons-png.flaticon.com/128/13783/13783803.png" width="32px"> الكمية </h4>
-    </button>
+    </button> -->
     <button style="background-color: #175166; border: none;border-radius: 5px; margin: 3px;" type="button" data-toggle="modal" data-target="#addpirnt">
         <h4 style="background-color: #175166; padding: 10px 10px 0px 10px ;  color: #fff; font-size: 30px;"> <img src="https://cdn-icons-png.flaticon.com/128/839/839184.png" width="27px"> الطباعة </h4>
     </button>
@@ -240,11 +240,17 @@ $name = request()->route('name');
                                     <td>{{ $book->name }}</td>
                                     <td>
                                         @if($book->target)
-                                        {{ $book->target->print }}
+                                        <form id="quantityForm" action="{{ route('updatePrintQuantity', $book->id) }}" method="post">
+                                            @csrf
+                                            <input type="number" name="print_quantity[]" id="inputPrintQuantity_{{ $book->id }}" value="{{  $book->target->print }}" class="form-control" oninput="updatePrintQuantity(this)">
+                                        </form>
+
                                         @else
-                                        0
+                                        <input type="number" name="print_quantity[]" id="inputPrintQuantity_{{ $book->id }}" value="0" class="form-control">
                                         @endif
                                     </td>
+
+
 
                                 </tr>
                                 @empty
@@ -254,16 +260,52 @@ $name = request()->route('name');
                                 @endforelse
                             </tbody>
                         </table>
+
+
+
+
+
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
                         <button type="submit" class="btn btn-primary">تم الطباعة</button>
                     </div>
+
                 </form>
+
+                <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+                <script>
+                    function updatePrintQuantity(input) {
+                        var bookId = input.id.replace('inputPrintQuantity_', '');
+                        var newPrintQuantity = input.value;
+
+                        $.ajax({
+                            url: '/dashboard/update_print_quantity/' + bookId,
+                            method: 'POST',
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            data: {
+                                print_quantity: newPrintQuantity
+                            },
+                            dataType: 'json',
+                            success: function(response) {
+                                console.log('تم تحديث كمية الطباعة بنجاح.');
+                                input.value = newPrintQuantity;
+                            },
+                            error: function(error) {
+                                console.error('حدث خطأ: ', error);
+                            }
+                        });
+
+                    }
+                </script>
             </div>
         </div>
     </div>
+
+
 
     <!-- breadcrumb -->
     @endsection
@@ -322,12 +364,12 @@ $name = request()->route('name');
                                             <i class="fa fa-sliders" style="font-size: 20px;"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-big dropdown-notifications">
-                                            <div style="padding:2px; padding-right: 20px; font-size: 15px;">
+                                            <!-- <div style="padding:2px; padding-right: 20px; font-size: 15px;">
                                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$book->id}}">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
                                                 اضافة كمية
-                                            </div>
+                                            </div> -->
                                             <a href="{{route('printBookFinish',$book->id)}}" style="padding:2px; padding-right: 20px; font-size: 15px; display: block; ">
                                                 <button type="button" class="btn btn-success btn-sm">
                                                     <i class="fa fa-check"></i>
@@ -383,7 +425,7 @@ $name = request()->route('name');
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <form method="post" action="{{ route('deleteBookFromStore', $book->id) }}" >
+                                                    <form method="post" action="{{ route('deleteBookFromStore', $book->id) }}">
                                                         @csrf
                                                         <div class="modal-body">
                                                             <h4> هل انت متاكد من حذف هذا الكتاب ؟</h4>
@@ -417,6 +459,8 @@ $name = request()->route('name');
 
 
     <!-- row closed -->
+
+
     @endsection
     @section('js')
 

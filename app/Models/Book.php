@@ -23,7 +23,7 @@ class Book extends Model
     }
     public function target()
     {
-        return $this->belongsTo(TargetBook::class, 'id', 'book_id');
+        return $this->hasOne(TargetBook::class, 'book_id', 'id');
     }
     public function mandubBooks()
     {

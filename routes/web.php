@@ -133,6 +133,8 @@ route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], fu
   Route::get('/store/print/finishprint/done/{book}', [BookController::class, 'printBookFinish'])->name('printBookFinish');
   Route::post('/delete/Book/From/Store/{book}', [BookController::class, 'deleteBookFromStore'])->name('deleteBookFromStore');
   Route::get('/delete/quantity/books/Store', [BookController::class, 'deleteQuantityBookFromStore'])->name('deleteBookQuantityFromStore');
+//change print 
+Route::post('/update_print_quantity/{book}', [BookController::class, 'updatePrintQuantity'])->name('updatePrintQuantity');
 
   //
   Route::Post('/quantitybook/{book}', [BookController::class, 'addQuantity'])->name('addQuantity');
@@ -210,6 +212,7 @@ route::group(['prefix' => 'landingpage'], function () {
   Route::post('post/contactus', [ContactUs::class, 'create'])->name('postContact');
   //books//notes
   Route::get('/books/stages', [NotesController::class, 'index'])->name('getNotesStage');
+  Route::get('/books/primary_school', [NotesController::class, 'primarySchool'])->name('getPrimarySchool');
   Route::get('/books/middleSchool', [NotesController::class, 'middleSchool'])->name('getMiddleSchool');
   Route::get('/books/highSchool', [NotesController::class, 'highSchool'])->name('getHighSchool');
   Route::get('/books/notes/class/{name}', [NotesController::class, 'classNotes'])->name('getNotesClass');
@@ -221,7 +224,6 @@ route::group(['prefix' => 'landingpage'], function () {
   Route::post('cart/add/quantity/package/{cart}', [NotesController::class, 'postnewquantitybook'])->name('postnewquantitybook');
   Route::get('/delete/Cart/Books/Item/{cart}', [NotesController::class, 'deleteCartBooksItem'])->name('deleteCartBooksItem');
   Route::post('cart/order/done', [NotesController::class, 'neworderbook'])->name('postneworderbook');  
-
   //subjest
   Route::get('/subjects/landingpage/stages', [LandingSubjectsController::class, 'index'])->name('getLandingSubjectsStage');
   Route::get('/subjects/middleSchool', [LandingSubjectsController::class, 'middleSchool'])->name('getMiddleSchoolSubjects');

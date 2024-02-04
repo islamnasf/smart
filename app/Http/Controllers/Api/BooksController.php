@@ -29,6 +29,6 @@ class BooksController extends Controller
 }
 public function download($fileName)
 {
-   return response()->download(storage_path('app/public/pdfs/'.$fileName));
+   return response()->download(storage_path('app/public/pdf/books/'.$fileName));
 }
 }

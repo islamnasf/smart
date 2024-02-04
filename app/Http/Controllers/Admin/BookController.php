@@ -313,7 +313,7 @@ class BookController extends Controller
             $book = Book::find($bookId);
             if ($book) {
                 $newquantity = $book->target->print + $book->quantity;
-                TargetBook::where('book_id', $bookId)->first()->update(['print' => 0]);
+                TargetBook::where('book_id', $bookId)->first()->update(['print' =>$book->target->target-$newquantity ]);
 
                 $book->update(
                     [
@@ -373,5 +373,29 @@ public function deleteQuantityBookFromStore(){
     $books = book::with('target')->select('*')->get();
     return view('/admin/book/store', compact('books'));
 }
+
+public function updatePrintQuantity(Request $request , $book)
+{
+    try {
+        $printQuantity = $request->print_quantity;
+
+        // التأكد من أن الكتاب المستهدف موجود
+        $book = TargetBook::where('book_id', $book)->first();
+
+        if (!$book) {
+            return response()->json(['message' => 'الكتاب غير موجود.'], 404);
+        }
+
+        // تحديث كمية الطباعة
+        $book->update(['print' => $printQuantity]);
+
+        // حدث قيمة الطباعة في الجلسة لاستخدامها في الواجهة
+
+        return response()->json(['message' => 'تم تحديث كمية الطباعة بنجاح.']);
+    } catch (\Exception $e) {
+        return response()->json(['message' => 'حدث خطأ أثناء تحديث كمية الطباعة.'], 500);
+    }
+}
+
 
 }

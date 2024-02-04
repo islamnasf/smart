@@ -25,12 +25,10 @@ active
             <h3 class="text-center pb-2 title">برجاء إختيار المرحلة</h3>
             <div class="row text-center">
                 <div class="col-lg-3 col-md-6 col-sm-12 pb-5">
-                    <div class="box" onclick="showAlert()">
-                        <a href="#" class="text-light">
+                        <a href="{{route('getPrimarySchool')}}" class="text-light">
                             <img src="/assets/ass/img/school.png" class="mb-3" width="150" alt="">
                             <h5 class="one">الابتدائية</h5>
                         </a>
-                    </div>
                 </div>
                 <script>
                     function showAlert() {
